@@ -1,0 +1,36 @@
+# Dépendances
+node_modules/
+.pnp
+.pnp.js
+
+# Fichiers de build Next.js
+.next/
+out/
+
+# Variables d'environnement (NE JAMAIS COMMITTER)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Clés Firebase (ne jamais committer)
+lib/firebase.js
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

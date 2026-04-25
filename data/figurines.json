@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fig-001",
+    "nom": "NOM A METTRE",
+    "faction": "Homme",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-002",
+    "nom": "NOM A METTRE",
+    "faction": "Homme",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-003",
+    "nom": "NOM A METTRE",
+    "faction": "Homme",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-004",
+    "nom": "NOM A METTRE",
+    "faction": "Elfe",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-005",
+    "nom": "NOM A METTRE",
+    "faction": "Elfe",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-006",
+    "nom": "NOM A METTRE",
+    "faction": "Elfe",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-007",
+    "nom": "NOM A METTRE",
+    "faction": "Nain",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-008",
+    "nom": "NOM A METTRE",
+    "faction": "Nain",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-009",
+    "nom": "NOM A METTRE",
+    "faction": "Nain",
+    "image": "/figurines/placeholder.svg"
+  },
+  {
+    "id": "fig-010",
+    "nom": "NOM A METTRE",
+    "faction": "Autre",
+    "image": "/figurines/placeholder.svg"
+  }
+]
