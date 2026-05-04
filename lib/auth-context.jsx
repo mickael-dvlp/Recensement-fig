@@ -22,8 +22,8 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "./firebase";
-import { creerProfil, getProfil } from "./firestore";
+import { auth } from "@/lib/firebase";
+import { creerProfil, getProfil } from "@/lib/firestore";
 
 // Création du contexte avec valeur par défaut null
 const AuthContext = createContext(null);
