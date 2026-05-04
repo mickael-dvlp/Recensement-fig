@@ -39,13 +39,13 @@ export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJou
     <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col hover:border-[#3A3A3A] transition-colors">
 
       {/* Image placeholder — remplacé par <Image> plus tard */}
-      <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center">
+      <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden">
         {figurine.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={figurine.image}
             alt={figurine.nom}
-            className="w-full h-full object-contain p-3"
+            className="max-w-full max-h-full object-contain p-3"
           />
         ) : (
           <div className="w-12 h-12 rounded-full border border-[#2A2A2A] bg-[#1A1A1A]" />

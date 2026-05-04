@@ -19,6 +19,20 @@ import compagnieDeThorin from "./compagnie-de-thorin.js";
 import druadan from "./druadan.js";
 import ereborRestaure from "./erebor-restaure.js";
 import fondcombe from "./fondcombe.js";
+import laLothlorien from "./lothlorien.js";
+import erebor from "./erebor.js";
+import leConseilBlanc from "./conseil-blanc.js";
+import laComte from "./comte.js";
+import lEriador from "./eriador.js";
+import fangorn from "./fangorn.js";
+import lesMontsBrumeux from "./monts-brumeux.js";
+import leCarrock from "./carrock.js";
+import dunharrow from "./dunharrow.js";
+import lArnor from "./arnor.js";
+import leGondor from "./gondor.js";
+import leRohan from "./rohan.js";
+import laForetNoire from "./foret-noire.js";
+import lesMontsDeFer from "./monts-de-fer.js";
 
 const FACTIONS_DATA = {
   "Lacville": lacville,
@@ -32,6 +46,20 @@ const FACTIONS_DATA = {
   "Drúadan": druadan,
   "Erebor Restauré": ereborRestaure,
   "Fondcombe": fondcombe,
+  "La Lothlórien": laLothlorien,
+  "Erebor": erebor,
+  "Le Conseil Blanc": leConseilBlanc,
+  "La Comté": laComte,
+  "L'Eriador": lEriador,
+  "Fangorn": fangorn,
+  "Les Monts Brumeux": lesMontsBrumeux,
+  "Le Carrock": leCarrock,
+  "Dunharrow": dunharrow,
+  "L'Arnor": lArnor,
+  "Le Gondor": leGondor,
+  "Le Rohan": leRohan,
+  "La Forêt Noire": laForetNoire,
+  "Les Monts de Fer": lesMontsDeFer,
 };
 
 export default FACTIONS_DATA;

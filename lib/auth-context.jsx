@@ -12,6 +12,10 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInAnonymously,
+  linkWithCredential,
+  linkWithPopup,
+  EmailAuthProvider,
   signOut,
   updateProfile,
   GoogleAuthProvider,
@@ -36,23 +40,18 @@ export function AuthProvider({ children }) {
     const desabonner = onAuthStateChanged(auth, async (user) => {
       setUtilisateur(user);
 
-      if (user) {
+      if (user && !user.isAnonymous) {
         try {
-          // Si connecté, on tente de charger le profil Firestore.
-          // Le try/catch est essentiel : si Firestore est indisponible,
-          // l'erreur ne doit pas bloquer le chargement indéfiniment.
           const profilData = await getProfil(user.uid);
           setProfil(profilData);
         } catch (err) {
           console.warn("Impossible de charger le profil Firestore :", err.message);
-          // On continue sans profil plutôt que de bloquer l'app
           setProfil(null);
         }
       } else {
         setProfil(null);
       }
 
-      // Toujours exécuté, même en cas d'erreur Firestore
       setChargement(false);
     });
 
@@ -77,13 +76,20 @@ export function AuthProvider({ children }) {
    * @param {string} pseudo
    */
   async function sInscrire(email, motDePasse, pseudo) {
-    const credential = await createUserWithEmailAndPassword(auth, email, motDePasse);
-    const user = credential.user;
+    let user;
 
-    // Mise à jour du nom d'affichage dans Firebase Auth
+    if (utilisateur?.isAnonymous) {
+      // Lier le compte anonyme à un vrai compte email (conserve les données Firestore)
+      const credential = EmailAuthProvider.credential(email, motDePasse);
+      const result = await linkWithCredential(utilisateur, credential);
+      user = result.user;
+    } else {
+      const result = await createUserWithEmailAndPassword(auth, email, motDePasse);
+      user = result.user;
+    }
+
     await updateProfile(user, { displayName: pseudo });
 
-    // Création du profil dans Firestore
     const nouveauProfil = {
       uid: user.uid,
       pseudo,
@@ -108,10 +114,17 @@ export function AuthProvider({ children }) {
    */
   async function seConnecterAvecGoogle() {
     const provider = new GoogleAuthProvider();
-    const credential = await signInWithPopup(auth, provider);
-    const user = credential.user;
+    let user;
 
-    // Crée le profil Firestore uniquement si c'est la première connexion
+    if (utilisateur?.isAnonymous) {
+      // Lier le compte anonyme à Google (conserve les données Firestore)
+      const result = await linkWithPopup(utilisateur, provider);
+      user = result.user;
+    } else {
+      const result = await signInWithPopup(auth, provider);
+      user = result.user;
+    }
+
     const existingProfil = await getProfil(user.uid);
     if (!existingProfil) {
       const nouveauProfil = {
@@ -129,6 +142,15 @@ export function AuthProvider({ children }) {
   }
 
   /**
+   * Connexion en mode invité (anonyme).
+   * Les données sont sauvegardées dans Firestore sous un UID temporaire.
+   * L'invité peut convertir son compte via sInscrire() ou seConnecterAvecGoogle().
+   */
+  async function seConnecterEnInvite() {
+    await signInAnonymously(auth);
+  }
+
+  /**
    * Envoie un email de réinitialisation du mot de passe.
    * @param {string} email
    */
@@ -136,9 +158,11 @@ export function AuthProvider({ children }) {
     await sendPasswordResetEmail(auth, email);
   }
 
+  const isInvite = utilisateur?.isAnonymous ?? false;
+
   return (
     <AuthContext.Provider
-      value={{ utilisateur, profil, chargement, seConnecter, sInscrire, seDeconnecter, seConnecterAvecGoogle, reinitialiserMotDePasse }}
+      value={{ utilisateur, profil, chargement, isInvite, seConnecter, sInscrire, seDeconnecter, seConnecterAvecGoogle, seConnecterEnInvite, reinitialiserMotDePasse }}
     >
       {children}
     </AuthContext.Provider>

@@ -148,9 +148,10 @@ html.light ::-webkit-scrollbar-thumb {
     border-color 0.25s ease,
     color 0.25s ease;
 }
-/* Exception : on ne veut pas de transition sur les animations (spinner, pulse) */
+/* Exception : on ne veut pas de transition sur les animations (spinner, pulse, clignotement) */
 .animate-spin,
-.animate-pulse {
+.animate-pulse,
+.animate-clignoter-rouge {
   transition: none !important;
 }
 
@@ -217,6 +218,22 @@ html.light ::-webkit-scrollbar-thumb {
 }
 .float-c {
   animation: floatC 16s ease-in-out infinite;
+}
+
+@keyframes clignoteRouge {
+  0%, 100% {
+    border-color: #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 14px rgba(239, 68, 68, 0.45);
+  }
+  50% {
+    border-color: #7f1d1d;
+    color: #6b6b6b;
+    box-shadow: none;
+  }
+}
+.animate-clignoter-rouge {
+  animation: clignoteRouge 1s ease-in-out infinite;
 }
 
 /* ============================================================

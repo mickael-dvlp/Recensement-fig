@@ -4,8 +4,9 @@ import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Eye, EyeOff, UserPlus } from "lucide-react";
+import { Eye, EyeOff, UserPlus, Ghost } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import PopupEnConstruction from "@/components/ui/PopupEnConstruction";
 
 // SVG Google icon
 function IconGoogle() {
@@ -49,7 +50,7 @@ function calculerForce(mdp) {
 }
 
 export default function PageInscription() {
-  const { sInscrire, seConnecterAvecGoogle } = useAuth();
+  const { sInscrire, seConnecterAvecGoogle, seConnecterEnInvite } = useAuth();
   const router = useRouter();
 
   const [pseudo, setPseudo] = useState("");
@@ -60,6 +61,7 @@ export default function PageInscription() {
   const [chargement, setChargement] = useState(false);
   const [erreur, setErreur] = useState("");
   const [chargementGoogle, setChargementGoogle] = useState(false);
+  const [chargementInvite, setChargementInvite] = useState(false);
 
   const force = useMemo(() => calculerForce(motDePasse), [motDePasse]);
 
@@ -113,8 +115,23 @@ export default function PageInscription() {
     }
   }
 
+  async function handleInvite() {
+    setErreur("");
+    setChargementInvite(true);
+    try {
+      await seConnecterEnInvite();
+      router.replace("/accueil");
+    } catch {
+      setErreur("Impossible de continuer en mode invité. Réessaie.");
+    } finally {
+      setChargementInvite(false);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center p-6">
+      <PopupEnConstruction />
+
       {/* ── Particules flottantes ── */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
@@ -188,7 +205,7 @@ export default function PageInscription() {
             </p>
           </div>
 
-          <form onSubmit={handleInscription} className="flex flex-col gap-4">
+          <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4">
             {/* Pseudo */}
             <div className="flex flex-col gap-2">
               <label className="text-[#D4D4D4] text-xs font-bold uppercase tracking-widest">
@@ -296,8 +313,8 @@ export default function PageInscription() {
             {/* Bouton inscription */}
             <button
               type="submit"
-              disabled={chargement}
-              className="flex items-center justify-center gap-2.5 bg-[#1c9ac2] hover:bg-[#3ab8e0] disabled:opacity-50 disabled:cursor-not-allowed text-[#0D0D0D] font-bold uppercase tracking-widest py-4 rounded-2xl transition-colors text-sm mt-1"
+              disabled
+              className="flex items-center justify-center gap-2.5 bg-[#1c9ac2] opacity-30 cursor-not-allowed text-[#0D0D0D] font-bold uppercase tracking-widest py-4 rounded-2xl text-sm mt-1"
             >
               {chargement ? (
                 <div className="w-5 h-5 border-2 border-[#0D0D0D] border-t-transparent rounded-full animate-spin" />
@@ -321,9 +338,8 @@ export default function PageInscription() {
           {/* Bouton Google */}
           <button
             type="button"
-            onClick={handleGoogle}
-            disabled={chargementGoogle}
-            className="flex items-center justify-center gap-3 bg-[#1A1A1A] hover:bg-[#222222] border border-[#2A2A2A] hover:border-[#3A3A3A] disabled:opacity-50 disabled:cursor-not-allowed text-[#D4D4D4] font-semibold py-3.5 rounded-2xl transition-colors text-sm"
+            disabled
+            className="flex items-center justify-center gap-3 bg-[#1A1A1A] border border-[#2A2A2A] opacity-30 cursor-not-allowed text-[#D4D4D4] font-semibold py-3.5 rounded-2xl text-sm"
           >
             {chargementGoogle ? (
               <div className="w-5 h-5 border-2 border-[#D4D4D4] border-t-transparent rounded-full animate-spin" />
@@ -331,6 +347,20 @@ export default function PageInscription() {
               <>
                 <IconGoogle /> Continuer avec Google
               </>
+            )}
+          </button>
+
+          {/* Bouton Mode invité */}
+          <button
+            type="button"
+            onClick={handleInvite}
+            disabled={chargementInvite}
+            className="animate-clignoter-rouge flex items-center justify-center gap-3 bg-transparent hover:bg-[#1A1A1A] border border-dashed disabled:opacity-50 disabled:cursor-not-allowed font-semibold py-3.5 rounded-2xl text-sm"
+          >
+            {chargementInvite ? (
+              <div className="w-5 h-5 border-2 border-[#6B6B6B] border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <><Ghost size={17} /> Continuer en mode invité</>
             )}
           </button>
 
