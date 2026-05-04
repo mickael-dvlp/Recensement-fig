@@ -28,8 +28,6 @@ Thumbs.db
 .idea/
 *.swp
 
-# Clés Firebase (ne jamais committer)
-lib/firebase.js
 
 # TypeScript
 *.tsbuildinfo
