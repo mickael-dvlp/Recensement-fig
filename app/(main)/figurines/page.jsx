@@ -179,7 +179,7 @@ export default function PageFigurines() {
       <div className="flex-1 px-4">
         {chargement ? (
           // Skeleton de chargement
-          <div className="grid grid-cols-4 gap-3 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <div
                 key={i}
@@ -234,12 +234,12 @@ export default function PageFigurines() {
                         {groupesBien.map((groupe) => (
                           <div key={groupe.titre}>
                             <h3
-                              className="text-[#C9A227] text-xl tracking-wide mb-3"
+                              className="text-[#C9A227] text-xl tracking-wide mb-3 text-center sm:text-left"
                               style={{ fontFamily: "var(--font-elvish)" }}
                             >
                               {groupe.titre}
                             </h3>
-                            <div className="grid grid-cols-4 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                               {groupe.factions.map((faction) => (
                                 <FigurineCard
                                   key={faction.nom}
@@ -275,7 +275,7 @@ export default function PageFigurines() {
                       </button>
                     </div>
                     {afficherMal && (
-                      <div className="grid grid-cols-4 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                         {mal.map((faction) => (
                           <FigurineCard
                             key={faction.nom}
@@ -304,7 +304,7 @@ export default function PageFigurines() {
                   </button>
                 </div>
                 {afficherHeros && (
-                  <div className="grid grid-cols-8 gap-3 pb-6">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 pb-6">
                     {HEROES.map((hero) => (
                       <HeroCard key={hero.nom} hero={hero} />
                     ))}

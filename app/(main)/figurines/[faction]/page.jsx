@@ -129,7 +129,7 @@ export default function PageFaction() {
               <h2 className="text-[#C9A227] text-xs font-bold uppercase tracking-widest mb-3">
                 Héros
               </h2>
-              <div className="grid grid-cols-6 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                 {heros.map((fig) => (
                   <FigurineRow
                     key={fig.id}
@@ -149,7 +149,7 @@ export default function PageFaction() {
               <h2 className="text-[#C9A227] text-xs font-bold uppercase tracking-widest mb-3">
                 Guerriers
               </h2>
-              <div className="grid grid-cols-6 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                 {guerriers.map((fig) => (
                   <FigurineRow
                     key={fig.id}
