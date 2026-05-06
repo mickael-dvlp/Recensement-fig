@@ -25,7 +25,11 @@ const LA_COMTE = {
     { id: "com-h-017", nom: "Rosie Chaumine",                              image: "/images/factions/comte/com-h-017.avif" },
     { id: "com-h-018", nom: "Holfoot Sanglebuc, Chef Shirriff",            image: "/images/factions/comte/com-h-018.avif" },
     { id: "com-h-019", nom: "Robin Petitterrier, Shirriff Hobbit",         image: "/images/factions/comte/com-h-019.avif" },
-    { id: "com-h-020", nom: "Baldon Tulpenny",                             image: "/images/factions/comte/com-h-020.avif" },
+    { id: "com-h-020", nom: "Baldon Tulpenny",                                       image: "/images/factions/comte/com-h-020.avif" },
+    { id: "com-h-021", nom: "Frodon aux Neuf Doigts (Monté)",                      image: "/images/factions/comte/com-h-021.avif" },
+    { id: "com-h-022", nom: "Samsagace le Brave (Monté)",                          image: "/images/factions/comte/com-h-022.avif" },
+    { id: "com-h-023", nom: "Meriadoc Brandebouc, Capitaine de la Comté (Monté)", image: "/images/factions/comte/com-h-023.avif" },
+    { id: "com-h-024", nom: "Peregrin Touque, Capitaine de la Comté (Monté)",     image: "/images/factions/comte/com-h-024.avif" },
   ],
 
   guerriers: [
