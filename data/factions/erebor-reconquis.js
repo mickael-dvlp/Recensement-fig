@@ -22,7 +22,8 @@ const EREBOR_RECONQUIS = {
     { id: "erc-h-014", nom: "Nori le Nain, Champion d'Erebor",                image: "/images/factions/erebor-reconquis/erc-h-014.avif" },
     { id: "erc-h-015", nom: "Ori le Nain, Champion d'Erebor",                 image: "/images/factions/erebor-reconquis/erc-h-015.avif" },
     { id: "erc-h-016", nom: "Óin le Nain, Champion d'Erebor",                 image: "/images/factions/erebor-reconquis/erc-h-016.avif" },
-    { id: "erc-h-017", nom: "Thorin Écu-de-Chêne, Roi sous la Montagne",     image: "/images/factions/erebor-reconquis/erc-h-017.avif" },
+    { id: "erc-h-017", nom: "Thorin Écu-de-Chêne, Roi sous la Montagne",          image: "/images/factions/erebor-reconquis/erc-h-017.avif" },
+    { id: "erc-h-018", nom: "Dáin Pied-d'Acier, Seigneur des Monts de Fer (Monté)", image: "/images/factions/erebor-reconquis/erc-h-018.avif" },
   ],
 
   guerriers: [
@@ -31,6 +32,8 @@ const EREBOR_RECONQUIS = {
     { id: "erc-g-003", nom: "Guerrier des Monts de Fer (Bouclier + Bannière)",image: "/images/factions/erebor-reconquis/erc-g-003.avif" },
     { id: "erc-g-004", nom: "Guerrier des Monts de Fer (Bouclier + Lance)",  image: "/images/factions/erebor-reconquis/erc-g-004.avif" },
     { id: "erc-g-005", nom: "Guerrier des Monts de Fer (Piolet)",            image: "/images/factions/erebor-reconquis/erc-g-005.avif" },
+    { id: "erc-g-006", nom: "Chevaucheur de Bouquetin (Lance de Guerre)",   image: "/images/factions/erebor-reconquis/erc-g-006.avif" },
+    { id: "erc-g-007", nom: "Chevaucheur de Bouquetin (Piolet)",            image: "/images/factions/erebor-reconquis/erc-g-007.avif" },
   ],
 };
 
