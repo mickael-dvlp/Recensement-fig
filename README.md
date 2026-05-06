@@ -92,3 +92,5 @@ npm start
 ### Camp du Mal
 
 Angmar, Barad-Dûr, Brigands de Sharcoûx, Carn-Dûm, Les Chasseurs d'Azog, Les Corsaires d'Umbar, Dol Guldur, Extrême-Harad, Goblinville, Horde Serpent, Isengard, Khand, La Légion d'Azog, La Moria, Mordor, Orientaux, Les Sinistres Habitants de la Forêt Noire, Smaug, Troll des Montagnes
+
+Et bien d'autres encore !
