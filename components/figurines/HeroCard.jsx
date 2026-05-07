@@ -1,19 +1,14 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function HeroCard({ hero }) {
-  const router = useRouter();
   const possedes = hero.possedes || 0;
   const pourcentage =
     hero.total > 0 ? Math.round((possedes / hero.total) * 100) : 0;
 
   return (
-    <div
-      onClick={() =>
-        router.push(`/heroes/${encodeURIComponent(hero.nom)}`)
-      }
-      className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-3 cursor-pointer hover:border-[#C9A227] hover:bg-[#1F1F1F] transition-colors"
+    <Link
+      href={`/heroes/${encodeURIComponent(hero.nom)}`}
+      className="block bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-3 cursor-pointer hover:border-[#C9A227] hover:bg-[#1F1F1F] transition-colors"
     >
       {/* Nom du héros */}
       <p className="text-[#F5F5F5] font-bold text-sm truncate mb-2">
@@ -36,6 +31,6 @@ export default function HeroCard({ hero }) {
         </span>
         <span className="text-[#6B6B6B] text-xs">{pourcentage}%</span>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -18,9 +18,9 @@ import { getInventaireUtilisateur } from "@/lib/firestore";
 import {
   FACTIONS_BIEN_GROUPES,
   FACTIONS_MAL,
-  HEROES,
 } from "@/data/figurines/index.js";
 import FACTIONS_DATA from "@/data/factions/index.js";
+import TOUS_LES_HEROS from "@/data/heros/index.js";
 import FigurineCard from "@/components/figurines/FigurineCard";
 import HeroCard from "@/components/figurines/HeroCard";
 import FilterTabs from "@/components/figurines/FilterTabs";
@@ -58,7 +58,21 @@ export default function PageFigurines() {
     }
 
     charger();
+
+    window.addEventListener("focus", charger);
+    return () => window.removeEventListener("focus", charger);
   }, [utilisateur]);
+
+  // ---- STATS HÉROS ----
+  // possedes = nb de variantes avec au moins 1 exemplaire (binaire, pas la somme des quantités)
+  const heroesAvecStats = useMemo(() => {
+    return TOUS_LES_HEROS.map((hero) => ({
+      ...hero,
+      possedes: hero.variantes.filter(
+        (v) => (inventaireBrut[v.id]?.quantiteInventaire ?? 0) > 0
+      ).length,
+    }));
+  }, [inventaireBrut]);
 
   // ---- STATS PAR FACTION ----
   const statsParFaction = useMemo(() => {
@@ -305,7 +319,7 @@ export default function PageFigurines() {
                 </div>
                 {afficherHeros && (
                   <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 pb-6">
-                    {HEROES.map((hero) => (
+                    {heroesAvecStats.map((hero) => (
                       <HeroCard key={hero.nom} hero={hero} />
                     ))}
                   </div>
