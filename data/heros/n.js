@@ -8,7 +8,11 @@ const HEROS_N = [
     nom: "Narzug",
     total: 1,
     variantes: [
-      { id: "narzug-001", nom: "NOM A METTRE", image: "/images/heros/n/narzug-001.avif" },
+      {
+        id: "narzug-001",
+        nom: "Narzug",
+        image: "/images/heros/n/narzug-001.avif",
+      },
     ],
   },
   {
@@ -16,7 +20,11 @@ const HEROS_N = [
     nom: "Nazthak",
     total: 1,
     variantes: [
-      { id: "nazthak-001", nom: "NOM A METTRE", image: "/images/heros/n/nazthak-001.avif" },
+      {
+        id: "nazthak-001",
+        nom: "Nazthak",
+        image: "/images/heros/n/nazthak-001.avif",
+      },
     ],
   },
   {
@@ -24,10 +32,26 @@ const HEROS_N = [
     nom: "Nori",
     total: 4,
     variantes: [
-      { id: "nori-001", nom: "NOM A METTRE", image: "/images/heros/n/nori-001.avif" },
-      { id: "nori-002", nom: "NOM A METTRE", image: "/images/heros/n/nori-002.avif" },
-      { id: "nori-003", nom: "NOM A METTRE", image: "/images/heros/n/nori-003.avif" },
-      { id: "nori-004", nom: "NOM A METTRE", image: "/images/heros/n/nori-004.avif" },
+      {
+        id: "nori-001",
+        nom: "Nori, Compagnie de Thorin",
+        image: "/images/heros/n/nori-001.avif",
+      },
+      {
+        id: "nori-002",
+        nom: "Nori, Champion d'Erebor",
+        image: "/images/heros/n/nori-002.avif",
+      },
+      {
+        id: "nori-003",
+        nom: "Nori, le Tonneau",
+        image: "/images/heros/n/nori-003.avif",
+      },
+      {
+        id: "nori-004",
+        nom: "Nori, Goblinville",
+        image: "/images/heros/n/nori-004.avif",
+      },
     ],
   },
 ];

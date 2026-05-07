@@ -97,7 +97,7 @@ export const HEROES = [
   { nom: "Arwen", total: 4 },
   { nom: "Ashrak", total: 1 },
   { nom: "L'Assassin Spectral", total: 2 },
-  { nom: "Azog", total: 4 },
+  { nom: "Azog", total: 5 },
   // B
   { nom: "Baie d'Or", total: 1 },
   { nom: "Bain", total: 1 },
@@ -154,7 +154,7 @@ export const HEROES = [
   { nom: "L'Empereur Dragon", total: 2 },
   { nom: "Eomer", total: 6 },
   { nom: "Eorl", total: 2 },
-  { nom: "Eowyn", total: 8 },
+  { nom: "Eowyn", total: 7 },
   { nom: "Erestor", total: 1 },
   { nom: "Erkenbrand", total: 2 },
   { nom: "L'Executeur de Gothmog", total: 1 },
@@ -172,7 +172,7 @@ export const HEROES = [
   { nom: "Freca", total: 1 },
   { nom: "Fredegar Bolger", total: 1 },
   { nom: "Frida Longuelance", total: 1 },
-  { nom: "Frodon Sacquet", total: 17 },
+  { nom: "Frodon Sacquet", total: 16 },
   // G
   { nom: "Galadriel", total: 4 },
   { nom: "Gamling", total: 4 },
@@ -241,7 +241,7 @@ export const HEROES = [
   { nom: "Malbeth", total: 1 },
   { nom: "Mardin", total: 1 },
   { nom: "Mauhur", total: 1 },
-  { nom: "Meriadoc Brandebouc (Merry)", total: 18 },
+  { nom: "Meriadoc Brandebouc (Merry)", total: 12 },
   { nom: "Murin", total: 1 },
   { nom: "Muzgur", total: 1 },
   // N
@@ -260,7 +260,7 @@ export const HEROES = [
   { nom: "Paladin Touque", total: 1 },
   { nom: "Percy", total: 1 },
   { nom: "Le Père Maggot", total: 1 },
-  { nom: "Peregrin Touque (Pippin)", total: 15 },
+  { nom: "Peregrin Touque (Pippin)", total: 11 },
   { nom: "Le Preteur de Serment", total: 1 },
   { nom: "Prosper Poiredebeurré", total: 1 },
   // R
@@ -273,7 +273,7 @@ export const HEROES = [
   { nom: "Le Roi des Morts", total: 3 },
   { nom: "Le Roi Doré d'Abrakhan", total: 1 },
   { nom: "Le Roi Gobelin", total: 2 },
-  { nom: "Le Roi Sorcier", total: 11 },
+  { nom: "Le Roi Sorcier", total: 10 },
   { nom: "Rosie Chaumine", total: 1 },
   { nom: "Rowan Boischardon", total: 1 },
   { nom: "Rumil", total: 2 },

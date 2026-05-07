@@ -262,12 +262,12 @@ const HEROS_A = [
     variantes: [
       {
         id: "assassin-spectral-001",
-        nom: "NOM A METTRE",
+        nom: "L'Assassin Spectral",
         image: "/images/heros/a/assassin-spectral-001.avif",
       },
       {
         id: "assassin-spectral-002",
-        nom: "NOM A METTRE",
+        nom: "L'Assassin Spectral",
         image: "/images/heros/a/assassin-spectral-002.avif",
       },
     ],
@@ -275,27 +275,32 @@ const HEROS_A = [
   {
     id: "azog",
     nom: "Azog",
-    total: 4,
+    total: 5,
     variantes: [
       {
         id: "azog-001",
-        nom: "NOM A METTRE",
+        nom: "Azog (Armure Lourde + Fléau)",
         image: "/images/heros/a/azog-001.avif",
       },
       {
         id: "azog-002",
-        nom: "NOM A METTRE",
+        nom: "Azog, Lieutenant de Sauron",
         image: "/images/heros/a/azog-002.avif",
       },
       {
         id: "azog-003",
-        nom: "NOM A METTRE",
+        nom: "Azog (Pied)",
         image: "/images/heros/a/azog-003.avif",
       },
       {
         id: "azog-004",
-        nom: "NOM A METTRE",
+        nom: "Azog (Monté sur Warg Blanc)",
         image: "/images/heros/a/azog-004.avif",
+      },
+      {
+        id: "azog-005",
+        nom: "Diorama Azog contre Thorin",
+        image: "/images/heros/a/azog-005.avif",
       },
     ],
   },
