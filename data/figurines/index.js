@@ -55,28 +55,51 @@ export const FACTIONS_BIEN_GROUPES = [
 // Liste plate dérivée des groupes (utilisée dans la page Accueil)
 export const FACTIONS_BIEN = FACTIONS_BIEN_GROUPES.flatMap((g) => g.factions);
 
-// Factions du camp du Mal (ordre alphabétique, articles ignorés)
-export const FACTIONS_MAL = [
-  "Angmar",
-  "Barad-Dûr",
-  "Brigands de Sharcoûx",
-  "Carn-Dûm",
-  "Les Chasseurs d'Azog",
-  "Les Corsaires d'Umbar",
-  "Dol Guldur",
-  "Extrême-Harad",
-  "Goblinville",
-  "Horde Serpent",
-  "Isengard",
-  "Khand",
-  "La Légion d'Azog",
-  "La Moria",
-  "Mordor",
-  "Orientaux",
-  "Les Sinistres Habitants de la Forêt Noire",
-  "Smaug",
-  "Troll des Montagnes",
+// Factions du camp du Mal, regroupées par thème
+export const FACTIONS_MAL_GROUPES = [
+  {
+    titre: "LES FORTERESSES DE SAURON",
+    factions: [
+      "Barad-Dûr",
+      "Mordor",
+      "Angmar",
+      "Dol Guldur",
+      "La Légion d'Azog",
+      "Les Chasseurs d'Azog",
+      "Carn-Dûm",
+    ],
+  },
+  {
+    titre: "LES HOMMES CORROMPUS",
+    factions: [
+      "Orientaux",
+      "Horde Serpent",
+      "Extrême-Harad",
+      "Khand",
+      "Les Corsaires d'Umbar",
+    ],
+  },
+  {
+    titre: "LES SERVITEURS DE L'OMBRE",
+    factions: [
+      "Isengard",
+      "Brigands de Sharcoûx",
+      "La Moria",
+      "Goblinville",
+    ],
+  },
+  {
+    titre: "LES CRÉATURES DES TÉNÈBRES",
+    factions: [
+      "Troll des Montagnes",
+      "Les Sinistres Habitants de la Forêt Noire",
+      "Smaug",
+    ],
+  },
 ];
+
+// Liste plate dérivée des groupes
+export const FACTIONS_MAL = FACTIONS_MAL_GROUPES.flatMap((g) => g.factions);
 
 export const FACTIONS = [...FACTIONS_BIEN, ...FACTIONS_MAL];
 
@@ -159,7 +182,6 @@ export const HEROES = [
   { nom: "Erkenbrand", total: 2 },
   { nom: "L'Executeur de Gothmog", total: 1 },
   // F
-  { nom: "Fang", total: 1 },
   { nom: "Faramir", total: 6 },
   { nom: "Le fermier Tolman Chaumine", total: 1 },
   { nom: "Fili", total: 4 },
@@ -195,7 +217,6 @@ export const HEROES = [
   { nom: "Grimbeorn", total: 2 },
   { nom: "Grimbold", total: 1 },
   { nom: "Grinnah", total: 1 },
-  { nom: "Grip", total: 1 },
   { nom: "Grishnakh", total: 2 },
   { nom: "Groblog", total: 1 },
   { nom: "Le Guetteur de l'Eau", total: 4 },
@@ -259,7 +280,7 @@ export const HEROES = [
   // P
   { nom: "Paladin Touque", total: 1 },
   { nom: "Percy", total: 1 },
-  { nom: "Le Père Maggot", total: 1 },
+  { nom: "Le Père Maggot", total: 4 },
   { nom: "Peregrin Touque (Pippin)", total: 11 },
   { nom: "Le Preteur de Serment", total: 1 },
   { nom: "Prosper Poiredebeurré", total: 1 },
@@ -319,7 +340,6 @@ export const HEROES = [
   { nom: "Vrasku", total: 1 },
   // W
   { nom: "Will Piedblanc", total: 1 },
-  { nom: "Wolf", total: 1 },
   { nom: "Wrot", total: 1 },
   { nom: "Wulf", total: 2 },
   // Y

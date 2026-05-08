@@ -8,7 +8,11 @@ const HEROS_U = [
     nom: "Ugluk",
     total: 1,
     variantes: [
-      { id: "ugluk-001", nom: "NOM A METTRE", image: "/images/heros/u/ugluk-001.avif" },
+      {
+        id: "ugluk-001",
+        nom: "Ugluk",
+        image: "/images/heros/u/ugluk-001.avif",
+      },
     ],
   },
 ];

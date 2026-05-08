@@ -8,7 +8,11 @@ const HEROS_Z = [
     nom: "Zagdush",
     total: 1,
     variantes: [
-      { id: "zagdush-001", nom: "NOM A METTRE", image: "/images/heros/z/zagdush-001.avif" },
+      {
+        id: "zagdush-001",
+        nom: "Zagdush",
+        image: "/images/heros/z/zagdush-001.avif",
+      },
     ],
   },
 ];

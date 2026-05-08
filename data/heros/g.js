@@ -551,14 +551,6 @@ const HEROS_G = [
     ],
   },
   {
-    id: "grip",
-    nom: "Grip",
-    total: 1,
-    variantes: [
-      { id: "grip-001", nom: "Grip", image: "/images/heros/g/grip-001.avif" },
-    ],
-  },
-  {
     id: "grishnakh",
     nom: "Grishnakh",
     total: 2,

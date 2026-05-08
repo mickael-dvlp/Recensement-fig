@@ -8,7 +8,11 @@ const HEROS_V = [
     nom: "Vifsorbier",
     total: 1,
     variantes: [
-      { id: "vifsorbier-001", nom: "NOM A METTRE", image: "/images/heros/v/vifsorbier-001.avif" },
+      {
+        id: "vifsorbier-001",
+        nom: "Vifsorbier",
+        image: "/images/heros/v/vifsorbier-001.avif",
+      },
     ],
   },
   {
@@ -16,7 +20,11 @@ const HEROS_V = [
     nom: "Vrasku",
     total: 1,
     variantes: [
-      { id: "vrasku-001", nom: "NOM A METTRE", image: "/images/heros/v/vrasku-001.avif" },
+      {
+        id: "vrasku-001",
+        nom: "Vrasku",
+        image: "/images/heros/v/vrasku-001.avif",
+      },
     ],
   },
 ];

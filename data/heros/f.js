@@ -4,14 +4,6 @@
 
 const HEROS_F = [
   {
-    id: "fang",
-    nom: "Fang",
-    total: 1,
-    variantes: [
-      { id: "fang-001", nom: "Fang", image: "/images/heros/f/fang-001.avif" },
-    ],
-  },
-  {
     id: "faramir",
     nom: "Faramir",
     total: 6,

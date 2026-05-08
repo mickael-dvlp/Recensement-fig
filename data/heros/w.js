@@ -8,15 +8,11 @@ const HEROS_W = [
     nom: "Will Piedblanc",
     total: 1,
     variantes: [
-      { id: "will-piedblanc-001", nom: "NOM A METTRE", image: "/images/heros/w/will-piedblanc-001.avif" },
-    ],
-  },
-  {
-    id: "wolf",
-    nom: "Wolf",
-    total: 1,
-    variantes: [
-      { id: "wolf-001", nom: "NOM A METTRE", image: "/images/heros/w/wolf-001.avif" },
+      {
+        id: "will-piedblanc-001",
+        nom: "Will Piedblanc",
+        image: "/images/heros/w/will-piedblanc-001.avif",
+      },
     ],
   },
   {
@@ -24,7 +20,7 @@ const HEROS_W = [
     nom: "Wrot",
     total: 1,
     variantes: [
-      { id: "wrot-001", nom: "NOM A METTRE", image: "/images/heros/w/wrot-001.avif" },
+      { id: "wrot-001", nom: "Wrot", image: "/images/heros/w/wrot-001.avif" },
     ],
   },
   {
@@ -32,8 +28,16 @@ const HEROS_W = [
     nom: "Wulf",
     total: 2,
     variantes: [
-      { id: "wulf-001", nom: "NOM A METTRE", image: "/images/heros/w/wulf-001.avif" },
-      { id: "wulf-002", nom: "NOM A METTRE", image: "/images/heros/w/wulf-002.avif" },
+      {
+        id: "wulf-001",
+        nom: "Wulf (Pied)",
+        image: "/images/heros/w/wulf-001.avif",
+      },
+      {
+        id: "wulf-002",
+        nom: "Wulf (Cheval)",
+        image: "/images/heros/w/wulf-002.avif",
+      },
     ],
   },
 ];

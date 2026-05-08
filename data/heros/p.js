@@ -30,12 +30,27 @@ const HEROS_P = [
   {
     id: "pere-maggot",
     nom: "Le Père Maggot",
-    total: 1,
+    total: 4,
     variantes: [
       {
         id: "pere-maggot-001",
         nom: "Le Père Maggot",
         image: "/images/heros/p/pere-maggot-001.avif",
+      },
+      {
+        id: "pere-maggot-002",
+        nom: "Croc",
+        image: "/images/heros/p/pere-maggot-002.avif",
+      },
+      {
+        id: "pere-maggot-003",
+        nom: "Etau",
+        image: "/images/heros/p/pere-maggot-003.avif",
+      },
+      {
+        id: "pere-maggot-004",
+        nom: "Loup",
+        image: "/images/heros/p/pere-maggot-004.avif",
       },
     ],
   },

@@ -17,7 +17,7 @@ import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur } from "@/lib/firestore";
 import {
   FACTIONS_BIEN_GROUPES,
-  FACTIONS_MAL,
+  FACTIONS_MAL_GROUPES,
 } from "@/data/figurines/index.js";
 import FACTIONS_DATA from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
@@ -208,8 +208,10 @@ export default function PageFigurines() {
         ) : (
           (() => {
             const groupesBien = filtrerGroupes(FACTIONS_BIEN_GROUPES);
-            const mal = filtrerFactions(FACTIONS_MAL);
-            const total = groupesBien.reduce((acc, g) => acc + g.factions.length, 0) + mal.length;
+            const groupesMal = filtrerGroupes(FACTIONS_MAL_GROUPES);
+            const total =
+              groupesBien.reduce((acc, g) => acc + g.factions.length, 0) +
+              groupesMal.reduce((acc, g) => acc + g.factions.length, 0);
 
             if (total === 0)
               return (
@@ -270,12 +272,12 @@ export default function PageFigurines() {
                 )}
 
                 {/* Séparateur */}
-                {groupesBien.length > 0 && mal.length > 0 && (
+                {groupesBien.length > 0 && groupesMal.length > 0 && (
                   <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent mb-6 mt-8" />
                 )}
 
                 {/* MAL */}
-                {mal.length > 0 && (
+                {groupesMal.length > 0 && (
                   <>
                     <div className="flex items-center justify-center gap-3 pt-3 pb-4">
                       <h2 className="text-[#C9A227] text-2xl font-bold uppercase tracking-widest">
@@ -289,13 +291,25 @@ export default function PageFigurines() {
                       </button>
                     </div>
                     {afficherMal && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                        {mal.map((faction) => (
-                          <FigurineCard
-                            key={faction.nom}
-                            faction={faction}
-                            onglet={onglet}
-                          />
+                      <div className="flex flex-col gap-8">
+                        {groupesMal.map((groupe) => (
+                          <div key={groupe.titre}>
+                            <h3
+                              className="text-[#C9A227] text-xl tracking-wide mb-3 text-center sm:text-left"
+                              style={{ fontFamily: "var(--font-elvish)" }}
+                            >
+                              {groupe.titre}
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                              {groupe.factions.map((faction) => (
+                                <FigurineCard
+                                  key={faction.nom}
+                                  faction={faction}
+                                  onglet={onglet}
+                                />
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     )}
