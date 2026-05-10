@@ -7,6 +7,7 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { Palette, Heart, Plus, Minus } from "lucide-react";
 import SearchBar from "@/components/ui/SearchBar";
+import FilterTabs from "@/components/figurines/FilterTabs";
 import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur, mettreAJourFigurine } from "@/lib/firestore";
 import citadelData from "@/data/peintures/citadel.json";
@@ -131,6 +132,7 @@ export default function PagePeinture() {
   const [marque, setMarque] = useState("Toutes");
   const [gamme, setGamme] = useState("Toutes");
   const [recherche, setRecherche] = useState("");
+  const [filtreListe, setFiltreListe] = useState("tout");
 
   // ---- CHARGEMENT INVENTAIRE ----
   useEffect(() => {
@@ -186,8 +188,13 @@ export default function PagePeinture() {
           p.marque.toLowerCase().includes(q)
       );
     }
+    if (filtreListe === "inventaire") {
+      liste = liste.filter((p) => (inventaireBrut[p.id]?.quantiteInventaire ?? 0) > 0);
+    } else if (filtreListe === "souhaite") {
+      liste = liste.filter((p) => inventaireBrut[p.id]?.souhaite === true);
+    }
     return [...liste].sort((a, b) => a.nom.localeCompare(b.nom));
-  }, [marque, gamme, recherche]);
+  }, [marque, gamme, recherche, filtreListe, inventaireBrut]);
 
   const MARQUES = ["Toutes", "Citadel", "Vallejo", "Army Painter"];
 
@@ -211,6 +218,11 @@ export default function PagePeinture() {
             onChange={setRecherche}
             placeholder="Rechercher une couleur..."
           />
+        </div>
+
+        {/* Filtre Tout / Inventaire / Souhaité */}
+        <div className="pb-3">
+          <FilterTabs ongletActif={filtreListe} onChangement={setFiltreListe} />
         </div>
 
         {/* Filtre par marque */}
