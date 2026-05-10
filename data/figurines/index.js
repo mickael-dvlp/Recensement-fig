@@ -63,7 +63,7 @@ export const FACTIONS_MAL_GROUPES = [
       "Barad-Dûr",
       "Mordor",
       "Angmar",
-      "Dol Guldur",
+      "Puissances Obscures de Dol Guldur",
       "La Légion d'Azog",
       "Les Chasseurs d'Azog",
       "Carn-Dûm",
@@ -83,6 +83,7 @@ export const FACTIONS_MAL_GROUPES = [
     titre: "LES SERVITEURS DE L'OMBRE",
     factions: [
       "Isengard",
+      "Le Pays de Dun",
       "Brigands de Sharcoûx",
       "La Moria",
       "Goblinville",
@@ -91,9 +92,9 @@ export const FACTIONS_MAL_GROUPES = [
   {
     titre: "LES CRÉATURES DES TÉNÈBRES",
     factions: [
-      "Troll des Montagnes",
+      "Trolls des Montagnes",
       "Les Sinistres Habitants de la Forêt Noire",
-      "Smaug",
+      "Calamité du Nord",
     ],
   },
 ];

@@ -91,6 +91,23 @@ npm start
 
 ### Camp du Mal
 
-Angmar, Barad-Dûr, Brigands de Sharcoûx, Carn-Dûm, Les Chasseurs d'Azog, Les Corsaires d'Umbar, Dol Guldur, Extrême-Harad, Goblinville, Horde Serpent, Isengard, Khand, La Légion d'Azog, La Moria, Mordor, Orientaux, Les Sinistres Habitants de la Forêt Noire, Smaug, Troll des Montagnes
+| Thème                           | Factions                                                                                 |
+| ------------------------------- | ---------------------------------------------------------------------------------------- |
+| Les Forteresses de Sauron       | Barad-Dûr, Mordor, Angmar, Dol Guldur, La Légion d'Azog, Les Chasseurs d'Azog, Carn-Dûm |
+| Les Hommes Corrompus            | Orientaux, Horde Serpent, Extrême-Harad, Khand, Les Corsaires d'Umbar                   |
+| Les Serviteurs de l'Ombre       | Isengard, Brigands de Sharcoûx, La Moria, Goblinville                                   |
+| Les Créatures des Ténèbres      | Troll des Montagnes, Les Sinistres Habitants de la Forêt Noire, Smaug                   |
 
-Et bien d'autres encore !
+---
+
+## Héros individuels
+
+Plus de 200 héros référencés, chacun avec leurs variantes de figurines (pied, monté, tenue spécifique…). Exemples :
+
+- **Aragorn** — 14 variantes
+- **Frodon Sacquet** — 16 variantes
+- **Gandalf** — 19 variantes
+- **Legolas** — 15 variantes
+- **Samsagace Gamgie** — 13 variantes
+
+La page Figurines affiche pour chaque héros le nombre de variantes possédées vs le total, avec une barre de progression. Le comptage est binaire : une variante compte pour 1 peu importe la quantité en stock.

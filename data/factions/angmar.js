@@ -1,0 +1,49 @@
+// ============================================================
+// ANGMAR — Héros & Guerriers
+// ============================================================
+
+const ANGMAR = {
+  nom: "Angmar",
+
+  heros: [
+    { id: "ang-h-001", nom: "Le Roi-Sorcier d'Angmar (Pied)",                   image: "/images/factions/angmar/ang-h-001.avif" },
+    { id: "ang-h-002", nom: "Le Roi-Sorcier d'Angmar (Cheval)",                 image: "/images/factions/angmar/ang-h-002.avif" },
+    { id: "ang-h-003", nom: "L'Immortel (Pied)",                                image: "/images/factions/angmar/ang-h-003.avif" },
+    { id: "ang-h-004", nom: "L'Immortel (Cheval)",                              image: "/images/factions/angmar/ang-h-004.avif" },
+    { id: "ang-h-005", nom: "Le Dwimmerlaik (Pied)",                            image: "/images/factions/angmar/ang-h-005.avif" },
+    { id: "ang-h-006", nom: "Le Dwimmerlaik (Cheval)",                          image: "/images/factions/angmar/ang-h-006.avif" },
+    { id: "ang-h-007", nom: "Buhrdûr",                                          image: "/images/factions/angmar/ang-h-007.avif" },
+    { id: "ang-h-008", nom: "L'Ombre du Rhudaur",                               image: "/images/factions/angmar/ang-h-008.avif" },
+    { id: "ang-h-009", nom: "Ombre",                                            image: "/images/factions/angmar/ang-h-009.avif" },
+    { id: "ang-h-010", nom: "Être des Galgals",                                 image: "/images/factions/angmar/ang-h-010.avif" },
+    { id: "ang-h-011", nom: "Gulavhar, la Terreur d'Arnor",                     image: "/images/factions/angmar/ang-h-011.avif" },
+    { id: "ang-h-012", nom: "Capitaine Orque (Pied)",                           image: "/images/factions/angmar/ang-h-012.avif" },
+    { id: "ang-h-013", nom: "Capitaine Orque sur Warg",                         image: "/images/factions/angmar/ang-h-013.avif" },
+    { id: "ang-h-014", nom: "Chaman Orque (Pied)",                              image: "/images/factions/angmar/ang-h-014.avif" },
+    { id: "ang-h-015", nom: "Chaman Orque sur Warg",                            image: "/images/factions/angmar/ang-h-015.avif" },
+    { id: "ang-h-016", nom: "Nazthák, Capitaine Orque",                         image: "/images/factions/angmar/ang-h-016.avif" },
+    { id: "ang-h-017", nom: "Golfimbul, Capitaine Orque (Pied)",                image: "/images/factions/angmar/ang-h-017.avif" },
+    { id: "ang-h-018", nom: "Golfimbul, Capitaine Orque sur Warg",              image: "/images/factions/angmar/ang-h-018.avif" },
+    { id: "ang-h-019", nom: "Chef de Meute Warg",                               image: "/images/factions/angmar/ang-h-019.avif" },
+  ],
+
+  guerriers: [
+    { id: "ang-g-001", nom: "Spectres",                                         image: "/images/factions/angmar/ang-g-001.avif" },
+    { id: "ang-g-002", nom: "Esprits des Galgals",                              image: "/images/factions/angmar/ang-g-002.avif" },
+    { id: "ang-g-003", nom: "Chevaucheurs de Warg",                             image: "/images/factions/angmar/ang-g-003.avif" },
+    { id: "ang-g-004", nom: "Trolls des Collines",                              image: "/images/factions/angmar/ang-g-004.avif" },
+    { id: "ang-g-005", nom: "Guerriers Orques (Arc)",                           image: "/images/factions/angmar/ang-g-005.avif" },
+    { id: "ang-g-006", nom: "Guerriers Orques (Bouclier)",                      image: "/images/factions/angmar/ang-g-006.avif" },
+    { id: "ang-g-007", nom: "Guerriers Orques (Lance)",                         image: "/images/factions/angmar/ang-g-007.avif" },
+    { id: "ang-g-008", nom: "Guerriers Orques (Bannière)",                      image: "/images/factions/angmar/ang-g-008.avif" },
+    { id: "ang-g-009", nom: "Guerriers Orques (Arme à Deux Mains)",             image: "/images/factions/angmar/ang-g-009.avif" },
+    { id: "ang-g-010", nom: "Chevaucheur de Warg (Arc Orque)",                  image: "/images/factions/angmar/ang-g-010.avif" },
+    { id: "ang-g-011", nom: "Chevaucheur de Warg (Bouclier)",                   image: "/images/factions/angmar/ang-g-011.avif" },
+    { id: "ang-g-012", nom: "Chevaucheur de Warg (Bouclier + Javelot)",         image: "/images/factions/angmar/ang-g-012.avif" },
+    { id: "ang-g-013", nom: "Chevaucheur de Warg (Javelot)",                    image: "/images/factions/angmar/ang-g-013.avif" },
+    { id: "ang-g-014", nom: "Warg Sauvage",                                     image: "/images/factions/angmar/ang-g-014.avif" },
+    { id: "ang-g-015", nom: "Loup-Garou",                                       image: "/images/factions/angmar/ang-g-015.avif" },
+  ],
+};
+
+export default ANGMAR;

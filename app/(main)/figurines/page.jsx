@@ -13,13 +13,14 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { SlidersHorizontal, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur } from "@/lib/firestore";
 import {
   FACTIONS_BIEN_GROUPES,
   FACTIONS_MAL_GROUPES,
 } from "@/data/figurines/index.js";
-import FACTIONS_DATA from "@/data/factions/index.js";
+import FACTIONS_DATA, { getAllFigurines } from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
 import FigurineCard from "@/components/figurines/FigurineCard";
 import HeroCard from "@/components/figurines/HeroCard";
@@ -73,6 +74,30 @@ export default function PageFigurines() {
       ).length,
     }));
   }, [inventaireBrut]);
+
+  // ---- RECHERCHE FIGURINES ----
+  // Quand une recherche est active, filtre les figurines individuelles et les héros
+  // plutôt que les factions. Respecte aussi l'onglet actif (inventaire / souhaité).
+  const resultatsRecherche = useMemo(() => {
+    const q = recherche.trim().toLowerCase();
+    if (!q) return null;
+
+    const figurines = getAllFigurines().filter((f) => {
+      if (!f.nom.toLowerCase().includes(q)) return false;
+      const inv = inventaireBrut[f.id];
+      if (onglet === "inventaire" && !(inv?.quantiteInventaire > 0)) return false;
+      if (onglet === "souhaite" && !inv?.souhaite) return false;
+      return true;
+    });
+
+    const heros = heroesAvecStats.filter((h) => {
+      if (!h.nom.toLowerCase().includes(q)) return false;
+      if (onglet === "inventaire" && h.possedes === 0) return false;
+      return true;
+    });
+
+    return { figurines, heros };
+  }, [recherche, onglet, inventaireBrut, heroesAvecStats]);
 
   // ---- STATS PAR FACTION ----
   const statsParFaction = useMemo(() => {
@@ -204,6 +229,76 @@ export default function PageFigurines() {
                 <div className="h-3 bg-[#2A2A2A] rounded w-1/3" />
               </div>
             ))}
+          </div>
+        ) : resultatsRecherche ? (
+          // ---- RÉSULTATS DE RECHERCHE ----
+          <div className="pb-6 pt-4">
+            {resultatsRecherche.figurines.length === 0 && resultatsRecherche.heros.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-20 px-8 gap-3">
+                <p className="text-[#3A3A3A] text-5xl">⚔️</p>
+                <p className="text-[#6B6B6B] text-center text-sm">
+                  Aucune figurine trouvée pour &ldquo;{recherche}&rdquo;
+                </p>
+              </div>
+            ) : (
+              <>
+                {resultatsRecherche.figurines.length > 0 && (
+                  <>
+                    <p className="text-[#6B6B6B] text-xs uppercase tracking-widest mb-3">
+                      {resultatsRecherche.figurines.length} figurine{resultatsRecherche.figurines.length > 1 ? "s" : ""}
+                    </p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-6">
+                      {resultatsRecherche.figurines.map((fig) => {
+                        const inv = inventaireBrut[fig.id];
+                        const possede = (inv?.quantiteInventaire ?? 0) > 0;
+                        const souhaite = inv?.souhaite ?? false;
+                        return (
+                          <Link
+                            key={fig.id}
+                            href={`/figurines/${encodeURIComponent(fig.faction)}`}
+                            className="block bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl overflow-hidden hover:border-[#C9A227] hover:bg-[#1F1F1F] transition-colors"
+                          >
+                            <div className="aspect-square bg-[#141414]">
+                              <img
+                                src={fig.image}
+                                alt={fig.nom}
+                                className="w-full h-full object-contain p-2"
+                              />
+                            </div>
+                            <div className="p-2">
+                              <p className="text-[#F5F5F5] text-xs font-semibold leading-tight line-clamp-2">{fig.nom}</p>
+                              <p className="text-[#C9A227] text-[10px] truncate mt-0.5">{fig.faction}</p>
+                              {(possede || souhaite) && (
+                                <div className="flex gap-1 mt-1 flex-wrap">
+                                  {possede && <span className="text-[9px] bg-[#C9A227]/20 text-[#C9A227] rounded px-1 py-0.5">Possédé</span>}
+                                  {souhaite && <span className="text-[9px] bg-[#3A3A3A] text-[#6B6B6B] rounded px-1 py-0.5">Souhaité</span>}
+                                </div>
+                              )}
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
+
+                {resultatsRecherche.heros.length > 0 && (
+                  <>
+                    {resultatsRecherche.figurines.length > 0 && (
+                      <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent mb-4" />
+                    )}
+                    <p className="text-[#6B6B6B] text-xs uppercase tracking-widest mb-3">
+                      {resultatsRecherche.heros.length} héros
+                    </p>
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+                      {resultatsRecherche.heros.map((hero) => (
+                        <HeroCard key={hero.nom} hero={hero} />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </>
+            )}
           </div>
         ) : (
           (() => {

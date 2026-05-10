@@ -1,0 +1,59 @@
+// ============================================================
+// ISENGARD — Héros & Guerriers
+// ============================================================
+
+const ISENGARD = {
+  nom: "Isengard",
+
+  heros: [
+    { id: "ise-h-001", nom: "Saroumane le Blanc (Pied)",                        image: "/images/factions/isengard/ise-h-001.avif" },
+    { id: "ise-h-002", nom: "Saroumane le Blanc (Cheval)",                      image: "/images/factions/isengard/ise-h-002.avif" },
+    { id: "ise-h-003", nom: "Lurtz",                                            image: "/images/factions/isengard/ise-h-003.avif" },
+    { id: "ise-h-004", nom: "Uglúk",                                            image: "/images/factions/isengard/ise-h-004.avif" },
+    { id: "ise-h-005", nom: "Vraskû",                                           image: "/images/factions/isengard/ise-h-005.avif" },
+    { id: "ise-h-006", nom: "Mauhùr",                                           image: "/images/factions/isengard/ise-h-006.avif" },
+    { id: "ise-h-007", nom: "Gríma Langue de Serpent",                          image: "/images/factions/isengard/ise-h-007.avif" },
+    { id: "ise-h-008", nom: "Capitaine Uruk-haï",                               image: "/images/factions/isengard/ise-h-008.avif" },
+    { id: "ise-h-009", nom: "Sharku (Pied)",                                    image: "/images/factions/isengard/ise-h-009.avif" },
+    { id: "ise-h-010", nom: "Sharku sur Warg",                                  image: "/images/factions/isengard/ise-h-010.avif" },
+    { id: "ise-h-011", nom: "Snaga, Capitaine Orque",                           image: "/images/factions/isengard/ise-h-011.avif" },
+    { id: "ise-h-012", nom: "Grishnákh, Capitaine Orque",                       image: "/images/factions/isengard/ise-h-012.avif" },
+    { id: "ise-h-013", nom: "Capitaine Uruk-haï (Bouclier)",                    image: "/images/factions/isengard/ise-h-013.avif" },
+    { id: "ise-h-014", nom: "Capitaine Éclaireur Uruk-haï",                     image: "/images/factions/isengard/ise-h-014.avif" },
+    { id: "ise-h-015", nom: "Chaman Uruk-haï",                                  image: "/images/factions/isengard/ise-h-015.avif" },
+    { id: "ise-h-016", nom: "Tambour Uruk-haï",                                 image: "/images/factions/isengard/ise-h-016.avif" },
+    { id: "ise-h-017", nom: "Capitaine Orque (Pied)",                           image: "/images/factions/isengard/ise-h-017.avif" },
+    { id: "ise-h-018", nom: "Capitaine Orque sur Warg",                         image: "/images/factions/isengard/ise-h-018.avif" },
+    { id: "ise-h-019", nom: "Chaman Orque",                                     image: "/images/factions/isengard/ise-h-019.avif" },
+    { id: "ise-h-020", nom: "Chaman Orque sur Warg",                            image: "/images/factions/isengard/ise-h-020.avif" },
+  ],
+
+  guerriers: [
+    { id: "ise-g-001", nom: "Guerrier Uruk-haï (Bannière)",                     image: "/images/factions/isengard/ise-g-001.avif" },
+    { id: "ise-g-002", nom: "Guerrier Uruk-haï (Bouclier)",                     image: "/images/factions/isengard/ise-g-002.avif" },
+    { id: "ise-g-003", nom: "Guerrier Uruk-haï (Pique)",                        image: "/images/factions/isengard/ise-g-003.avif" },
+    { id: "ise-g-004", nom: "Berserker Uruk-haï",                               image: "/images/factions/isengard/ise-g-004.avif" },
+    { id: "ise-g-005", nom: "Uruk-haï Sauvage",                                 image: "/images/factions/isengard/ise-g-005.avif" },
+    { id: "ise-g-006", nom: "Éclaireur Uruk-haï",                               image: "/images/factions/isengard/ise-g-006.avif" },
+    { id: "ise-g-007", nom: "Éclaireur Uruk-haï (Bouclier)",                    image: "/images/factions/isengard/ise-g-007.avif" },
+    { id: "ise-g-008", nom: "Éclaireur Uruk-haï (Bannière)",                    image: "/images/factions/isengard/ise-g-008.avif" },
+    { id: "ise-g-009", nom: "Éclaireur Uruk-haï (Arc Uruk)",                    image: "/images/factions/isengard/ise-g-009.avif" },
+    { id: "ise-g-010", nom: "Guerriers Orques (Arc)",                           image: "/images/factions/isengard/ise-g-010.avif" },
+    { id: "ise-g-011", nom: "Guerriers Orques (Bouclier)",                      image: "/images/factions/isengard/ise-g-011.avif" },
+    { id: "ise-g-012", nom: "Guerriers Orques (Lance)",                         image: "/images/factions/isengard/ise-g-012.avif" },
+    { id: "ise-g-013", nom: "Guerriers Orques (Bannière)",                      image: "/images/factions/isengard/ise-g-013.avif" },
+    { id: "ise-g-014", nom: "Guerriers Orques (Arme à Deux Mains)",             image: "/images/factions/isengard/ise-g-014.avif" },
+    { id: "ise-g-015", nom: "Chevaucheur de Warg (Arc Orque)",                  image: "/images/factions/isengard/ise-g-015.avif" },
+    { id: "ise-g-016", nom: "Chevaucheur de Warg (Bouclier)",                   image: "/images/factions/isengard/ise-g-016.avif" },
+    { id: "ise-g-017", nom: "Chevaucheur de Warg (Bouclier + Javelot)",         image: "/images/factions/isengard/ise-g-017.avif" },
+    { id: "ise-g-018", nom: "Chevaucheur de Warg (Javelot)",                    image: "/images/factions/isengard/ise-g-018.avif" },
+    { id: "ise-g-019", nom: "Warg Sauvage",                                     image: "/images/factions/isengard/ise-g-019.avif" },
+    { id: "ise-g-020", nom: "Troll d'Isengard",                                 image: "/images/factions/isengard/ise-g-020.avif" },
+    { id: "ise-g-021", nom: "Baliste de Siège d'Isengard",                      image: "/images/factions/isengard/ise-g-021.avif" },
+    { id: "ise-g-022", nom: "Servant de Siège Uruk-haï",                        image: "/images/factions/isengard/ise-g-022.avif" },
+    { id: "ise-g-023", nom: "Équipe de Démolition Uruk-haï",                    image: "/images/factions/isengard/ise-g-023.avif" },
+    { id: "ise-g-024", nom: "Crébain",                                          image: "/images/factions/isengard/ise-g-024.avif" },
+  ],
+};
+
+export default ISENGARD;
