@@ -162,7 +162,7 @@ export default function PageAccueil() {
           <h2 className="text-[#C9A227] text-2xl font-bold uppercase tracking-widest text-center mb-4">
             Bien
           </h2>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {FACTIONS_BIEN.map((faction) => (
               <div
                 key={faction}
@@ -190,7 +190,7 @@ export default function PageAccueil() {
           <h2 className="text-[#C9A227] text-2xl font-bold uppercase tracking-widest text-center mb-4 pt-3">
             Mal
           </h2>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {FACTIONS_MAL.map((faction) => (
               <div
                 key={faction}

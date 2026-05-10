@@ -13,11 +13,15 @@ export default function FigurineCard({ faction, onglet }) {
   const router = useRouter();
   const count = onglet === "souhaite" ? faction.souhaites : faction.possedes;
 
+  function naviguer() {
+    const base = `/figurines/${encodeURIComponent(faction.nom)}`;
+    const url = onglet !== "tout" ? `${base}?filtre=${onglet}` : base;
+    router.push(url);
+  }
+
   return (
     <div
-      onClick={() =>
-        router.push(`/figurines/${encodeURIComponent(faction.nom)}`)
-      }
+      onClick={naviguer}
       className="flex items-center justify-between w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl px-4 py-5 cursor-pointer hover:border-[#C9A227] hover:bg-[#1F1F1F] transition-colors"
     >
       <p className="text-[#F5F5F5] font-bold text-base uppercase tracking-wide leading-tight">

@@ -9,7 +9,7 @@
 //   - Cœur pour marquer comme souhaitée
 
 import { useEffect, useState, useCallback } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, Swords } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur, mettreAJourFigurine } from "@/lib/firestore";
@@ -19,6 +19,8 @@ import FigurineRow from "@/components/figurines/FigurineRow";
 export default function PageFaction() {
   const { faction: factionEncodee } = useParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const filtre = searchParams.get("filtre"); // "inventaire" | "souhaite" | null
   const { utilisateur } = useAuth();
 
   const nomFaction = decodeURIComponent(factionEncodee);
@@ -83,6 +85,19 @@ export default function PageFaction() {
 
   const { heros, guerriers } = factionData;
 
+  function filtrerFigs(liste) {
+    if (!filtre) return liste;
+    return liste.filter((fig) => {
+      const inv = inventaire[fig.inventaireId ?? fig.id];
+      if (filtre === "inventaire") return (inv?.quantiteInventaire ?? 0) > 0;
+      if (filtre === "souhaite") return inv?.souhaite === true;
+      return true;
+    });
+  }
+
+  const herosFiltres = filtrerFigs(heros);
+  const guerriersFiltres = filtrerFigs(guerriers);
+
   return (
     <div className="min-h-screen bg-[#0D0D0D]">
       {/* Ligne dorée */}
@@ -105,7 +120,12 @@ export default function PageFaction() {
           </h1>
           {!chargement && (
             <p className="text-[#6B6B6B] text-xs mt-1">
-              {heros.length} héros · {guerriers.length} guerriers
+              {herosFiltres.length} héros · {guerriersFiltres.length} guerriers
+              {filtre && (
+                <span className="ml-2 text-[#C9A227]">
+                  — {filtre === "inventaire" ? "Inventaire" : "Souhaitées"}
+                </span>
+              )}
             </p>
           )}
         </div>
@@ -130,11 +150,11 @@ export default function PageFaction() {
                 Héros
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                {heros.map((fig) => (
+                {herosFiltres.map((fig) => (
                   <FigurineRow
                     key={fig.id}
                     figurine={fig}
-                    donneesUtilisateur={inventaire[fig.id]}
+                    donneesUtilisateur={inventaire[fig.inventaireId ?? fig.id]}
                     onMettreAJour={mettreAJour}
                   />
                 ))}
@@ -150,11 +170,11 @@ export default function PageFaction() {
                 Guerriers
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                {guerriers.map((fig) => (
+                {guerriersFiltres.map((fig) => (
                   <FigurineRow
                     key={fig.id}
                     figurine={fig}
-                    donneesUtilisateur={inventaire[fig.id]}
+                    donneesUtilisateur={inventaire[fig.inventaireId ?? fig.id]}
                     onMettreAJour={mettreAJour}
                   />
                 ))}

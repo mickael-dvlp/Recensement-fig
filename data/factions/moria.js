@@ -32,7 +32,7 @@ const MORIA = {
     { id: "mri-g-007", nom: "Bouclier Noir de la Moria",                            image: "/images/factions/moria/mri-g-007.avif" },
     { id: "mri-g-008", nom: "Batteur Bouclier Noir de la Moria",                    image: "/images/factions/moria/mri-g-008.avif" },
     { id: "mri-g-009", nom: "Traqueur Gobelin de la Moria",                         image: "/images/factions/moria/mri-g-009.avif" },
-    { id: "mri-g-010", nom: "Nuée de Chauves-souris",                               image: "/images/factions/moria/mri-g-010.avif" },
+    { id: "mri-g-010", inventaireId: "shf-g-003", nom: "Nuée de Chauves-souris",                               image: "/images/factions/moria/mri-g-010.avif" },
     { id: "mri-g-011", nom: "Habitant des Ténèbres",                                image: "/images/factions/moria/mri-g-011.avif" },
   ],
 };

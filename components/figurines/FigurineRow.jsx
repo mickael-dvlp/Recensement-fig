@@ -12,11 +12,12 @@ import { useState } from "react";
 export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJour }) {
   const quantite = donneesUtilisateur?.quantiteInventaire ?? 0;
   const souhaite = donneesUtilisateur?.souhaite ?? false;
+  const quantitePeinte = donneesUtilisateur?.quantitePeinte ?? 0;
   const [compteurVisible, setCompteurVisible] = useState(quantite > 0);
 
   async function ajouterAInventaire() {
     setCompteurVisible(true);
-    await onMettreAJour(figurine.id, {
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, {
       enInventaire: true,
       quantiteInventaire: 1,
     });
@@ -25,14 +26,24 @@ export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJou
   async function modifierQuantite(delta) {
     const nouvelleQuantite = Math.max(0, quantite + delta);
     if (nouvelleQuantite === 0) setCompteurVisible(false);
-    await onMettreAJour(figurine.id, {
+    const updates = {
       enInventaire: nouvelleQuantite > 0,
       quantiteInventaire: nouvelleQuantite,
-    });
+    };
+    // Si la quantité possédée passe en dessous des peintes, on plafonne
+    if (quantitePeinte > nouvelleQuantite) {
+      updates.quantitePeinte = nouvelleQuantite;
+    }
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, updates);
+  }
+
+  async function modifierQuantitePeinte(delta) {
+    const nouvelleQuantite = Math.min(quantite, Math.max(0, quantitePeinte + delta));
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, { quantitePeinte: nouvelleQuantite });
   }
 
   async function toggleSouhaite() {
-    await onMettreAJour(figurine.id, { souhaite: !souhaite });
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, { souhaite: !souhaite });
   }
 
   return (
@@ -105,6 +116,32 @@ export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJou
             />
           </button>
         </div>
+
+        {/* Compteur "dont peint" — visible seulement quand on possède au moins 1 */}
+        {quantite > 0 && (
+          <div className="flex items-center justify-between mt-1.5 px-1">
+            <span className="text-[#6B6B6B] text-[10px]">dont peint</span>
+            <div className="flex items-center gap-2 bg-[#0D0D0D] border border-[#2A2A2A] rounded-full px-2.5 py-1">
+              <button
+                onClick={() => modifierQuantitePeinte(-1)}
+                className="text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                aria-label="Réduire peintes"
+              >
+                <Minus size={11} />
+              </button>
+              <span className="text-[#C9A227] font-bold text-xs min-w-4 text-center">
+                {quantitePeinte}
+              </span>
+              <button
+                onClick={() => modifierQuantitePeinte(1)}
+                className="text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                aria-label="Augmenter peintes"
+              >
+                <Plus size={11} />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

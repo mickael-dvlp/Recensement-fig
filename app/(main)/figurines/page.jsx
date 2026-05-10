@@ -84,7 +84,7 @@ export default function PageFigurines() {
 
     const figurines = getAllFigurines().filter((f) => {
       if (!f.nom.toLowerCase().includes(q)) return false;
-      const inv = inventaireBrut[f.id];
+      const inv = inventaireBrut[f.inventaireId ?? f.id];
       if (onglet === "inventaire" && !(inv?.quantiteInventaire > 0)) return false;
       if (onglet === "souhaite" && !inv?.souhaite) return false;
       return true;
@@ -108,7 +108,7 @@ export default function PageFigurines() {
       if (!map[nomFaction]) map[nomFaction] = { possedes: 0, souhaites: 0 };
       const toutes = [...(data.heros ?? []), ...(data.guerriers ?? [])];
       toutes.forEach((fig) => {
-        const inv = inventaireBrut[fig.id];
+        const inv = inventaireBrut[fig.inventaireId ?? fig.id];
         if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
         if (inv?.souhaite) map[nomFaction].souhaites++;
       });
@@ -247,9 +247,9 @@ export default function PageFigurines() {
                     <p className="text-[#6B6B6B] text-xs uppercase tracking-widest mb-3">
                       {resultatsRecherche.figurines.length} figurine{resultatsRecherche.figurines.length > 1 ? "s" : ""}
                     </p>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
                       {resultatsRecherche.figurines.map((fig) => {
-                        const inv = inventaireBrut[fig.id];
+                        const inv = inventaireBrut[fig.inventaireId ?? fig.id];
                         const possede = (inv?.quantiteInventaire ?? 0) > 0;
                         const souhaite = inv?.souhaite ?? false;
                         return (

@@ -33,6 +33,7 @@ const LA_LOTHLORIEN = {
     },
     {
       id: "lot-h-006",
+      inventaireId: "fdc-h-017",
       nom: "Maître des Orages",
       image: "/images/factions/lothlorien/lot-h-006.avif",
     },
