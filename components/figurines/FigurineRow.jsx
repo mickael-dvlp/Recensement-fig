@@ -9,7 +9,11 @@
 import { Heart, Plus, Minus } from "lucide-react";
 import { useState } from "react";
 
-export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJour }) {
+export default function FigurineRow({
+  figurine,
+  donneesUtilisateur,
+  onMettreAJour,
+}) {
   const quantite = donneesUtilisateur?.quantiteInventaire ?? 0;
   const souhaite = donneesUtilisateur?.souhaite ?? false;
   const quantitePeinte = donneesUtilisateur?.quantitePeinte ?? 0;
@@ -38,17 +42,23 @@ export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJou
   }
 
   async function modifierQuantitePeinte(delta) {
-    const nouvelleQuantite = Math.min(quantite, Math.max(0, quantitePeinte + delta));
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, { quantitePeinte: nouvelleQuantite });
+    const nouvelleQuantite = Math.min(
+      quantite,
+      Math.max(0, quantitePeinte + delta),
+    );
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, {
+      quantitePeinte: nouvelleQuantite,
+    });
   }
 
   async function toggleSouhaite() {
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, { souhaite: !souhaite });
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, {
+      souhaite: !souhaite,
+    });
   }
 
   return (
     <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col hover:border-[#3A3A3A] transition-colors">
-
       {/* Image placeholder — remplacé par <Image> plus tard */}
       <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden">
         {figurine.image ? (
@@ -82,7 +92,7 @@ export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJou
               >
                 <Minus size={13} />
               </button>
-              <span className="text-[#F5F5F5] font-bold text-sm min-w-[20px] text-center">
+              <span className="text-[#F5F5F5] font-bold text-sm min-w-5 text-center">
                 {quantite}
               </span>
               <button
@@ -107,12 +117,18 @@ export default function FigurineRow({ figurine, donneesUtilisateur, onMettreAJou
           {/* Cœur */}
           <button
             onClick={toggleSouhaite}
-            aria-label={souhaite ? "Retirer des souhaités" : "Ajouter aux souhaités"}
+            aria-label={
+              souhaite ? "Retirer des souhaités" : "Ajouter aux souhaités"
+            }
             className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-[#2A2A2A] hover:border-[#3A3A3A] transition-colors"
           >
             <Heart
               size={15}
-              className={souhaite ? "fill-red-500 text-red-500" : "text-[#3A3A3A] hover:text-[#6B6B6B]"}
+              className={
+                souhaite
+                  ? "fill-red-500 text-red-500"
+                  : "text-[#3A3A3A] hover:text-[#6B6B6B]"
+              }
             />
           </button>
         </div>

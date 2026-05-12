@@ -23,13 +23,12 @@ export default function HeroCard({ hero }) {
         />
       </div>
 
-      {/* Compteur et pourcentage */}
+      {/* Compteur */}
       <div className="flex items-center justify-between">
         <span className="text-[#6B6B6B] text-xs">
           <span className="text-[#F5F5F5] font-semibold">{possedes}</span>
           /{hero.total}
         </span>
-        <span className="text-[#6B6B6B] text-xs">{pourcentage}%</span>
       </div>
     </Link>
   );

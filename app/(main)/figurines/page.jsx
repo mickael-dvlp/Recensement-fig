@@ -72,8 +72,17 @@ export default function PageFigurines() {
       possedes: hero.variantes.filter(
         (v) => (inventaireBrut[v.id]?.quantiteInventaire ?? 0) > 0
       ).length,
+      souhaites: hero.variantes.filter(
+        (v) => inventaireBrut[v.id]?.souhaite === true
+      ).length,
     }));
   }, [inventaireBrut]);
+
+  const heroesFiltres = useMemo(() => {
+    if (onglet === "inventaire") return heroesAvecStats.filter((h) => h.possedes > 0);
+    if (onglet === "souhaite") return heroesAvecStats.filter((h) => h.souhaites > 0);
+    return heroesAvecStats;
+  }, [heroesAvecStats, onglet]);
 
   // ---- RECHERCHE FIGURINES ----
   // Quand une recherche est active, filtre les figurines individuelles et les héros
@@ -428,7 +437,7 @@ export default function PageFigurines() {
                 </div>
                 {afficherHeros && (
                   <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 pb-6">
-                    {heroesAvecStats.map((hero) => (
+                    {heroesFiltres.map((hero) => (
                       <HeroCard key={hero.nom} hero={hero} />
                     ))}
                   </div>

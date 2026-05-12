@@ -11,25 +11,11 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Shield, ShoppingCart, Sword, Users } from "lucide-react";
+import { Shield, Heart, Sword, Users } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur } from "@/lib/firestore";
 import { FACTIONS_BIEN, FACTIONS_MAL } from "@/data/figurines/index.js";
 import { getAllFigurines } from "@/data/factions/index.js";
-
-// Icône placeholder par faction — remplace le SVG par l'icône de la faction souhaitée
-const ICONES_FACTION = {};
-
-function IconeFaction({ faction }) {
-  const icone = ICONES_FACTION[faction];
-  if (icone) return icone;
-  // Icône générique par défaut (bouclier)
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  );
-}
 
 /**
  * Carte de statistique réutilisable — contenu centré
@@ -141,7 +127,7 @@ export default function PageAccueil() {
                 couleur="bg-[#22C55E]/10"
               />
               <CarteStatistique
-                icone={<ShoppingCart size={18} className="text-[#C9A227]" />}
+                icone={<Heart size={18} className="text-[#C9A227]" />}
                 label="Souhaitées"
                 valeur={stats.totalSouhaitees}
                 couleur="bg-[#C9A227]/10"
@@ -166,16 +152,11 @@ export default function PageAccueil() {
             {FACTIONS_BIEN.map((faction) => (
               <div
                 key={faction}
-                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 min-h-24"
+                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col justify-center gap-3 min-h-24"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-[#6B6B6B] shrink-0">
-                    <IconeFaction faction={faction} />
-                  </span>
-                  <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
-                    {faction}
-                  </span>
-                </div>
+                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-left">
+                  {faction}
+                </span>
                 <span className="text-[#6B6B6B] text-lg font-semibold">
                   {chargement ? "…" : stats.parFaction[faction] || 0}
                 </span>
@@ -194,16 +175,11 @@ export default function PageAccueil() {
             {FACTIONS_MAL.map((faction) => (
               <div
                 key={faction}
-                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 min-h-24"
+                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col justify-center gap-3 min-h-24"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-[#6B6B6B] shrink-0">
-                    <IconeFaction faction={faction} />
-                  </span>
-                  <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
-                    {faction}
-                  </span>
-                </div>
+                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-left">
+                  {faction}
+                </span>
                 <span className="text-[#6B6B6B] text-lg font-semibold">
                   {chargement ? "…" : stats.parFaction[faction] || 0}
                 </span>

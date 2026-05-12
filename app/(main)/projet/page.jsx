@@ -60,7 +60,7 @@ export default function PageProjet() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] pb-10 px-8 w-full">
+    <div className="min-h-screen bg-[#0D0D0D] pb-10 px-4 w-full">
       {/* Ligne dorée */}
       <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 
@@ -85,7 +85,7 @@ export default function PageProjet() {
       </div>
 
       {/* CONTENU */}
-      <div className="flex-1 py-4 px-8">
+      <div className="flex-1 py-4">
         {chargement ? (
           // Skeleton de chargement
           <div className="flex flex-col gap-3">

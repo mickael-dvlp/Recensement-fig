@@ -28,7 +28,7 @@ export default function BottomNav() {
   // sticky bottom-0 : la nav reste collée en bas du conteneur parent.
   // z-40 : en dessous de la modal (z-[60]) pour ne jamais la masquer.
   return (
-    <nav className="sticky bottom-0 w-full bg-[#1A1A1A] border-t border-[#2A2A2A] z-40">
+    <nav className="fixed bottom-0 left-0 right-0 w-full bg-[#1A1A1A] border-t border-[#2A2A2A] z-40">
       {/* Ligne décorative dorée en haut de la nav */}
       <div className="h-px bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 

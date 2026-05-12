@@ -42,7 +42,7 @@ export default function MainLayout({ children }) {
       Plus de pb-24 car la nav n'est plus en position fixed.
     */
     <div className="flex flex-col min-h-screen bg-[#0D0D0D]">
-      <main className="flex-1 flex justify-center">
+      <main className="flex-1 flex justify-center pb-20">
         <div className="w-full page-container">{children}</div>
       </main>
       <BottomNav />

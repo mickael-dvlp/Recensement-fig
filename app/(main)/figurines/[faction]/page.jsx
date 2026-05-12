@@ -105,29 +105,35 @@ export default function PageFaction() {
 
       {/* EN-TÊTE */}
       <div className="sticky top-0 z-40 bg-[#0D0D0D] border-b border-[#2A2A2A]">
-        <div className="relative pt-6 pb-4 text-center">
+        <div className="flex items-center gap-2 pt-6 pb-4 px-4">
           {/* Bouton retour */}
           <button
             onClick={() => router.back()}
-            className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-1 text-[#6B6B6B] hover:text-[#C9A227] transition-colors text-xs"
+            className="flex items-center gap-1 text-[#6B6B6B] hover:text-[#C9A227] transition-colors shrink-0"
           >
-            <ChevronLeft size={14} />
-            Retour à la page Figurine
+            <ChevronLeft size={18} />
+            <span className="hidden sm:inline text-xs">Retour à la page Figurine</span>
           </button>
 
-          <h1 className="text-xl font-bold text-[#F5F5F5] uppercase tracking-widest">
-            {nomFaction}
-          </h1>
-          {!chargement && (
-            <p className="text-[#6B6B6B] text-xs mt-1">
-              {herosFiltres.length} héros · {guerriersFiltres.length} guerriers
-              {filtre && (
-                <span className="ml-2 text-[#C9A227]">
-                  — {filtre === "inventaire" ? "Inventaire" : "Souhaitées"}
-                </span>
-              )}
-            </p>
-          )}
+          {/* Titre centré */}
+          <div className="flex-1 text-center">
+            <h1 className="text-xl font-bold text-[#F5F5F5] uppercase tracking-widest">
+              {nomFaction}
+            </h1>
+            {!chargement && (
+              <p className="text-[#6B6B6B] text-xs mt-1">
+                {herosFiltres.length} héros · {guerriersFiltres.length} guerriers
+                {filtre && (
+                  <span className="ml-2 text-[#C9A227]">
+                    — {filtre === "inventaire" ? "Inventaire" : "Souhaitées"}
+                  </span>
+                )}
+              </p>
+            )}
+          </div>
+
+          {/* Spacer symétrique */}
+          <div className="w-4.5 shrink-0" />
         </div>
       </div>
 
