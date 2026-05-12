@@ -12,7 +12,7 @@
 //   - Une modal s'ouvre pour saisir la quantité
 
 import { useEffect, useState, useMemo } from "react";
-import { SlidersHorizontal, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur } from "@/lib/firestore";
@@ -27,12 +27,6 @@ import HeroCard from "@/components/figurines/HeroCard";
 import FilterTabs from "@/components/figurines/FilterTabs";
 import SearchBar from "@/components/ui/SearchBar";
 
-// Options de tri disponibles
-const OPTIONS_TRI = [
-  { valeur: "a-z", label: "Nom A → Z" },
-  { valeur: "z-a", label: "Nom Z → A" },
-];
-
 export default function PageFigurines() {
   const { utilisateur } = useAuth();
 
@@ -42,11 +36,10 @@ export default function PageFigurines() {
   // États de filtre et recherche
   const [recherche, setRecherche] = useState("");
   const [onglet, setOnglet] = useState("tout");
-  const [tri, setTri] = useState("a-z");
-  const [afficherMenuTri, setAfficherMenuTri] = useState(false);
   const [afficherBien, setAfficherBien] = useState(true);
   const [afficherMal, setAfficherMal] = useState(true);
   const [afficherHeros, setAfficherHeros] = useState(true);
+  const [headerReduit, setHeaderReduit] = useState(false);
 
   // ---- CHARGEMENT INITIAL ----
   useEffect(() => {
@@ -162,63 +155,39 @@ export default function PageFigurines() {
       <div className="sticky w-full top-0 z-40 bg-[#0D0D0D] border-b border-[#2A2A2A] px-4">
         {/* Ligne décorative dorée */}
         <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
-        {/* Titre centré */}
-        <div className="pt-6 pb-4 text-center">
-          <h1 className="text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest">
+
+        {/* Titre + bouton toggle mobile/tablette */}
+        <div className="pt-6 pb-4 flex items-center gap-2">
+          <div className="w-8 shrink-0 lg:hidden" />
+          <h1 className="flex-1 text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest text-center">
             Inventaire & Souhaitées
           </h1>
+          <button
+            onClick={() => setHeaderReduit(!headerReduit)}
+            aria-label={headerReduit ? "Afficher les filtres" : "Masquer les filtres"}
+            className="lg:hidden w-8 h-8 shrink-0 flex items-center justify-center text-[#6B6B6B] hover:text-[#C9A227] transition-colors"
+          >
+            <ChevronDown
+              size={18}
+              className={`transition-transform duration-200 ${headerReduit ? "" : "rotate-180"}`}
+            />
+          </button>
         </div>
 
-        {/* Barre de recherche */}
-        <div className="pb-5">
-          <SearchBar
-            valeur={recherche}
-            onChange={setRecherche}
-            placeholder="Rechercher une figurine..."
-          />
-        </div>
+        {/* Contenu collapsible — masqué sur mobile/tablette si headerReduit */}
+        <div className={headerReduit ? "hidden lg:block" : ""}>
+          {/* Barre de recherche */}
+          <div className="pb-5">
+            <SearchBar
+              valeur={recherche}
+              onChange={setRecherche}
+              placeholder="Rechercher une figurine..."
+            />
+          </div>
 
-        {/* Onglets Tout / Inventaire / Souhaitée */}
-        <div className="pt-4 pb-4">
-          <FilterTabs ongletActif={onglet} onChangement={setOnglet} />
-        </div>
-
-        {/* Bouton Tri — aligné à droite sur sa propre ligne */}
-        <div className="flex justify-end pb-3">
-          <div className="relative">
-            <button
-              onClick={() => setAfficherMenuTri(!afficherMenuTri)}
-              className="flex items-center gap-1.5 border border-[#3A3A3A] rounded-full px-4 py-1.5 text-xs text-[#D4D4D4] hover:border-[#C9A227] transition-colors"
-            >
-              <SlidersHorizontal size={13} />
-              Trier
-              <ChevronDown
-                size={13}
-                className={`transition-transform ${afficherMenuTri ? "rotate-180" : ""}`}
-              />
-            </button>
-
-            {/* Menu déroulant du tri */}
-            {afficherMenuTri && (
-              <div className="absolute right-0 top-9 bg-[#1A1A1A] border border-[#3A3A3A] rounded-xl shadow-xl z-50 min-w-35 overflow-hidden">
-                {OPTIONS_TRI.map(({ valeur, label }) => (
-                  <button
-                    key={valeur}
-                    onClick={() => {
-                      setTri(valeur);
-                      setAfficherMenuTri(false);
-                    }}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                      tri === valeur
-                        ? "text-[#C9A227] bg-[#C9A227]/10"
-                        : "text-[#D4D4D4] hover:bg-[#2A2A2A]"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            )}
+          {/* Onglets Tout / Inventaire / Souhaitée */}
+          <div className="pt-4 pb-4">
+            <FilterTabs ongletActif={onglet} onChangement={setOnglet} />
           </div>
         </div>
       </div>

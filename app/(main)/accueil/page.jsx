@@ -152,12 +152,12 @@ export default function PageAccueil() {
             {FACTIONS_BIEN.map((faction) => (
               <div
                 key={faction}
-                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col justify-center gap-3 min-h-24"
+                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
               >
-                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-left">
+                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
                   {faction}
                 </span>
-                <span className="text-[#6B6B6B] text-lg font-semibold">
+                <span className="text-[#6B6B6B] text-lg font-semibold text-center">
                   {chargement ? "…" : stats.parFaction[faction] || 0}
                 </span>
               </div>
@@ -175,12 +175,12 @@ export default function PageAccueil() {
             {FACTIONS_MAL.map((faction) => (
               <div
                 key={faction}
-                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col justify-center gap-3 min-h-24"
+                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
               >
-                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-left">
+                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
                   {faction}
                 </span>
-                <span className="text-[#6B6B6B] text-lg font-semibold">
+                <span className="text-[#6B6B6B] text-lg font-semibold text-center">
                   {chargement ? "…" : stats.parFaction[faction] || 0}
                 </span>
               </div>

@@ -11,10 +11,12 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import BottomNav from "@/components/navigation/BottomNav";
+import { useScrollRestoration } from "@/lib/hooks/useScrollRestoration";
 
 export default function MainLayout({ children }) {
   const { utilisateur, chargement } = useAuth();
   const router = useRouter();
+  useScrollRestoration();
 
   // Redirige vers la connexion si l'utilisateur n'est pas connecté
   useEffect(() => {

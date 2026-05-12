@@ -17,6 +17,7 @@ export default function FigurineRow({
   const quantite = donneesUtilisateur?.quantiteInventaire ?? 0;
   const souhaite = donneesUtilisateur?.souhaite ?? false;
   const quantitePeinte = donneesUtilisateur?.quantitePeinte ?? 0;
+  const quantiteSouhaitee = donneesUtilisateur?.quantiteSouhaitee ?? 0;
   const [compteurVisible, setCompteurVisible] = useState(quantite > 0);
 
   async function ajouterAInventaire() {
@@ -34,7 +35,6 @@ export default function FigurineRow({
       enInventaire: nouvelleQuantite > 0,
       quantiteInventaire: nouvelleQuantite,
     };
-    // Si la quantité possédée passe en dessous des peintes, on plafonne
     if (quantitePeinte > nouvelleQuantite) {
       updates.quantitePeinte = nouvelleQuantite;
     }
@@ -51,15 +51,24 @@ export default function FigurineRow({
     });
   }
 
-  async function toggleSouhaite() {
+  async function modifierQuantiteSouhaitee(delta) {
+    const nouvelleQuantite = Math.max(1, quantiteSouhaitee + delta);
     await onMettreAJour(figurine.inventaireId ?? figurine.id, {
-      souhaite: !souhaite,
+      quantiteSouhaitee: nouvelleQuantite,
     });
+  }
+
+  async function toggleSouhaite() {
+    const newSouhaite = !souhaite;
+    const updates = { souhaite: newSouhaite };
+    if (newSouhaite && quantiteSouhaitee === 0) updates.quantiteSouhaitee = 1;
+    if (!newSouhaite) updates.quantiteSouhaitee = 0;
+    await onMettreAJour(figurine.inventaireId ?? figurine.id, updates);
   }
 
   return (
     <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col hover:border-[#3A3A3A] transition-colors">
-      {/* Image placeholder — remplacé par <Image> plus tard */}
+      {/* Image */}
       <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden">
         {figurine.image ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -80,10 +89,9 @@ export default function FigurineRow({
           {figurine.nom}
         </p>
 
-        {/* Actions : bouton + cœur */}
+        {/* Actions : bouton inventaire + cœur */}
         <div className="flex items-center gap-2 mt-auto pt-1">
           {compteurVisible ? (
-            /* Compteur +/- */
             <div className="flex-1 flex items-center justify-between bg-[#0D0D0D] border border-[#3A3A3A] rounded-full px-3 py-1.5">
               <button
                 onClick={() => modifierQuantite(-1)}
@@ -104,7 +112,6 @@ export default function FigurineRow({
               </button>
             </div>
           ) : (
-            /* Bouton Ajouter */
             <button
               onClick={ajouterAInventaire}
               className="flex-1 flex items-center justify-center gap-1.5 border border-[#3A3A3A] rounded-full py-1.5 text-xs text-[#6B6B6B] hover:border-[#C9A227] hover:text-[#C9A227] transition-colors"
@@ -132,6 +139,32 @@ export default function FigurineRow({
             />
           </button>
         </div>
+
+        {/* Compteur quantité souhaitée — visible quand souhaite = true */}
+        {souhaite && (
+          <div className="flex items-center justify-between mt-1.5 px-1">
+            <span className="text-[#6B6B6B] text-[10px]">souhaite</span>
+            <div className="flex items-center gap-2 bg-[#0D0D0D] border border-[#2A2A2A] rounded-full px-2.5 py-1">
+              <button
+                onClick={() => modifierQuantiteSouhaitee(-1)}
+                className="text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                aria-label="Réduire souhaitées"
+              >
+                <Minus size={11} />
+              </button>
+              <span className="text-red-400 font-bold text-xs min-w-4 text-center">
+                {quantiteSouhaitee}
+              </span>
+              <button
+                onClick={() => modifierQuantiteSouhaitee(1)}
+                className="text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                aria-label="Augmenter souhaitées"
+              >
+                <Plus size={11} />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Compteur "dont peint" — visible seulement quand on possède au moins 1 */}
         {quantite > 0 && (
