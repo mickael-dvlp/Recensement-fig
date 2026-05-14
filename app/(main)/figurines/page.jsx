@@ -15,7 +15,7 @@ import { useEffect, useState, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur } from "@/lib/firestore";
+import { getInventaireUtilisateur, getFigurinesCustom } from "@/lib/firestore";
 import {
   FACTIONS_BIEN_GROUPES,
   FACTIONS_MAL_GROUPES,
@@ -31,6 +31,7 @@ export default function PageFigurines() {
   const { utilisateur } = useAuth();
 
   const [inventaireBrut, setInventaireBrut] = useState({});
+  const [figurinesCustom, setFigurinesCustom] = useState([]);
   const [chargement, setChargement] = useState(true);
 
   // États de filtre et recherche
@@ -46,8 +47,12 @@ export default function PageFigurines() {
     if (!utilisateur) return;
 
     async function charger() {
-      const inventaire = await getInventaireUtilisateur(utilisateur.uid);
+      const [inventaire, customs] = await Promise.all([
+        getInventaireUtilisateur(utilisateur.uid),
+        getFigurinesCustom(utilisateur.uid),
+      ]);
       setInventaireBrut(inventaire);
+      setFigurinesCustom(customs);
       setChargement(false);
     }
 
@@ -105,7 +110,6 @@ export default function PageFigurines() {
   const statsParFaction = useMemo(() => {
     const map = {};
 
-    // Figurines des pages de faction (héros + guerriers)
     Object.entries(FACTIONS_DATA).forEach(([nomFaction, data]) => {
       if (!map[nomFaction]) map[nomFaction] = { possedes: 0, souhaites: 0 };
       const toutes = [...(data.heros ?? []), ...(data.guerriers ?? [])];
@@ -116,8 +120,16 @@ export default function PageFigurines() {
       });
     });
 
+    // Figurines custom
+    figurinesCustom.forEach((fig) => {
+      if (!map[fig.faction]) map[fig.faction] = { possedes: 0, souhaites: 0 };
+      const inv = inventaireBrut[fig.id];
+      if (inv?.quantiteInventaire > 0) map[fig.faction].possedes += inv.quantiteInventaire;
+      if (inv?.souhaite) map[fig.faction].souhaites++;
+    });
+
     return map;
-  }, [inventaireBrut]);
+  }, [inventaireBrut, figurinesCustom]);
 
   // Filtre une liste plate de noms de factions selon l'onglet et la recherche
   function filtrerFactions(liste) {
@@ -286,7 +298,7 @@ export default function PageFigurines() {
               groupesBien.reduce((acc, g) => acc + g.factions.length, 0) +
               groupesMal.reduce((acc, g) => acc + g.factions.length, 0);
 
-            if (total === 0)
+            if (total === 0 && heroesFiltres.length === 0)
               return (
                 <div className="flex flex-col items-center justify-center py-20 px-8 gap-3">
                   <p className="text-[#3A3A3A] text-5xl">⚔️</p>
@@ -390,7 +402,9 @@ export default function PageFigurines() {
                 )}
 
                 {/* Séparateur */}
-                <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent mb-6 mt-8" />
+                {(groupesBien.length > 0 || groupesMal.length > 0) && (
+                  <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent mb-6 mt-8" />
+                )}
 
                 {/* HÉROS */}
                 <div className="flex items-center justify-center gap-3 pt-3 pb-4">

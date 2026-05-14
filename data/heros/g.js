@@ -582,27 +582,12 @@ const HEROS_G = [
   {
     id: "guetteur-de-leau",
     nom: "Le Guetteur de l'Eau",
-    total: 4,
+    total: 1,
     variantes: [
       {
         id: "guetteur-de-leau-001",
         nom: "Le Guetteur de l'Eau",
         image: "/images/heros/g/guetteur-de-leau-001.avif",
-      },
-      {
-        id: "guetteur-de-leau-002",
-        nom: "Le Guetteur de l'Eau, tentacule 1",
-        image: "/images/heros/g/guetteur-de-leau-002.avif",
-      },
-      {
-        id: "guetteur-de-leau-003",
-        nom: "Le Guetteur de l'Eau, tentacule 2",
-        image: "/images/heros/g/guetteur-de-leau-003.avif",
-      },
-      {
-        id: "guetteur-de-leau-004",
-        nom: "Le Guetteur de l'Eau, tentacule 3",
-        image: "/images/heros/g/guetteur-de-leau-004.avif",
       },
     ],
   },

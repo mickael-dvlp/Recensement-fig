@@ -56,16 +56,6 @@ const ISENGARD = {
       nom: "Sharku sur Warg",
       image: "/images/factions/isengard/ise-h-010.avif",
     },
-    {
-      id: "ise-h-011",
-      nom: "Snaga, Capitaine Orque",
-      image: "/images/factions/isengard/ise-h-011.avif",
-    },
-    {
-      id: "ise-h-012",
-      nom: "Grishnákh, Capitaine Orque",
-      image: "/images/factions/isengard/ise-h-012.avif",
-    },
 
     {
       id: "ise-h-014",
@@ -213,12 +203,7 @@ const ISENGARD = {
       nom: "Chevaucheur de Warg (Javelot)",
       image: "/images/factions/isengard/ise-g-018.avif",
     },
-    {
-      id: "ise-g-019",
-      inventaireId: "ang-g-014",
-      nom: "Warg Sauvage",
-      image: "/images/factions/isengard/ise-g-019.avif",
-    },
+
     {
       id: "ise-g-020",
       nom: "Troll d'Isengard",

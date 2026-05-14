@@ -111,11 +111,6 @@ const ANGMAR = {
       nom: "Spectres",
       image: "/images/factions/angmar/ang-g-001.avif",
     },
-    {
-      id: "ang-g-002",
-      nom: "Esprits des Galgals",
-      image: "/images/factions/angmar/ang-g-002.avif",
-    },
 
     {
       id: "ang-g-004",

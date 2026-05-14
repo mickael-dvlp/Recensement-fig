@@ -36,21 +36,13 @@ const PAYS_DE_DUN = {
       nom: "Seigneur Thorne du Wold",
       image: "/images/factions/pays-de-dun/pdd-h-006.avif",
     },
-    {
-      id: "pdd-h-007",
-      nom: "Chef des Tribus des Collines",
-      image: "/images/factions/pays-de-dun/pdd-h-007.avif",
-    },
+
     {
       id: "pdd-h-008",
       nom: "Chef des Tribus des Collines (Bouclier Léger)",
       image: "/images/factions/pays-de-dun/pdd-h-008.avif",
     },
-    {
-      id: "pdd-h-009",
-      nom: "Chef des Tribus des Collines (Arme à Deux Mains)",
-      image: "/images/factions/pays-de-dun/pdd-h-009.avif",
-    },
+
     {
       id: "pdd-h-010",
       nom: "Shank",
@@ -74,7 +66,7 @@ const PAYS_DE_DUN = {
     {
       id: "pdd-h-018",
       nom: "Thrydan, le Fléau des Loups (cheval)",
-      image: "/images/factions/pays-de-dun/pdd-h-013.avif",
+      image: "/images/factions/pays-de-dun/pdd-h-018.avif",
     },
     {
       id: "pdd-h-014",

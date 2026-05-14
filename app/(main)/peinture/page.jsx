@@ -5,7 +5,7 @@
 // ============================================================
 
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Palette, Heart, Plus, Minus } from "lucide-react";
+import { Palette, Heart, Plus, Minus, ChevronDown } from "lucide-react";
 import SearchBar from "@/components/ui/SearchBar";
 import FilterTabs from "@/components/figurines/FilterTabs";
 import { useAuth } from "@/lib/auth-context";
@@ -133,6 +133,7 @@ export default function PagePeinture() {
   const [gamme, setGamme] = useState("Toutes");
   const [recherche, setRecherche] = useState("");
   const [filtreListe, setFiltreListe] = useState("tout");
+  const [headerReduit, setHeaderReduit] = useState(false);
 
   // ---- CHARGEMENT INVENTAIRE ----
   useEffect(() => {
@@ -201,70 +202,80 @@ export default function PagePeinture() {
   return (
     <div className="flex flex-col min-h-screen bg-[#0D0D0D]">
       {/* EN-TÊTE FIXE */}
-      <div className="sticky top-0 z-40 bg-[#0D0D0D] border-b border-[#2A2A2A] px-6">
+      <div className="sticky w-full top-0 z-40 bg-[#0D0D0D] border-b border-[#2A2A2A] px-4">
         <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
-        <div className="pt-6 pb-4 text-center">
-          <h1 className="text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest">
+
+        <div className="pt-6 pb-4 flex items-center gap-2">
+          <div className="w-8 shrink-0 lg:hidden" />
+          <h1 className="flex-1 text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest text-center">
             Catalogue Peintures
           </h1>
-          <p className="text-[#6B6B6B] text-sm mt-1">
-            {TOUTES_PEINTURES.length} couleurs disponibles et plus encore à venir !
-          </p>
+          <button
+            onClick={() => setHeaderReduit(!headerReduit)}
+            aria-label={headerReduit ? "Afficher les filtres" : "Masquer les filtres"}
+            className="lg:hidden w-8 h-8 shrink-0 flex items-center justify-center text-[#6B6B6B] hover:text-[#C9A227] transition-colors"
+          >
+            <ChevronDown
+              size={18}
+              className={`transition-transform duration-200 ${headerReduit ? "" : "rotate-180"}`}
+            />
+          </button>
         </div>
 
-        <div className="px-6 pb-3">
-          <SearchBar
-            valeur={recherche}
-            onChange={setRecherche}
-            placeholder="Rechercher une couleur..."
-          />
-        </div>
-
-        {/* Filtre Tout / Inventaire / Souhaité */}
-        <div className="pb-3">
-          <FilterTabs ongletActif={filtreListe} onChangement={setFiltreListe} />
-        </div>
-
-        {/* Filtre par marque */}
-        <div className="pb-3">
-          <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-            {MARQUES.map((m) => {
-              const couleur = m !== "Toutes" ? COULEURS_MARQUE[m] : "#C9A227";
-              const actif = marque === m;
-              return (
-                <button
-                  key={m}
-                  onClick={() => changerMarque(m)}
-                  className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide transition-all"
-                  style={
-                    actif
-                      ? { backgroundColor: couleur, color: "#0D0D0D" }
-                      : { border: "1px solid #3A3A3A", color: "#6B6B6B" }
-                  }
-                >
-                  {m}
-                </button>
-              );
-            })}
+        <div className={headerReduit ? "hidden lg:block" : ""}>
+          <div className="pb-5">
+            <SearchBar
+              valeur={recherche}
+              onChange={setRecherche}
+              placeholder="Rechercher une couleur..."
+            />
           </div>
-        </div>
 
-        {/* Filtre par gamme */}
-        <div className="pb-3">
-          <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-            {gammesDisponibles.map((g) => (
-              <button
-                key={g}
-                onClick={() => setGamme(g)}
-                className={`shrink-0 px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${
-                  gamme === g
-                    ? "border-[#C9A227] text-[#C9A227] bg-[#C9A227]/10"
-                    : "border-[#2A2A2A] text-[#6B6B6B] hover:border-[#6B6B6B]"
-                }`}
-              >
-                {g}
-              </button>
-            ))}
+          <div className="pt-4 pb-4">
+            <FilterTabs ongletActif={filtreListe} onChangement={setFiltreListe} />
+          </div>
+
+          {/* Filtre par marque */}
+          <div className="pb-4">
+            <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+              {MARQUES.map((m) => {
+                const couleur = m !== "Toutes" ? COULEURS_MARQUE[m] : "#C9A227";
+                const actif = marque === m;
+                return (
+                  <button
+                    key={m}
+                    onClick={() => changerMarque(m)}
+                    className="shrink-0 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide transition-all"
+                    style={
+                      actif
+                        ? { backgroundColor: couleur, color: "#0D0D0D" }
+                        : { border: "1px solid #3A3A3A", color: "#6B6B6B" }
+                    }
+                  >
+                    {m}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Filtre par gamme */}
+          <div className="pb-4">
+            <div className="flex gap-2 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+              {gammesDisponibles.map((g) => (
+                <button
+                  key={g}
+                  onClick={() => setGamme(g)}
+                  className={`shrink-0 px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${
+                    gamme === g
+                      ? "border-[#C9A227] text-[#C9A227] bg-[#C9A227]/10"
+                      : "border-[#2A2A2A] text-[#6B6B6B] hover:border-[#6B6B6B]"
+                  }`}
+                >
+                  {g}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

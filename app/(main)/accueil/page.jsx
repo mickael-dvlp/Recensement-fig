@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Shield, Heart, Sword, Users } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur } from "@/lib/firestore";
+import { getInventaireUtilisateur, getFigurinesCustom } from "@/lib/firestore";
 import { FACTIONS_BIEN, FACTIONS_MAL } from "@/data/figurines/index.js";
 import { getAllFigurines } from "@/data/factions/index.js";
 
@@ -55,8 +55,10 @@ export default function PageAccueil() {
     if (!utilisateur) return;
 
     async function chargerStats() {
-      // Récupère toutes les données d'inventaire de l'utilisateur
-      const inventaire = await getInventaireUtilisateur(utilisateur.uid);
+      const [inventaire, customs] = await Promise.all([
+        getInventaireUtilisateur(utilisateur.uid),
+        getFigurinesCustom(utilisateur.uid),
+      ]);
 
       let totalPossedees = 0;
       let totalSouhaitees = 0;
@@ -64,21 +66,33 @@ export default function PageAccueil() {
       const parFaction = {};
 
       for (const figurine of getAllFigurines()) {
-        const donnees = inventaire[figurine.id];
+        const donnees = inventaire[figurine.inventaireId ?? figurine.id];
         if (!donnees) continue;
 
         if (donnees.enInventaire) {
           const qte = donnees.quantiteInventaire || 0;
           totalPossedees += qte;
-          // Compte par faction
-          parFaction[figurine.faction] =
-            (parFaction[figurine.faction] || 0) + qte;
+          parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
         }
         if (donnees.souhaite) {
           totalSouhaitees += donnees.quantiteSouhaitee || 0;
         }
         if (donnees.enProjet) {
           enProjet += 1;
+        }
+      }
+
+      // Figurines custom
+      for (const fig of customs) {
+        const donnees = inventaire[fig.id];
+        if (!donnees) continue;
+        if (donnees.enInventaire) {
+          const qte = donnees.quantiteInventaire || 0;
+          totalPossedees += qte;
+          parFaction[fig.faction] = (parFaction[fig.faction] || 0) + qte;
+        }
+        if (donnees.souhaite) {
+          totalSouhaitees += donnees.quantiteSouhaitee || 0;
         }
       }
 

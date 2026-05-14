@@ -220,7 +220,7 @@ export const HEROES = [
   { nom: "Grinnah", total: 1 },
   { nom: "Grishnakh", total: 2 },
   { nom: "Groblog", total: 1 },
-  { nom: "Le Guetteur de l'Eau", total: 4 },
+  { nom: "Le Guetteur de l'Eau", total: 1 },
   { nom: "Gulavhar", total: 1 },
   { nom: "Guritz", total: 1 },
   { nom: "Gwaihir", total: 3 },

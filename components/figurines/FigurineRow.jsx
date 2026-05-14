@@ -6,19 +6,21 @@
 // Affiche une carte avec placeholder image, nom, bouton Ajouter/compteur
 // et cœur pour souhaitée. Style inspiré du catalogue officiel GW.
 
-import { Heart, Plus, Minus } from "lucide-react";
+import { Heart, Plus, Minus, X, Check } from "lucide-react";
 import { useState } from "react";
 
 export default function FigurineRow({
   figurine,
   donneesUtilisateur,
   onMettreAJour,
+  onSupprimer,
 }) {
   const quantite = donneesUtilisateur?.quantiteInventaire ?? 0;
   const souhaite = donneesUtilisateur?.souhaite ?? false;
   const quantitePeinte = donneesUtilisateur?.quantitePeinte ?? 0;
   const quantiteSouhaitee = donneesUtilisateur?.quantiteSouhaitee ?? 0;
   const [compteurVisible, setCompteurVisible] = useState(quantite > 0);
+  const [confirmerSuppression, setConfirmerSuppression] = useState(false);
 
   async function ajouterAInventaire() {
     setCompteurVisible(true);
@@ -69,7 +71,7 @@ export default function FigurineRow({
   return (
     <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col hover:border-[#3A3A3A] transition-colors">
       {/* Image */}
-      <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden">
+      <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden relative">
         {figurine.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -79,6 +81,36 @@ export default function FigurineRow({
           />
         ) : (
           <div className="w-12 h-12 rounded-full border border-[#2A2A2A] bg-[#1A1A1A]" />
+        )}
+
+        {/* Bouton suppression (custom uniquement) */}
+        {onSupprimer && (
+          confirmerSuppression ? (
+            <div className="absolute top-1.5 right-1.5 flex gap-1">
+              <button
+                onClick={onSupprimer}
+                className="w-6 h-6 flex items-center justify-center rounded-full bg-red-900/60 text-red-400 hover:bg-red-900/80 transition-colors"
+                aria-label="Confirmer la suppression"
+              >
+                <Check size={10} />
+              </button>
+              <button
+                onClick={() => setConfirmerSuppression(false)}
+                className="w-6 h-6 flex items-center justify-center rounded-full bg-[#2A2A2A] text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                aria-label="Annuler"
+              >
+                <X size={10} />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setConfirmerSuppression(true)}
+              className="absolute top-1.5 right-1.5 w-6 h-6 flex items-center justify-center rounded-full bg-[#1A1A1A]/80 text-[#6B6B6B] hover:text-red-400 hover:bg-red-900/30 transition-colors"
+              aria-label="Supprimer la figurine"
+            >
+              <X size={10} />
+            </button>
+          )
         )}
       </div>
 
