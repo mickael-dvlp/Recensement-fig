@@ -3,6 +3,23 @@
 import { useState, useRef } from "react";
 import { Plus, X, Check, Upload } from "lucide-react";
 
+function compresserImage(file, maxWidth = 400, qualite = 0.8) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, maxWidth / img.width);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob((blob) => resolve(blob ?? file), "image/webp", qualite);
+    };
+    img.src = url;
+  });
+}
+
 export default function CarteAjoutCustom({ faction, section, onAjouter }) {
   const [ouvert, setOuvert] = useState(false);
   const [nom, setNom] = useState("");
@@ -30,7 +47,8 @@ export default function CarteAjoutCustom({ faction, section, onAjouter }) {
     if (!nom.trim() || !fichier || loading) return;
     setLoading(true);
     try {
-      await onAjouter({ nom: nom.trim(), faction, section, file: fichier });
+      const fichierCompresse = await compresserImage(fichier);
+      await onAjouter({ nom: nom.trim(), faction, section, file: fichierCompresse });
       annuler();
     } finally {
       setLoading(false);

@@ -173,7 +173,6 @@ const ANGMAR = {
     },
     {
       id: "ang-g-014",
-      inventaireId: "ang-g-014",
       nom: "Warg Sauvage",
       image: "/images/factions/angmar/ang-g-014.avif",
     },

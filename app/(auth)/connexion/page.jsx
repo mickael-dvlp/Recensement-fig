@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Eye, EyeOff, LogIn, Ghost } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import PopupEnConstruction from "@/components/ui/PopupEnConstruction";
 
 // SVG Google icon
 function IconGoogle() {
@@ -119,7 +118,6 @@ export default function PageConnexion() {
 
   return (
     <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center p-6">
-      <PopupEnConstruction />
 
       {/* ── Particules flottantes ── */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -172,7 +170,7 @@ export default function PageConnexion() {
           {/* ══ MODE NORMAL ══ */}
           {!modeReset ? (
             <>
-              <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-5">
+              <form onSubmit={handleConnexion} className="flex flex-col gap-5">
 
                 {/* Email */}
                 <div className="flex flex-col gap-2">
@@ -230,8 +228,8 @@ export default function PageConnexion() {
                 {/* Bouton connexion */}
                 <button
                   type="submit"
-                  disabled
-                  className="flex items-center justify-center gap-2.5 bg-[#1c9ac2] opacity-30 cursor-not-allowed text-[#0D0D0D] font-bold uppercase tracking-widest py-4 rounded-2xl text-sm"
+                  disabled={chargement}
+                  className="flex items-center justify-center gap-2.5 bg-[#1c9ac2] hover:bg-[#3ab8e0] disabled:opacity-50 disabled:cursor-not-allowed text-[#0D0D0D] font-bold uppercase tracking-widest py-4 rounded-2xl text-sm transition-colors"
                 >
                   {chargement
                     ? <div className="w-5 h-5 border-2 border-[#0D0D0D] border-t-transparent rounded-full animate-spin" />
@@ -250,8 +248,9 @@ export default function PageConnexion() {
               {/* Bouton Google */}
               <button
                 type="button"
-                disabled
-                className="flex items-center justify-center gap-3 bg-[#1A1A1A] border border-[#2A2A2A] opacity-30 cursor-not-allowed text-[#D4D4D4] font-semibold py-3.5 rounded-2xl text-sm"
+                onClick={handleGoogle}
+                disabled={chargementGoogle}
+                className="flex items-center justify-center gap-3 bg-[#1A1A1A] border border-[#2A2A2A] hover:bg-[#252525] disabled:opacity-50 disabled:cursor-not-allowed text-[#D4D4D4] font-semibold py-3.5 rounded-2xl text-sm transition-colors"
               >
                 {chargementGoogle
                   ? <div className="w-5 h-5 border-2 border-[#D4D4D4] border-t-transparent rounded-full animate-spin" />

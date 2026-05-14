@@ -1,35 +1,1498 @@
 [
-  { "id": "ap-001", "nom": "Matt White", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#F8F8F8" },
-  { "id": "ap-002", "nom": "Matt Black", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#1A1A1A" },
-  { "id": "ap-003", "nom": "Lava Orange", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#C84A1A" },
-  { "id": "ap-004", "nom": "Blood Red", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#8B0000" },
-  { "id": "ap-005", "nom": "Necromancer Cloak", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#2A1A4A" },
-  { "id": "ap-006", "nom": "Crystal Blue", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#3A7AB0" },
-  { "id": "ap-007", "nom": "Ultramarine Blue", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#1A3A8B" },
-  { "id": "ap-008", "nom": "Nuclear Yellow", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#E8D400" },
-  { "id": "ap-009", "nom": "Moon Dust", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#D4C4A0" },
-  { "id": "ap-010", "nom": "Wasteland Brown", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#8B6A3A" },
-  { "id": "ap-011", "nom": "Oak Brown", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#6B4A2A" },
-  { "id": "ap-012", "nom": "Leather Brown", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#7A5A3A" },
-  { "id": "ap-013", "nom": "Greenskin", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#4A8B2A" },
-  { "id": "ap-014", "nom": "Angel Green", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#2A6B2A" },
-  { "id": "ap-015", "nom": "Elf Green", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#3A7A3A" },
-  { "id": "ap-016", "nom": "Skeleton Bone", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#D4C08A" },
-  { "id": "ap-017", "nom": "Desert Yellow", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#C4A86A" },
-  { "id": "ap-018", "nom": "Tanned Flesh", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#C4876A" },
-  { "id": "ap-019", "nom": "Barbarian Flesh", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#D4956A" },
-  { "id": "ap-020", "nom": "Plate Mail Metal", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#9A9A9A" },
-  { "id": "ap-021", "nom": "Shining Silver", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#C8C8C8" },
-  { "id": "ap-022", "nom": "Shining Gold", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#D4AF37" },
-  { "id": "ap-023", "nom": "Rough Iron", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#5A5A5A" },
-  { "id": "ap-024", "nom": "Ancient Bronze", "marque": "Army Painter", "gamme": "Warpaints", "hex": "#8B6914" },
+  {
+    "id": "ap-001",
+    "nom": "Alien Purple",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#5F4B8B"
+  },
+  {
+    "id": "ap-002",
+    "nom": "Angel Green",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#2F5D50"
+  },
+  {
+    "id": "ap-003",
+    "nom": "Ash Grey",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#A7A9AC"
+  },
+  {
+    "id": "ap-004",
+    "nom": "Barbarian Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#C68642"
+  },
+  {
+    "id": "ap-005",
+    "nom": "Basilisk Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#5A3A22"
+  },
+  {
+    "id": "ap-006",
+    "nom": "Battlefield Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#6B4F3A"
+  },
+  {
+    "id": "ap-007",
+    "nom": "Bleached Skull",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#E5D7B8"
+  },
+  {
+    "id": "ap-008",
+    "nom": "Blood Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#A91E22"
+  },
+  {
+    "id": "ap-009",
+    "nom": "Brainmatter Beige",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#CDBB9A"
+  },
+  {
+    "id": "ap-010",
+    "nom": "Bright Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#D4AF37"
+  },
+  {
+    "id": "ap-011",
+    "nom": "Burnished Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#8F2D2D"
+  },
+  {
+    "id": "ap-012",
+    "nom": "Chaotic Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#7A1C1C"
+  },
+  {
+    "id": "ap-013",
+    "nom": "Cobblestone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#7D7F7A"
+  },
+  {
+    "id": "ap-014",
+    "nom": "Crystal Blue",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#4F84C4"
+  },
+  {
+    "id": "ap-015",
+    "nom": "Daemonic Yellow",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#F2C230"
+  },
+  {
+    "id": "ap-016",
+    "nom": "Deep Blue",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#1F3B73"
+  },
+  {
+    "id": "ap-017",
+    "nom": "Desert Yellow",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#C9A35D"
+  },
+  {
+    "id": "ap-018",
+    "nom": "Dragon Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#B22222"
+  },
+  {
+    "id": "ap-019",
+    "nom": "Drake Tooth",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#DDD6C8"
+  },
+  {
+    "id": "ap-020",
+    "nom": "Dungeon Grey",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#6E7072"
+  },
+  {
+    "id": "ap-021",
+    "nom": "Elven Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#E1B899"
+  },
+  {
+    "id": "ap-022",
+    "nom": "Evil Chrome",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#A8A9AD"
+  },
+  {
+    "id": "ap-023",
+    "nom": "Fur Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#8A5A3B"
+  },
+  {
+    "id": "ap-024",
+    "nom": "Goblin Green",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#3F8C3A"
+  },
+  {
+    "id": "ap-025",
+    "nom": "Greedy Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#C9A227"
+  },
+  {
+    "id": "ap-026",
+    "nom": "Gun Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#6D7175"
+  },
+  {
+    "id": "ap-027",
+    "nom": "Hive Dweller Purple",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#5C3A6D"
+  },
+  {
+    "id": "ap-028",
+    "nom": "Hydra Turquoise",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#3B8C8E"
+  },
+  {
+    "id": "ap-029",
+    "nom": "Leather Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#7A5230"
+  },
+  {
+    "id": "ap-030",
+    "nom": "Matt Black",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#1B1B1B"
+  },
+  {
+    "id": "ap-031",
+    "nom": "Matt White",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#F8F8F8"
+  },
+  {
+    "id": "ap-032",
+    "nom": "Necrotic Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#C6C48A"
+  },
+  {
+    "id": "ap-033",
+    "nom": "Oak Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#6A452B"
+  },
+  {
+    "id": "ap-034",
+    "nom": "Orc Blood",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#476B35"
+  },
+  {
+    "id": "ap-035",
+    "nom": "Plate Mail Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#9AA0A6"
+  },
+  {
+    "id": "ap-036",
+    "nom": "Pure Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#C42026"
+  },
+  {
+    "id": "ap-037",
+    "nom": "Royal Purple",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#5A3D8E"
+  },
+  {
+    "id": "ap-038",
+    "nom": "Skeleton Bone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#DCCB9A"
+  },
+  {
+    "id": "ap-039",
+    "nom": "Tanned Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#B97A56"
+  },
+  {
+    "id": "ap-040",
+    "nom": "Ultramarine Blue",
+    "marque": "Army Painter",
+    "gamme": "Warpaints",
+    "hex": "#2457C5"
+  },
 
-  { "id": "ap-qsh-001", "nom": "Dark Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#1A1A0A" },
-  { "id": "ap-qsh-002", "nom": "Soft Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#6B5A2A" },
-  { "id": "ap-qsh-003", "nom": "Strong Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#4A3A1A" },
-  { "id": "ap-qsh-004", "nom": "Military Shader", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#3A4A1A" },
-  { "id": "ap-qsh-005", "nom": "Red Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#5A1A1A" },
-  { "id": "ap-qsh-006", "nom": "Green Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#1A4A1A" },
-  { "id": "ap-qsh-007", "nom": "Blue Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#1A2A5A" },
-  { "id": "ap-qsh-008", "nom": "Purple Tone", "marque": "Army Painter", "gamme": "Quickshade", "hex": "#3A1A5A" }
+  {
+    "id": "ap-qsh-001",
+    "nom": "Blue Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#3A4F7A"
+  },
+  {
+    "id": "ap-qsh-002",
+    "nom": "Dark Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#1A1A1A"
+  },
+  {
+    "id": "ap-qsh-003",
+    "nom": "Dark Tone Wash",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#232323"
+  },
+  {
+    "id": "ap-qsh-004",
+    "nom": "Flesh Wash",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#8C5A42"
+  },
+  {
+    "id": "ap-qsh-005",
+    "nom": "Green Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#556B2F"
+  },
+  {
+    "id": "ap-qsh-006",
+    "nom": "Light Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#C9A56B"
+  },
+  {
+    "id": "ap-qsh-007",
+    "nom": "Military Shader",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#6B6F4E"
+  },
+  {
+    "id": "ap-qsh-008",
+    "nom": "Purple Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#5A3B6E"
+  },
+  {
+    "id": "ap-qsh-009",
+    "nom": "Quickshade Wash Mixing Medium",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#D8D6CF"
+  },
+  {
+    "id": "ap-qsh-010",
+    "nom": "Red Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#7A2B2B"
+  },
+  {
+    "id": "ap-qsh-011",
+    "nom": "Soft Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#8B6A45"
+  },
+  {
+    "id": "ap-qsh-012",
+    "nom": "Soft Tone Wash",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#9A7652"
+  },
+  {
+    "id": "ap-qsh-013",
+    "nom": "Strong Tone",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#5B4632"
+  },
+  {
+    "id": "ap-qsh-014",
+    "nom": "Strong Tone Wash",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#634C38"
+  },
+  {
+    "id": "ap-qsh-015",
+    "nom": "Tone Ink Set",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#4A4A4A"
+  },
+  {
+    "id": "ap-qsh-016",
+    "nom": "Wash Medium",
+    "marque": "Army Painter",
+    "gamme": "Quickshade",
+    "hex": "#D0CEC8"
+  },
+
+  {
+    "id": "ap-spp-001",
+    "nom": "Absolution Green",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#3F5F3A"
+  },
+  {
+    "id": "ap-spp-002",
+    "nom": "Aged Hide",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4A3427"
+  },
+  {
+    "id": "ap-spp-003",
+    "nom": "Algae Green",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#5B7A4D"
+  },
+  {
+    "id": "ap-spp-004",
+    "nom": "Ancient Honey",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D29A2E"
+  },
+  {
+    "id": "ap-spp-005",
+    "nom": "Ashen Stone",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8A8175"
+  },
+  {
+    "id": "ap-spp-006",
+    "nom": "Aztec Gold",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C8A548"
+  },
+  {
+    "id": "ap-spp-007",
+    "nom": "Battleship Grey",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#666B70"
+  },
+  {
+    "id": "ap-spp-008",
+    "nom": "Beowulf Blue",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4B86C5"
+  },
+  {
+    "id": "ap-spp-009",
+    "nom": "Blinding Light",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#F4F1C9"
+  },
+  {
+    "id": "ap-spp-010",
+    "nom": "Blood Red",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8B1E24"
+  },
+  {
+    "id": "ap-spp-011",
+    "nom": "Bony Matter",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D9C89A"
+  },
+  {
+    "id": "ap-spp-012",
+    "nom": "Brazen Copper",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#B66A3C"
+  },
+  {
+    "id": "ap-spp-013",
+    "nom": "Bright Red",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D7262E"
+  },
+  {
+    "id": "ap-spp-014",
+    "nom": "Broadsword Silver",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#B8BCC2"
+  },
+  {
+    "id": "ap-spp-015",
+    "nom": "Brownish Decay",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#705F42"
+  },
+  {
+    "id": "ap-spp-016",
+    "nom": "Burnished Red",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#9F3B2E"
+  },
+  {
+    "id": "ap-spp-017",
+    "nom": "Burnt Moss",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#5A5E36"
+  },
+  {
+    "id": "ap-spp-018",
+    "nom": "Camo Cloak",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#6A7751"
+  },
+  {
+    "id": "ap-spp-019",
+    "nom": "Caribbean Ocean",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#1E7C91"
+  },
+  {
+    "id": "ap-spp-020",
+    "nom": "Carmine Dragon",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#9E2335"
+  },
+  {
+    "id": "ap-spp-021",
+    "nom": "Charming Chartreuse",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#A9C529"
+  },
+  {
+    "id": "ap-spp-022",
+    "nom": "Cloudburst Blue",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4F84A6"
+  },
+  {
+    "id": "ap-spp-023",
+    "nom": "Crusader Skin",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C6865A"
+  },
+  {
+    "id": "ap-spp-024",
+    "nom": "Dark Wood",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4B2E1F"
+  },
+  {
+    "id": "ap-spp-025",
+    "nom": "Desolate Brown",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8C6B45"
+  },
+  {
+    "id": "ap-spp-026",
+    "nom": "Dusk Red",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#5C1F24"
+  },
+  {
+    "id": "ap-spp-027",
+    "nom": "Enchanted Steel",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8A9199"
+  },
+  {
+    "id": "ap-spp-028",
+    "nom": "Familiar Pink",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D45A8C"
+  },
+  {
+    "id": "ap-spp-029",
+    "nom": "Fire Drake",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D94E1F"
+  },
+  {
+    "id": "ap-spp-030",
+    "nom": "Fire Giant Orange",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E66B1F"
+  },
+  {
+    "id": "ap-spp-031",
+    "nom": "Forest Sprite",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#2F5C38"
+  },
+  {
+    "id": "ap-spp-032",
+    "nom": "Ghillie Dew",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#6B8A4A"
+  },
+  {
+    "id": "ap-spp-033",
+    "nom": "Ghoul Green",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#6DAF5D"
+  },
+  {
+    "id": "ap-spp-034",
+    "nom": "Glittering Loot",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D2B45C"
+  },
+  {
+    "id": "ap-spp-035",
+    "nom": "Goddess Glow",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#F0B2A1"
+  },
+  {
+    "id": "ap-spp-036",
+    "nom": "Golden Armour",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C9A13A"
+  },
+  {
+    "id": "ap-spp-037",
+    "nom": "Gravelord Grey",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4B4C50"
+  },
+  {
+    "id": "ap-spp-038",
+    "nom": "Grim Black",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#1A1A1A"
+  },
+  {
+    "id": "ap-spp-039",
+    "nom": "Gunner Camo",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#5C6A42"
+  },
+  {
+    "id": "ap-spp-040",
+    "nom": "Hardened Leather",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#7A4A2B"
+  },
+  {
+    "id": "ap-spp-041",
+    "nom": "Highlord Blue",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#2456B2"
+  },
+  {
+    "id": "ap-spp-042",
+    "nom": "Hive Dweller Purple",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#5D2B7F"
+  },
+  {
+    "id": "ap-spp-043",
+    "nom": "Hoard Bronze",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8C6C3E"
+  },
+  {
+    "id": "ap-spp-044",
+    "nom": "Holy White",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#F2F2EE"
+  },
+  {
+    "id": "ap-spp-045",
+    "nom": "Hoplite Gold",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D4AF37"
+  },
+  {
+    "id": "ap-spp-046",
+    "nom": "Howling Sand",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C8AE73"
+  },
+  {
+    "id": "ap-spp-047",
+    "nom": "Lizardfolk Cyan",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#3BA6A0"
+  },
+  {
+    "id": "ap-spp-048",
+    "nom": "Maggot Skin",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D9C98F"
+  },
+  {
+    "id": "ap-spp-049",
+    "nom": "Magic Blue",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#2166C1"
+  },
+  {
+    "id": "ap-spp-050",
+    "nom": "Maize Yellow",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E5B931"
+  },
+  {
+    "id": "ap-spp-051",
+    "nom": "Malignant Green",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#6CA53A"
+  },
+  {
+    "id": "ap-spp-052",
+    "nom": "Moody Mauve",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#7B5875"
+  },
+  {
+    "id": "ap-spp-053",
+    "nom": "Moonlake Coral",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E57D72"
+  },
+  {
+    "id": "ap-spp-054",
+    "nom": "Mummified Grime",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#7C735B"
+  },
+  {
+    "id": "ap-spp-055",
+    "nom": "Murder Scene",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4A0E12"
+  },
+  {
+    "id": "ap-spp-056",
+    "nom": "Noble Skin",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E3B08F"
+  },
+  {
+    "id": "ap-spp-057",
+    "nom": "Nuclear Sunrise",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#EEDB32"
+  },
+  {
+    "id": "ap-spp-058",
+    "nom": "Occultist Cloak",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4B355C"
+  },
+  {
+    "id": "ap-spp-059",
+    "nom": "Ochre Clay",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#B8873A"
+  },
+  {
+    "id": "ap-spp-060",
+    "nom": "Orc Skin",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4B8C41"
+  },
+  {
+    "id": "ap-spp-061",
+    "nom": "Pallid Bone",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#DDD1AA"
+  },
+  {
+    "id": "ap-spp-062",
+    "nom": "Pastel Indigo",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#9A96C9"
+  },
+  {
+    "id": "ap-spp-063",
+    "nom": "Pastel Lavender",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C8B4D9"
+  },
+  {
+    "id": "ap-spp-064",
+    "nom": "Pastel Salmon",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E6A89A"
+  },
+  {
+    "id": "ap-spp-065",
+    "nom": "Pastel Seafoam",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#B8E1D1"
+  },
+  {
+    "id": "ap-spp-066",
+    "nom": "Pastel Yellow",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#F0E28C"
+  },
+  {
+    "id": "ap-spp-067",
+    "nom": "Peachy Flesh",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E7A37D"
+  },
+  {
+    "id": "ap-spp-068",
+    "nom": "Periwinkle Purple",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#7A70C8"
+  },
+  {
+    "id": "ap-spp-069",
+    "nom": "Plasmatic Bolt",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#9DF542"
+  },
+  {
+    "id": "ap-spp-070",
+    "nom": "Polished Silver",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#D3D5D8"
+  },
+  {
+    "id": "ap-spp-071",
+    "nom": "Poppy Red",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C9202B"
+  },
+  {
+    "id": "ap-spp-072",
+    "nom": "Princess Pink",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#E596C1"
+  },
+  {
+    "id": "ap-spp-073",
+    "nom": "Purple Alchemy",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#6D3A7C"
+  },
+  {
+    "id": "ap-spp-074",
+    "nom": "Purple Swarm",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#6A2A8A"
+  },
+  {
+    "id": "ap-spp-075",
+    "nom": "Raging Sea",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#21576B"
+  },
+  {
+    "id": "ap-spp-076",
+    "nom": "Rigor Mortis",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#C4C8A1"
+  },
+  {
+    "id": "ap-spp-077",
+    "nom": "Royal Robes",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#4F2D74"
+  },
+  {
+    "id": "ap-spp-078",
+    "nom": "Ruddy Fur",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8C4A32"
+  },
+  {
+    "id": "ap-spp-079",
+    "nom": "Runic Grey",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#7A8491"
+  },
+  {
+    "id": "ap-spp-080",
+    "nom": "Sand Golem",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#B89A63"
+  },
+  {
+    "id": "ap-spp-081",
+    "nom": "Satchel Brown",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#7B5433"
+  },
+  {
+    "id": "ap-spp-082",
+    "nom": "Shamrock Green",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#2DAA54"
+  },
+  {
+    "id": "ap-spp-083",
+    "nom": "Slaughter Red",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#B21F2D"
+  },
+  {
+    "id": "ap-spp-084",
+    "nom": "Talos Bronze",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#8B5E3C"
+  },
+  {
+    "id": "ap-spp-085",
+    "nom": "Thunderbird Blue",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#2F66B1"
+  },
+  {
+    "id": "ap-spp-086",
+    "nom": "Tidal Wave",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#1B7893"
+  },
+  {
+    "id": "ap-spp-087",
+    "nom": "Tyrian Navy",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#1F315A"
+  },
+  {
+    "id": "ap-spp-088",
+    "nom": "Warrior Skin",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#A46E4E"
+  },
+  {
+    "id": "ap-spp-089",
+    "nom": "Zealot Yellow",
+    "marque": "Army Painter",
+    "gamme": "Speedpaint",
+    "hex": "#F0C419"
+  },
+
+  {
+    "id": "ap-wfa-001",
+    "nom": "Alien Purple",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#5F4B8B"
+  },
+  {
+    "id": "ap-wfa-002",
+    "nom": "Ancient Stone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#B8AE9C"
+  },
+  {
+    "id": "ap-wfa-003",
+    "nom": "Ash Grey",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#A8AAAD"
+  },
+  {
+    "id": "ap-wfa-004",
+    "nom": "Banshee Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#6B4B3A"
+  },
+  {
+    "id": "ap-wfa-005",
+    "nom": "Barbarian Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#C98A5B"
+  },
+  {
+    "id": "ap-wfa-006",
+    "nom": "Battlefield Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#70503A"
+  },
+  {
+    "id": "ap-wfa-007",
+    "nom": "Beowulf Blue",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#3D63B8"
+  },
+  {
+    "id": "ap-wfa-008",
+    "nom": "Bony Spikes",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#D8C8A2"
+  },
+  {
+    "id": "ap-wfa-009",
+    "nom": "Bright Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#D4AF37"
+  },
+  {
+    "id": "ap-wfa-010",
+    "nom": "Burned Moss",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#5E6842"
+  },
+  {
+    "id": "ap-wfa-011",
+    "nom": "Chaotic Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#7E1F25"
+  },
+  {
+    "id": "ap-wfa-012",
+    "nom": "Company Grey",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#B2B3B6"
+  },
+  {
+    "id": "ap-wfa-013",
+    "nom": "Cursed Blade",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#8D939A"
+  },
+  {
+    "id": "ap-wfa-014",
+    "nom": "Daemonic Yellow",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#F2C230"
+  },
+  {
+    "id": "ap-wfa-015",
+    "nom": "Deep Grey",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#3A3A3C"
+  },
+  {
+    "id": "ap-wfa-016",
+    "nom": "Desert Yellow",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#C8A35A"
+  },
+  {
+    "id": "ap-wfa-017",
+    "nom": "Dragon Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#B22222"
+  },
+  {
+    "id": "ap-wfa-018",
+    "nom": "Dungeon Stone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#707070"
+  },
+  {
+    "id": "ap-wfa-019",
+    "nom": "Elven Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#E2B89A"
+  },
+  {
+    "id": "ap-wfa-020",
+    "nom": "Evil Chrome",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#B0B3B8"
+  },
+  {
+    "id": "ap-wfa-021",
+    "nom": "Fur Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#8B5B3C"
+  },
+  {
+    "id": "ap-wfa-022",
+    "nom": "Goblin Green",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#3D8B45"
+  },
+  {
+    "id": "ap-wfa-023",
+    "nom": "Greedy Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#C7A12D"
+  },
+  {
+    "id": "ap-wfa-024",
+    "nom": "Gun Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#6D7177"
+  },
+  {
+    "id": "ap-wfa-025",
+    "nom": "Hydra Turquoise",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#2E8D8C"
+  },
+  {
+    "id": "ap-wfa-026",
+    "nom": "Leather Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#7A5230"
+  },
+  {
+    "id": "ap-wfa-027",
+    "nom": "Matt Black",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#1A1A1A"
+  },
+  {
+    "id": "ap-wfa-028",
+    "nom": "Matt White",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#F8F8F8"
+  },
+  {
+    "id": "ap-wfa-029",
+    "nom": "Necrotic Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#C7C68F"
+  },
+  {
+    "id": "ap-wfa-030",
+    "nom": "Oak Brown",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#6B472C"
+  },
+  {
+    "id": "ap-wfa-031",
+    "nom": "Orc Skin",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#4E8B45"
+  },
+  {
+    "id": "ap-wfa-032",
+    "nom": "Plate Mail Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#A2A7AD"
+  },
+  {
+    "id": "ap-wfa-033",
+    "nom": "Pure Red",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#C42026"
+  },
+  {
+    "id": "ap-wfa-034",
+    "nom": "Royal Purple",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#5A3D8E"
+  },
+  {
+    "id": "ap-wfa-035",
+    "nom": "Skeleton Bone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#DCCB9A"
+  },
+  {
+    "id": "ap-wfa-036",
+    "nom": "Tanned Flesh",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#BA7A58"
+  },
+  {
+    "id": "ap-wfa-037",
+    "nom": "Ultramarine Blue",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#2457C5"
+  },
+  {
+    "id": "ap-wfa-038",
+    "nom": "Uniform Grey",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#6B6D70"
+  },
+  {
+    "id": "ap-wfa-039",
+    "nom": "Vampire Garments",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#5B1F2B"
+  },
+  {
+    "id": "ap-wfa-040",
+    "nom": "Warlock Purple",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic",
+    "hex": "#7A3D8A"
+  },
+
+  {
+    "id": "ap-wfm-001",
+    "nom": "Bright Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#D4AF37"
+  },
+  {
+    "id": "ap-wfm-002",
+    "nom": "Cobalt Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#4F6F8F"
+  },
+  {
+    "id": "ap-wfm-003",
+    "nom": "Death Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#5B5B5B"
+  },
+  {
+    "id": "ap-wfm-004",
+    "nom": "Evil Chrome",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#C8CCD1"
+  },
+  {
+    "id": "ap-wfm-005",
+    "nom": "Glittering Green",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#3E8A63"
+  },
+  {
+    "id": "ap-wfm-006",
+    "nom": "Greedy Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#C9A227"
+  },
+  {
+    "id": "ap-wfm-007",
+    "nom": "Gun Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#6D7175"
+  },
+  {
+    "id": "ap-wfm-008",
+    "nom": "Mithril",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#D8DCE2"
+  },
+  {
+    "id": "ap-wfm-009",
+    "nom": "Plate Mail Metal",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#9EA4AA"
+  },
+  {
+    "id": "ap-wfm-010",
+    "nom": "Red Copper",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#B46848"
+  },
+  {
+    "id": "ap-wfm-011",
+    "nom": "Rough Iron",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#5E5B58"
+  },
+  {
+    "id": "ap-wfm-012",
+    "nom": "Shining Silver",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#C9CED4"
+  },
+  {
+    "id": "ap-wfm-013",
+    "nom": "Tainted Gold",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#B89B3C"
+  },
+  {
+    "id": "ap-wfm-014",
+    "nom": "True Brass",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#B8893C"
+  },
+  {
+    "id": "ap-wfm-015",
+    "nom": "True Copper",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#C46C44"
+  },
+  {
+    "id": "ap-wfm-016",
+    "nom": "Weapon Bronze",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Metallics",
+    "hex": "#8C6239"
+  },
+
+  {
+    "id": "ap-wfw-001",
+    "nom": "Blue Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#415A8B"
+  },
+  {
+    "id": "ap-wfw-002",
+    "nom": "Dark Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#1E1E1E"
+  },
+  {
+    "id": "ap-wfw-003",
+    "nom": "Dark Wash",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#2B2B2B"
+  },
+  {
+    "id": "ap-wfw-004",
+    "nom": "Flesh Wash",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#9A6748"
+  },
+  {
+    "id": "ap-wfw-005",
+    "nom": "Green Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#556B38"
+  },
+  {
+    "id": "ap-wfw-006",
+    "nom": "Light Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#C59A63"
+  },
+  {
+    "id": "ap-wfw-007",
+    "nom": "Military Shader",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#70734A"
+  },
+  {
+    "id": "ap-wfw-008",
+    "nom": "Purple Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#5A426F"
+  },
+  {
+    "id": "ap-wfw-009",
+    "nom": "Red Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#7B2E32"
+  },
+  {
+    "id": "ap-wfw-010",
+    "nom": "Soft Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#92704A"
+  },
+  {
+    "id": "ap-wfw-011",
+    "nom": "Strong Tone",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#5F4734"
+  },
+  {
+    "id": "ap-wfw-012",
+    "nom": "Wash Medium",
+    "marque": "Army Painter",
+    "gamme": "Warpaints Fanatic Washes",
+    "hex": "#D7D4CD"
+  }
 ]
