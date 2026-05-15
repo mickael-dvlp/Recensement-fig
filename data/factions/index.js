@@ -117,3 +117,104 @@ export function getAllFigurines() {
     ...(data.guerriers ?? []).map((f) => ({ ...f, faction: nomFaction, type: "guerriers" })),
   ]);
 }
+
+// ---- CLASSIFICATION BIEN / MAL ----
+// Source de vérité unique : les noms doivent correspondre exactement aux clés de FACTIONS_DATA.
+
+export const FACTIONS_BIEN_GROUPES = [
+  {
+    titre: "LES COMPAGNIES HÉROÏQUES",
+    factions: [
+      "La Communauté de l'Anneau",
+      "La Compagnie de Thorin",
+      "Le Conseil Blanc",
+    ],
+  },
+  {
+    titre: "LES CONTRÉES OUBLIÉES",
+    factions: [
+      "La Comté",
+      "L'Eriador",
+      "Fangorn",
+      "Les Monts Brumeux",
+      "Le Carrock",
+      "Drúadan",
+      "Dunharrow",
+    ],
+  },
+  {
+    titre: "LES ROYAUMES DES HOMMES",
+    factions: [
+      "Númenor",
+      "L'Arnor",
+      "Le Gondor",
+      "Les Fiefs du Gondor",
+      "Le Rohan",
+      "Dale",
+      "Lacville",
+    ],
+  },
+  {
+    titre: "LES ENCLAVES ELFIQUES",
+    factions: ["Fondcombe", "La Lothlórien", "La Forêt Noire"],
+  },
+  {
+    titre: "LES FORTERESSES DES NAINS",
+    factions: [
+      "Khazad-dûm",
+      "Les Monts de Fer",
+      "Erebor",
+      "Erebor Reconquis",
+      "Erebor Restauré",
+    ],
+  },
+];
+
+export const FACTIONS_BIEN = FACTIONS_BIEN_GROUPES.flatMap((g) => g.factions);
+
+export const FACTIONS_MAL_GROUPES = [
+  {
+    titre: "LES FORTERESSES DE SAURON",
+    factions: [
+      "Barad-Dûr",
+      "Mordor",
+      "Angmar",
+      "Puissances Obscures de Dol Guldur",
+      "La Légion d'Azog",
+      "Les Chasseurs d'Azog",
+      "Carn-Dûm",
+    ],
+  },
+  {
+    titre: "LES HOMMES CORROMPUS",
+    factions: [
+      "Orientaux",
+      "Horde Serpent",
+      "Extrême-Harad",
+      "Khand",
+      "Les Corsaires d'Umbar",
+    ],
+  },
+  {
+    titre: "LES SERVITEURS DE L'OMBRE",
+    factions: [
+      "Isengard",
+      "Le Pays de Dun",
+      "Brigands de Sharcoûx",
+      "La Moria",
+      "Goblinville",
+    ],
+  },
+  {
+    titre: "LES CRÉATURES DES TÉNÈBRES",
+    factions: [
+      "Trolls des Montagnes",
+      "Les Sinistres Habitants de la Forêt Noire",
+      "Calamité du Nord",
+    ],
+  },
+];
+
+export const FACTIONS_MAL = FACTIONS_MAL_GROUPES.flatMap((g) => g.factions);
+
+export const FACTIONS = [...FACTIONS_BIEN, ...FACTIONS_MAL];

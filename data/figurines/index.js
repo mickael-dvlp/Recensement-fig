@@ -2,107 +2,15 @@
 // INDEX DES FIGURINES
 // ============================================================
 
-// Factions du camp du Bien, regroupées par thème
-export const FACTIONS_BIEN_GROUPES = [
-  {
-    titre: "LES COMPAGNIES HÉROÏQUES",
-    factions: [
-      "La Communauté de l'Anneau",
-      "La Compagnie de Thorin",
-      "Le Conseil Blanc",
-    ],
-  },
-  {
-    titre: "LES CONTRÉES OUBLIÉES",
-    factions: [
-      "La Comté",
-      "L'Eriador",
-      "Fangorn",
-      "Les Monts Brumeux",
-      "Le Carrock",
-      "Drúadan",
-      "Dunharrow",
-    ],
-  },
-  {
-    titre: "LES ROYAUMES DES HOMMES",
-    factions: [
-      "Númenor",
-      "L'Arnor",
-      "Le Gondor",
-      "Les Fiefs du Gondor",
-      "Le Rohan",
-      "Dale",
-      "Lacville",
-    ],
-  },
-  {
-    titre: "LES ENCLAVES ELFIQUES",
-    factions: ["Fondcombe", "La Lothlórien", "La Forêt Noire"],
-  },
-  {
-    titre: "LES FORTERESSES DES NAINS",
-    factions: [
-      "Khazad-dûm",
-      "Les Monts de Fer",
-      "Erebor",
-      "Erebor Reconquis",
-      "Erebor Restauré",
-    ],
-  },
-];
-
-// Liste plate dérivée des groupes (utilisée dans la page Accueil)
-export const FACTIONS_BIEN = FACTIONS_BIEN_GROUPES.flatMap((g) => g.factions);
-
-// Factions du camp du Mal, regroupées par thème
-export const FACTIONS_MAL_GROUPES = [
-  {
-    titre: "LES FORTERESSES DE SAURON",
-    factions: [
-      "Barad-Dûr",
-      "Mordor",
-      "Angmar",
-      "Puissances Obscures de Dol Guldur",
-      "La Légion d'Azog",
-      "Les Chasseurs d'Azog",
-      "Carn-Dûm",
-    ],
-  },
-  {
-    titre: "LES HOMMES CORROMPUS",
-    factions: [
-      "Orientaux",
-      "Horde Serpent",
-      "Extrême-Harad",
-      "Khand",
-      "Les Corsaires d'Umbar",
-    ],
-  },
-  {
-    titre: "LES SERVITEURS DE L'OMBRE",
-    factions: [
-      "Isengard",
-      "Le Pays de Dun",
-      "Brigands de Sharcoûx",
-      "La Moria",
-      "Goblinville",
-    ],
-  },
-  {
-    titre: "LES CRÉATURES DES TÉNÈBRES",
-    factions: [
-      "Trolls des Montagnes",
-      "Les Sinistres Habitants de la Forêt Noire",
-      "Calamité du Nord",
-    ],
-  },
-];
-
-// Liste plate dérivée des groupes
-export const FACTIONS_MAL = FACTIONS_MAL_GROUPES.flatMap((g) => g.factions);
-
-export const FACTIONS = [...FACTIONS_BIEN, ...FACTIONS_MAL];
+// Classification Bien/Mal définie dans factions/index.js (source unique)
+// pour garantir la cohérence avec les clés de FACTIONS_DATA.
+export {
+  FACTIONS_BIEN_GROUPES,
+  FACTIONS_BIEN,
+  FACTIONS_MAL_GROUPES,
+  FACTIONS_MAL,
+  FACTIONS,
+} from "@/data/factions/index.js";
 
 // Héros individuels (ordre alphabétique, articles ignorés) — total = nombre de modèles différents existants
 export const HEROES = [

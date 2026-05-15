@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Shield, Heart, Sword, Users } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur, getFigurinesCustom } from "@/lib/firestore";
+import { getInventaireUtilisateur, getFigurinesCustom, getMemos } from "@/lib/firestore";
 import { FACTIONS_BIEN, FACTIONS_MAL } from "@/data/figurines/index.js";
 import { getAllFigurines } from "@/data/factions/index.js";
 
@@ -55,14 +55,15 @@ export default function PageAccueil() {
     if (!utilisateur) return;
 
     async function chargerStats() {
-      const [inventaire, customs] = await Promise.all([
+      const [inventaire, customs, listeMemos] = await Promise.all([
         getInventaireUtilisateur(utilisateur.uid),
         getFigurinesCustom(utilisateur.uid),
+        getMemos(utilisateur.uid),
       ]);
 
       let totalPossedees = 0;
       let totalSouhaitees = 0;
-      let enProjet = 0;
+      const enProjet = listeMemos.length;
       const parFaction = {};
 
       for (const figurine of getAllFigurines()) {
@@ -76,9 +77,6 @@ export default function PageAccueil() {
         }
         if (donnees.souhaite) {
           totalSouhaitees += donnees.quantiteSouhaitee || 0;
-        }
-        if (donnees.enProjet) {
-          enProjet += 1;
         }
       }
 

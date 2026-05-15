@@ -28,6 +28,10 @@ function CartePeinture({ peinture, donneesUtilisateur, onMettreAJour }) {
   const souhaite = donneesUtilisateur?.souhaite ?? false;
   const [compteurVisible, setCompteurVisible] = useState(quantite > 0);
 
+  useEffect(() => {
+    setCompteurVisible(quantite > 0);
+  }, [quantite]);
+
   async function ajouter() {
     setCompteurVisible(true);
     await onMettreAJour(peinture.id, { enInventaire: true, quantiteInventaire: 1 });

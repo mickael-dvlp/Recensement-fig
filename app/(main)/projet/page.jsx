@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { GripVertical, Pencil, Trash2, Plus, X, Check } from "lucide-react";
+import { GripVertical, Pencil, Trash2, Plus, X, Check, Maximize2, Minimize2 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import {
   getMemos,
@@ -31,6 +31,9 @@ export default function PageProjet() {
 
   // Confirmation suppression
   const [memoAConfirmer, setMemoAConfirmer] = useState(null);
+
+  // Vue agrandie (tablette/ordinateur uniquement)
+  const [memoAgrandiId, setMemoAgrandiId] = useState(null);
 
   // Drag and drop
   const [dragIndex, setDragIndex] = useState(null);
@@ -62,13 +65,11 @@ export default function PageProjet() {
   async function ajouterMemo() {
     if (!titreMemo.trim() || enregistrement) return;
     setEnregistrement(true);
+    const titre = titreMemo.trim();
+    const texte = texteMemo.trim();
     try {
-      await creerMemo(utilisateur.uid, {
-        titre: titreMemo.trim(),
-        texte: texteMemo.trim(),
-      });
-      const listeMemos = await getMemos(utilisateur.uid);
-      setMemos(listeMemos);
+      const newId = await creerMemo(utilisateur.uid, { titre, texte });
+      setMemos((prev) => [...prev, { id: newId, titre, texte, ordre: -Date.now() }]);
       fermerModal();
     } finally {
       setEnregistrement(false);
@@ -79,6 +80,24 @@ export default function PageProjet() {
     setModalOuverte(false);
     setTitreMemo("");
     setTexteMemo("");
+  }
+
+  async function sauvegarderEtFermer() {
+    if (enregistrement) return;
+    const titre = titreMemo.trim() || "Sans Nom";
+    const texte = texteMemo.trim();
+    if (!titreMemo.trim() && !texte) {
+      fermerModal();
+      return;
+    }
+    setEnregistrement(true);
+    try {
+      const newId = await creerMemo(utilisateur.uid, { titre, texte });
+      setMemos((prev) => [...prev, { id: newId, titre, texte, ordre: -Date.now() }]);
+      fermerModal();
+    } finally {
+      setEnregistrement(false);
+    }
   }
 
   // ---- MODIFIER UN MÉMO ----
@@ -269,22 +288,77 @@ export default function PageProjet() {
                   {memo.texte}
                 </p>
               )}
+
+              {/* Bouton agrandir — tablette/ordinateur uniquement */}
+              <div className="hidden md:flex justify-end">
+                <button
+                  onClick={() => setMemoAgrandiId(memo.id)}
+                  aria-label="Agrandir le mémo"
+                  className="w-6 h-6 flex items-center justify-center text-[#3A3A3A] hover:text-[#6B6B6B] transition-colors"
+                >
+                  <Maximize2 size={12} />
+                </button>
+              </div>
             </div>
           ))}
         </div>
       )}
+
+      {/* VUE AGRANDIE — tablette/ordinateur uniquement */}
+      {memoAgrandiId && (() => {
+        const memo = memos.find((m) => m.id === memoAgrandiId);
+        if (!memo) return null;
+        return (
+          <div
+            className="fixed inset-0 z-60 hidden md:flex items-center justify-center p-8 bg-black/70 backdrop-blur-sm"
+            onClick={(e) => { if (e.target === e.currentTarget) setMemoAgrandiId(null); }}
+          >
+            <div className="w-full max-w-2xl max-h-[80vh] bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-8 flex flex-col gap-4 overflow-hidden">
+              <div className="flex items-center justify-between shrink-0">
+                <h2 className="text-[#F5F5F5] font-extrabold text-xl uppercase tracking-widest flex-1 mr-4">
+                  {memo.titre}
+                </h2>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => { setMemoAgrandiId(null); ouvrirEdition(memo); }}
+                    aria-label="Modifier le mémo"
+                    className="w-8 h-8 rounded-full bg-[#2A2A2A] flex items-center justify-center text-[#6B6B6B] hover:bg-[#C9A227]/20 hover:text-[#C9A227] transition-colors"
+                  >
+                    <Pencil size={14} />
+                  </button>
+                  <button
+                    onClick={() => setMemoAgrandiId(null)}
+                    aria-label="Réduire le mémo"
+                    className="w-8 h-8 rounded-full bg-[#2A2A2A] flex items-center justify-center text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                  >
+                    <Minimize2 size={14} />
+                  </button>
+                </div>
+              </div>
+              <div className="h-px bg-[#2A2A2A] shrink-0" />
+              {memo.texte ? (
+                <p className="text-[#D4D4D4] text-base leading-relaxed whitespace-pre-wrap overflow-y-auto flex-1">
+                  {memo.texte}
+                </p>
+              ) : (
+                <p className="text-[#3A3A3A] text-sm italic">Aucun contenu.</p>
+              )}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* MODAL CRÉATION */}
       {modalOuverte && (
         <div
           className="fixed inset-0 z-60 flex items-center justify-center px-4 bg-black/70 backdrop-blur-sm"
           onClick={(e) => {
-            if (e.target === e.currentTarget) fermerModal();
+            if (e.target === e.currentTarget) sauvegarderEtFermer();
           }}
         >
-          <div className="w-full max-w-md bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 flex flex-col gap-4">
+          <div className="w-full max-w-md md:max-w-2xl bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 md:p-10 flex flex-col gap-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-[#F5F5F5] font-bold uppercase tracking-widest text-sm">
+              <h2 className="text-[#F5F5F5] font-bold uppercase tracking-widest text-sm md:text-base">
                 Nouveau mémo
               </h2>
               <button
@@ -309,7 +383,7 @@ export default function PageProjet() {
               onChange={(e) => setTexteMemo(e.target.value)}
               placeholder="Contenu du mémo…"
               rows={4}
-              className="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#D4D4D4] text-sm placeholder:text-[#3A3A3A] focus:outline-none focus:border-[#C9A227]/50 resize-none transition-colors"
+              className="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#D4D4D4] text-sm placeholder:text-[#3A3A3A] focus:outline-none focus:border-[#C9A227]/50 resize-none transition-colors md:min-h-64"
             />
 
             <button
@@ -331,9 +405,9 @@ export default function PageProjet() {
             if (e.target === e.currentTarget) setMemoEdite(null);
           }}
         >
-          <div className="w-full max-w-md bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 flex flex-col gap-4">
+          <div className="w-full max-w-md md:max-w-2xl bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 md:p-10 flex flex-col gap-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-[#F5F5F5] font-bold uppercase tracking-widest text-sm">
+              <h2 className="text-[#F5F5F5] font-bold uppercase tracking-widest text-sm md:text-base">
                 Modifier le mémo
               </h2>
               <button
@@ -358,7 +432,7 @@ export default function PageProjet() {
               onChange={(e) => setTexteEdit(e.target.value)}
               placeholder="Contenu du mémo…"
               rows={4}
-              className="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#D4D4D4] text-sm placeholder:text-[#3A3A3A] focus:outline-none focus:border-[#C9A227]/50 resize-none transition-colors"
+              className="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-xl px-4 py-3 text-[#D4D4D4] text-sm placeholder:text-[#3A3A3A] focus:outline-none focus:border-[#C9A227]/50 resize-none transition-colors md:min-h-64"
             />
 
             <button

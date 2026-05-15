@@ -7,7 +7,7 @@
 // et cœur pour souhaitée. Style inspiré du catalogue officiel GW.
 
 import { Heart, Plus, Minus, X, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function FigurineRow({
   figurine,
@@ -21,6 +21,10 @@ export default function FigurineRow({
   const quantiteSouhaitee = donneesUtilisateur?.quantiteSouhaitee ?? 0;
   const [compteurVisible, setCompteurVisible] = useState(quantite > 0);
   const [confirmerSuppression, setConfirmerSuppression] = useState(false);
+
+  useEffect(() => {
+    setCompteurVisible(quantite > 0);
+  }, [quantite]);
 
   async function ajouterAInventaire() {
     setCompteurVisible(true);
