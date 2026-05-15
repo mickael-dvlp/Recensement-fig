@@ -17,6 +17,9 @@ const uncialAntiqua = Uncial_Antiqua({
 export const metadata = {
   title: "MESBG - Gestion de Figurines",
   description: "Recensez et gérez votre collection de figurines Middle-Earth Strategy Battle Game",
+  icons: {
+    icon: "/image/favicon.ico",
+  },
 };
 
 export const viewport = {
