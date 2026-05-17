@@ -18,13 +18,23 @@ const LE_ROHAN = {
     },
     {
       id: "roh-h-003",
-      nom: "Helm Poing de Marteau, Roi du Rohan (Cheval Caparaçonné)",
+      nom: "Helm Poing de Marteau, Roi du Rohan (Cheval Caparaçonné) Old Version",
       image: "/images/factions/rohan/roh-h-003.avif",
     },
     {
       id: "roh-h-004",
-      nom: "Helm Poing de Marteau, Roi du Rohan (Pied)",
+      nom: "Helm Poing de Marteau, Roi du Rohan (Pied) Old Version",
       image: "/images/factions/rohan/roh-h-004.avif",
+    },
+    {
+      id: "roh-h-061",
+      nom: "Helm Poing de Marteau, Roi du Rohan (Cheval Caparaçonné) New Version",
+      image: "/images/factions/rohan/roh-h-061.avif",
+    },
+    {
+      id: "roh-h-060",
+      nom: "Helm Poing de Marteau, Roi du Rohan (Pied) New Version",
+      image: "/images/factions/rohan/roh-h-060.avif",
     },
     {
       id: "roh-h-005",
