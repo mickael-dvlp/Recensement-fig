@@ -7,11 +7,11 @@ const EREBOR = {
 
   heros: [
     { id: "erb-h-001", nom: "Capitaine d'Erebor",          image: "/images/factions/erebor/erb-h-001.avif" },
-    { id: "erb-h-002", nom: "Thrór, Roi Sous la Montagne", image: "/images/factions/erebor/erb-h-002.avif" },
-    { id: "erb-h-003", nom: "Thráin, fils de Thrór",       image: "/images/factions/erebor/erb-h-003.avif" },
-    { id: "erb-h-004", nom: "Jeune Thorin Écu-de-Chêne",   image: "/images/factions/erebor/erb-h-004.avif" },
-    { id: "erb-h-005", nom: "Balin le Jeune Nain",         image: "/images/factions/erebor/erb-h-005.avif" },
-    { id: "erb-h-006", nom: "Dwalin le Jeune Nain",        image: "/images/factions/erebor/erb-h-006.avif" },
+    { id: "erb-h-002", nom: "Thrór, Roi Sous la Montagne", image: "/images/factions/erebor/erb-h-002.avif", lienHero: "Thror" },
+    { id: "erb-h-003", nom: "Thráin, fils de Thrór",       image: "/images/factions/erebor/erb-h-003.avif", lienHero: "Thrain" },
+    { id: "erb-h-004", nom: "Jeune Thorin Écu-de-Chêne",   image: "/images/factions/erebor/erb-h-004.avif", lienHero: "Thorin" },
+    { id: "erb-h-005", nom: "Balin le Jeune Nain",         image: "/images/factions/erebor/erb-h-005.avif", lienHero: "Balin" },
+    { id: "erb-h-006", nom: "Dwalin le Jeune Nain",        image: "/images/factions/erebor/erb-h-006.avif", lienHero: "Dwalin" },
     { id: "erb-h-007", nom: "Roi Nain d'Erebor",           image: "/images/factions/erebor/erb-h-007.avif" },
     { id: "erb-h-008", nom: "Capitaine des Mornes-Martels", image: "/images/factions/erebor/erb-h-008.avif" },
   ],

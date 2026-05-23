@@ -6,7 +6,7 @@ const DUNHARROW = {
   nom: "Dunharrow",
 
   heros: [
-    { id: "dun-h-001", nom: "Le Roi des Morts", image: "/images/factions/dunharrow/dun-h-001.avif" },
+    { id: "dun-h-001", nom: "Le Roi des Morts", image: "/images/factions/dunharrow/dun-h-001.avif", lienHero: "Le Roi des Morts" },
     { id: "dun-h-002", nom: "Héraut des Morts", image: "/images/factions/dunharrow/dun-h-002.avif" },
   ],
 

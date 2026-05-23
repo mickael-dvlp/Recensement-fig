@@ -6,7 +6,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft, Swords } from "lucide-react";
+import { ChevronLeft, Swords, ExternalLink } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import {
   getInventaireUtilisateur,
@@ -16,6 +16,7 @@ import {
   supprimerFigurineCustom,
 } from "@/lib/firestore";
 import FACTIONS_DATA from "@/data/factions/index.js";
+import TOUS_LES_HEROS from "@/data/heros/index.js";
 import FigurineRow from "@/components/figurines/FigurineRow";
 import CarteAjoutCustom from "@/components/figurines/CarteAjoutCustom";
 
@@ -110,9 +111,19 @@ export default function PageFaction() {
 
   const { heros, guerriers } = factionData;
 
+  function quantiteHeroLie(lienHero) {
+    const hero = TOUS_LES_HEROS.find((h) => h.nom === lienHero);
+    if (!hero) return 0;
+    return hero.variantes.reduce((s, v) => s + (inventaire[v.id]?.quantiteInventaire ?? 0), 0);
+  }
+
   function filtrerFigs(liste) {
     if (!filtre) return liste;
     return liste.filter((fig) => {
+      if (fig.lienHero) {
+        if (filtre === "inventaire") return quantiteHeroLie(fig.lienHero) > 0;
+        return false;
+      }
       const inv = inventaire[fig.inventaireId ?? fig.id];
       if (filtre === "inventaire") return (inv?.quantiteInventaire ?? 0) > 0;
       if (filtre === "souhaite") return inv?.souhaite === true;
@@ -191,14 +202,41 @@ export default function PageFaction() {
                 Héros
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                {herosFiltres.map((fig) => (
-                  <FigurineRow
-                    key={fig.id}
-                    figurine={fig}
-                    donneesUtilisateur={inventaire[fig.inventaireId ?? fig.id]}
-                    onMettreAJour={mettreAJour}
-                  />
-                ))}
+                {herosFiltres.map((fig) =>
+                  fig.lienHero ? (
+                    <button
+                      key={fig.id}
+                      onClick={() => router.push(`/heroes/${encodeURIComponent(fig.lienHero)}`)}
+                      className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col hover:border-[#C9A227]/40 transition-colors text-left w-full"
+                    >
+                      <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden">
+                        {fig.image ? (
+                          <img src={fig.image} alt={fig.nom} className="max-w-full max-h-full object-contain p-3" />
+                        ) : (
+                          <div className="w-12 h-12 rounded-full border border-[#2A2A2A] bg-[#1A1A1A]" />
+                        )}
+                      </div>
+                      <div className="flex flex-col gap-1.5 px-2 py-2 flex-1">
+                        <p className="text-[#F5F5F5] font-bold text-sm leading-snug text-center">{fig.nom}</p>
+                        <div className="flex items-center justify-center gap-1 mt-auto pt-1">
+                          {quantiteHeroLie(fig.lienHero) > 0 ? (
+                            <span className="text-[#C9A227] font-bold text-sm">{quantiteHeroLie(fig.lienHero)}</span>
+                          ) : null}
+                          <span className="flex items-center gap-1 text-[#6B6B6B] text-[10px] font-semibold uppercase tracking-wide">
+                            <ExternalLink size={10} /> Gérer
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  ) : (
+                    <FigurineRow
+                      key={fig.id}
+                      figurine={fig}
+                      donneesUtilisateur={inventaire[fig.inventaireId ?? fig.id]}
+                      onMettreAJour={mettreAJour}
+                    />
+                  )
+                )}
                 {herosCustomFiltres.map((fig) => (
                   <FigurineRow
                     key={fig.id}

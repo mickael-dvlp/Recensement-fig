@@ -6,13 +6,13 @@ const FIEFS_DU_GONDOR = {
   nom: "Les Fiefs du Gondor",
 
   heros: [
-    { id: "fdg-h-001", nom: "Angbor",                                                         image: "/images/factions/fiefs-du-gondor/fdg-h-001.avif" },
+    { id: "fdg-h-001", nom: "Angbor",                                                         image: "/images/factions/fiefs-du-gondor/fdg-h-001.avif", lienHero: "Angbor" },
     { id: "fdg-h-002", nom: "Capitaine de Dol Amroth (Monté + Lance de Cavalerie + Bouclier)",image: "/images/factions/fiefs-du-gondor/fdg-h-002.avif" },
     { id: "fdg-h-003", nom: "Capitaine de Dol Amroth (Pied)",                                 image: "/images/factions/fiefs-du-gondor/fdg-h-003.avif" },
-    { id: "fdg-h-004", nom: "Duinhir",                                                        image: "/images/factions/fiefs-du-gondor/fdg-h-004.avif" },
-    { id: "fdg-h-005", nom: "Forlong le Gros",                                                image: "/images/factions/fiefs-du-gondor/fdg-h-005.avif" },
-    { id: "fdg-h-006", nom: "Prince Imrahil (Monté)",                                         image: "/images/factions/fiefs-du-gondor/fdg-h-006.avif" },
-    { id: "fdg-h-007", nom: "Prince Imrahil (Pied)",                                          image: "/images/factions/fiefs-du-gondor/fdg-h-007.avif" },
+    { id: "fdg-h-004", nom: "Duinhir",                                                        image: "/images/factions/fiefs-du-gondor/fdg-h-004.avif", lienHero: "Duinhir" },
+    { id: "fdg-h-005", nom: "Forlong le Gros",                                                image: "/images/factions/fiefs-du-gondor/fdg-h-005.avif", lienHero: "Forlong" },
+    { id: "fdg-h-006", nom: "Prince Imrahil (Monté)",                                         image: "/images/factions/fiefs-du-gondor/fdg-h-006.avif", lienHero: "Imrahil" },
+    { id: "fdg-h-007", nom: "Prince Imrahil (Pied)",                                          image: "/images/factions/fiefs-du-gondor/fdg-h-007.avif", lienHero: "Imrahil" },
   ],
 
   guerriers: [

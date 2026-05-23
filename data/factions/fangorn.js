@@ -6,9 +6,9 @@ const FANGORN = {
   nom: "Fangorn",
 
   heros: [
-    { id: "fan-h-001", nom: "Sylvebarbe", image: "/images/factions/fangorn/fan-h-001.avif" },
-    { id: "fan-h-002", nom: "Osdehétu",   image: "/images/factions/fangorn/fan-h-002.avif" },
-    { id: "fan-h-003", nom: "Vifsorbier", image: "/images/factions/fangorn/fan-h-003.avif" },
+    { id: "fan-h-001", nom: "Sylvebarbe", image: "/images/factions/fangorn/fan-h-001.avif", lienHero: "Sylvebarbe" },
+    { id: "fan-h-002", nom: "Osdehétu",   image: "/images/factions/fangorn/fan-h-002.avif", lienHero: "Osdehétu" },
+    { id: "fan-h-003", nom: "Vifsorbier", image: "/images/factions/fangorn/fan-h-003.avif", lienHero: "Vifsorbier" },
   ],
 
   guerriers: [

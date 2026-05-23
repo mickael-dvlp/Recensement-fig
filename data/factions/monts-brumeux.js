@@ -6,7 +6,7 @@ const LES_MONTS_BRUMEUX = {
   nom: "Les Monts Brumeux",
 
   heros: [
-    { id: "mbu-h-001", nom: "Gwaihir", image: "/images/factions/monts-brumeux/mbu-h-001.avif" },
+    { id: "mbu-h-001", nom: "Gwaihir", image: "/images/factions/monts-brumeux/mbu-h-001.avif", lienHero: "Gwaihir" },
   ],
 
   guerriers: [

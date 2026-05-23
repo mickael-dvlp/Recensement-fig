@@ -6,11 +6,11 @@ const MORIA = {
   nom: "La Moria",
 
   heros: [
-    { id: "mri-h-001", nom: "Le Balrog",                                            image: "/images/factions/moria/mri-h-001.avif" },
-    { id: "mri-h-002", nom: "Durbûrz, le Roi Gobelin de la Moria",                  image: "/images/factions/moria/mri-h-002.avif" },
-    { id: "mri-h-003", nom: "Grôblog",                                              image: "/images/factions/moria/mri-h-003.avif" },
-    { id: "mri-h-004", nom: "Drûzhag le Belluaire",                                 image: "/images/factions/moria/mri-h-004.avif" },
-    { id: "mri-h-005", nom: "Ashrâk",                                               image: "/images/factions/moria/mri-h-005.avif" },
+    { id: "mri-h-001", nom: "Le Balrog",                                            image: "/images/factions/moria/mri-h-001.avif", lienHero: "Le Balrog" },
+    { id: "mri-h-002", nom: "Durbûrz, le Roi Gobelin de la Moria",                  image: "/images/factions/moria/mri-h-002.avif", lienHero: "Durburz" },
+    { id: "mri-h-003", nom: "Grôblog",                                              image: "/images/factions/moria/mri-h-003.avif", lienHero: "Groblog" },
+    { id: "mri-h-004", nom: "Drûzhag le Belluaire",                                 image: "/images/factions/moria/mri-h-004.avif", lienHero: "Druzhag" },
+    { id: "mri-h-005", nom: "Ashrâk",                                               image: "/images/factions/moria/mri-h-005.avif", lienHero: "Ashrak" },
     { id: "mri-h-006", nom: "Capitaine Gobelin de la Moria",                        image: "/images/factions/moria/mri-h-006.avif" },
     { id: "mri-h-007", nom: "Capitaine Gobelin de la Moria (Bouclier)",              image: "/images/factions/moria/mri-h-007.avif" },
     { id: "mri-h-008", nom: "Capitaine Gobelin de la Moria (Arc)",                  image: "/images/factions/moria/mri-h-008.avif" },
@@ -19,7 +19,7 @@ const MORIA = {
     { id: "mri-h-011", nom: "Chaman des Boucliers Noirs de la Moria",               image: "/images/factions/moria/mri-h-011.avif" },
     { id: "mri-h-012", nom: "Dragon",                                               image: "/images/factions/moria/mri-h-012.avif" },
     { id: "mri-h-013", nom: "Wyrm des Cavernes",                                    image: "/images/factions/moria/mri-h-013.avif" },
-    { id: "mri-h-014", nom: "Le Guetteur de l'Eau",                                 image: "/images/factions/moria/mri-h-014.avif" },
+    { id: "mri-h-014", nom: "Le Guetteur de l'Eau",                                 image: "/images/factions/moria/mri-h-014.avif", lienHero: "Le Guetteur de l'Eau" },
   ],
 
   guerriers: [

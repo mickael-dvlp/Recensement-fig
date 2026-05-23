@@ -6,7 +6,7 @@ const DRUADAN = {
   nom: "Drúadan",
 
   heros: [
-    { id: "dru-h-001", nom: "Ghân-buri-Ghân", image: "/images/factions/druadan/dru-h-001.avif" },
+    { id: "dru-h-001", nom: "Ghân-buri-Ghân", image: "/images/factions/druadan/dru-h-001.avif", lienHero: "Ghan-Buri-Ghan" },
   ],
 
   guerriers: [
