@@ -83,7 +83,9 @@ export default function PageInscription() {
       router.replace("/accueil");
     } catch (err) {
       const code = err?.code;
-      if (code === "auth/email-already-in-use") {
+      if (code === "pseudo/already-in-use") {
+        setErreur("Ce pseudo est déjà utilisé.");
+      } else if (code === "auth/email-already-in-use") {
         setErreur("Cet email est déjà utilisé.");
       } else if (code === "auth/invalid-email") {
         setErreur("Adresse email invalide.");

@@ -11,19 +11,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Shield, Sword, Palette, User } from "lucide-react";
 import clsx from "clsx";
+import { useAuth } from "@/lib/auth-context";
 
-// Définition des 5 onglets de navigation
 const ONGLETS = [
   { href: "/accueil", label: "Accueil", Icon: Home },
-  { href: "/figurines", label: "Figurines", Icon: Shield }, // Bouclier = figurines/armée
-  { href: "/projet", label: "Projet", Icon: Sword }, // Épée = projet en cours
-  { href: "/peinture", label: "Peinture", Icon: Palette }, // Palette = peintures
+  { href: "/figurines", label: "Figurines", Icon: Shield },
+  { href: "/projet", label: "Projet", Icon: Sword },
+  { href: "/peinture", label: "Peinture", Icon: Palette },
   { href: "/profil", label: "Profil", Icon: User },
 ];
 
 export default function BottomNav() {
-  // Récupère le chemin actuel pour surligner l'onglet actif
   const pathname = usePathname();
+  const { nbDemandesAmis } = useAuth();
 
   // sticky bottom-0 : la nav reste collée en bas du conteneur parent.
   // z-40 : en dessous de la modal (z-[60]) pour ne jamais la masquer.
@@ -34,26 +34,27 @@ export default function BottomNav() {
 
       <div className="flex items-center justify-around px-4 py-[14px]">
         {ONGLETS.map(({ href, label, Icon }) => {
-          // Vérifie si cet onglet est actif
           const actif = pathname.startsWith(href);
+          const badge = href === "/profil" && nbDemandesAmis > 0;
 
           return (
             <Link
               key={href}
               href={href}
               className={clsx(
-                // Styles communs
                 "flex flex-col items-center gap-1 px-3 py-0.5 rounded-xl transition-all duration-200 min-w-14",
-                // Onglet actif : icône et texte dorés
-                actif
-                  ? "text-[#C9A227]"
-                  : "text-[#6B6B6B] hover:text-[#D4D4D4]",
+                actif ? "text-[#C9A227]" : "text-[#6B6B6B] hover:text-[#D4D4D4]",
               )}
             >
-              {/* Icône de l'onglet */}
-              <Icon size={16} strokeWidth={actif ? 2.5 : 1.5} />
+              <div className="relative">
+                <Icon size={16} strokeWidth={actif ? 2.5 : 1.5} />
+                {badge && (
+                  <span className="absolute -top-1.5 -right-1.5 min-w-3.5 h-3.5 rounded-full bg-red-500 flex items-center justify-center text-[9px] font-bold text-white px-0.5">
+                    {nbDemandesAmis > 9 ? "9+" : nbDemandesAmis}
+                  </span>
+                )}
+              </div>
 
-              {/* Label de l'onglet */}
               <span
                 className={clsx(
                   "text-[10px] font-semibold uppercase tracking-wider",
@@ -63,7 +64,6 @@ export default function BottomNav() {
                 {label}
               </span>
 
-              {/* Point indicateur sous l'onglet actif */}
               {actif && (
                 <div className="w-1 h-1 rounded-full bg-[#C9A227] -mt-0.5" />
               )}

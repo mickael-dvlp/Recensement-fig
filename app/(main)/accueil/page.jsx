@@ -17,6 +17,55 @@ import { getInventaireUtilisateur, getFigurinesCustom, getMemos } from "@/lib/fi
 import { FACTIONS_BIEN, FACTIONS_MAL } from "@/data/figurines/index.js";
 import { getAllFigurines } from "@/data/factions/index.js";
 
+const IMAGES_FACTIONS = {
+  // Camp du Bien
+  "La Communauté de l'Anneau":  "/images/accueil/communaute.avif",
+  "La Compagnie de Thorin":     "/images/accueil/compagnie_de_thorin.avif",
+  "Le Conseil Blanc":           "/images/accueil/conseil-blanc.avif",
+  "La Comté":                   "/images/accueil/comte.avif",
+  "L'Eriador":                  "/images/accueil/eriador.avif",
+  "Fangorn":                    "/images/accueil/fangorn.avif",
+  "Les Monts Brumeux":          "/images/accueil/mont-brumeux.avif",
+  "Le Carrock":                 "/images/accueil/carrock.avif",
+  "Drúadan":                    "/images/accueil/druadan.avif",
+  "Dunharrow":                  "/images/accueil/dunharrow.avif",
+  "Númenor":                    "/images/accueil/numenor.avif",
+  "L'Arnor":                    "/images/accueil/arnor.avif",
+  "Le Gondor":                  "/images/accueil/gondor.avif",
+  "Les Fiefs du Gondor":        "/images/accueil/fief-du-gondor.avif",
+  "Le Rohan":                   "/images/accueil/rohan.avif",
+  "Dale":                       "/images/accueil/dale.avif",
+  "Fondcombe":                  "/images/accueil/fondcombe.avif",
+  "La Lothlórien":              "/images/accueil/lothlorien.avif",
+  "La Forêt Noire":             "/images/accueil/foret-noire.avif",
+  "Khazad-dûm":                 "/images/accueil/khazad-dum.avif",
+  "Les Monts de Fer":           "/images/accueil/mont-de-fer.avif",
+  "Erebor":                     "/images/accueil/erebor.avif",
+  "Erebor Reconquis":           "/images/accueil/erebor-reconquis.avif",
+  "Erebor Restauré":            "/images/accueil/erebor-restaure.avif",
+  // Camp du Mal
+  "Barad-Dûr":                              "/images/accueil/barad-dur.avif",
+  "Mordor":                                 "/images/accueil/mordor.avif",
+  "Angmar":                                 "/images/accueil/angmar.avif",
+  "Puissances Obscures de Dol Guldur":      "/images/accueil/dol-guldur.avif",
+  "La Légion d'Azog":                       "/images/accueil/legion-d-azog.avif",
+  "Les Chasseurs d'Azog":                   "/images/accueil/chasseur-d-azog.avif",
+  "Carn-Dûm":                               "/images/accueil/carn-dum.avif",
+  "Horde Serpent":                          "/images/accueil/horde-serpent.avif",
+  "Extrême-Harad":                          "/images/accueil/extreme-harad.avif",
+  "Khand":                                  "/images/accueil/khand.avif",
+  "Les Corsaires d'Umbar":                  "/images/accueil/umbar.avif",
+  "Isengard":                               "/images/accueil/isengard.avif",
+  "Le Pays de Dun":                         "/images/accueil/pays-de-dun.avif",
+  "La Moria":                               "/images/accueil/moria.avif",
+  "Goblinville":                            "/images/accueil/goblinville.avif",
+  "Les Sinistres Habitants de la Forêt Noire": "/images/accueil/sinistres-habitants.avif",
+  "Calamité du Nord":                       "/images/accueil/calamite-du-nord.avif",
+  "Lacville":                               "/images/accueil/lacville.avif",
+  "Brigands de Sharcoûx":                   "/images/accueil/brigand-de-sharcoux.avif",
+  "Trolls des Montagnes":                   "/images/accueil/troll-des-montagnes.avif",
+};
+
 /**
  * Carte de statistique réutilisable — contenu centré
  */
@@ -40,7 +89,7 @@ function CarteStatistique({ icone, label, valeur, couleur }) {
 }
 
 export default function PageAccueil() {
-  const { utilisateur, profil } = useAuth();
+  const { utilisateur } = useAuth();
 
   // Stats calculées depuis l'inventaire Firestore
   const [stats, setStats] = useState({
@@ -161,19 +210,31 @@ export default function PageAccueil() {
             Bien
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {FACTIONS_BIEN.map((faction) => (
-              <div
-                key={faction}
-                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
-              >
-                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
-                  {faction}
-                </span>
-                <span className="text-[#6B6B6B] text-lg font-semibold text-center">
-                  {chargement ? "…" : stats.parFaction[faction] || 0}
-                </span>
-              </div>
-            ))}
+            {FACTIONS_BIEN.map((faction) => {
+              const img = IMAGES_FACTIONS[faction];
+              return (
+                <div
+                  key={faction}
+                  className="relative overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
+                >
+                  {img && (
+                    <Image
+                      src={img}
+                      alt=""
+                      fill
+                      className="object-cover opacity-30"
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                    />
+                  )}
+                  <span className="relative text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center drop-shadow">
+                    {faction}
+                  </span>
+                  <span className="relative text-[#6B6B6B] text-lg font-semibold text-center">
+                    {chargement ? "…" : stats.parFaction[faction] || 0}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
           {/* Séparateur */}
@@ -184,19 +245,31 @@ export default function PageAccueil() {
             Mal
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {FACTIONS_MAL.map((faction) => (
-              <div
-                key={faction}
-                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
-              >
-                <span className="text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
-                  {faction}
-                </span>
-                <span className="text-[#6B6B6B] text-lg font-semibold text-center">
-                  {chargement ? "…" : stats.parFaction[faction] || 0}
-                </span>
-              </div>
-            ))}
+            {FACTIONS_MAL.map((faction) => {
+              const img = IMAGES_FACTIONS[faction];
+              return (
+                <div
+                  key={faction}
+                  className="relative overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
+                >
+                  {img && (
+                    <Image
+                      src={img}
+                      alt=""
+                      fill
+                      className="object-cover opacity-30"
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                    />
+                  )}
+                  <span className="relative text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center drop-shadow">
+                    {faction}
+                  </span>
+                  <span className="relative text-[#6B6B6B] text-lg font-semibold text-center">
+                    {chargement ? "…" : stats.parFaction[faction] || 0}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </section>
 

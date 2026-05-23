@@ -20,19 +20,58 @@ import {
   Globe,
   Moon,
   Sun,
+  Users,
+  Pencil,
+  X,
+  Check,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useTheme } from "@/lib/theme-context";
+import { modifierPseudo } from "@/lib/firestore";
 
 export default function PageProfil() {
-  const { utilisateur, profil, seDeconnecter } = useAuth();
+  const { utilisateur, profil, rafraichirProfil, seDeconnecter } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const router = useRouter();
   const [chargementDeconnexion, setChargementDeconnexion] = useState(false);
+  const [editPseudo, setEditPseudo] = useState(false);
+  const [nouveauPseudo, setNouveauPseudo] = useState("");
+  const [savingPseudo, setSavingPseudo] = useState(false);
+  const [erreurPseudo, setErreurPseudo] = useState("");
 
   /**
    * Déconnecte l'utilisateur et redirige vers la connexion
    */
+  // Délai restant avant prochain changement de pseudo (en jours)
+  const joursRestants = (() => {
+    if (!profil?.dernierChangementPseudo) return 0;
+    const dernierTs = profil.dernierChangementPseudo?.seconds
+      ? profil.dernierChangementPseudo.seconds * 1000
+      : new Date(profil.dernierChangementPseudo).getTime();
+    const diff = 7 * 24 * 3600 * 1000 - (Date.now() - dernierTs);
+    return diff > 0 ? Math.ceil(diff / (24 * 3600 * 1000)) : 0;
+  })();
+
+  async function handleSauvegarderPseudo() {
+    if (!nouveauPseudo.trim() || savingPseudo) return;
+    setErreurPseudo("");
+    setSavingPseudo(true);
+    try {
+      await modifierPseudo(utilisateur.uid, profil.pseudo, nouveauPseudo.trim());
+      await rafraichirProfil();
+      setEditPseudo(false);
+      setNouveauPseudo("");
+    } catch (err) {
+      setErreurPseudo(
+        err.message === "pseudo_indisponible"
+          ? "Ce pseudo est déjà utilisé."
+          : "Une erreur est survenue."
+      );
+    } finally {
+      setSavingPseudo(false);
+    }
+  }
+
   async function handleDeconnexion() {
     setChargementDeconnexion(true);
     try {
@@ -78,6 +117,58 @@ export default function PageProfil() {
             Mon compte
           </h2>
           <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden">
+            {/* Pseudo modifiable */}
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-[#2A2A2A]">
+              <User size={18} className="text-[#6B6B6B]" />
+              <div className="flex-1 min-w-0">
+                <p className="text-[#6B6B6B] text-xs">Pseudo</p>
+                {editPseudo ? (
+                  <div className="flex flex-col gap-1.5 mt-1">
+                    <input
+                      type="text"
+                      value={nouveauPseudo}
+                      onChange={(e) => { setNouveauPseudo(e.target.value); setErreurPseudo(""); }}
+                      onKeyDown={(e) => e.key === "Enter" && handleSauvegarderPseudo()}
+                      placeholder={pseudo}
+                      autoFocus
+                      className="bg-[#0D0D0D] border border-[#3A3A3A] rounded-lg px-3 py-1.5 text-[#F5F5F5] text-sm focus:outline-none focus:border-[#C9A227]/50 transition-colors"
+                    />
+                    {erreurPseudo && <p className="text-red-400 text-xs">{erreurPseudo}</p>}
+                  </div>
+                ) : (
+                  <p className="text-[#F5F5F5] text-sm font-medium">{pseudo}</p>
+                )}
+              </div>
+              {joursRestants > 0 && !editPseudo ? (
+                <span className="text-[10px] text-[#6B6B6B] shrink-0">
+                  {joursRestants}j restant{joursRestants > 1 ? "s" : ""}
+                </span>
+              ) : editPseudo ? (
+                <div className="flex items-center gap-1 shrink-0">
+                  <button
+                    onClick={handleSauvegarderPseudo}
+                    disabled={!nouveauPseudo.trim() || savingPseudo}
+                    className="w-7 h-7 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E]/20 transition-colors disabled:opacity-40"
+                  >
+                    {savingPseudo ? <div className="w-3 h-3 border-2 border-[#22C55E] border-t-transparent rounded-full animate-spin" /> : <Check size={12} />}
+                  </button>
+                  <button
+                    onClick={() => { setEditPseudo(false); setNouveauPseudo(""); setErreurPseudo(""); }}
+                    className="w-7 h-7 rounded-full bg-[#2A2A2A] flex items-center justify-center text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+                  >
+                    <X size={12} />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => { setEditPseudo(true); setNouveauPseudo(""); }}
+                  className="shrink-0 w-7 h-7 rounded-full bg-[#2A2A2A] flex items-center justify-center text-[#6B6B6B] hover:text-[#C9A227] transition-colors"
+                >
+                  <Pencil size={12} />
+                </button>
+              )}
+            </div>
+
             {/* Email */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-[#2A2A2A]">
               <User size={18} className="text-[#6B6B6B]" />
@@ -207,11 +298,22 @@ export default function PageProfil() {
 
             <button
               onClick={() => router.push("/projet")}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#2A2A2A] transition-colors"
+              className="w-full flex items-center gap-3 px-4 py-3 border-b border-[#2A2A2A] hover:bg-[#2A2A2A] transition-colors"
             >
               <Sword size={18} className="text-blue-400" />
               <span className="flex-1 text-left text-[#D4D4D4] text-sm">
                 Mon projet en cours
+              </span>
+              <ChevronRight size={16} className="text-[#3A3A3A]" />
+            </button>
+
+            <button
+              onClick={() => router.push("/amis")}
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#2A2A2A] transition-colors"
+            >
+              <Users size={18} className="text-purple-400" />
+              <span className="flex-1 text-left text-[#D4D4D4] text-sm">
+                Mes amis
               </span>
               <ChevronRight size={16} className="text-[#3A3A3A]" />
             </button>

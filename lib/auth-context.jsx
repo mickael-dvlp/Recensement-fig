@@ -23,7 +23,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { creerProfil, getProfil } from "@/lib/firestore";
+import { creerProfil, getProfil, verifierPseudoDisponible, reserverPseudo, getAmis } from "@/lib/firestore";
 
 // Création du contexte avec valeur par défaut null
 const AuthContext = createContext(null);
@@ -31,25 +31,32 @@ const AuthContext = createContext(null);
 // ----- PROVIDER -----
 // Enveloppe l'application pour partager l'état d'authentification
 export function AuthProvider({ children }) {
-  const [utilisateur, setUtilisateur] = useState(null);   // Objet Firebase Auth (ou null)
-  const [profil, setProfil] = useState(null);              // Données Firestore du profil
-  const [chargement, setChargement] = useState(true);      // Vrai pendant la vérification initiale
+  const [utilisateur, setUtilisateur] = useState(null);
+  const [profil, setProfil] = useState(null);
+  const [chargement, setChargement] = useState(true);
+  const [nbDemandesAmis, setNbDemandesAmis] = useState(0);
 
-  // Écoute les changements d'état Firebase Auth (connexion / déconnexion)
   useEffect(() => {
     const desabonner = onAuthStateChanged(auth, async (user) => {
       setUtilisateur(user);
 
       if (user && !user.isAnonymous) {
         try {
-          const profilData = await getProfil(user.uid);
+          const [profilData, amis] = await Promise.all([
+            getProfil(user.uid),
+            getAmis(user.uid),
+          ]);
           setProfil(profilData);
+          setNbDemandesAmis(
+            amis.filter((a) => a.statut === "en_attente" && a.initiateur !== user.uid).length
+          );
         } catch (err) {
           console.warn("Impossible de charger le profil Firestore :", err.message);
           setProfil(null);
         }
       } else {
         setProfil(null);
+        setNbDemandesAmis(0);
       }
 
       setChargement(false);
@@ -76,10 +83,11 @@ export function AuthProvider({ children }) {
    * @param {string} pseudo
    */
   async function sInscrire(email, motDePasse, pseudo) {
-    let user;
+    const dispo = await verifierPseudoDisponible(pseudo);
+    if (!dispo) throw Object.assign(new Error("Pseudo déjà utilisé."), { code: "pseudo/already-in-use" });
 
+    let user;
     if (utilisateur?.isAnonymous) {
-      // Lier le compte anonyme à un vrai compte email (conserve les données Firestore)
       const credential = EmailAuthProvider.credential(email, motDePasse);
       const result = await linkWithCredential(utilisateur, credential);
       user = result.user;
@@ -98,6 +106,7 @@ export function AuthProvider({ children }) {
       creeLe: new Date().toISOString(),
     };
     await creerProfil(nouveauProfil);
+    await reserverPseudo(pseudo, user.uid);
     setProfil(nouveauProfil);
   }
 
@@ -127,14 +136,23 @@ export function AuthProvider({ children }) {
 
     const existingProfil = await getProfil(user.uid);
     if (!existingProfil) {
+      let pseudo = user.displayName || user.email.split("@")[0];
+      let dispo = await verifierPseudoDisponible(pseudo);
+      let suffixe = 1;
+      while (!dispo) {
+        pseudo = `${user.displayName || user.email.split("@")[0]}${suffixe}`;
+        dispo = await verifierPseudoDisponible(pseudo);
+        suffixe++;
+      }
       const nouveauProfil = {
         uid: user.uid,
-        pseudo: user.displayName || user.email.split("@")[0],
+        pseudo,
         email: user.email,
         langue: "fr",
         creeLe: new Date().toISOString(),
       };
       await creerProfil(nouveauProfil);
+      await reserverPseudo(pseudo, user.uid);
       setProfil(nouveauProfil);
     } else {
       setProfil(existingProfil);
@@ -158,11 +176,25 @@ export function AuthProvider({ children }) {
     await sendPasswordResetEmail(auth, email);
   }
 
+  async function rafraichirProfil() {
+    if (!utilisateur) return;
+    const data = await getProfil(utilisateur.uid);
+    setProfil(data);
+  }
+
+  async function rafraichirDemandesAmis() {
+    if (!utilisateur) return;
+    const amis = await getAmis(utilisateur.uid);
+    setNbDemandesAmis(
+      amis.filter((a) => a.statut === "en_attente" && a.initiateur !== utilisateur.uid).length
+    );
+  }
+
   const isInvite = utilisateur?.isAnonymous ?? false;
 
   return (
     <AuthContext.Provider
-      value={{ utilisateur, profil, chargement, isInvite, seConnecter, sInscrire, seDeconnecter, seConnecterAvecGoogle, seConnecterEnInvite, reinitialiserMotDePasse }}
+      value={{ utilisateur, profil, chargement, isInvite, nbDemandesAmis, rafraichirDemandesAmis, seConnecter, sInscrire, seDeconnecter, seConnecterAvecGoogle, seConnecterEnInvite, reinitialiserMotDePasse, rafraichirProfil }}
     >
       {children}
     </AuthContext.Provider>
