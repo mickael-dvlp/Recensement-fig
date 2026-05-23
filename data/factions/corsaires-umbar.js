@@ -10,11 +10,13 @@ const CORSAIRES_UMBAR = {
       id: "cum-h-001",
       nom: "Dalamyr",
       image: "/images/factions/corsaires-umbar/cum-h-001.avif",
+      lienHero: "Dalamyr",
     },
     {
       id: "cum-h-002",
       nom: "Delgamar, Maître des Portes d'Umbar",
       image: "/images/factions/corsaires-umbar/cum-h-002.avif",
+      lienHero: "Delgamar",
     },
     {
       id: "cum-h-003",

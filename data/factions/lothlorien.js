@@ -10,32 +10,38 @@ const LA_LOTHLORIEN = {
       id: "lot-h-001",
       nom: "Galadriel, Dame de Lothlórien",
       image: "/images/factions/lothlorien/lot-h-001.avif",
+      lienHero: "Galadriel",
     },
     {
       id: "lot-h-002",
       nom: "Celeborn, Seigneur de Lothlórien",
       image: "/images/factions/lothlorien/lot-h-002.avif",
+      lienHero: "Celeborn",
     },
     {
       id: "lot-h-003",
       nom: "Haldir",
       image: "/images/factions/lothlorien/lot-h-003.avif",
+      lienHero: "Haldir",
     },
     {
       id: "lot-h-004",
       nom: "Orophin",
       image: "/images/factions/lothlorien/lot-h-004.avif",
+      lienHero: "Orophin",
     },
     {
       id: "lot-h-005",
       nom: "Rumil",
       image: "/images/factions/lothlorien/lot-h-005.avif",
+      lienHero: "Rumil",
     },
     {
       id: "lot-h-006",
       inventaireId: "fdc-h-017",
       nom: "Maître des Orages",
       image: "/images/factions/lothlorien/lot-h-006.avif",
+      lienHero: "Maitre de Lacville",
     },
     {
       id: "lot-h-007",

@@ -10,32 +10,38 @@ const ORIENTAUX = {
       id: "ori-h-001",
       nom: "Amdûr (Pied)",
       image: "/images/factions/orientaux/ori-h-001.avif",
+      lienHero: "Amdur",
     },
     {
       id: "ori-h-002",
       nom: "Amdûr (Cheval)",
       image: "/images/factions/orientaux/ori-h-002.avif",
+      lienHero: "Amdur",
     },
     {
       id: "ori-h-003",
       nom: "L'Empereur Dragon sur Palanquin",
       image: "/images/factions/orientaux/ori-h-003.avif",
+      lienHero: "L'Empereur Dragon",
     },
     {
       id: "ori-h-004",
       nom: "L'Empereur Dragon (Pied)",
       image: "/images/factions/orientaux/ori-h-004.avif",
+      lienHero: "L'Empereur Dragon",
     },
 
     {
       id: "ori-h-008",
       nom: "Rutabi, Général de la Légion du Dragon",
       image: "/images/factions/orientaux/ori-h-008.avif",
+      lienHero: "Rutabi",
     },
     {
       id: "ori-h-009",
       nom: "Brórgîr le Conjureur",
       image: "/images/factions/orientaux/ori-h-009.avif",
+      lienHero: "Brorgir",
     },
     {
       id: "ori-h-010",

@@ -10,11 +10,13 @@ const HORDE_SERPENT = {
       id: "hsr-h-001",
       nom: "Suladân (Pied)",
       image: "/images/factions/horde-serpent/hsr-h-001.avif",
+      lienHero: "Suladan",
     },
     {
       id: "hsr-h-002",
       nom: "Suladân (Cheval)",
       image: "/images/factions/horde-serpent/hsr-h-002.avif",
+      lienHero: "Suladan",
     },
     {
       id: "hsr-h-003",
@@ -30,11 +32,13 @@ const HORDE_SERPENT = {
       id: "hsr-h-005",
       nom: "Le Roi Doré d'Abrakhân",
       image: "/images/factions/horde-serpent/hsr-h-005.avif",
+      lienHero: "Le Roi Doré d'Abrakhan",
     },
     {
       id: "hsr-h-006",
       nom: "Râza, le Crochet du Serpent",
       image: "/images/factions/horde-serpent/hsr-h-006.avif",
+      lienHero: "Raza",
     },
     {
       id: "hsr-h-007",
@@ -55,6 +59,7 @@ const HORDE_SERPENT = {
       id: "hsr-h-011",
       nom: "Maître de Discipline Haradrim",
       image: "/images/factions/horde-serpent/hsr-h-011.avif",
+      lienHero: "Maitre de Lacville",
     },
   ],
 

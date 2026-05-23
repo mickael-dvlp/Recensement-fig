@@ -10,41 +10,49 @@ const ANGMAR = {
       id: "ang-h-001",
       nom: "Le Roi-Sorcier d'Angmar (Pied)",
       image: "/images/factions/angmar/ang-h-001.avif",
+      lienHero: "Le Roi Sorcier",
     },
     {
       id: "ang-h-002",
       nom: "Le Roi-Sorcier d'Angmar (Cheval)",
       image: "/images/factions/angmar/ang-h-002.avif",
+      lienHero: "Le Roi Sorcier",
     },
     {
       id: "ang-h-003",
       nom: "L'Immortel (Pied)",
       image: "/images/factions/angmar/ang-h-003.avif",
+      lienHero: "L'Immortel",
     },
     {
       id: "ang-h-004",
       nom: "L'Immortel (Cheval)",
       image: "/images/factions/angmar/ang-h-004.avif",
+      lienHero: "L'Immortel",
     },
     {
       id: "ang-h-005",
       nom: "Le Dwimmerlaik (Pied)",
       image: "/images/factions/angmar/ang-h-005.avif",
+      lienHero: "The Dwimmerlaik",
     },
     {
       id: "ang-h-006",
       nom: "Le Dwimmerlaik (Cheval)",
       image: "/images/factions/angmar/ang-h-006.avif",
+      lienHero: "The Dwimmerlaik",
     },
     {
       id: "ang-h-007",
       nom: "Buhrdûr",
       image: "/images/factions/angmar/ang-h-007.avif",
+      lienHero: "Buhrdur",
     },
     {
       id: "ang-h-008",
       nom: "L'Ombre du Rhudaur",
       image: "/images/factions/angmar/ang-h-008.avif",
+      lienHero: "L'Ombre du Rhudaur",
     },
     {
       id: "ang-h-009",
@@ -60,6 +68,7 @@ const ANGMAR = {
       id: "ang-h-011",
       nom: "Gulavhar, la Terreur d'Arnor",
       image: "/images/factions/angmar/ang-h-011.avif",
+      lienHero: "Gulavhar",
     },
     {
       id: "ang-h-012",
@@ -87,16 +96,19 @@ const ANGMAR = {
       id: "ang-h-016",
       nom: "Nazthák, Capitaine Orque",
       image: "/images/factions/angmar/ang-h-016.avif",
+      lienHero: "Nazthak",
     },
     {
       id: "ang-h-017",
       nom: "Golfimbul, Capitaine Orque (Pied)",
       image: "/images/factions/angmar/ang-h-017.avif",
+      lienHero: "Golfimbul",
     },
     {
       id: "ang-h-018",
       nom: "Golfimbul, Capitaine Orque sur Warg",
       image: "/images/factions/angmar/ang-h-018.avif",
+      lienHero: "Golfimbul",
     },
     {
       id: "ang-h-019",

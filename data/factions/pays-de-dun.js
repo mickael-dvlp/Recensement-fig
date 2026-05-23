@@ -10,31 +10,37 @@ const PAYS_DE_DUN = {
       id: "pdd-h-001",
       nom: "Freca, Seigneur de la Marche de l'Ouest",
       image: "/images/factions/pays-de-dun/pdd-h-001.avif",
+      lienHero: "Freca",
     },
     {
       id: "pdd-h-002",
       nom: "Wulf, Grand Seigneur des Tribus des Collines (Pied)",
       image: "/images/factions/pays-de-dun/pdd-h-002.avif",
+      lienHero: "Wulf",
     },
     {
       id: "pdd-h-003",
       nom: "Wulf, Grand Seigneur des Tribus des Collines (Cheval)",
       image: "/images/factions/pays-de-dun/pdd-h-003.avif",
+      lienHero: "Wulf",
     },
     {
       id: "pdd-h-004",
       nom: "Général Targg (Pied)",
       image: "/images/factions/pays-de-dun/pdd-h-004.avif",
+      lienHero: "Targg",
     },
     {
       id: "pdd-h-005",
       nom: "Général Targg (Cheval)",
       image: "/images/factions/pays-de-dun/pdd-h-005.avif",
+      lienHero: "Targg",
     },
     {
       id: "pdd-h-006",
       nom: "Seigneur Thorne du Wold",
       image: "/images/factions/pays-de-dun/pdd-h-006.avif",
+      lienHero: "Thorne",
     },
 
     {
@@ -47,11 +53,13 @@ const PAYS_DE_DUN = {
       id: "pdd-h-010",
       nom: "Shank",
       image: "/images/factions/pays-de-dun/pdd-h-010.avif",
+      lienHero: "Shank",
     },
     {
       id: "pdd-h-011",
       nom: "Wrot",
       image: "/images/factions/pays-de-dun/pdd-h-011.avif",
+      lienHero: "Wrot",
     },
     {
       id: "pdd-h-012",
@@ -62,11 +70,13 @@ const PAYS_DE_DUN = {
       id: "pdd-h-013",
       nom: "Thrydan, le Fléau des Loups (pied)",
       image: "/images/factions/pays-de-dun/pdd-h-013.avif",
+      lienHero: "Thrydan le Fléau des Loups",
     },
     {
       id: "pdd-h-018",
       nom: "Thrydan, le Fléau des Loups (cheval)",
       image: "/images/factions/pays-de-dun/pdd-h-018.avif",
+      lienHero: "Thrydan le Fléau des Loups",
     },
     {
       id: "pdd-h-014",
@@ -77,16 +87,19 @@ const PAYS_DE_DUN = {
       id: "pdd-h-015",
       nom: "Le Prêteur de Serment",
       image: "/images/factions/pays-de-dun/pdd-h-015.avif",
+      lienHero: "Le Preteur de Serment",
     },
     {
       id: "pdd-h-016",
       nom: "Gorûlf Peau-De-Fer",
       image: "/images/factions/pays-de-dun/pdd-h-016.avif",
+      lienHero: "Gorulf",
     },
     {
       id: "pdd-h-017",
       nom: "Frida Longuelance",
       image: "/images/factions/pays-de-dun/pdd-h-017.avif",
+      lienHero: "Frida Longuelance",
     },
   ],
 

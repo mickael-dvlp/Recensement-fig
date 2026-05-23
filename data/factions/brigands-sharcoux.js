@@ -10,31 +10,37 @@ const BRIGANDS_SHARCOUX = {
       id: "bsh-h-001",
       nom: "Sharcoûx",
       image: "/images/factions/brigands-sharcoux/bsh-h-001.avif",
+      lienHero: "Saruman",
     },
     {
       id: "bsh-h-002",
       nom: "Serpent",
       image: "/images/factions/brigands-sharcoux/bsh-h-002.avif",
+      lienHero: "Grima",
     },
     {
       id: "bsh-h-003",
       nom: "Sid Épine de Bruyère",
       image: "/images/factions/brigands-sharcoux/bsh-h-003.avif",
+      lienHero: "Sid Épine de Bruyère",
     },
     {
       id: "bsh-h-004",
       nom: "Bill Fourgeron",
       image: "/images/factions/brigands-sharcoux/bsh-h-004.avif",
+      lienHero: "Bill Fourgeron",
     },
     {
       id: "bsh-h-005",
       nom: "Rowan Boischardon",
       image: "/images/factions/brigands-sharcoux/bsh-h-005.avif",
+      lienHero: "Rowan Boischardon",
     },
     {
       id: "bsh-h-006",
       nom: "Ted Rouquin",
       image: "/images/factions/brigands-sharcoux/bsh-h-006.avif",
+      lienHero: "Ted Rouquin",
     },
   ],
 

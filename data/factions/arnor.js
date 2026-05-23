@@ -10,21 +10,25 @@ const L_ARNOR = {
       id: "arn-h-001",
       nom: "Arvedui, Dernier Roi d'Arnor",
       image: "/images/factions/arnor/arn-h-001.avif",
+      lienHero: "Arvedul",
     },
     {
       id: "arn-h-002",
       nom: "Aranarth, Premier Chef des Dúnedain",
       image: "/images/factions/arnor/arn-h-002.avif",
+      lienHero: "Aranarth",
     },
     {
       id: "arn-h-003",
       nom: "Malbeth le Voyant",
       image: "/images/factions/arnor/arn-h-003.avif",
+      lienHero: "Malbeth",
     },
     {
       id: "arn-h-004",
       nom: "Argadir, Capitaine d'Arnor",
       image: "/images/factions/arnor/arn-h-004.avif",
+      lienHero: "Argadir",
     },
     {
       id: "arn-h-005",

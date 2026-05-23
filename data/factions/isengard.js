@@ -10,36 +10,43 @@ const ISENGARD = {
       id: "ise-h-001",
       nom: "Saroumane le Blanc (Pied)",
       image: "/images/factions/isengard/ise-h-001.avif",
+      lienHero: "Saruman",
     },
     {
       id: "ise-h-002",
       nom: "Saroumane le Blanc (Cheval)",
       image: "/images/factions/isengard/ise-h-002.avif",
+      lienHero: "Saruman",
     },
     {
       id: "ise-h-003",
       nom: "Lurtz",
       image: "/images/factions/isengard/ise-h-003.avif",
+      lienHero: "Lurtz",
     },
     {
       id: "ise-h-004",
       nom: "Uglúk",
       image: "/images/factions/isengard/ise-h-004.avif",
+      lienHero: "Ugluk",
     },
     {
       id: "ise-h-005",
       nom: "Vraskû",
       image: "/images/factions/isengard/ise-h-005.avif",
+      lienHero: "Vrasku",
     },
     {
       id: "ise-h-006",
       nom: "Mauhùr",
       image: "/images/factions/isengard/ise-h-006.avif",
+      lienHero: "Mauhur",
     },
     {
       id: "ise-h-007",
       nom: "Gríma Langue de Serpent",
       image: "/images/factions/isengard/ise-h-007.avif",
+      lienHero: "Grima",
     },
     {
       id: "ise-h-008",
@@ -50,11 +57,13 @@ const ISENGARD = {
       id: "ise-h-009",
       nom: "Sharku (Pied)",
       image: "/images/factions/isengard/ise-h-009.avif",
+      lienHero: "Sharku",
     },
     {
       id: "ise-h-010",
       nom: "Sharku sur Warg",
       image: "/images/factions/isengard/ise-h-010.avif",
+      lienHero: "Sharku",
     },
 
     {

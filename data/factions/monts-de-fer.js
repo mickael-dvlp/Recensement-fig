@@ -10,21 +10,25 @@ const LES_MONTS_DE_FER = {
       id: "mdf-h-001",
       nom: "Dáin Pied-d'Acier, Seigneur des Monts de Fer",
       image: "/images/factions/monts-de-fer/mdf-h-001.avif",
+      lienHero: "Dain",
     },
     {
       id: "mdf-h-002",
       nom: "Dáin Pied-d'Acier, Seigneur des Monts de Fer (Sanglier de Guerre)",
       image: "/images/factions/monts-de-fer/mdf-h-002.avif",
+      lienHero: "Dain",
     },
     {
       id: "mdf-h-003",
       nom: "Múrin",
       image: "/images/factions/monts-de-fer/mdf-h-003.avif",
+      lienHero: "Murin",
     },
     {
       id: "mdf-h-004",
       nom: "Drár",
       image: "/images/factions/monts-de-fer/mdf-h-004.avif",
+      lienHero: "Drar",
     },
     {
       id: "mdf-h-005",

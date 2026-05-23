@@ -10,11 +10,13 @@ const DALE = {
       id: "dal-h-001",
       nom: "Bard II, Prince de Dale",
       image: "/images/factions/dale/dal-h-001.avif",
+      lienHero: "Bard II",
     },
     {
       id: "dal-h-002",
       nom: "Brand, Roi de Dale",
       image: "/images/factions/dale/dal-h-002.avif",
+      lienHero: "Roi Brand",
     },
     {
       id: "dal-h-003",
@@ -25,6 +27,7 @@ const DALE = {
       id: "dal-h-004",
       nom: "Girion",
       image: "/images/factions/dale/dal-h-004.avif",
+      lienHero: "Girion",
     },
     {
       id: "dal-h-005",

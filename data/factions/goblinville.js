@@ -10,16 +10,19 @@ const GOBLINVILLE = {
       id: "gbl-h-001",
       nom: "Le Roi Gobelin",
       image: "/images/factions/goblinville/gbl-h-001.avif",
+      lienHero: "Le Roi Gobelin",
     },
     {
       id: "gbl-h-002",
       nom: "Grinnah",
       image: "/images/factions/goblinville/gbl-h-002.avif",
+      lienHero: "Grinnah",
     },
     {
       id: "gbl-h-003",
       nom: "Le Scribe Gobelin",
       image: "/images/factions/goblinville/gbl-h-003.avif",
+      lienHero: "Le Scribe Goblin",
     },
     {
       id: "gbl-h-004",

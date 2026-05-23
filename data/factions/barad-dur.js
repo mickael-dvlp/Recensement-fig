@@ -10,23 +10,27 @@ const BARAD_DUR = {
       id: "bdr-h-001",
       nom: "Sauron",
       image: "/images/factions/barad-dur/bdr-h-001.avif",
+      lienHero: "Sauron",
     },
     {
       id: "bdr-h-002",
       inventaireId: "ang-h-001",
       nom: "Le Roi-Sorcier d'Angmar (Pied)",
       image: "/images/factions/barad-dur/bdr-h-002.avif",
+      lienHero: "Le Roi Sorcier",
     },
     {
       id: "bdr-h-003",
       inventaireId: "ang-h-002",
       nom: "Le Roi-Sorcier d'Angmar (Cheval)",
       image: "/images/factions/barad-dur/bdr-h-003.avif",
+      lienHero: "Le Roi Sorcier",
     },
     {
       id: "bdr-h-004",
       nom: "Le Roi-Sorcier d'Angmar (Ombre Ailé)",
       image: "/images/factions/barad-dur/bdr-h-004.avif",
+      lienHero: "Le Roi Sorcier",
     },
     {
       id: "bdr-h-005",
@@ -75,6 +79,7 @@ const BARAD_DUR = {
       id: "bdr-h-013",
       nom: "Maître de Discipline Orque",
       image: "/images/factions/barad-dur/bdr-h-013.avif",
+      lienHero: "Maitre de Lacville",
     },
     {
       id: "bdr-h-014",

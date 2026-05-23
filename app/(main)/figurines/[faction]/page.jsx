@@ -216,14 +216,14 @@ export default function PageFaction() {
                           <div className="w-12 h-12 rounded-full border border-[#2A2A2A] bg-[#1A1A1A]" />
                         )}
                       </div>
-                      <div className="flex flex-col gap-1.5 px-2 py-2 flex-1">
+                      <div className="flex flex-col gap-2 px-2 py-2 flex-1 justify-center items-center">
                         <p className="text-[#F5F5F5] font-bold text-sm leading-snug text-center">{fig.nom}</p>
-                        <div className="flex items-center justify-center gap-1 mt-auto pt-1">
+                        <div className="flex items-center justify-center gap-1.5">
                           {quantiteHeroLie(fig.lienHero) > 0 ? (
                             <span className="text-[#C9A227] font-bold text-sm">{quantiteHeroLie(fig.lienHero)}</span>
                           ) : null}
-                          <span className="flex items-center gap-1 text-[#6B6B6B] text-[10px] font-semibold uppercase tracking-wide">
-                            <ExternalLink size={10} /> Gérer
+                          <span className="flex items-center gap-1 text-[#6B6B6B] text-xs font-semibold uppercase tracking-wide">
+                            <ExternalLink size={12} /> Gérer
                           </span>
                         </div>
                       </div>
