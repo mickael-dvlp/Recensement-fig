@@ -109,14 +109,25 @@ export default function PageFigurines() {
   // ---- STATS PAR FACTION ----
   const statsParFaction = useMemo(() => {
     const map = {};
+    const heroParNom = new Map(TOUS_LES_HEROS.map((h) => [h.nom, h]));
 
     Object.entries(FACTIONS_DATA).forEach(([nomFaction, data]) => {
       if (!map[nomFaction]) map[nomFaction] = { possedes: 0, souhaites: 0 };
       const toutes = [...(data.heros ?? []), ...(data.guerriers ?? [])];
       toutes.forEach((fig) => {
-        const inv = inventaireBrut[fig.inventaireId ?? fig.id];
-        if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
-        if (inv?.souhaite) map[nomFaction].souhaites++;
+        if (fig.lienHero) {
+          const hero = heroParNom.get(fig.lienHero);
+          if (!hero) return;
+          for (const variante of hero.variantes ?? []) {
+            const inv = inventaireBrut[variante.id];
+            if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
+            if (inv?.souhaite) map[nomFaction].souhaites++;
+          }
+        } else {
+          const inv = inventaireBrut[fig.inventaireId ?? fig.id];
+          if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
+          if (inv?.souhaite) map[nomFaction].souhaites++;
+        }
       });
     });
 

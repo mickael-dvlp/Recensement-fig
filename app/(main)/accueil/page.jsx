@@ -16,6 +16,7 @@ import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur, getFigurinesCustom, getMemos } from "@/lib/firestore";
 import { FACTIONS_BIEN, FACTIONS_MAL } from "@/data/figurines/index.js";
 import { getAllFigurines } from "@/data/factions/index.js";
+import TOUS_LES_HEROS from "@/data/heros/index.js";
 
 const IMAGES_FACTIONS = {
   // Camp du Bien
@@ -116,17 +117,44 @@ export default function PageAccueil() {
       const enProjet = listeMemos.length;
       const parFaction = {};
 
-      for (const figurine of getAllFigurines()) {
-        const donnees = inventaire[figurine.inventaireId ?? figurine.id];
-        if (!donnees) continue;
+      // Map nom → hero pour lookup rapide des lienHero
+      const heroParNom = new Map(TOUS_LES_HEROS.map((h) => [h.nom, h]));
+      // Évite le double-comptage dans les totaux (un héros peut apparaître dans plusieurs factions)
+      const variantesComptees = new Set();
 
-        if (donnees.enInventaire) {
-          const qte = donnees.quantiteInventaire || 0;
-          totalPossedees += qte;
-          parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
-        }
-        if (donnees.souhaite) {
-          totalSouhaitees += donnees.quantiteSouhaitee || 0;
+      for (const figurine of getAllFigurines()) {
+        if (figurine.lienHero) {
+          // Héro lié à une page héros : compter via les IDs de variantes
+          const hero = heroParNom.get(figurine.lienHero);
+          if (!hero) continue;
+          for (const variante of hero.variantes ?? []) {
+            const donnees = inventaire[variante.id];
+            if (!donnees) continue;
+            if (donnees.enInventaire) {
+              const qte = donnees.quantiteInventaire || 0;
+              parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
+              if (!variantesComptees.has(variante.id)) {
+                totalPossedees += qte;
+                variantesComptees.add(variante.id);
+              }
+            }
+            if (donnees.souhaite && !variantesComptees.has(`${variante.id}_s`)) {
+              totalSouhaitees += donnees.quantiteSouhaitee || 0;
+              variantesComptees.add(`${variante.id}_s`);
+            }
+          }
+        } else {
+          // Figurine classique : utiliser l'ID de l'entrée faction
+          const donnees = inventaire[figurine.inventaireId ?? figurine.id];
+          if (!donnees) continue;
+          if (donnees.enInventaire) {
+            const qte = donnees.quantiteInventaire || 0;
+            totalPossedees += qte;
+            parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
+          }
+          if (donnees.souhaite) {
+            totalSouhaitees += donnees.quantiteSouhaitee || 0;
+          }
         }
       }
 

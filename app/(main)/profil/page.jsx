@@ -24,10 +24,12 @@ import {
   Pencil,
   X,
   Check,
+  Trash2,
+  AlertTriangle,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useTheme } from "@/lib/theme-context";
-import { modifierPseudo } from "@/lib/firestore";
+import { modifierPseudo, nettoyerInventaireOrphelins } from "@/lib/firestore";
 
 export default function PageProfil() {
   const { utilisateur, profil, rafraichirProfil, seDeconnecter, isInvite } = useAuth();
@@ -38,6 +40,9 @@ export default function PageProfil() {
   const [nouveauPseudo, setNouveauPseudo] = useState("");
   const [savingPseudo, setSavingPseudo] = useState(false);
   const [erreurPseudo, setErreurPseudo] = useState("");
+  const [modalNettoyage, setModalNettoyage] = useState(false);
+  const [nettoyageEnCours, setNettoyageEnCours] = useState(false);
+  const [resultatNettoyage, setResultatNettoyage] = useState(null);
 
   /**
    * Déconnecte l'utilisateur et redirige vers la connexion
@@ -69,6 +74,20 @@ export default function PageProfil() {
       );
     } finally {
       setSavingPseudo(false);
+    }
+  }
+
+  async function handleNettoyage() {
+    setNettoyageEnCours(true);
+    setResultatNettoyage(null);
+    try {
+      const supprimees = await nettoyerInventaireOrphelins(utilisateur.uid);
+      await rafraichirProfil();
+      setResultatNettoyage({ ok: true, count: supprimees });
+    } catch {
+      setResultatNettoyage({ ok: false });
+    } finally {
+      setNettoyageEnCours(false);
     }
   }
 
@@ -326,6 +345,81 @@ export default function PageProfil() {
             </button>
           </div>
         </section>
+
+        {/* SECTION MAINTENANCE */}
+        <section>
+          <h2 className="text-[#C9A227] text-xs font-bold uppercase tracking-widest mb-3">
+            Maintenance
+          </h2>
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden">
+            <button
+              onClick={() => { setModalNettoyage(true); setResultatNettoyage(null); }}
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#2A2A2A] transition-colors"
+            >
+              <Trash2 size={18} className="text-orange-400" />
+              <div className="flex-1 text-left">
+                <p className="text-[#D4D4D4] text-sm font-medium">Nettoyer l'inventaire</p>
+                <p className="text-[#6B6B6B] text-xs">Supprimer les données obsolètes</p>
+              </div>
+              <ChevronRight size={16} className="text-[#3A3A3A]" />
+            </button>
+          </div>
+        </section>
+
+        {/* MODAL NETTOYAGE */}
+        {modalNettoyage && (
+          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 px-4 pb-6 sm:pb-0">
+            <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl w-full max-w-sm p-6 flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-orange-400/10 flex items-center justify-center shrink-0">
+                  <AlertTriangle size={20} className="text-orange-400" />
+                </div>
+                <h3 className="text-[#F5F5F5] font-bold text-base">Nettoyer l'inventaire</h3>
+              </div>
+
+              <p className="text-[#6B6B6B] text-sm leading-relaxed">
+                Suite aux mises à jour de l'application, certaines données de votre inventaire peuvent être obsolètes. Cette action supprime définitivement ces entrées inutilisées.
+              </p>
+              <p className="text-[#6B6B6B] text-sm leading-relaxed">
+                Vos figurines possédées et souhaitées ne seront <span className="text-[#F5F5F5] font-medium">pas affectées</span>.
+              </p>
+
+              {resultatNettoyage && (
+                <div className={`rounded-xl px-4 py-3 text-sm font-medium ${
+                  resultatNettoyage.ok
+                    ? "bg-[#22C55E]/10 border border-[#22C55E]/30 text-[#22C55E]"
+                    : "bg-red-900/20 border border-red-800 text-red-400"
+                }`}>
+                  {resultatNettoyage.ok
+                    ? resultatNettoyage.count === 0
+                      ? "Inventaire déjà propre, rien à supprimer."
+                      : `${resultatNettoyage.count} entrée${resultatNettoyage.count > 1 ? "s" : ""} supprimée${resultatNettoyage.count > 1 ? "s" : ""}.`
+                    : "Une erreur est survenue. Réessaie plus tard."}
+                </div>
+              )}
+
+              <div className="flex gap-3 mt-1">
+                <button
+                  onClick={() => { setModalNettoyage(false); setResultatNettoyage(null); }}
+                  className="flex-1 py-2.5 rounded-xl border border-[#2A2A2A] text-[#6B6B6B] hover:text-[#F5F5F5] hover:border-[#3A3A3A] transition-colors text-sm font-medium"
+                >
+                  {resultatNettoyage ? "Fermer" : "Annuler"}
+                </button>
+                {!resultatNettoyage && (
+                  <button
+                    onClick={handleNettoyage}
+                    disabled={nettoyageEnCours}
+                    className="flex-1 py-2.5 rounded-xl bg-orange-400/10 border border-orange-400/30 text-orange-400 hover:bg-orange-400/20 transition-colors text-sm font-medium disabled:opacity-50 flex items-center justify-center gap-2"
+                  >
+                    {nettoyageEnCours
+                      ? <><div className="w-4 h-4 border-2 border-orange-400 border-t-transparent rounded-full animate-spin" /> En cours…</>
+                      : <><Trash2 size={14} /> Nettoyer</>}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* BOUTON DÉCONNEXION */}
         <button
