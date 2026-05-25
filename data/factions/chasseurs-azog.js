@@ -8,40 +8,25 @@ const CHASSEURS_AZOG = {
   heros: [
     {
       id: "caz-h-001",
-      nom: "Azog (Pied)",
+      nom: "Azog",
       image: "/images/factions/chasseurs-azog/caz-h-001.avif",
       lienHero: "Azog",
     },
-    {
-      id: "caz-h-002",
-      nom: "Azog sur Warg Blanc",
-      image: "/images/factions/chasseurs-azog/caz-h-002.avif",
-      lienHero: "Azog",
-    },
+
     {
       id: "caz-h-003",
-      nom: "Bolg (Pied)",
+      nom: "Bolg",
       image: "/images/factions/chasseurs-azog/caz-h-003.avif",
       lienHero: "Bolg",
     },
-    {
-      id: "caz-h-004",
-      nom: "Bolg sur Warg des Ombres",
-      image: "/images/factions/chasseurs-azog/caz-h-004.avif",
-      lienHero: "Bolg",
-    },
+
     {
       id: "caz-h-005",
-      nom: "Fimbul (Pied)",
+      nom: "Fimbul",
       image: "/images/factions/chasseurs-azog/caz-h-005.avif",
       lienHero: "Fimbul",
     },
-    {
-      id: "caz-h-006",
-      nom: "Fimbul sur Warg",
-      image: "/images/factions/chasseurs-azog/caz-h-006.avif",
-      lienHero: "Fimbul",
-    },
+
     {
       id: "caz-h-007",
       nom: "Narzug",
@@ -50,16 +35,11 @@ const CHASSEURS_AZOG = {
     },
     {
       id: "caz-h-008",
-      nom: "Yazneg (Pied)",
+      nom: "Yazneg",
       image: "/images/factions/chasseurs-azog/caz-h-008.avif",
       lienHero: "Yazneg",
     },
-    {
-      id: "caz-h-009",
-      nom: "Yazneg sur Warg",
-      image: "/images/factions/chasseurs-azog/caz-h-009.avif",
-      lienHero: "Yazneg",
-    },
+
     {
       id: "caz-h-010",
       nom: "Capitaine des Chasseurs Orques (Pioche à Deux Mains)",

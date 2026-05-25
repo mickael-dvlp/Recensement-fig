@@ -14,28 +14,18 @@ const PAYS_DE_DUN = {
     },
     {
       id: "pdd-h-002",
-      nom: "Wulf, Grand Seigneur des Tribus des Collines (Pied)",
+      nom: "Wulf, Grand Seigneur des Tribus des Collines",
       image: "/images/factions/pays-de-dun/pdd-h-002.avif",
       lienHero: "Wulf",
     },
-    {
-      id: "pdd-h-003",
-      nom: "Wulf, Grand Seigneur des Tribus des Collines (Cheval)",
-      image: "/images/factions/pays-de-dun/pdd-h-003.avif",
-      lienHero: "Wulf",
-    },
+
     {
       id: "pdd-h-004",
-      nom: "Général Targg (Pied)",
+      nom: "Général Targg",
       image: "/images/factions/pays-de-dun/pdd-h-004.avif",
       lienHero: "Targg",
     },
-    {
-      id: "pdd-h-005",
-      nom: "Général Targg (Cheval)",
-      image: "/images/factions/pays-de-dun/pdd-h-005.avif",
-      lienHero: "Targg",
-    },
+
     {
       id: "pdd-h-006",
       nom: "Seigneur Thorne du Wold",
@@ -68,16 +58,11 @@ const PAYS_DE_DUN = {
     },
     {
       id: "pdd-h-013",
-      nom: "Thrydan, le Fléau des Loups (pied)",
+      nom: "Thrydan, le Fléau des Loups",
       image: "/images/factions/pays-de-dun/pdd-h-013.avif",
       lienHero: "Thrydan le Fléau des Loups",
     },
-    {
-      id: "pdd-h-018",
-      nom: "Thrydan, le Fléau des Loups (cheval)",
-      image: "/images/factions/pays-de-dun/pdd-h-018.avif",
-      lienHero: "Thrydan le Fléau des Loups",
-    },
+
     {
       id: "pdd-h-014",
       nom: "Chef du Pays de Dun",

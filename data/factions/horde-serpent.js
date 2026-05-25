@@ -8,14 +8,8 @@ const HORDE_SERPENT = {
   heros: [
     {
       id: "hsr-h-001",
-      nom: "Suladân (Pied)",
+      nom: "Suladân",
       image: "/images/factions/horde-serpent/hsr-h-001.avif",
-      lienHero: "Suladan",
-    },
-    {
-      id: "hsr-h-002",
-      nom: "Suladân (Cheval)",
-      image: "/images/factions/horde-serpent/hsr-h-002.avif",
       lienHero: "Suladan",
     },
     {

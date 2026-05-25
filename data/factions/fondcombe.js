@@ -8,22 +8,11 @@ const FONDCOMBE = {
   heros: [
     {
       id: "fdc-h-001",
-      nom: "Arwen (Monté)",
+      nom: "Arwen",
       image: "/images/factions/fondcombe/fdc-h-001.avif",
       lienHero: "Arwen",
     },
-    {
-      id: "fdc-h-002",
-      nom: "Arwen (Monté + Frodon)",
-      image: "/images/factions/fondcombe/fdc-h-002.avif",
-      lienHero: "Arwen",
-    },
-    {
-      id: "fdc-h-003",
-      nom: "Arwen (Pied)",
-      image: "/images/factions/fondcombe/fdc-h-003.avif",
-      lienHero: "Arwen",
-    },
+
     {
       id: "fdc-h-004",
       nom: "Bilbo",
@@ -38,32 +27,15 @@ const FONDCOMBE = {
     },
     {
       id: "fdc-h-006",
-      nom: "Elladan (Avec Armure + Pied)",
+      nom: "Elladan",
       image: "/images/factions/fondcombe/fdc-h-006.avif",
       lienHero: "Elladan",
     },
-    {
-      id: "fdc-h-007",
-      nom: "Elladan (Monté)",
-      image: "/images/factions/fondcombe/fdc-h-007.avif",
-      lienHero: "Elladan",
-    },
-    {
-      id: "fdc-h-008",
-      nom: "Elladan (Sans Armure + Pied)",
-      image: "/images/factions/fondcombe/fdc-h-008.avif",
-      lienHero: "Elladan",
-    },
+
     {
       id: "fdc-h-009",
-      nom: "Elrond (Monté)",
+      nom: "Elrond",
       image: "/images/factions/fondcombe/fdc-h-009.avif",
-      lienHero: "Elrond",
-    },
-    {
-      id: "fdc-h-010",
-      nom: "Elrond (Pied)",
-      image: "/images/factions/fondcombe/fdc-h-010.avif",
       lienHero: "Elrond",
     },
     {
@@ -84,15 +56,10 @@ const FONDCOMBE = {
       image: "/images/factions/fondcombe/fdc-h-013.avif",
       lienHero: "Gildor Inglorion",
     },
-    {
-      id: "fdc-h-014",
-      nom: "Glorfindel (Monté)",
-      image: "/images/factions/fondcombe/fdc-h-014.avif",
-      lienHero: "Glorfindel",
-    },
+
     {
       id: "fdc-h-015",
-      nom: "Glorfindel (Pied)",
+      nom: "Glorfindel",
       image: "/images/factions/fondcombe/fdc-h-015.avif",
       lienHero: "Glorfindel",
     },
@@ -115,20 +82,8 @@ const FONDCOMBE = {
     },
     {
       id: "fdc-h-019",
-      nom: "Elrohir (Avec Armure + Pied)",
+      nom: "Elrohir",
       image: "/images/factions/fondcombe/fdc-h-019.avif",
-      lienHero: "Elrohir",
-    },
-    {
-      id: "fdc-h-020",
-      nom: "Elrohir (Monté)",
-      image: "/images/factions/fondcombe/fdc-h-020.avif",
-      lienHero: "Elrohir",
-    },
-    {
-      id: "fdc-h-021",
-      nom: "Elrohir (Sans Armure + Pied)",
-      image: "/images/factions/fondcombe/fdc-h-021.avif",
       lienHero: "Elrohir",
     },
   ],

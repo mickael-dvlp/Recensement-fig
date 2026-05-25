@@ -61,17 +61,17 @@ const HEROS_I = [
   },
   {
     id: "innomable",
-    nom: "L'innomable",
+    nom: "L'Innommable",
     total: 2,
     variantes: [
       {
         id: "innomable-001",
-        nom: "L'innomable (Pied)",
+        nom: "L'Innommable (Pied)",
         image: "/images/heros/i/innomable-001.avif",
       },
       {
         id: "innomable-002",
-        nom: "L'innomable (Cheval)",
+        nom: "L'Innommable (Cheval)",
         image: "/images/heros/i/innomable-002.avif",
       },
     ],

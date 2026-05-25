@@ -64,6 +64,7 @@ const IMAGES_FACTIONS = {
   "Lacville":                               "/images/accueil/lacville.avif",
   "Brigands de Sharcoûx":                   "/images/accueil/brigand-de-sharcoux.avif",
   "Trolls des Montagnes":                   "/images/accueil/troll-des-montagnes.avif",
+  "Orientaux":                              "/images/accueil/orientaux.avif",
 };
 
 /**

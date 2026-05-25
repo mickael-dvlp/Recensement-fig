@@ -14,34 +14,17 @@ const LE_CONSEIL_BLANC = {
     },
     {
       id: "csb-h-002",
-      nom: "Gandalf le Gris (Pied)",
+      nom: "Gandalf le Gris",
       image: "/images/factions/conseil-blanc/csb-h-002.avif",
       lienHero: "Gandalf",
     },
     {
-      id: "csb-h-003",
-      nom: "Gandalf le Gris (Monté)",
-      image: "/images/factions/conseil-blanc/csb-h-003.avif",
-      lienHero: "Gandalf",
-    },
-    {
       id: "csb-h-004",
-      nom: "Radagast le Brun (Pied)",
+      nom: "Radagast le Brun",
       image: "/images/factions/conseil-blanc/csb-h-004.avif",
       lienHero: "Radagast",
     },
-    {
-      id: "csb-h-005",
-      nom: "Radagast sur Aigle",
-      image: "/images/factions/conseil-blanc/csb-h-005.avif",
-      lienHero: "Radagast",
-    },
-    {
-      id: "csb-h-006",
-      nom: "Radagast le Brun (Traîneau de Radagast)",
-      image: "/images/factions/conseil-blanc/csb-h-006.avif",
-      lienHero: "Radagast",
-    },
+
     {
       id: "csb-h-007",
       nom: "Galadriel, Dame de Lumière",
@@ -50,16 +33,11 @@ const LE_CONSEIL_BLANC = {
     },
     {
       id: "csb-h-008",
-      nom: "Elrond, Maître de Fondcombe (Pied)",
+      nom: "Elrond, Maître de Fondcombe",
       image: "/images/factions/conseil-blanc/csb-h-008.avif",
       lienHero: "Elrond",
     },
-    {
-      id: "csb-h-009",
-      nom: "Elrond, Maître de Fondcombe (Monté)",
-      image: "/images/factions/conseil-blanc/csb-h-009.avif",
-      lienHero: "Elrond",
-    },
+
     {
       id: "csb-h-010",
       nom: "Thráin le Brisé",

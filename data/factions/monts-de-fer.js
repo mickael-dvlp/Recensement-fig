@@ -7,14 +7,8 @@ const LES_MONTS_DE_FER = {
 
   heros: [
     {
-      id: "mdf-h-001",
-      nom: "Dáin Pied-d'Acier, Seigneur des Monts de Fer",
-      image: "/images/factions/monts-de-fer/mdf-h-001.avif",
-      lienHero: "Dain",
-    },
-    {
       id: "mdf-h-002",
-      nom: "Dáin Pied-d'Acier, Seigneur des Monts de Fer (Sanglier de Guerre)",
+      nom: "Dáin Pied-d'Acier, Seigneur des Monts de Fer",
       image: "/images/factions/monts-de-fer/mdf-h-002.avif",
       lienHero: "Dain",
     },

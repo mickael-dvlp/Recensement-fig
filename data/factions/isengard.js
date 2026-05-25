@@ -8,16 +8,11 @@ const ISENGARD = {
   heros: [
     {
       id: "ise-h-001",
-      nom: "Saroumane le Blanc (Pied)",
+      nom: "Saroumane le Blanc",
       image: "/images/factions/isengard/ise-h-001.avif",
       lienHero: "Saruman",
     },
-    {
-      id: "ise-h-002",
-      nom: "Saroumane le Blanc (Cheval)",
-      image: "/images/factions/isengard/ise-h-002.avif",
-      lienHero: "Saruman",
-    },
+
     {
       id: "ise-h-003",
       nom: "Lurtz",
@@ -52,12 +47,6 @@ const ISENGARD = {
       id: "ise-h-008",
       nom: "Capitaine Uruk-haï",
       image: "/images/factions/isengard/ise-h-008.avif",
-    },
-    {
-      id: "ise-h-009",
-      nom: "Sharku (Pied)",
-      image: "/images/factions/isengard/ise-h-009.avif",
-      lienHero: "Sharku",
     },
     {
       id: "ise-h-010",

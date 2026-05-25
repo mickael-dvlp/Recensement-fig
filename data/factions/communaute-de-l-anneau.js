@@ -25,12 +25,6 @@ const COMMUNAUTE_DE_L_ANNEAU = {
       lienHero: "Boromir",
     },
     {
-      id: "cda-h-004",
-      nom: "Boromir du Gondor (Cheval) de la Communauté",
-      image: "/images/factions/communaute-de-l-anneau/cda-h-004.avif",
-      lienHero: "Boromir",
-    },
-    {
       id: "cda-h-005",
       nom: "Frodon Sacquet de la Communauté",
       image: "/images/factions/communaute-de-l-anneau/cda-h-005.avif",

@@ -8,14 +8,8 @@ const LE_GONDOR = {
   heros: [
     {
       id: "gon-h-001",
-      nom: "Eärnur, Dernier Roi du Gondor (Pied)",
+      nom: "Eärnur, Dernier Roi du Gondor",
       image: "/images/factions/gondor/gon-h-001.avif",
-      lienHero: "Earnur",
-    },
-    {
-      id: "gon-h-002",
-      nom: "Eärnur, Dernier Roi du Gondor (Cheval + Lance de Cavalerie)",
-      image: "/images/factions/gondor/gon-h-002.avif",
       lienHero: "Earnur",
     },
     {
@@ -46,77 +40,33 @@ const LE_GONDOR = {
       lienHero: "Boromir",
     },
     {
-      id: "gon-h-008",
-      nom: "Boromir, Capitaine de la Tour Blanche (Bannière de Minas-Tirith)",
-      image: "/images/factions/gondor/gon-h-008.avif",
-      lienHero: "Boromir",
-    },
-    {
-      id: "gon-h-009",
-      nom: "Boromir, Capitaine de la Tour Blanche (Cheval)",
-      image: "/images/factions/gondor/gon-h-009.avif",
-      lienHero: "Boromir",
-    },
-    {
       id: "gon-h-010",
-      nom: "Faramir, Capitaine du Gondor (Rangers)",
+      nom: "Faramir, Capitaine du Gondor",
       image: "/images/factions/gondor/gon-h-010.avif",
       lienHero: "Faramir",
     },
-    {
-      id: "gon-h-011",
-      nom: "Faramir, Capitaine du Gondor (Cheval + Armure Lourde + Bouclier)",
-      image: "/images/factions/gondor/gon-h-011.avif",
-      lienHero: "Faramir",
-    },
-    {
-      id: "gon-h-012",
-      nom: "Faramir, Capitaine du Gondor (Armure Lourde + Bouclier)",
-      image: "/images/factions/gondor/gon-h-012.avif",
-      lienHero: "Faramir",
-    },
+
     {
       id: "gon-h-013",
       nom: "Aragorn, Roi Elessar",
       image: "/images/factions/gondor/gon-h-013.avif",
       lienHero: "Aragorn",
     },
-    {
-      id: "gon-h-014",
-      nom: "Aragorn, Roi Elessar (Cheval Caparaçonné)",
-      image: "/images/factions/gondor/gon-h-014.avif",
-      lienHero: "Aragorn",
-    },
+
     {
       id: "gon-h-015",
-      nom: "Gandalf le Blanc (Pied)",
+      nom: "Gandalf le Blanc ",
       image: "/images/factions/gondor/gon-h-015.avif",
       lienHero: "Gandalf",
     },
-    {
-      id: "gon-h-016",
-      nom: "Gandalf le Blanc (Gripoil + Pippin)",
-      image: "/images/factions/gondor/gon-h-016.avif",
-      lienHero: "Gandalf",
-    },
-    {
-      id: "gon-h-017",
-      nom: "Gandalf le Blanc (Gripoil)",
-      image: "/images/factions/gondor/gon-h-017.avif",
-      lienHero: "Gandalf",
-    },
+
     {
       id: "gon-h-018",
-      nom: "Húrin le Grand, Gardien des Clefs (Pied)",
+      nom: "Húrin le Grand, Gardien des Clefs ",
       image: "/images/factions/gondor/gon-h-018.avif",
       lienHero: "Hurin",
     },
-    {
-      id: "gon-h-019",
-      nom: "Húrin le Grand, Gardien des Clefs (Monté)",
-      image: "/images/factions/gondor/gon-h-019.avif",
-      lienHero: "Hurin",
-    },
+
     {
       id: "gon-h-020",
       nom: "Ingold, Gardien du Rammas Echor",

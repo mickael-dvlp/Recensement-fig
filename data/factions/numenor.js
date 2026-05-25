@@ -12,15 +12,10 @@ const NUMENOR = {
       image: "/images/factions/numenor/num-h-002.avif",
       lienHero: "Elendil",
     },
-    {
-      id: "num-h-003",
-      nom: "Isildur (Monté)",
-      image: "/images/factions/numenor/num-h-003.avif",
-      lienHero: "Isildur",
-    },
+
     {
       id: "num-h-004",
-      nom: "Isildur (Pied)",
+      nom: "Isildur",
       image: "/images/factions/numenor/num-h-004.avif",
       lienHero: "Isildur",
     },

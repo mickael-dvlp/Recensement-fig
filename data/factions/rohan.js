@@ -12,276 +12,104 @@ const LE_ROHAN = {
       image: "/images/factions/rohan/roh-h-001.avif",
       lienHero: "Eorl",
     },
-    {
-      id: "roh-h-002",
-      nom: "Eorl le Jeune (Pied)",
-      image: "/images/factions/rohan/roh-h-002.avif",
-      lienHero: "Eorl",
-    },
-    {
-      id: "roh-h-003",
-      nom: "Helm Poing de Marteau, Roi du Rohan (Cheval Caparaçonné) Old Version",
-      image: "/images/factions/rohan/roh-h-003.avif",
-      lienHero: "Helm Poing de Marteau",
-    },
-    {
-      id: "roh-h-004",
-      nom: "Helm Poing de Marteau, Roi du Rohan (Pied) Old Version",
-      image: "/images/factions/rohan/roh-h-004.avif",
-      lienHero: "Helm Poing de Marteau",
-    },
+
     {
       id: "roh-h-061",
-      nom: "Helm Poing de Marteau, Roi du Rohan (Cheval Caparaçonné) New Version",
+      nom: "Helm Poing de Marteau, Roi du Rohan",
       image: "/images/factions/rohan/roh-h-061.avif",
       lienHero: "Helm Poing de Marteau",
     },
-    {
-      id: "roh-h-060",
-      nom: "Helm Poing de Marteau, Roi du Rohan (Pied) New Version",
-      image: "/images/factions/rohan/roh-h-060.avif",
-      lienHero: "Helm Poing de Marteau",
-    },
-    {
-      id: "roh-h-005",
-      nom: "Haleth, Prince du Rohan (Pied)",
-      image: "/images/factions/rohan/roh-h-005.avif",
-      lienHero: "Haleth, fils de Helm",
-    },
+
     {
       id: "roh-h-006",
-      nom: "Haleth, Prince du Rohan (Cheval Caparaçonné)",
+      nom: "Haleth, Prince du Rohan",
       image: "/images/factions/rohan/roh-h-006.avif",
       lienHero: "Haleth, fils de Helm",
     },
-    {
-      id: "roh-h-007",
-      nom: "Háma, Prince du Rohan (Pied)",
-      image: "/images/factions/rohan/roh-h-007.avif",
-      lienHero: "Hama, fils de Helm",
-    },
+
     {
       id: "roh-h-008",
-      nom: "Háma, Prince du Rohan (Cheval)",
+      nom: "Háma, Prince du Rohan",
       image: "/images/factions/rohan/roh-h-008.avif",
       lienHero: "Hama, fils de Helm",
     },
-    {
-      id: "roh-h-009",
-      nom: "Héra, Fille de Helm (Pied)",
-      image: "/images/factions/rohan/roh-h-009.avif",
-      lienHero: "Hera",
-    },
+
     {
       id: "roh-h-010",
-      nom: "Héra, Fille de Helm (Ashere)",
+      nom: "Héra, Fille de Helm",
       image: "/images/factions/rohan/roh-h-010.avif",
       lienHero: "Hera",
     },
-    {
-      id: "roh-h-011",
-      nom: "Olwyn, Damoiselle Protectrice du Rohan (Pied)",
-      image: "/images/factions/rohan/roh-h-011.avif",
-      lienHero: "Olwyn",
-    },
+
     {
       id: "roh-h-012",
-      nom: "Olwyn, Damoiselle Protectrice du Rohan (Cheval)",
+      nom: "Olwyn, Damoiselle Protectrice du Rohan",
       image: "/images/factions/rohan/roh-h-012.avif",
       lienHero: "Olwyn",
     },
-    {
-      id: "roh-h-013",
-      nom: "Lief, Page de Helm (Pied)",
-      image: "/images/factions/rohan/roh-h-013.avif",
-      lienHero: "Lief",
-    },
+
     {
       id: "roh-h-014",
-      nom: "Lief, Page de Helm (Cheval)",
+      nom: "Lief, Page de Helm",
       image: "/images/factions/rohan/roh-h-014.avif",
       lienHero: "Lief",
     },
-    {
-      id: "roh-h-015",
-      nom: "Fréaláf, Premier Maréchal du Riddermark (Pied)",
-      image: "/images/factions/rohan/roh-h-015.avif",
-      lienHero: "Frealaf",
-    },
+
     {
       id: "roh-h-016",
-      nom: "Fréaláf, Premier Maréchal du Riddermark (Cheval)",
+      nom: "Fréaláf, Premier Maréchal du Riddermark ",
       image: "/images/factions/rohan/roh-h-016.avif",
       lienHero: "Frealaf",
     },
-    {
-      id: "roh-h-017",
-      nom: "Helm Poing de Marteau, Spectre de Fort-le-Cor",
-      image: "/images/factions/rohan/roh-h-017.avif",
-      lienHero: "Helm Poing de Marteau",
-    },
-    {
-      id: "roh-h-018",
-      nom: "Héra, Promise à la Mort (Bouclier)",
-      image: "/images/factions/rohan/roh-h-018.avif",
-      lienHero: "Hera",
-    },
-    {
-      id: "roh-h-019",
-      nom: "Théoden, Roi du Rohan (Nivacrin)",
-      image: "/images/factions/rohan/roh-h-019.avif",
-      lienHero: "Theoden",
-    },
+
     {
       id: "roh-h-020",
-      nom: "Théoden, Roi du Rohan (Nivacrin Caparaçonné + Bouclier)",
+      nom: "Théoden, Roi du Rohan",
       image: "/images/factions/rohan/roh-h-020.avif",
       lienHero: "Theoden",
     },
-    {
-      id: "roh-h-022",
-      nom: "Théoden, Roi du Rohan (Armure Lourde)",
-      image: "/images/factions/rohan/roh-h-022.avif",
-      lienHero: "Theoden",
-    },
-    {
-      id: "roh-h-023",
-      nom: "Théoden, Roi du Rohan (Armure Lourde + Bouclier)",
-      image: "/images/factions/rohan/roh-h-023.avif",
-      lienHero: "Theoden",
-    },
-    {
-      id: "roh-h-024",
-      nom: "Théodred, Prince du Rohan",
-      image: "/images/factions/rohan/roh-h-024.avif",
-      lienHero: "Theodred",
-    },
-    {
-      id: "roh-h-025",
-      nom: "Théodred, Prince du Rohan (Bouclier)",
-      image: "/images/factions/rohan/roh-h-025.avif",
-      lienHero: "Theodred",
-    },
+
     {
       id: "roh-h-026",
-      nom: "Théodred, Prince du Rohan (Cheval + Bouclier)",
+      nom: "Théodred, Prince du Rohan ",
       image: "/images/factions/rohan/roh-h-026.avif",
       lienHero: "Theodred",
     },
     {
-      id: "roh-h-027",
-      nom: "Éomer, Maréchal du Riddermark",
-      image: "/images/factions/rohan/roh-h-027.avif",
-      lienHero: "Eomer",
-    },
-    {
-      id: "roh-h-028",
-      nom: "Éomer, Maréchal du Riddermark (Bouclier)",
-      image: "/images/factions/rohan/roh-h-028.avif",
-      lienHero: "Eomer",
-    },
-    {
-      id: "roh-h-029",
-      nom: "Éomer, Maréchal du Riddermark (Javelot)",
-      image: "/images/factions/rohan/roh-h-029.avif",
-      lienHero: "Eomer",
-    },
-    {
-      id: "roh-h-030",
-      nom: "Éomer, Maréchal du Riddermark (Piedardent Caparaçonné)",
-      image: "/images/factions/rohan/roh-h-030.avif",
-      lienHero: "Eomer",
-    },
-    {
       id: "roh-h-031",
-      nom: "Éomer, Maréchal du Riddermark (Piedardent Caparaçonné + Javelot)",
+      nom: "Éomer, Maréchal du Riddermark ",
       image: "/images/factions/rohan/roh-h-031.avif",
       lienHero: "Eomer",
     },
-    {
-      id: "roh-h-032",
-      nom: "Éowyn, Damoiselle Protectrice du Rohan",
-      image: "/images/factions/rohan/roh-h-032.avif",
-      lienHero: "Eowyn",
-    },
-    {
-      id: "roh-h-033",
-      nom: "Éowyn, Damoiselle Protectrice du Rohan (Armure)",
-      image: "/images/factions/rohan/roh-h-033.avif",
-      lienHero: "Eowyn",
-    },
-    {
-      id: "roh-h-034",
-      nom: "Éowyn, Damoiselle Protectrice du Rohan (Cheval)",
-      image: "/images/factions/rohan/roh-h-034.avif",
-      lienHero: "Eowyn",
-    },
+
     {
       id: "roh-h-035",
       nom: "Éowyn, Damoiselle Protectrice du Rohan (Cheval + Javelot)",
       image: "/images/factions/rohan/roh-h-035.avif",
       lienHero: "Eowyn",
     },
-    {
-      id: "roh-h-036",
-      nom: "Éowyn, Damoiselle Protectrice du Rohan (Cheval + Javelot + Merry)",
-      image: "/images/factions/rohan/roh-h-036.avif",
-      lienHero: "Eowyn",
-    },
-    {
-      id: "roh-h-038",
-      nom: "Éowyn, Damoiselle Protectrice du Rohan (Armure + Bouclier)",
-      image: "/images/factions/rohan/roh-h-038.avif",
-      lienHero: "Eowyn",
-    },
-    {
-      id: "roh-h-039",
-      nom: "Meriadoc Brandebouc, Écuyer du Rohan",
-      image: "/images/factions/rohan/roh-h-039.avif",
-      lienHero: "Meriadoc Brandebouc (Merry)",
-    },
+
     {
       id: "roh-h-040",
-      nom: "Meriadoc Brandebouc, Écuyer du Rohan (Bouclier)",
+      nom: "Meriadoc Brandebouc, Écuyer du Rohan",
       image: "/images/factions/rohan/roh-h-040.avif",
       lienHero: "Meriadoc Brandebouc (Merry)",
     },
-    {
-      id: "roh-h-041",
-      nom: "Déorwine, Maître de la Cavalerie Royale",
-      image: "/images/factions/rohan/roh-h-041.avif",
-      lienHero: "Deorwine",
-    },
+
     {
       id: "roh-h-042",
       nom: "Déorwine, Maître de la Cavalerie Royale (Cheval)",
       image: "/images/factions/rohan/roh-h-042.avif",
       lienHero: "Deorwine",
     },
-    {
-      id: "roh-h-043",
-      nom: "Gamelin, Capitaine du Rohan",
-      image: "/images/factions/rohan/roh-h-043.avif",
-      lienHero: "Gamling",
-    },
-    {
-      id: "roh-h-044",
-      nom: "Gamelin, Capitaine du Rohan (Cheval)",
-      image: "/images/factions/rohan/roh-h-044.avif",
-      lienHero: "Gamling",
-    },
+
     {
       id: "roh-h-045",
-      nom: "Gamelin, Capitaine du Rohan (Cheval + Bannière du Rohan)",
+      nom: "Gamelin, Capitaine du Rohan",
       image: "/images/factions/rohan/roh-h-045.avif",
       lienHero: "Gamling",
     },
-    {
-      id: "roh-h-046",
-      nom: "Gamelin, Capitaine du Rohan (Bannière du Rohan)",
-      image: "/images/factions/rohan/roh-h-046.avif",
-      lienHero: "Gamling",
-    },
+
     {
       id: "roh-h-047",
       nom: "Háma, Capitaine du Rohan",
@@ -300,27 +128,17 @@ const LE_ROHAN = {
       image: "/images/factions/rohan/roh-h-049.avif",
       lienHero: "Aldor",
     },
-    {
-      id: "roh-h-050",
-      nom: "Erkenbrand, Capitaine du Rohan (Pied)",
-      image: "/images/factions/rohan/roh-h-050.avif",
-      lienHero: "Erkenbrand",
-    },
+
     {
       id: "roh-h-051",
-      nom: "Erkenbrand, Capitaine du Rohan (Cheval)",
+      nom: "Erkenbrand, Capitaine du Rohan",
       image: "/images/factions/rohan/roh-h-051.avif",
       lienHero: "Erkenbrand",
     },
-    {
-      id: "roh-h-052",
-      nom: "Elfhelm, Capitaine du Rohan",
-      image: "/images/factions/rohan/roh-h-052.avif",
-      lienHero: "Elfhelm",
-    },
+
     {
       id: "roh-h-053",
-      nom: "Elfhelm, Capitaine du Rohan (Cheval)",
+      nom: "Elfhelm, Capitaine du Rohan",
       image: "/images/factions/rohan/roh-h-053.avif",
       lienHero: "Elfhelm",
     },

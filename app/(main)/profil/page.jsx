@@ -30,7 +30,7 @@ import { useTheme } from "@/lib/theme-context";
 import { modifierPseudo } from "@/lib/firestore";
 
 export default function PageProfil() {
-  const { utilisateur, profil, rafraichirProfil, seDeconnecter } = useAuth();
+  const { utilisateur, profil, rafraichirProfil, seDeconnecter, isInvite } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const router = useRouter();
   const [chargementDeconnexion, setChargementDeconnexion] = useState(false);
@@ -159,6 +159,8 @@ export default function PageProfil() {
                     <X size={12} />
                   </button>
                 </div>
+              ) : isInvite ? (
+                <span className="text-[#6B6B6B] text-[10px] uppercase tracking-wide shrink-0">Compte requis</span>
               ) : (
                 <button
                   onClick={() => { setEditPseudo(true); setNouveauPseudo(""); }}
@@ -308,14 +310,19 @@ export default function PageProfil() {
             </button>
 
             <button
-              onClick={() => router.push("/amis")}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#2A2A2A] transition-colors"
+              onClick={() => !isInvite && router.push("/amis")}
+              disabled={isInvite}
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#2A2A2A] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              <Users size={18} className="text-purple-400" />
+              <Users size={18} className={isInvite ? "text-[#3A3A3A]" : "text-purple-400"} />
               <span className="flex-1 text-left text-[#D4D4D4] text-sm">
                 Mes amis
               </span>
-              <ChevronRight size={16} className="text-[#3A3A3A]" />
+              {isInvite ? (
+                <span className="text-[#6B6B6B] text-[10px] uppercase tracking-wide">Compte requis</span>
+              ) : (
+                <ChevronRight size={16} className="text-[#3A3A3A]" />
+              )}
             </button>
           </div>
         </section>

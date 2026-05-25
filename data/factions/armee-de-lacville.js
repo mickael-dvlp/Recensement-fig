@@ -24,30 +24,14 @@ const ARMEE_DE_LACVILLE = {
       image: "/images/factions/lacville/lac-h-003.avif",
       lienHero: "Bard",
     },
-    {
-      id: "lac-h-004",
-      nom: "Bard avec Arquelance",
-      image: "/images/factions/lacville/lac-h-004.avif",
-      lienHero: "Bard",
-    },
+
     {
       id: "lac-h-005",
-      nom: "Bard, Défenseur de Lacville",
+      nom: "Bard",
       image: "/images/factions/lacville/lac-h-005.avif",
       lienHero: "Bard",
     },
-    {
-      id: "lac-h-006",
-      nom: "Bard l'Archer",
-      image: "/images/factions/lacville/lac-h-006.avif",
-      lienHero: "Bard",
-    },
-    {
-      id: "lac-h-007",
-      nom: "Bard (Monté)",
-      image: "/images/factions/lacville/lac-h-007.avif",
-      lienHero: "Bard",
-    },
+
     {
       id: "lac-h-008",
       nom: "Braga, Capitaine de la Garde",

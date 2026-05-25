@@ -9,21 +9,8 @@ const LEGION_AZOG = {
     {
       id: "laz-h-001",
       inventaireId: "caz-h-001",
-      nom: "Azog (Pied)",
+      nom: "Azog",
       image: "/images/factions/legion-azog/laz-h-001.avif",
-      lienHero: "Azog",
-    },
-    {
-      id: "laz-h-002",
-      inventaireId: "caz-h-002",
-      nom: "Azog sur Warg Blanc",
-      image: "/images/factions/legion-azog/laz-h-002.avif",
-      lienHero: "Azog",
-    },
-    {
-      id: "laz-h-003",
-      nom: "Azog, Armure Lourde et Fléau de Pierre",
-      image: "/images/factions/legion-azog/laz-h-003.avif",
       lienHero: "Azog",
     },
     {
@@ -34,17 +21,11 @@ const LEGION_AZOG = {
     {
       id: "laz-h-005",
       inventaireId: "caz-h-003",
-      nom: "Bolg (Pied)",
+      nom: "Bolg",
       image: "/images/factions/legion-azog/laz-h-005.avif",
       lienHero: "Bolg",
     },
-    {
-      id: "laz-h-006",
-      inventaireId: "caz-h-004",
-      nom: "Bolg sur Warg des Ombres",
-      image: "/images/factions/legion-azog/laz-h-006.avif",
-      lienHero: "Bolg",
-    },
+
     {
       id: "laz-h-007",
       nom: "Capitaine Gundabad",

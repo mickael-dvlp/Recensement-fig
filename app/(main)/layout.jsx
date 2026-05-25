@@ -37,6 +37,8 @@ export default function MainLayout({ children }) {
   // Ne rien afficher si non connecté (la redirection est en cours)
   if (!utilisateur) return null;
 
+  const TEXTE_TENGWAR = "yYtTqQnNeEmMaAiIoOlLrRsShHdDbBvVkKwWzZgGfFpP".repeat(8);
+
   return (
     /*
       min-h-screen + flex-col : le conteneur occupe toute la hauteur.
@@ -44,6 +46,12 @@ export default function MainLayout({ children }) {
       Plus de pb-24 car la nav n'est plus en position fixed.
     */
     <div className="flex flex-col min-h-screen bg-[#0D0D0D]">
+      <div className="frise-elfique frise-elfique-gauche">
+        <span className="frise-elfique-texte">{TEXTE_TENGWAR}</span>
+      </div>
+      <div className="frise-elfique frise-elfique-droite">
+        <span className="frise-elfique-texte">{TEXTE_TENGWAR}</span>
+      </div>
       <main className="flex-1 flex justify-center pb-20">
         <div className="w-full page-container">{children}</div>
       </main>

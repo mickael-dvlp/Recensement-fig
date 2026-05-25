@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Tengwar';
+  src: url('/fonts/tngani.woff2') format('woff2');
+  font-display: swap;
+}
+
 /* ============================================================
    VARIABLES CSS PERSONNALISÉES - Thème MESBG
    Couleurs inspirées de l'esthétique noir/or de Games Workshop
@@ -244,6 +250,82 @@ html.light ::-webkit-scrollbar-thumb {
 .page-container {
   padding-left: 30px;
   padding-right: 30px;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding-left: calc(52px + 20px);
+    padding-right: calc(52px + 20px);
+  }
+}
+
+/* ============================================================
+   FRISES ELFIQUES
+   ============================================================ */
+
+.frise-elfique {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 52px;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg,
+    #0D0D0D 0%,
+    #0f0800 20%,
+    #120a00 50%,
+    #0f0800 80%,
+    #0D0D0D 100%
+  );
+  pointer-events: none;
+}
+
+.frise-elfique::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    #0D0D0D 0%,
+    transparent 10%,
+    transparent 90%,
+    #0D0D0D 100%
+  );
+  z-index: 2;
+}
+
+.frise-elfique-gauche {
+  left: 0;
+  border-right: 1px solid rgba(201, 162, 39, 0.45);
+  box-shadow: inset -6px 0 18px rgba(0, 0, 0, 0.6), 1px 0 12px rgba(201, 162, 39, 0.08);
+}
+
+.frise-elfique-droite {
+  right: 0;
+  border-left: 1px solid rgba(201, 162, 39, 0.45);
+  box-shadow: inset 6px 0 18px rgba(0, 0, 0, 0.6), -1px 0 12px rgba(201, 162, 39, 0.08);
+}
+
+.frise-elfique-texte {
+  font-family: 'Tengwar', serif;
+  color: rgba(201, 162, 39, 0.55);
+  font-size: 19px;
+  writing-mode: vertical-rl;
+  letter-spacing: 8px;
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  line-height: 52px;
+  text-shadow: 0 0 10px rgba(201, 162, 39, 0.25);
+}
+
+@media (min-width: 768px) {
+  .frise-elfique {
+    display: flex;
+  }
 }
 
 /* ============================================================
