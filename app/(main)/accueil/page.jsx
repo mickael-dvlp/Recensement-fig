@@ -73,7 +73,7 @@ const IMAGES_FACTIONS = {
  */
 function CarteStatistique({ icone, label, valeur, couleur }) {
   return (
-    <div className="flex-1 bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center gap-2">
+    <div className="flex-1 h-28 bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-2">
       {/* Icône colorée */}
       <div
         className={`w-9 h-9 rounded-full flex items-center justify-center ${couleur}`}
@@ -251,14 +251,14 @@ export default function PageAccueil() {
                       src={img}
                       alt=""
                       fill
-                      className="object-cover opacity-30"
+                      className="object-cover opacity-60"
                       sizes="(max-width: 640px) 50vw, 33vw"
                     />
                   )}
-                  <span className="relative text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center drop-shadow">
+                  <span className="relative text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
                     {faction}
                   </span>
-                  <span className="relative text-[#6B6B6B] text-lg font-semibold text-center">
+                  <span className="relative text-[#F5F5F5] text-lg font-semibold text-center">
                     {chargement ? "…" : stats.parFaction[faction] || 0}
                   </span>
                 </div>
@@ -286,14 +286,14 @@ export default function PageAccueil() {
                       src={img}
                       alt=""
                       fill
-                      className="object-cover opacity-30"
+                      className="object-cover opacity-60"
                       sizes="(max-width: 640px) 50vw, 33vw"
                     />
                   )}
-                  <span className="relative text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center drop-shadow">
+                  <span className="relative text-[#D4D4D4] text-sm font-bold uppercase tracking-wide text-center">
                     {faction}
                   </span>
-                  <span className="relative text-[#6B6B6B] text-lg font-semibold text-center">
+                  <span className="relative text-[#F5F5F5] text-lg font-semibold text-center">
                     {chargement ? "…" : stats.parFaction[faction] || 0}
                   </span>
                 </div>

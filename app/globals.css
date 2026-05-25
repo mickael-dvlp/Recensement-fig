@@ -102,14 +102,23 @@ html.light .hover\:bg-\[\#2A2A2A\]\:hover {
   background-color: #e8e1d4 !important;
 }
 
-/* Texte principal : #F5F5F5 → brun très foncé */
+/* Texte principal : #F5F5F5 → noir */
 html.light .text-\[\#F5F5F5\] {
-  color: #1c1714 !important;
+  color: #111111 !important;
 }
 
-/* Texte secondaire : #D4D4D4 → brun moyen */
+/* Texte secondaire : #D4D4D4 → noir */
 html.light .text-\[\#D4D4D4\] {
-  color: #3d3530 !important;
+  color: #111111 !important;
+}
+
+/* Navbar (bottom-nav) : fond blanc, boutons inactifs noirs */
+html.light .bottom-nav {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
+html.light .bottom-nav .text-\[\#6B6B6B\] {
+  color: #111111 !important;
 }
 
 /* Texte désactivé/subtil : #3A3A3A → gris sable moyen */

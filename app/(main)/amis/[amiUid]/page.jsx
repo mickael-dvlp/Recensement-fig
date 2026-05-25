@@ -19,7 +19,7 @@ export default function PageCollectionAmi() {
   const [inventaire, setInventaire] = useState({});
   const [autorise, setAutorise] = useState(false);
   const [chargement, setChargement] = useState(true);
-  const [showImages, setShowImages] = useState(false);
+  const [showImages, setShowImages] = useState(true);
   const [factionsFermees, setFactionsFermees] = useState(new Set());
   const [erreur, setErreur] = useState(null);
 
