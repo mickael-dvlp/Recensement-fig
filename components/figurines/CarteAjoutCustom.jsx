@@ -90,7 +90,7 @@ export default function CarteAjoutCustom({ faction, section, onAjouter }) {
       <input
         ref={inputRef}
         type="file"
-        accept="image/*"
+        accept="image/jpeg,image/png,image/webp,image/avif"
         className="hidden"
         onChange={choisirImage}
       />
