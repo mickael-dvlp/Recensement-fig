@@ -69,16 +69,19 @@ const MORDOR = {
       id: "mdr-h-028",
       nom: "Nazgûl (Pied)",
       image: "/images/factions/mordor/mdr-h-028.avif",
+      lienHero: "Nazgûl",
     },
     {
       id: "mdr-h-029",
       nom: "Nazgûl (Cheval)",
       image: "/images/factions/mordor/mdr-h-029.avif",
+      lienHero: "Nazgûl",
     },
     {
       id: "mdr-h-030",
       nom: "Nazgûl (Ombre Ailé)",
       image: "/images/factions/mordor/mdr-h-030.avif",
+      lienHero: "Nazgûl",
     },
     {
       id: "mdr-h-031",

@@ -4,6 +4,28 @@
 
 const HEROS_N = [
   {
+    id: "nazgul",
+    nom: "Nazgûl",
+    total: 3,
+    variantes: [
+      {
+        id: "nazgul-001",
+        nom: "Nazgûl (Pied)",
+        image: "/images/heros/n/nazgul-001.avif",
+      },
+      {
+        id: "nazgul-002",
+        nom: "Nazgûl (Cheval)",
+        image: "/images/heros/n/nazgul-002.avif",
+      },
+      {
+        id: "nazgul-003",
+        nom: "Nazgûl (Ombre Ailé)",
+        image: "/images/heros/n/nazgul-003.avif",
+      },
+    ],
+  },
+  {
     id: "narzug",
     nom: "Narzug",
     total: 1,

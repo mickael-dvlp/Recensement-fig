@@ -65,13 +65,8 @@ const CHASSEURS_AZOG = {
   guerriers: [
     {
       id: "caz-g-001",
-      nom: "Chasseur Orque (Cor de Guerre)",
+      nom: "Chasseur Orque",
       image: "/images/factions/chasseurs-azog/caz-g-001.avif",
-    },
-    {
-      id: "caz-g-002",
-      nom: "Chasseur Orque (Bannière)",
-      image: "/images/factions/chasseurs-azog/caz-g-002.avif",
     },
     {
       id: "caz-g-003",

@@ -145,15 +145,20 @@ export default function PageAccueil() {
           }
         } else {
           // Figurine classique : utiliser l'ID de l'entrée faction
-          const donnees = inventaire[figurine.inventaireId ?? figurine.id];
+          const figId = figurine.inventaireId ?? figurine.id;
+          const donnees = inventaire[figId];
           if (!donnees) continue;
           if (donnees.enInventaire) {
             const qte = donnees.quantiteInventaire || 0;
-            totalPossedees += qte;
             parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
+            if (!variantesComptees.has(figId)) {
+              totalPossedees += qte;
+              variantesComptees.add(figId);
+            }
           }
-          if (donnees.souhaite) {
+          if (donnees.souhaite && !variantesComptees.has(`${figId}_s`)) {
             totalSouhaitees += donnees.quantiteSouhaitee || 0;
+            variantesComptees.add(`${figId}_s`);
           }
         }
       }

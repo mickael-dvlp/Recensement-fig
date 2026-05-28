@@ -79,7 +79,7 @@ const HEROS_B = [
     variantes: [
       {
         id: "balrog-001",
-        nom: "Balron (Plastique)",
+        nom: "Balrog (Plastique)",
         image: "/images/heros/b/balrog-001.avif",
       },
       {

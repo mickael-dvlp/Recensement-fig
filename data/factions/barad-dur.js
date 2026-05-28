@@ -36,16 +36,19 @@ const BARAD_DUR = {
       id: "bdr-h-005",
       nom: "Nazgûl (Pied)",
       image: "/images/factions/barad-dur/bdr-h-005.avif",
+      lienHero: "Nazgûl",
     },
     {
       id: "bdr-h-006",
       nom: "Nazgûl (Cheval)",
       image: "/images/factions/barad-dur/bdr-h-006.avif",
+      lienHero: "Nazgûl",
     },
     {
       id: "bdr-h-007",
       nom: "Nazgûl (Ombre Ailé)",
       image: "/images/factions/barad-dur/bdr-h-007.avif",
+      lienHero: "Nazgûl",
     },
     {
       id: "bdr-h-008",
