@@ -53,7 +53,6 @@ const HORDE_SERPENT = {
       id: "hsr-h-011",
       nom: "Maître de Discipline Haradrim",
       image: "/images/factions/horde-serpent/hsr-h-011.avif",
-      lienHero: "Maitre de Lacville",
     },
   ],
 
