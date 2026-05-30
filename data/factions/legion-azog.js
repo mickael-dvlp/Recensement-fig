@@ -27,11 +27,6 @@ const LEGION_AZOG = {
     },
 
     {
-      id: "laz-h-007",
-      nom: "Capitaine Gundabad",
-      image: "/images/factions/legion-azog/laz-h-007.avif",
-    },
-    {
       id: "laz-h-008",
       nom: "Capitaine Gundabad (Bouclier)",
       image: "/images/factions/legion-azog/laz-h-008.avif",

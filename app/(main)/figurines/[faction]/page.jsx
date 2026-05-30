@@ -14,6 +14,7 @@ import {
   getFigurinesCustom,
   creerFigurineCustom,
   supprimerFigurineCustom,
+  modifierFigurineCustom,
 } from "@/lib/firestore";
 import FACTIONS_DATA from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
@@ -87,6 +88,22 @@ export default function PageFaction() {
         return next;
       });
       await supprimerFigurineCustom(utilisateur.uid, id);
+    },
+    [utilisateur]
+  );
+
+  // ---- MODIFICATION FIGURINE CUSTOM ----
+  const modifierCustom = useCallback(
+    async (id, updates) => {
+      if (!utilisateur) return;
+      const result = await modifierFigurineCustom(utilisateur.uid, id, updates);
+      setFigurinesCustom((prev) =>
+        prev.map((c) =>
+          c.id === id
+            ? { ...c, ...(result.nom ? { nom: result.nom } : {}), ...(result.imageUrl ? { imageUrl: result.imageUrl } : {}) }
+            : c
+        )
+      );
     },
     [utilisateur]
   );
@@ -244,6 +261,7 @@ export default function PageFaction() {
                     donneesUtilisateur={inventaire[fig.id]}
                     onMettreAJour={mettreAJour}
                     onSupprimer={() => supprimerCustom(fig.id)}
+                    onModifier={(updates) => modifierCustom(fig.id, updates)}
                   />
                 ))}
                 {/* Carte ajout — masquée si un filtre est actif */}
@@ -281,6 +299,7 @@ export default function PageFaction() {
                     donneesUtilisateur={inventaire[fig.id]}
                     onMettreAJour={mettreAJour}
                     onSupprimer={() => supprimerCustom(fig.id)}
+                    onModifier={(updates) => modifierCustom(fig.id, updates)}
                   />
                 ))}
                 {!filtre && (

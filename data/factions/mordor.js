@@ -201,7 +201,6 @@ const MORDOR = {
       id: "mdr-h-056",
       nom: "Maître de Discipline Orque",
       image: "/images/factions/mordor/mdr-h-056.avif",
-      lienHero: "Maitre de Lacville",
     },
     {
       id: "mdr-h-057",

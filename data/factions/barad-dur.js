@@ -82,7 +82,6 @@ const BARAD_DUR = {
       id: "bdr-h-013",
       nom: "Maître de Discipline Orque",
       image: "/images/factions/barad-dur/bdr-h-013.avif",
-      lienHero: "Maitre de Lacville",
     },
     {
       id: "bdr-h-014",

@@ -50,7 +50,7 @@ export const HEROES = [
   { nom: "Bofur", total: 5 },
   { nom: "Bolg", total: 4 },
   { nom: "Bombur", total: 4 },
-  { nom: "Boromir", total: 8 },
+  { nom: "Boromir", total: 9 },
   { nom: "La Bouche de Sauron", total: 2 },
   { nom: "Le Bourreau des Ténèbres", total: 1 },
   { nom: "Brorgir", total: 1 },

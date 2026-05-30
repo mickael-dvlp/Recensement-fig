@@ -44,13 +44,23 @@ const L_ERIADOR = {
     },
     {
       id: "eri-h-008",
-      nom: "Ranger du Nord",
+      nom: "Ranger du Nord (Armure)",
       image: "/images/factions/eriador/eri-h-008.avif",
     },
     {
       id: "eri-h-009",
-      nom: "Ranger du Nord (Lance)",
+      nom: "Ranger du Nord (Armure + Lance)",
       image: "/images/factions/eriador/eri-h-009.avif",
+    },
+    {
+      id: "eri-h-010",
+      nom: "Ranger du Nord",
+      image: "/images/factions/eriador/eri-h-010.avif",
+    },
+    {
+      id: "eri-h-011",
+      nom: "Ranger du Nord (Lance)",
+      image: "/images/factions/eriador/eri-h-011.avif",
     },
   ],
 

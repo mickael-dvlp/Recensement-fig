@@ -81,6 +81,11 @@ const FONDCOMBE = {
       image: "/images/factions/fondcombe/fdc-h-018.avif",
     },
     {
+      id: "fdc-h-022",
+      nom: "Capitaine Elfe de Fondcombe (Monté + Lance + Arc)",
+      image: "/images/factions/fondcombe/fdc-h-022.avif",
+    },
+    {
       id: "fdc-h-019",
       nom: "Elrohir",
       image: "/images/factions/fondcombe/fdc-h-019.avif",
@@ -96,8 +101,13 @@ const FONDCOMBE = {
     },
     {
       id: "fdc-g-002",
-      nom: "Guerrier de Fondcombe (Bannière)",
+      nom: "Guerrier de Fondcombe (Bannière 1)",
       image: "/images/factions/fondcombe/fdc-g-002.avif",
+    },
+    {
+      id: "fdc-g-006",
+      nom: "Guerrier de Fondcombe (Bannière 2)",
+      image: "/images/factions/fondcombe/fdc-g-006.avif",
     },
     {
       id: "fdc-g-003",
@@ -113,6 +123,21 @@ const FONDCOMBE = {
       id: "fdc-g-005",
       nom: "Guerrier de Fondcombe (Lance + Bouclier)",
       image: "/images/factions/fondcombe/fdc-g-005.avif",
+    },
+    {
+      id: "fdc-g-007",
+      nom: "Cavalier de Fondcombe (Lance)",
+      image: "/images/factions/fondcombe/fdc-g-007.avif",
+    },
+    {
+      id: "fdc-g-008",
+      nom: "Cavalier de Fondcombe (Lance + Bouclier)",
+      image: "/images/factions/fondcombe/fdc-g-008.avif",
+    },
+    {
+      id: "fdc-g-009",
+      nom: "Cavalier de Fondcombe (Bannière)",
+      image: "/images/factions/fondcombe/fdc-g-009.avif",
     },
   ],
 };

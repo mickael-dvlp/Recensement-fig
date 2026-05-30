@@ -75,12 +75,12 @@ const L_ARNOR = {
     },
     {
       id: "arn-g-005",
-      nom: "Ranger d'Arnor (Bannière)",
+      nom: "Ranger d'Arnor (Cor de Guerre)",
       image: "/images/factions/arnor/arn-g-005.avif",
     },
     {
       id: "arn-g-006",
-      nom: "Ranger d'Arnor (Cor de Guerre)",
+      nom: "Ranger d'Arnor (Bannière)",
       image: "/images/factions/arnor/arn-g-006.avif",
     },
     {

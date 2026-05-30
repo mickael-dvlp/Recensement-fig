@@ -420,7 +420,7 @@ const HEROS_B = [
   {
     id: "boromir",
     nom: "Boromir",
-    total: 8,
+    total: 9,
     variantes: [
       {
         id: "boromir-001",
@@ -436,6 +436,11 @@ const HEROS_B = [
         id: "boromir-003",
         nom: "Boromir Armure Lourde et Bouclier",
         image: "/images/heros/b/boromir-003.avif",
+      },
+      {
+        id: "boromir-009",
+        nom: "Boromir Armure Lourde et Bouclier (Monté)",
+        image: "/images/heros/b/boromir-009.avif",
       },
       {
         id: "boromir-004",
