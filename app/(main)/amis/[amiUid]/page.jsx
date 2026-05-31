@@ -141,15 +141,31 @@ export default function PageCollectionAmi() {
   const totalHeroesVariantes = heroesVariantes.reduce((s, h) => s + h.quantite, 0);
   const peintesHeroesVariantes = heroesVariantes.reduce((s, h) => s + h.peintes, 0);
 
-  const totalBien = FACTIONS_BIEN.reduce(
-    (s, f) => s + (factionsData[f]?.reduce((a, fig) => a + fig.quantite, 0) || 0),
-    0
-  );
-  const totalMal = FACTIONS_MAL.reduce(
-    (s, f) => s + (factionsData[f]?.reduce((a, fig) => a + fig.quantite, 0) || 0),
-    0
-  );
-  const totalPeintes = Object.values(factionsData).flat().reduce((s, f) => s + f.peintes, 0) + peintesHeroesVariantes;
+  const figCompteesBien = new Set();
+  const totalBien = FACTIONS_BIEN.reduce((s, f) => {
+    return s + (factionsData[f]?.reduce((a, fig) => {
+      if (figCompteesBien.has(fig.id)) return a;
+      figCompteesBien.add(fig.id);
+      return a + fig.quantite;
+    }, 0) || 0);
+  }, 0);
+
+  const figComptesMal = new Set();
+  const totalMal = FACTIONS_MAL.reduce((s, f) => {
+    return s + (factionsData[f]?.reduce((a, fig) => {
+      if (figComptesMal.has(fig.id)) return a;
+      figComptesMal.add(fig.id);
+      return a + fig.quantite;
+    }, 0) || 0);
+  }, 0);
+
+  const figCompteesPeintes = new Set();
+  const totalPeintes = Object.values(factionsData).flat().reduce((s, f) => {
+    if (figCompteesPeintes.has(f.id)) return s;
+    figCompteesPeintes.add(f.id);
+    return s + f.peintes;
+  }, 0) + peintesHeroesVariantes;
+
   const totalGeneral = totalBien + totalMal + totalHeroesVariantes;
 
   function BlocFactions({ groupes }) {
