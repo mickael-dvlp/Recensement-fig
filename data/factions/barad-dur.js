@@ -75,7 +75,7 @@ const BARAD_DUR = {
     },
     {
       id: "bdr-h-020",
-      inventaireId: "mdr-h-048",
+      inventaireId: "ang-h-021",
       nom: "Capitaine Orque 4 (Pied)",
       image: "/images/factions/barad-dur/bdr-h-020.avif",
     },

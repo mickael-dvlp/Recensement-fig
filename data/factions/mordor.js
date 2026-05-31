@@ -158,8 +158,27 @@ const MORDOR = {
     },
     {
       id: "mdr-h-046",
-      nom: "Capitaine Orque Avec Bouclier (Pied)",
+      inventaireId: "ang-h-012",
+      nom: "Capitaine Orque 1 (Pied)",
       image: "/images/factions/mordor/mdr-h-046.avif",
+    },
+    {
+      id: "mdr-h-065",
+      inventaireId: "ang-h-019",
+      nom: "Capitaine Orque 2 (Pied)",
+      image: "/images/factions/mordor/mdr-h-065.avif",
+    },
+    {
+      id: "mdr-h-066",
+      inventaireId: "ang-h-020",
+      nom: "Capitaine Orque 3 (Pied)",
+      image: "/images/factions/mordor/mdr-h-066.avif",
+    },
+    {
+      id: "mdr-h-067",
+      inventaireId: "ang-h-021",
+      nom: "Capitaine Orque 4 (Pied)",
+      image: "/images/factions/mordor/mdr-h-067.avif",
     },
     {
       id: "mdr-h-048",

@@ -20,11 +20,11 @@ export default function PageCollectionAmi() {
   const [autorise, setAutorise] = useState(false);
   const [chargement, setChargement] = useState(true);
   const [showImages, setShowImages] = useState(true);
-  const [factionsFermees, setFactionsFermees] = useState(new Set());
+  const [factionsOuvertes, setFactionsOuvertes] = useState(new Set());
   const [erreur, setErreur] = useState(null);
 
   function toggleFaction(faction) {
-    setFactionsFermees((prev) => {
+    setFactionsOuvertes((prev) => {
       const next = new Set(prev);
       if (next.has(faction)) next.delete(faction);
       else next.add(faction);
@@ -170,11 +170,11 @@ export default function PageCollectionAmi() {
                 {/* En-tête faction */}
                 <button
                   onClick={() => toggleFaction(faction)}
-                  className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#222222] ${!factionsFermees.has(faction) ? "border-b border-[#2A2A2A]" : ""}`}
+                  className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#222222] ${factionsOuvertes.has(faction) ? "border-b border-[#2A2A2A]" : ""}`}
                 >
                   <ChevronDown
                     size={14}
-                    className={`text-[#6B6B6B] shrink-0 transition-transform duration-200 ${factionsFermees.has(faction) ? "-rotate-90" : ""}`}
+                    className={`text-[#6B6B6B] shrink-0 transition-transform duration-200 ${factionsOuvertes.has(faction) ? "" : "-rotate-90"}`}
                   />
                   <span className="flex-1 text-[#D4D4D4] text-sm font-bold">{faction}</span>
                   <div className="flex items-center gap-2">
@@ -188,7 +188,7 @@ export default function PageCollectionAmi() {
                 </button>
 
                 {/* Liste des figurines */}
-                {!factionsFermees.has(faction) && (
+                {factionsOuvertes.has(faction) && (
                   <div className="flex flex-col">
                     {figs.map((fig, i) => (
                       <div
@@ -292,11 +292,11 @@ export default function PageCollectionAmi() {
               <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl overflow-hidden">
                 <button
                   onClick={() => toggleFaction("__heroes__")}
-                  className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#222222] ${!factionsFermees.has("__heroes__") ? "border-b border-[#2A2A2A]" : ""}`}
+                  className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#222222] ${factionsOuvertes.has("__heroes__") ? "border-b border-[#2A2A2A]" : ""}`}
                 >
                   <ChevronDown
                     size={14}
-                    className={`text-[#6B6B6B] shrink-0 transition-transform duration-200 ${factionsFermees.has("__heroes__") ? "-rotate-90" : ""}`}
+                    className={`text-[#6B6B6B] shrink-0 transition-transform duration-200 ${factionsOuvertes.has("__heroes__") ? "" : "-rotate-90"}`}
                   />
                   <span className="flex-1 text-[#D4D4D4] text-sm font-bold">Variantes de héros</span>
                   <div className="flex items-center gap-2">
@@ -308,7 +308,7 @@ export default function PageCollectionAmi() {
                     )}
                   </div>
                 </button>
-                {!factionsFermees.has("__heroes__") && (
+                {factionsOuvertes.has("__heroes__") && (
                   <div className="flex flex-col">
                     {heroesVariantes.map((fig, i) => (
                       <div
