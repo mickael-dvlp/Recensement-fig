@@ -70,11 +70,7 @@ const ANGMAR = {
       image: "/images/factions/angmar/ang-h-011.avif",
       lienHero: "Gulavhar",
     },
-    {
-      id: "ang-h-012",
-      nom: "Capitaine Orque (Pied)",
-      image: "/images/factions/angmar/ang-h-012.avif",
-    },
+
     {
       id: "ang-h-013",
       inventaireId: "mdr-h-047",
@@ -83,6 +79,7 @@ const ANGMAR = {
     },
     {
       id: "ang-h-014",
+      inventaireId: "mdr-h-048",
       nom: "Chaman Orque (Pied)",
       image: "/images/factions/angmar/ang-h-014.avif",
     },
@@ -111,9 +108,29 @@ const ANGMAR = {
       lienHero: "Golfimbul",
     },
     {
-      id: "ang-h-019",
+      id: "ang-h-025",
       nom: "Chef de Meute Warg",
+      image: "/images/factions/angmar/ang-h-025.avif",
+    },
+    {
+      id: "ang-h-012",
+      nom: "Capitaine Orque 1 (Pied)",
+      image: "/images/factions/angmar/ang-h-012.avif",
+    },
+    {
+      id: "ang-h-019",
+      nom: "Capitaine Orque 2 (Pied)",
       image: "/images/factions/angmar/ang-h-019.avif",
+    },
+    {
+      id: "ang-h-020",
+      nom: "Capitaine Orque 3 (Pied)",
+      image: "/images/factions/angmar/ang-h-020.avif",
+    },
+    {
+      id: "ang-h-021",
+      nom: "Capitaine Orque 4 (Pied)",
+      image: "/images/factions/angmar/ang-h-021.avif",
     },
   ],
 
@@ -150,8 +167,14 @@ const ANGMAR = {
     {
       id: "ang-g-008",
       inventaireId: "mdr-g-004",
-      nom: "Guerriers Orques (Bannière)",
+      nom: "Guerriers Orques (Bannière 1)",
       image: "/images/factions/angmar/ang-g-008.avif",
+    },
+    {
+      id: "ang-g-035",
+      inventaireId: "mdr-g-035",
+      nom: "Guerriers Orques (Bannière 2)",
+      image: "/images/factions/angmar/ang-g-035.avif",
     },
     {
       id: "ang-g-009",

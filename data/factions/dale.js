@@ -31,18 +31,9 @@ const DALE = {
     },
     {
       id: "dal-h-005",
-      nom: "Roi des Hommes de Dale",
+      nom: "Roi des Hommes",
       image: "/images/factions/dale/dal-h-005.avif",
-    },
-    {
-      id: "dal-h-006",
-      nom: "Roi des Hommes de Dale(Cheval + Lance de Cavalerie + Bouclier)",
-      image: "/images/factions/dale/dal-h-006.avif",
-    },
-    {
-      id: "dal-h-007",
-      nom: "Roi des Hommes de Dale (Bouclier)",
-      image: "/images/factions/dale/dal-h-007.avif",
+      lienHero: "Roi des Hommes",
     },
   ],
 

@@ -84,7 +84,7 @@ const LE_ROHAN = {
 
     {
       id: "roh-h-035",
-      nom: "Éowyn, Damoiselle Protectrice du Rohan (Cheval + Javelot)",
+      nom: "Éowyn, Damoiselle Protectrice du Rohan",
       image: "/images/factions/rohan/roh-h-035.avif",
       lienHero: "Eowyn",
     },
@@ -98,7 +98,7 @@ const LE_ROHAN = {
 
     {
       id: "roh-h-042",
-      nom: "Déorwine, Maître de la Cavalerie Royale (Cheval)",
+      nom: "Déorwine, Maître de la Cavalerie Royale",
       image: "/images/factions/rohan/roh-h-042.avif",
       lienHero: "Deorwine",
     },
@@ -160,9 +160,20 @@ const LE_ROHAN = {
     },
     {
       id: "roh-h-057",
-      nom: "Capitaine du Rohan (Bouclier)",
+      nom: "Capitaine du Rohan 1 (Bouclier)",
       image: "/images/factions/rohan/roh-h-057.avif",
     },
+    {
+      id: "roh-h-060",
+      nom: "Capitaine du Rohan 2 (Bouclier)",
+      image: "/images/factions/rohan/roh-h-060.avif",
+    },
+    {
+      id: "roh-h-062",
+      nom: "Capitaine du Rohan 3 (Bouclier)",
+      image: "/images/factions/rohan/roh-h-062.avif",
+    },
+
     {
       id: "roh-h-059",
       nom: "Capitaine du Rohan (Cheval + Bouclier)",
@@ -188,8 +199,28 @@ const LE_ROHAN = {
     },
     {
       id: "roh-g-004",
-      nom: "Guerrier du Rohan (Bannière)",
+      nom: "Guerrier du Rohan 1 (Bannière)",
       image: "/images/factions/rohan/roh-g-004.avif",
+    },
+    {
+      id: "roh-g-020",
+      nom: "Guerrier du Rohan 2 (Bannière)",
+      image: "/images/factions/rohan/roh-g-020.avif",
+    },
+    {
+      id: "roh-g-021",
+      nom: "Guerrier du Rohan 3 (Bannière)",
+      image: "/images/factions/rohan/roh-g-021.avif",
+    },
+    {
+      id: "roh-g-022",
+      nom: "Guerrier du Rohan (Bannière)",
+      image: "/images/factions/rohan/roh-g-022.avif",
+    },
+    {
+      id: "roh-g-023",
+      nom: "Guerrier du Rohan Helmingas (Bannière)",
+      image: "/images/factions/rohan/roh-g-023.avif",
     },
     {
       id: "roh-g-005",

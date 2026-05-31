@@ -14,18 +14,9 @@ const LE_GONDOR = {
     },
     {
       id: "gon-h-003",
-      nom: "Roi des Hommes du Gondor",
+      nom: "Roi des Hommes",
       image: "/images/factions/gondor/gon-h-003.avif",
-    },
-    {
-      id: "gon-h-004",
-      nom: "Roi des Hommes du Gondor (Bouclier)",
-      image: "/images/factions/gondor/gon-h-004.avif",
-    },
-    {
-      id: "gon-h-005",
-      nom: "Roi des Hommes du Gondor (Cheval + Lance de Cavalerie + Bouclier)",
-      image: "/images/factions/gondor/gon-h-005.avif",
+      lienHero: "Roi des Hommes",
     },
     {
       id: "gon-h-006",
@@ -128,8 +119,18 @@ const LE_GONDOR = {
     },
     {
       id: "gon-h-030",
-      nom: "Capitaine de Minas Tirith",
+      nom: "Capitaine de Minas Tirith 1",
       image: "/images/factions/gondor/gon-h-030.avif",
+    },
+    {
+      id: "gon-h-031",
+      nom: "Capitaine de Minas Tirith 2",
+      image: "/images/factions/gondor/gon-h-031.avif",
+    },
+    {
+      id: "gon-h-032",
+      nom: "Capitaine de Minas Tirith 3",
+      image: "/images/factions/gondor/gon-h-032.avif",
     },
   ],
 
@@ -156,8 +157,18 @@ const LE_GONDOR = {
     },
     {
       id: "gon-g-005",
-      nom: "Guerrier de Minas-Tirith (Bannière)",
+      nom: "Guerrier de Minas-Tirith (Bannière - 1)",
       image: "/images/factions/gondor/gon-g-005.avif",
+    },
+    {
+      id: "gon-g-021",
+      nom: "Guerrier de Minas-Tirith (Bannière - 2)",
+      image: "/images/factions/gondor/gon-g-021.avif",
+    },
+    {
+      id: "gon-g-022",
+      nom: "Guerrier de Minas-Tirith (Bannière - 3)",
+      image: "/images/factions/gondor/gon-g-022.avif",
     },
     {
       id: "gon-g-006",

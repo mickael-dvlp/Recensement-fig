@@ -257,8 +257,13 @@ const MORDOR = {
     },
     {
       id: "mdr-g-004",
-      nom: "Guerriers Orques (Bannière)",
+      nom: "Guerriers Orques (Bannière 1)",
       image: "/images/factions/mordor/mdr-g-004.avif",
+    },
+    {
+      id: "mdr-g-035",
+      nom: "Guerriers Orques (Bannière 2)",
+      image: "/images/factions/mordor/mdr-g-035.avif",
     },
     {
       id: "mdr-g-005",

@@ -61,8 +61,13 @@ const ORIENTAUX = {
   guerriers: [
     {
       id: "ori-g-001",
-      nom: "Guerrier Oriental (Bannière)",
+      nom: "Guerrier Oriental (Bannière 1)",
       image: "/images/factions/orientaux/ori-g-001.avif",
+    },
+    {
+      id: "ori-g-015",
+      nom: "Guerrier Oriental (Bannière 2)",
+      image: "/images/factions/orientaux/ori-g-015.avif",
     },
     {
       id: "ori-g-002",

@@ -319,6 +319,26 @@ export default function PageAccueil() {
             </p>
           </div>
         </section>
+
+        {/* AMÉLIORATIONS À VENIR */}
+        <section>
+          <h2 className="text-[#C9A227] text-sm font-bold uppercase tracking-widest mb-4">
+            Améliorations à venir
+          </h2>
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-5 flex flex-col gap-3">
+            {[
+              "Récapituler les doublons des Héros non nommés et des différentes Bannières",
+              "Export de ses figurines Inventaire et/ou Souhaité au format .csv",
+              "Rangement des figurines dans un ordre plus logique",
+              "Création d'une boite à idée/correction pour signaler les erreurs et améliorer l'utilisation",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#C9A227]/60 shrink-0" />
+                <p className="text-[#6B6B6B] text-sm leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

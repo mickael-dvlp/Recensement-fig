@@ -34,16 +34,7 @@ const L_ARNOR = {
       id: "arn-h-005",
       nom: "Roi des Hommes",
       image: "/images/factions/arnor/arn-h-005.avif",
-    },
-    {
-      id: "arn-h-006",
-      nom: "Roi des Hommes (Bouclier)",
-      image: "/images/factions/arnor/arn-h-006.avif",
-    },
-    {
-      id: "arn-h-007",
-      nom: "Roi des Hommes (Cheval + Lance de Cavalerie + Bouclier)",
-      image: "/images/factions/arnor/arn-h-007.avif",
+      lienHero: "Roi des Hommes",
     },
     {
       id: "arn-h-008",

@@ -116,8 +116,13 @@ const PAYS_DE_DUN = {
     },
     {
       id: "pdd-g-006",
-      nom: "Homme des Collines (Bannière)",
+      nom: "Homme des Collines (Bannière 1)",
       image: "/images/factions/pays-de-dun/pdd-g-006.avif",
+    },
+    {
+      id: "pdd-g-025",
+      nom: "Homme des Collines (Bannière 2)",
+      image: "/images/factions/pays-de-dun/pdd-g-025.avif",
     },
     {
       id: "pdd-g-007",

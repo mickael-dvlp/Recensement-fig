@@ -7,21 +7,18 @@ const FIEFS_DU_GONDOR = {
 
   heros: [
     {
+      id: "fdg-h-007",
+      nom: "Prince Imrahil",
+      image: "/images/factions/fiefs-du-gondor/fdg-h-007.avif",
+      lienHero: "Imrahil",
+    },
+    {
       id: "fdg-h-001",
       nom: "Angbor",
       image: "/images/factions/fiefs-du-gondor/fdg-h-001.avif",
       lienHero: "Angbor",
     },
-    {
-      id: "fdg-h-002",
-      nom: "Capitaine de Dol Amroth (Monté + Lance de Cavalerie + Bouclier)",
-      image: "/images/factions/fiefs-du-gondor/fdg-h-002.avif",
-    },
-    {
-      id: "fdg-h-003",
-      nom: "Capitaine de Dol Amroth (Pied)",
-      image: "/images/factions/fiefs-du-gondor/fdg-h-003.avif",
-    },
+
     {
       id: "fdg-h-004",
       nom: "Duinhir",
@@ -35,14 +32,23 @@ const FIEFS_DU_GONDOR = {
       lienHero: "Forlong",
     },
     {
-      id: "fdg-h-007",
-      nom: "Prince Imrahil",
-      image: "/images/factions/fiefs-du-gondor/fdg-h-007.avif",
-      lienHero: "Imrahil",
+      id: "fdg-h-002",
+      nom: "Capitaine de Dol Amroth (Monté + Lance de Cavalerie + Bouclier)",
+      image: "/images/factions/fiefs-du-gondor/fdg-h-002.avif",
+    },
+    {
+      id: "fdg-h-003",
+      nom: "Capitaine de Dol Amroth (Pied)",
+      image: "/images/factions/fiefs-du-gondor/fdg-h-003.avif",
     },
   ],
 
   guerriers: [
+    {
+      id: "fdg-g-012",
+      nom: "Archer de la Racine Noire",
+      image: "/images/factions/fiefs-du-gondor/fdg-g-012.avif",
+    },
     {
       id: "fdg-g-001",
       nom: "Archer de la Racine Noire (Bannière)",
@@ -69,6 +75,11 @@ const FIEFS_DU_GONDOR = {
       image: "/images/factions/fiefs-du-gondor/fdg-g-005.avif",
     },
     {
+      id: "fdg-g-009",
+      nom: "Chevalier de Dol Amroth (Cors de Guerre)",
+      image: "/images/factions/fiefs-du-gondor/fdg-g-009.avif",
+    },
+    {
       id: "fdg-g-006",
       nom: "Chevalier de Dol Amroth (Cheval + Bannière)",
       image: "/images/factions/fiefs-du-gondor/fdg-g-006.avif",
@@ -83,11 +94,7 @@ const FIEFS_DU_GONDOR = {
       nom: "Chevalier de Dol Amroth (Cheval + Lance de Cavalerie + Bouclier)",
       image: "/images/factions/fiefs-du-gondor/fdg-g-008.avif",
     },
-    {
-      id: "fdg-g-009",
-      nom: "Chevalier de Dol Amroth (Cors de Guerre)",
-      image: "/images/factions/fiefs-du-gondor/fdg-g-009.avif",
-    },
+
     {
       id: "fdg-g-010",
       nom: "Guerrier de Lossarnach",
@@ -98,11 +105,7 @@ const FIEFS_DU_GONDOR = {
       nom: "Guerrier du Lamedon",
       image: "/images/factions/fiefs-du-gondor/fdg-g-011.avif",
     },
-    {
-      id: "fdg-g-012",
-      nom: "Archer de la Racine Noire",
-      image: "/images/factions/fiefs-du-gondor/fdg-g-012.avif",
-    },
+
     {
       id: "fdg-g-013",
       nom: "Piquier de Dol Amroth",

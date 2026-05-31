@@ -19,13 +19,6 @@ const ARMEE_DE_LACVILLE = {
       lienHero: "Bain",
     },
     {
-      id: "lac-h-003",
-      nom: "Bard",
-      image: "/images/factions/lacville/lac-h-003.avif",
-      lienHero: "Bard",
-    },
-
-    {
       id: "lac-h-005",
       nom: "Bard",
       image: "/images/factions/lacville/lac-h-005.avif",

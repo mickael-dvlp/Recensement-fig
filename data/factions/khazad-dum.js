@@ -63,16 +63,12 @@ const KHAZAD_DUM = {
     {
       id: "khz-h-011",
       nom: "Roi Nain",
+      lienHero: "Roi des Nains",
       image: "/images/factions/khazad-dum/khz-h-011.avif",
     },
   ],
 
   guerriers: [
-    {
-      id: "khz-g-001",
-      nom: "Baliste Naine",
-      image: "/images/factions/khazad-dum/khz-g-001.avif",
-    },
     {
       id: "khz-g-002",
       nom: "Garde de Fer",
@@ -100,8 +96,13 @@ const KHAZAD_DUM = {
     },
     {
       id: "khz-g-007",
-      nom: "Guerrier Nain (Bannière)",
+      nom: "Guerrier Nain (Bannière 1)",
       image: "/images/factions/khazad-dum/khz-g-007.avif",
+    },
+    {
+      id: "khz-g-015",
+      nom: "Guerrier Nain (Bannière 2)",
+      image: "/images/factions/khazad-dum/khz-g-015.avif",
     },
     {
       id: "khz-g-008",
@@ -137,6 +138,11 @@ const KHAZAD_DUM = {
       id: "khz-g-013",
       nom: "Servant de Baliste",
       image: "/images/factions/khazad-dum/khz-g-013.avif",
+    },
+    {
+      id: "khz-g-001",
+      nom: "Baliste Naine",
+      image: "/images/factions/khazad-dum/khz-g-001.avif",
     },
   ],
 };

@@ -36,7 +36,7 @@ const HORDE_SERPENT = {
     },
     {
       id: "hsr-h-007",
-      nom: "Chef Haradrim (Pied)",
+      nom: "Capitaine Haradrim (Pied)",
       image: "/images/factions/horde-serpent/hsr-h-007.avif",
     },
     {
@@ -64,8 +64,13 @@ const HORDE_SERPENT = {
     },
     {
       id: "hsr-g-002",
-      nom: "Guerrier Haradrim (Bannière)",
+      nom: "Guerrier Haradrim (Bannière 1)",
       image: "/images/factions/horde-serpent/hsr-g-002.avif",
+    },
+    {
+      id: "hsr-g-015",
+      nom: "Guerrier Haradrim (Bannière 2)",
+      image: "/images/factions/horde-serpent/hsr-g-015.avif",
     },
     {
       id: "hsr-g-003",

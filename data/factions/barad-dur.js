@@ -57,8 +57,27 @@ const BARAD_DUR = {
     },
     {
       id: "bdr-h-009",
-      nom: "Capitaine Orque Avec Bouclier (Pied)",
+      inventaireId: "ang-h-012",
+      nom: "Capitaine Orque 1 (Pied)",
       image: "/images/factions/barad-dur/bdr-h-009.avif",
+    },
+    {
+      id: "bdr-h-018",
+      inventaireId: "ang-h-019",
+      nom: "Capitaine Orque 2 (Pied)",
+      image: "/images/factions/barad-dur/bdr-h-018.avif",
+    },
+    {
+      id: "bdr-h-019",
+      inventaireId: "ang-h-020",
+      nom: "Capitaine Orque 3 (Pied)",
+      image: "/images/factions/barad-dur/bdr-h-019.avif",
+    },
+    {
+      id: "bdr-h-020",
+      inventaireId: "mdr-h-048",
+      nom: "Capitaine Orque 4 (Pied)",
+      image: "/images/factions/barad-dur/bdr-h-020.avif",
     },
     {
       id: "bdr-h-010",
@@ -80,11 +99,13 @@ const BARAD_DUR = {
     },
     {
       id: "bdr-h-013",
+      inventaireId: "mdr-h-056",
       nom: "Maître de Discipline Orque",
       image: "/images/factions/barad-dur/bdr-h-013.avif",
     },
     {
       id: "bdr-h-014",
+      inventaireId: "mdr-h-058",
       nom: "Tambour Orque",
       image: "/images/factions/barad-dur/bdr-h-014.avif",
     },
@@ -129,8 +150,14 @@ const BARAD_DUR = {
     {
       id: "bdr-g-004",
       inventaireId: "mdr-g-004",
-      nom: "Guerriers Orques (Bannière)",
+      nom: "Guerriers Orques (Bannière 1)",
       image: "/images/factions/barad-dur/bdr-g-004.avif",
+    },
+    {
+      id: "bdr-g-035",
+      inventaireId: "mdr-g-035",
+      nom: "Guerriers Orques (Bannière 2)",
+      image: "/images/factions/barad-dur/bdr-g-035.avif",
     },
     {
       id: "bdr-g-005",

@@ -114,6 +114,60 @@ const HEROS_R = [
     ],
   },
   {
+    id: "roi-des-hommes",
+    nom: "Roi des Hommes",
+    total: 4,
+    variantes: [
+      {
+        id: "roi-des-hommes-001",
+        nom: "Roi des Hommes 1",
+        image: "/images/heros/r/roi-des-hommes-001.avif",
+      },
+      {
+        id: "roi-des-hommes-002",
+        nom: "Roi des Hommes 2",
+        image: "/images/heros/r/roi-des-hommes-002.avif",
+      },
+      {
+        id: "roi-des-hommes-003",
+        nom: "Roi des Hommes 3",
+        image: "/images/heros/r/roi-des-hommes-003.avif",
+      },
+      {
+        id: "roi-des-hommes-004",
+        nom: "Roi des Hommes 4",
+        image: "/images/heros/r/roi-des-hommes-004.avif",
+      },
+    ],
+  },
+  {
+    id: "roi-des-nains",
+    nom: "Roi des Nains",
+    total: 4,
+    variantes: [
+      {
+        id: "roi-des-nains-001",
+        nom: "Roi des Nains 1",
+        image: "/images/heros/r/roi-des-nains-001.avif",
+      },
+      {
+        id: "roi-des-nains-002",
+        nom: "Roi des Nains 2",
+        image: "/images/heros/r/roi-des-nains-002.avif",
+      },
+      {
+        id: "roi-des-nains-003",
+        nom: "Roi des Nains 3",
+        image: "/images/heros/r/roi-des-nains-003.avif",
+      },
+      {
+        id: "roi-des-nains-004",
+        nom: "Roi des Nains 4",
+        image: "/images/heros/r/roi-des-nains-004.avif",
+      },
+    ],
+  },
+  {
     id: "roi-dore-dabrakhan",
     nom: "Le Roi Doré d'Abrakhan",
     total: 1,

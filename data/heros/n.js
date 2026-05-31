@@ -10,18 +10,84 @@ const HEROS_N = [
     variantes: [
       {
         id: "nazgul-001",
-        nom: "Nazgûl (Pied)",
+        nom: "Nazgûl 1 (Pied)",
         image: "/images/heros/n/nazgul-001.avif",
       },
       {
         id: "nazgul-002",
-        nom: "Nazgûl (Cheval)",
+        nom: "Nazgûl 2 (Pied)",
         image: "/images/heros/n/nazgul-002.avif",
       },
       {
         id: "nazgul-003",
-        nom: "Nazgûl (Ombre Ailé)",
+        nom: "Nazgûl 3 (Pied)",
         image: "/images/heros/n/nazgul-003.avif",
+      },
+      {
+        id: "nazgul-004",
+        nom: "Nazgûl 4 (Pied)",
+        image: "/images/heros/n/nazgul-004.avif",
+      },
+      {
+        id: "nazgul-005",
+        nom: "Nazgûl 5 (Pied)",
+        image: "/images/heros/n/nazgul-005.avif",
+      },
+      {
+        id: "nazgul-006",
+        nom: "Nazgûl 6 (Pied)",
+        image: "/images/heros/n/nazgul-006.avif",
+      },
+      {
+        id: "nazgul-007",
+        nom: "Nazgûl 7 (Pied)",
+        image: "/images/heros/n/nazgul-007.avif",
+      },
+      {
+        id: "nazgul-008",
+        nom: "Nazgûl 8 (Pied)",
+        image: "/images/heros/n/nazgul-008.avif",
+      },
+      {
+        id: "nazgul-009",
+        nom: "Nazgûl 1 (Cheval)",
+        image: "/images/heros/n/nazgul-009.avif",
+      },
+
+      {
+        id: "nazgul-010",
+        nom: "Nazgûl 2 (Cheval)",
+        image: "/images/heros/n/nazgul-010.avif",
+      },
+      {
+        id: "nazgul-011",
+        nom: "Nazgûl 3 (Cheval)",
+        image: "/images/heros/n/nazgul-011.avif",
+      },
+      {
+        id: "nazgul-012",
+        nom: "Nazgûl 1 (Ombre Ailé)",
+        image: "/images/heros/n/nazgul-012.avif",
+      },
+      {
+        id: "nazgul-013",
+        nom: "Nazgûl 2 (Ombre Ailé)",
+        image: "/images/heros/n/nazgul-013.avif",
+      },
+      {
+        id: "nazgul-014",
+        nom: "Nazgûl 1 (Forme Spectrale)",
+        image: "/images/heros/n/nazgul-014.avif",
+      },
+      {
+        id: "nazgul-015",
+        nom: "Nazgûl 2 (Forme Spectrale)",
+        image: "/images/heros/n/nazgul-015.avif",
+      },
+      {
+        id: "nazgul-016",
+        nom: "Nazgûl 3(Forme Spectrale)",
+        image: "/images/heros/n/nazgul-016.avif",
       },
     ],
   },
