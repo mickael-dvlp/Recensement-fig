@@ -14,12 +14,12 @@ const HORDE_SERPENT = {
     },
     {
       id: "hsr-h-003",
-      nom: "Roi Haradrim (Pied)",
+      nom: "Chef Haradrim (Pied)",
       image: "/images/factions/horde-serpent/hsr-h-003.avif",
     },
     {
       id: "hsr-h-004",
-      nom: "Roi Haradrim (Cheval)",
+      nom: "Chef Haradrim (Cheval)",
       image: "/images/factions/horde-serpent/hsr-h-004.avif",
     },
     {

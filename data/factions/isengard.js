@@ -278,6 +278,16 @@ const ISENGARD = {
       image: "/images/factions/isengard/ise-g-026.avif",
     },
     {
+      id: "ise-g-030",
+      nom: "Bombe de Démolition",
+      image: "/images/factions/isengard/ise-g-030.avif",
+    },
+    {
+      id: "ise-g-031",
+      nom: "Echelle de Siège",
+      image: "/images/factions/isengard/ise-g-031.avif",
+    },
+    {
       id: "ise-g-029",
       nom: "Bélier de Siège d'Isengard",
       image: "/images/factions/isengard/ise-g-029.avif",

@@ -150,7 +150,7 @@ export const HEROES = [
   { nom: "L'Immortel", total: 2 },
   { nom: "Imrahil", total: 4 },
   { nom: "Ingold", total: 1 },
-  { nom: "L'innomable", total: 2 },
+  { nom: "L'Innommable", total: 2 },
   { nom: "Irolas", total: 1 },
   { nom: "Isildur", total: 4 },
   // K
@@ -200,7 +200,9 @@ export const HEROES = [
   { nom: "Le Répudié", total: 1 },
   { nom: "Robin Petitterrier", total: 1 },
   { nom: "Roi Brand", total: 1 },
+  { nom: "Roi des Hommes", total: 4 },
   { nom: "Le Roi des Morts", total: 3 },
+  { nom: "Roi des Nains", total: 4 },
   { nom: "Le Roi Doré d'Abrakhan", total: 1 },
   { nom: "Le Roi Gobelin", total: 2 },
   { nom: "Le Roi Sorcier", total: 10 },
