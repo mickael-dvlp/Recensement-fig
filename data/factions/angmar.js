@@ -91,6 +91,7 @@ const ANGMAR = {
     },
     {
       id: "ang-h-015",
+      inventaireId: "mdr-h-049",
       nom: "Chaman Orque sur Warg",
       image: "/images/factions/angmar/ang-h-015.avif",
     },
