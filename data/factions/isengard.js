@@ -123,7 +123,7 @@ const ISENGARD = {
     },
     {
       id: "ise-h-030",
-      inventaireId: "mdr-h-0770",
+      inventaireId: "mdr-h-070",
       nom: "Chaman Orque 2 (Pied)",
       image: "/images/factions/isengard/ise-h-030.avif",
     },
