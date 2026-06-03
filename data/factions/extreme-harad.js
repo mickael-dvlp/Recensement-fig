@@ -40,6 +40,11 @@ const EXTREME_HARAD = {
       image: "/images/factions/extreme-harad/exh-g-003.avif",
     },
     {
+      id: "exh-g-008",
+      nom: "Guerrier Mahûd",
+      image: "/images/factions/extreme-harad/exh-g-008.avif",
+    },
+    {
       id: "exh-g-004",
       nom: "Pillard Mahûd",
       image: "/images/factions/extreme-harad/exh-g-004.avif",

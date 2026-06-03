@@ -41,7 +41,6 @@ const LA_LOTHLORIEN = {
       inventaireId: "fdc-h-017",
       nom: "Maître des Orages",
       image: "/images/factions/lothlorien/lot-h-006.avif",
-      lienHero: "Maitre de Lacville",
     },
     {
       id: "lot-h-007",

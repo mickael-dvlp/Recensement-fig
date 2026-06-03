@@ -73,7 +73,6 @@ const FONDCOMBE = {
       id: "fdc-h-017",
       nom: "Maître des Orages",
       image: "/images/factions/fondcombe/fdc-h-017.avif",
-      lienHero: "Maitre de Lacville",
     },
     {
       id: "fdc-h-018",

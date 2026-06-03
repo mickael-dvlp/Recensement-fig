@@ -87,9 +87,15 @@ const BARAD_DUR = {
     },
     {
       id: "bdr-h-011",
-      inventaireId: "ang-h-014",
-      nom: "Chaman Orque (Pied)",
+      inventaireId: "mdr-h-048",
+      nom: "Chaman Orque 1 (Pied)",
       image: "/images/factions/barad-dur/bdr-h-011.avif",
+    },
+    {
+      id: "bdr-h-021",
+      inventaireId: "mdr-h-070",
+      nom: "Chaman Orque 2 (Pied)",
+      image: "/images/factions/barad-dur/bdr-h-021.avif",
     },
     {
       id: "bdr-h-012",

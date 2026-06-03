@@ -186,6 +186,11 @@ const MORDOR = {
       image: "/images/factions/mordor/mdr-h-048.avif",
     },
     {
+      id: "mdr-h-070",
+      nom: "Chaman Orque",
+      image: "/images/factions/mordor/mdr-h-070.avif",
+    },
+    {
       id: "mdr-h-049",
       nom: "Chaman Orque sur Warg",
       image: "/images/factions/mordor/mdr-h-049.avif",
@@ -195,6 +200,11 @@ const MORDOR = {
       id: "mdr-h-051",
       nom: "Capitaine Orque du Morannon (Bouclier)",
       image: "/images/factions/mordor/mdr-h-051.avif",
+    },
+    {
+      id: "mdr-h-068",
+      nom: "Capitaine Orque du Morannon",
+      image: "/images/factions/mordor/mdr-h-068.avif",
     },
     {
       id: "mdr-h-052",

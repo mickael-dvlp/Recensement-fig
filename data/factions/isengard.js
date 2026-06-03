@@ -118,8 +118,14 @@ const ISENGARD = {
     {
       id: "ise-h-019",
       inventaireId: "mdr-h-048",
-      nom: "Chaman Orque",
+      nom: "Chaman Orque 1 (Pied)",
       image: "/images/factions/isengard/ise-h-019.avif",
+    },
+    {
+      id: "ise-h-030",
+      inventaireId: "mdr-h-0770",
+      nom: "Chaman Orque 2 (Pied)",
+      image: "/images/factions/isengard/ise-h-030.avif",
     },
     {
       id: "ise-h-020",
