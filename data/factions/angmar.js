@@ -85,13 +85,12 @@ const ANGMAR = {
     },
     {
       id: "ang-h-030",
-      inventaireId: "mdr-h-70",
+      inventaireId: "mdr-h-070",
       nom: "Chaman Orque 2 (Pied)",
       image: "/images/factions/angmar/ang-h-030.avif",
     },
     {
       id: "ang-h-015",
-      inventaireId: "mdr-h-070",
       nom: "Chaman Orque sur Warg",
       image: "/images/factions/angmar/ang-h-015.avif",
     },
