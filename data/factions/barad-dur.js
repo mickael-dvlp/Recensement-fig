@@ -173,11 +173,13 @@ const BARAD_DUR = {
     },
     {
       id: "bdr-g-006",
+      inventaireId: "mdr-g-006",
       nom: "Pisteur Orque",
       image: "/images/factions/barad-dur/bdr-g-006.avif",
     },
     {
       id: "bdr-g-007",
+      inventaireId: "mdr-g-007",
       nom: "Pisteur Orque sur Warg",
       image: "/images/factions/barad-dur/bdr-g-007.avif",
     },
