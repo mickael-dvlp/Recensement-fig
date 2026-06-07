@@ -158,6 +158,7 @@ export default function PageProjet() {
   const [figurinesSelectionEdit, setFigurinesSelectionEdit] = useState([]);
 
   const [enregistrement, setEnregistrement] = useState(false);
+  const [erreurMemo, setErreurMemo] = useState("");
 
   // Confirmation suppression
   const [memoAConfirmer, setMemoAConfirmer] = useState(null);
@@ -258,6 +259,7 @@ export default function PageProjet() {
   async function ajouterMemo() {
     if (enregistrement) return;
     setEnregistrement(true);
+    setErreurMemo("");
     const titre = titreMemo.trim() || "Sans Nom";
     const texte = typeMemo === "memo" ? texteMemo.trim() : "";
     const figurines = typeMemo !== "memo" ? figurinesSelection : [];
@@ -273,6 +275,10 @@ export default function PageProjet() {
         { id: newId, titre, texte, type: typeMemo, figurines, ordre: -Date.now() },
       ]);
       fermerModal();
+    } catch (err) {
+      if (err.message === "limite_memos_atteinte") {
+        setErreurMemo(`Limite de ${100} mémos atteinte.`);
+      }
     } finally {
       setEnregistrement(false);
     }
@@ -284,6 +290,7 @@ export default function PageProjet() {
     setTexteMemo("");
     setTypeMemo("memo");
     setFigurinesSelection([]);
+    setErreurMemo("");
   }
 
   async function sauvegarderEtFermer() {
@@ -296,6 +303,7 @@ export default function PageProjet() {
       return;
     }
     setEnregistrement(true);
+    setErreurMemo("");
     try {
       const newId = await creerMemo(utilisateur.uid, {
         titre,
@@ -308,6 +316,10 @@ export default function PageProjet() {
         { id: newId, titre, texte, type: typeMemo, figurines, ordre: -Date.now() },
       ]);
       fermerModal();
+    } catch (err) {
+      if (err.message === "limite_memos_atteinte") {
+        setErreurMemo(`Limite de ${100} mémos atteinte.`);
+      }
     } finally {
       setEnregistrement(false);
     }
@@ -684,6 +696,9 @@ export default function PageProjet() {
               )}
             </div>
 
+            {erreurMemo && (
+              <p className="shrink-0 text-red-400 text-xs text-center">{erreurMemo}</p>
+            )}
             <button
               onClick={ajouterMemo}
               disabled={enregistrement}

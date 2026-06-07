@@ -26,6 +26,7 @@ export default function CarteAjoutCustom({ faction, section, onAjouter }) {
   const [fichier, setFichier] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [erreur, setErreur] = useState("");
   const inputRef = useRef(null);
 
   function choisirImage(e) {
@@ -41,15 +42,21 @@ export default function CarteAjoutCustom({ faction, section, onAjouter }) {
     setFichier(null);
     if (preview) URL.revokeObjectURL(preview);
     setPreview(null);
+    setErreur("");
   }
 
   async function valider() {
     if (!nom.trim() || !fichier || loading) return;
     setLoading(true);
+    setErreur("");
     try {
       const fichierCompresse = await compresserImage(fichier);
       await onAjouter({ nom: nom.trim(), faction, section, file: fichierCompresse });
       annuler();
+    } catch (err) {
+      if (err.message === "limite_custom_atteinte") {
+        setErreur("Limite de 200 figurines custom atteinte.");
+      }
     } finally {
       setLoading(false);
     }
@@ -103,6 +110,11 @@ export default function CarteAjoutCustom({ faction, section, onAjouter }) {
         placeholder="Nom de la figurine"
         className="w-full bg-[#0D0D0D] border border-[#2A2A2A] rounded-lg px-2 py-1.5 text-[#F5F5F5] text-xs placeholder:text-[#3A3A3A] focus:outline-none focus:border-[#C9A227]/50"
       />
+
+      {/* Erreur limite */}
+      {erreur && (
+        <p className="text-red-400 text-[10px] text-center leading-snug">{erreur}</p>
+      )}
 
       {/* Actions */}
       <div className="flex gap-1">
