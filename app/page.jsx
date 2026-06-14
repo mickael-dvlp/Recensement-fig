@@ -57,7 +57,6 @@ export default function PageLanding() {
       <RedirectSiConnecte />
 
       <div className="min-h-screen bg-[#0D0D0D] flex flex-col">
-
         {/* ── HEADER ── */}
         <header className="sticky top-0 z-50 bg-[#0D0D0D]/90 backdrop-blur-sm border-b border-[#1A1A1A]">
           <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -82,7 +81,7 @@ export default function PageLanding() {
         </header>
 
         {/* ── HERO ── */}
-        <section className="relative flex-1 flex flex-col items-center justify-center text-center px-6 py-24 overflow-hidden min-h-[560px]">
+        <section className="relative flex-1 flex flex-col items-center justify-center text-center px-6 py-24 overflow-hidden min-h-140">
           {/* Image de fond avec overlay */}
           <div className="absolute inset-0">
             <Image
@@ -160,8 +159,12 @@ export default function PageLanding() {
                     <Icon size={20} className="text-[#C9A227]" />
                   </div>
                   <div>
-                    <h3 className="text-[#F5F5F5] font-bold text-sm mb-1">{titre}</h3>
-                    <p className="text-[#6B6B6B] text-xs leading-relaxed">{texte}</p>
+                    <h3 className="text-[#F5F5F5] font-bold text-sm mb-1">
+                      {titre}
+                    </h3>
+                    <p className="text-[#6B6B6B] text-xs leading-relaxed">
+                      {texte}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -179,9 +182,10 @@ export default function PageLanding() {
                 répertoriées
               </h2>
               <p className="text-[#6B6B6B] text-sm leading-relaxed">
-                Toutes les factions de Middle-Earth sont disponibles — La Communauté
-                de l&apos;Anneau, le Mordor, Rohan, Gondor, les Nains d&apos;Erebor et bien
-                plus encore. Ajoutez même vos propres figurines personnalisées.
+                Toutes les factions de Middle-Earth sont disponibles — La
+                Communauté de l&apos;Anneau, le Mordor, Rohan, Gondor, les Nains
+                d&apos;Erebor et bien plus encore. Ajoutez même vos propres
+                figurines personnalisées.
               </p>
               <ul className="flex flex-col gap-2">
                 {[
@@ -190,7 +194,10 @@ export default function PageLanding() {
                   "Figurines custom avec photo",
                   "Filtre inventaire / souhaitées",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-[#A0A0A0]">
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-[#A0A0A0]"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227] shrink-0" />
                     {item}
                   </li>
@@ -243,7 +250,8 @@ export default function PageLanding() {
               MESBG
             </span>
             <p className="text-[#3A3A3A] text-xs text-center">
-              Application non officielle — Middle-Earth Strategy Battle Game est une marque de Games Workshop Ltd.
+              Application non officielle — Middle-Earth Strategy Battle Game est
+              une marque de Games Workshop Ltd.
             </p>
           </div>
         </footer>
