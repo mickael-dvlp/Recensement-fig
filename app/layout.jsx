@@ -15,10 +15,50 @@ const uncialAntiqua = Uncial_Antiqua({
 });
 
 export const metadata = {
-  title: "MESBG - Gestion de Figurines",
-  description: "Recensez et gérez votre collection de figurines Middle-Earth Strategy Battle Game",
+  metadataBase: new URL("https://mesbg-collection-app.com"),
+  title: {
+    default: "MESBG — Gérez votre collection de figurines Middle-Earth",
+    template: "%s | MESBG",
+  },
+  description:
+    "L'application de référence pour les joueurs de Middle-Earth Strategy Battle Game. Inventaire de figurines Games Workshop, mémos de projet, guides de peinture et système d'amis.",
+  keywords: [
+    "MESBG",
+    "Middle-Earth Strategy Battle Game",
+    "figurines",
+    "inventaire figurines",
+    "collection MESBG",
+    "Seigneur des Anneaux",
+    "The Hobbit",
+    "Games Workshop",
+    "gestion collection",
+  ],
   icons: {
     icon: "/image/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "https://mesbg-collection-app.com",
+    siteName: "MESBG",
+    title: "MESBG — Gérez votre collection de figurines Middle-Earth",
+    description:
+      "Inventaire de figurines MESBG, mémos de projet, guides de peinture et système d'amis. Gratuit et sans publicité.",
+    images: [
+      {
+        url: "/image/mesbg_header.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MESBG — Gestion de figurines Middle-Earth Strategy Battle Game",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MESBG — Gérez votre collection de figurines Middle-Earth",
+    description:
+      "Inventaire de figurines MESBG, mémos de projet, guides de peinture et système d'amis.",
+    images: ["/image/mesbg_header.jpg"],
   },
 };
 
