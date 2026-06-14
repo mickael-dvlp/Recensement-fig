@@ -51,9 +51,30 @@ const FEATURES = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "MESBG",
+  url: "https://mesbg-collection-app.com",
+  description:
+    "L'application de référence pour gérer votre collection de figurines Middle-Earth Strategy Battle Game. Inventaire, mémos de projet, guides de peinture et système d'amis.",
+  applicationCategory: "GameApplication",
+  operatingSystem: "Web",
+  inLanguage: "fr-FR",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+  },
+};
+
 export default function PageLanding() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RedirectSiConnecte />
 
       <div className="min-h-screen bg-[#0D0D0D] flex flex-col">
