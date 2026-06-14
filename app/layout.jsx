@@ -36,6 +36,9 @@ export const metadata = {
   icons: {
     icon: "/image/favicon.ico",
   },
+  verification: {
+    google: "7KJY7tz70Z27FUTpaUlaHPgJ3D7aJdwHQD1hIBnUngA",
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
