@@ -380,9 +380,19 @@ const MORDOR = {
       image: "/images/factions/mordor/mdr-g-022.avif",
     },
     {
+      id: "mdr-g-033",
+      nom: "Servant de Siège",
+      image: "/images/factions/mordor/mdr-g-033.avif",
+    },
+    {
       id: "mdr-g-023",
       nom: "Rôdeur de Morgul",
       image: "/images/factions/mordor/mdr-g-023.avif",
+    },
+    {
+      id: "mdr-g-034",
+      nom: "Orque du Morannon",
+      image: "/images/factions/mordor/mdr-g-034.avif",
     },
     {
       id: "mdr-g-024",

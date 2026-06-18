@@ -34,7 +34,11 @@ export const metadata = {
     "gestion collection",
   ],
   icons: {
-    icon: "/image/favicon.ico",
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/image/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/apple-icon.png",
   },
   verification: {
     google: "7KJY7tz70Z27FUTpaUlaHPgJ3D7aJdwHQD1hIBnUngA",
