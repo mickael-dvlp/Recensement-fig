@@ -11,11 +11,12 @@
 //   - Chaque carte permet de toggler inventaire/souhaitée
 //   - Une modal s'ouvre pour saisir la quantité
 
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur, getFigurinesCustom } from "@/lib/firestore";
+import { getFigurinesCustom } from "@/lib/firestore";
+import { useInventaire } from "@/lib/hooks/useInventaire";
 import {
   FACTIONS_BIEN_GROUPES,
   FACTIONS_MAL_GROUPES,
@@ -30,9 +31,7 @@ import SearchBar from "@/components/ui/SearchBar";
 export default function PageFigurines() {
   const { utilisateur } = useAuth();
 
-  const [inventaireBrut, setInventaireBrut] = useState({});
   const [figurinesCustom, setFigurinesCustom] = useState([]);
-  const [chargement, setChargement] = useState(true);
 
   // États de filtre et recherche
   const [recherche, setRecherche] = useState("");
@@ -42,25 +41,13 @@ export default function PageFigurines() {
   const [afficherHeros, setAfficherHeros] = useState(true);
   const [headerReduit, setHeaderReduit] = useState(false);
 
-  // ---- CHARGEMENT INITIAL ----
-  useEffect(() => {
-    if (!utilisateur) return;
+  const chargerCustoms = useCallback(async (uid) => {
+    const customs = await getFigurinesCustom(uid);
+    setFigurinesCustom(customs);
+  }, []);
 
-    async function charger() {
-      const [inventaire, customs] = await Promise.all([
-        getInventaireUtilisateur(utilisateur.uid),
-        getFigurinesCustom(utilisateur.uid),
-      ]);
-      setInventaireBrut(inventaire);
-      setFigurinesCustom(customs);
-      setChargement(false);
-    }
-
-    charger();
-
-    window.addEventListener("focus", charger);
-    return () => window.removeEventListener("focus", charger);
-  }, [utilisateur]);
+  const { inventaire: inventaireBrut, setInventaire: setInventaireBrut, chargement } =
+    useInventaire(utilisateur?.uid, chargerCustoms);
 
   // ---- STATS HÉROS ----
   // possedes = nb de variantes avec au moins 1 exemplaire (binaire, pas la somme des quantités)

@@ -4,12 +4,13 @@
 // PAGE PEINTURE - Catalogue des pots de peinture
 // ============================================================
 
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Palette, Heart, Plus, Minus, ChevronDown } from "lucide-react";
 import SearchBar from "@/components/ui/SearchBar";
 import FilterTabs from "@/components/figurines/FilterTabs";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur, mettreAJourFigurine } from "@/lib/firestore";
+import { mettreAJourFigurine } from "@/lib/firestore";
+import { useInventaire } from "@/lib/hooks/useInventaire";
 import citadelData from "@/data/peintures/citadel.json";
 import vallejoData from "@/data/peintures/vallejo.json";
 import armyPainterData from "@/data/peintures/army-painter.json";
@@ -132,34 +133,28 @@ function CartePeinture({ peinture, donneesUtilisateur, onMettreAJour }) {
 export default function PagePeinture() {
   const { utilisateur } = useAuth();
 
-  const [inventaireBrut, setInventaireBrut] = useState({});
   const [marque, setMarque] = useState("Toutes");
   const [gamme, setGamme] = useState("Toutes");
   const [recherche, setRecherche] = useState("");
   const [filtreListe, setFiltreListe] = useState("tout");
   const [headerReduit, setHeaderReduit] = useState(false);
 
-  // ---- CHARGEMENT INVENTAIRE ----
-  useEffect(() => {
-    if (!utilisateur) return;
-    async function charger() {
-      const inv = await getInventaireUtilisateur(utilisateur.uid);
-      setInventaireBrut(inv);
-    }
-    charger();
-    window.addEventListener("focus", charger);
-    return () => window.removeEventListener("focus", charger);
-  }, [utilisateur]);
+  const { inventaire: inventaireBrut, setInventaire: setInventaireBrut } = useInventaire(utilisateur?.uid);
 
   // ---- MISE À JOUR ----
   const mettreAJour = useCallback(
     async (peintureId, data) => {
       if (!utilisateur) return;
-      setInventaireBrut((prev) => ({
-        ...prev,
-        [peintureId]: { ...(prev[peintureId] ?? {}), ...data },
-      }));
-      await mettreAJourFigurine(utilisateur.uid, peintureId, data);
+      let sauvegarde;
+      setInventaireBrut((prev) => {
+        sauvegarde = prev[peintureId];
+        return { ...prev, [peintureId]: { ...(prev[peintureId] ?? {}), ...data } };
+      });
+      try {
+        await mettreAJourFigurine(utilisateur.uid, peintureId, data);
+      } catch {
+        setInventaireBrut((prev) => ({ ...prev, [peintureId]: sauvegarde }));
+      }
     },
     [utilisateur]
   );

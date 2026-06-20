@@ -69,12 +69,20 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
       }
 
-      // Amis : les deux parties d'une relation peuvent écrire leur entrée respective
-      // (envoi de demande, acceptation, suppression)
+      // Amis : règles granulaires pour éviter l'auto-injection d'amitié
       match /amis/{amiUid} {
-        allow read:  if isOwner(uid);
-        allow write: if isAuth()
-          && (request.auth.uid == uid || request.auth.uid == amiUid);
+        allow read:   if isOwner(uid);
+        // Le propriétaire gère sa propre sous-collection librement
+        allow write:  if isOwner(uid);
+        // L'ami (amiUid) peut uniquement créer une entrée "reçu" (envoyer une demande)
+        allow create: if request.auth.uid == amiUid
+          && request.resource.data.statut == "reçu";
+        // L'ami (amiUid) peut accepter une demande existante "envoyé" → "accepté"
+        allow update: if request.auth.uid == amiUid
+          && resource.data.statut == "envoyé"
+          && request.resource.data.statut == "accepté";
+        // Les deux parties peuvent supprimer (retrait d'amitié)
+        allow delete: if request.auth.uid == amiUid;
       }
     }
   }

@@ -58,11 +58,16 @@ export default function PageFaction() {
   const mettreAJour = useCallback(
     async (figurineId, data) => {
       if (!utilisateur) return;
-      setInventaire((prev) => ({
-        ...prev,
-        [figurineId]: { ...(prev[figurineId] ?? {}), ...data },
-      }));
-      await mettreAJourFigurine(utilisateur.uid, figurineId, data);
+      let sauvegarde;
+      setInventaire((prev) => {
+        sauvegarde = prev[figurineId];
+        return { ...prev, [figurineId]: { ...(prev[figurineId] ?? {}), ...data } };
+      });
+      try {
+        await mettreAJourFigurine(utilisateur.uid, figurineId, data);
+      } catch {
+        setInventaire((prev) => ({ ...prev, [figurineId]: sauvegarde }));
+      }
     },
     [utilisateur]
   );

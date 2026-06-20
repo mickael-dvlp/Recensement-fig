@@ -121,6 +121,12 @@ const MORDOR = {
       lienHero: "Grishnakh",
     },
     {
+      id: "mdr-h-071",
+      nom: "Snaga, Capitaine Orque",
+      image: "/images/factions/mordor/mdr-h-071.avif",
+      lienHero: "Snaga",
+    },
+    {
       id: "mdr-h-040",
       nom: "Kardûsh le Pyromancien",
       image: "/images/factions/mordor/mdr-h-040.avif",

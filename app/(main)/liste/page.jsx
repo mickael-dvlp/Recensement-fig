@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useMemo } from "react";
 import {
-  Swords,
   ClipboardList,
   RotateCcw,
   CheckCircle2,
@@ -151,8 +150,8 @@ function ModalVariantes({ hero, onFermer }) {
 
 function PanneauListes({ listes, listeActive, onCharger, onSupprimer }) {
   return (
-    <aside className="hidden lg:flex flex-col gap-3 w-60 shrink-0">
-      <div className="flex items-center justify-between">
+    <aside className="hidden lg:flex flex-col gap-3 w-60 shrink-0 -ml-10">
+      <div className="flex items-center justify-center gap-2">
         <h2 className="text-[#6B6B6B] text-[10px] font-bold uppercase tracking-wider">
           Listes sauvegardées
         </h2>
@@ -179,7 +178,7 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer }) {
             >
               <div className="flex items-start justify-between gap-2">
                 <p
-                  className={`text-xs font-semibold truncate flex-1 ${
+                  className={`text-xs font-semibold truncate flex-1 text-center ${
                     listeActive === liste.id
                       ? "text-[#C9A227]"
                       : "text-[#D4D4D4]"
@@ -197,7 +196,7 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer }) {
                   <Trash2 size={11} />
                 </button>
               </div>
-              <p className="text-[#4A4A4A] text-[10px]">
+              <p className="text-[#4A4A4A] text-[10px] text-center">
                 {new Date(liste.date).toLocaleDateString("fr-FR", {
                   day: "numeric",
                   month: "short",
@@ -352,7 +351,39 @@ export default function PageListe() {
   return (
     <>
     <ModalVariantes hero={heroModal} onFermer={() => setHeroModal(null)} />
-    <div className="max-w-2xl lg:max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-2xl lg:max-w-5xl mx-auto px-4">
+
+      {/* HEADER — ligne dorée collée en haut, titre centré */}
+      <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
+      <div className="relative flex items-center justify-center pt-6 pb-2">
+        <h1 className="text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest text-center">
+          Liste d&apos;Armée
+        </h1>
+        <div className="absolute right-0 flex items-center gap-3">
+          {peutSauvegarder && !afficherSauvegarde && (
+            <button
+              onClick={() => setAfficherSauvegarde(true)}
+              className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#C9A227] transition-colors cursor-pointer"
+            >
+              <Save size={13} />
+              Enregistrer
+            </button>
+          )}
+          {resultats && (
+            <button
+              onClick={reinitialiser}
+              className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
+            >
+              <RotateCcw size={13} />
+              Nouvelle liste
+            </button>
+          )}
+        </div>
+      </div>
+      <p className="text-[#6B6B6B] text-xs text-center mb-6">
+        Comparez une liste TTS avec votre inventaire
+      </p>
+
       <div className="flex gap-6">
 
         {/* ── PANNEAU GAUCHE (desktop) ── */}
@@ -365,41 +396,6 @@ export default function PageListe() {
 
         {/* ── CONTENU PRINCIPAL ── */}
         <div className="flex-1 flex flex-col gap-6 min-w-0">
-
-          {/* HEADER */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#C9A227]/10 flex items-center justify-center shrink-0">
-              <Swords size={18} className="text-[#C9A227]" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-[#F5F5F5] font-bold text-lg leading-tight">
-                Liste d&apos;Armée
-              </h1>
-              <p className="text-[#6B6B6B] text-xs">
-                Comparez une liste TTS avec votre inventaire
-              </p>
-            </div>
-            <div className="flex items-center gap-3 shrink-0">
-              {peutSauvegarder && !afficherSauvegarde && (
-                <button
-                  onClick={() => setAfficherSauvegarde(true)}
-                  className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#C9A227] transition-colors cursor-pointer"
-                >
-                  <Save size={13} />
-                  Enregistrer
-                </button>
-              )}
-              {resultats && (
-                <button
-                  onClick={reinitialiser}
-                  className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
-                >
-                  <RotateCcw size={13} />
-                  Nouvelle liste
-                </button>
-              )}
-            </div>
-          </div>
 
           {/* FORMULAIRE SAUVEGARDE */}
           {afficherSauvegarde && (
@@ -487,17 +483,17 @@ export default function PageListe() {
               {/* Tableau figurines */}
               <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl overflow-hidden">
                 {/* En-tête */}
-                <div className="grid grid-cols-[1fr_44px_44px_44px_24px] px-4 py-2.5 border-b border-[#1E1E1E]">
-                  <span className="text-[#4A4A4A] text-[10px] uppercase tracking-wider font-bold">
+                <div className="grid grid-cols-[1fr_64px_64px_64px_24px] px-4 py-2.5 border-b border-[#1E1E1E]">
+                  <span className="text-[#8A8A8A] text-[10px] uppercase tracking-wider font-bold">
                     Figurine
                   </span>
-                  <span className="text-[#4A4A4A] text-[10px] uppercase tracking-wider font-bold text-center">
+                  <span className="text-[#8A8A8A] text-[10px] uppercase tracking-wider font-bold text-center">
                     Besoin
                   </span>
-                  <span className="text-[#4A4A4A] text-[10px] uppercase tracking-wider font-bold text-center">
+                  <span className="text-[#8A8A8A] text-[10px] uppercase tracking-wider font-bold text-center">
                     Possédé
                   </span>
-                  <span className="text-[#4A4A4A] text-[10px] uppercase tracking-wider font-bold text-center">
+                  <span className="text-[#8A8A8A] text-[10px] uppercase tracking-wider font-bold text-center">
                     Peint
                   </span>
                   <span />
@@ -511,7 +507,7 @@ export default function PageListe() {
                     <div
                       key={fig.id + i}
                       onClick={aVariantes ? () => ouvrirModalHero(fig) : undefined}
-                      className={`grid grid-cols-[1fr_44px_44px_44px_24px] px-4 py-3 items-center border-b border-[#1A1A1A] last:border-0 ${
+                      className={`grid grid-cols-[1fr_64px_64px_64px_24px] px-4 py-3 items-center border-b border-[#1A1A1A] last:border-0 ${
                         aVariantes ? "cursor-pointer hover:bg-[#181818] transition-colors" : ""
                       }`}
                     >
