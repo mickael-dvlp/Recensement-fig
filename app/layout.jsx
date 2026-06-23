@@ -17,8 +17,8 @@ const uncialAntiqua = Uncial_Antiqua({
 export const metadata = {
   metadataBase: new URL("https://mesbg-collection-app.com"),
   title: {
-    default: "MESBG — Gérez votre collection de figurines Middle-Earth",
-    template: "%s | MESBG",
+    default: "Collection MESBG — Gérez votre collection de figurines Middle-Earth",
+    template: "%s | Collection MESBG",
   },
   description:
     "L'application de référence pour les joueurs de Middle-Earth Strategy Battle Game. Inventaire de figurines Games Workshop, mémos de projet, guides de peinture et système d'amis.",
@@ -47,8 +47,8 @@ export const metadata = {
     type: "website",
     locale: "fr_FR",
     url: "https://mesbg-collection-app.com",
-    siteName: "MESBG",
-    title: "MESBG — Gérez votre collection de figurines Middle-Earth",
+    siteName: "Collection MESBG",
+    title: "Collection MESBG — Gérez votre collection de figurines Middle-Earth",
     description:
       "Inventaire de figurines MESBG, mémos de projet, guides de peinture et système d'amis. Gratuit et sans publicité.",
     images: [
@@ -62,7 +62,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MESBG — Gérez votre collection de figurines Middle-Earth",
+    title: "Collection MESBG — Gérez votre collection de figurines Middle-Earth",
     description:
       "Inventaire de figurines MESBG, mémos de projet, guides de peinture et système d'amis.",
     images: ["/image/mesbg_header.jpg"],
