@@ -68,6 +68,16 @@ const DALE = {
       nom: "Guerrier de Dale (Cor de Guerre)",
       image: "/images/factions/dale/dal-g-006.avif",
     },
+    {
+      id: "dal-g-007",
+      nom: "Arquelance de Dale",
+      image: "/images/factions/dale/dal-g-007.avif",
+    },
+    {
+      id: "dal-g-008",
+      nom: "Servant de siège",
+      image: "/images/factions/dale/dal-g-008.avif",
+    },
   ],
 };
 

@@ -125,6 +125,11 @@ const PAYS_DE_DUN = {
       image: "/images/factions/pays-de-dun/pdd-g-025.avif",
     },
     {
+      id: "pdd-g-020",
+      nom: "Homme des Collines",
+      image: "/images/factions/pays-de-dun/pdd-g-020.avif",
+    },
+    {
       id: "pdd-g-007",
       nom: "Homme des Collines (Bouclier Léger et Flambeau)",
       image: "/images/factions/pays-de-dun/pdd-g-007.avif",
@@ -148,6 +153,11 @@ const PAYS_DE_DUN = {
       id: "pdd-g-011",
       nom: "Homme des Collines (Arme à Deux Mains)",
       image: "/images/factions/pays-de-dun/pdd-g-011.avif",
+    },
+    {
+      id: "pdd-g-021",
+      nom: "Homme des Collines (Arc)",
+      image: "/images/factions/pays-de-dun/pdd-g-021.avif",
     },
     {
       id: "pdd-g-012",

@@ -27,18 +27,17 @@ export default function PageAmis() {
   const monPseudo = profil?.pseudo || utilisateur?.displayName || "";
 
   useEffect(() => {
-    if (!utilisateur) return;
+    if (!utilisateur) {
+      setChargement(false);
+      return;
+    }
     getAmis(utilisateur.uid)
       .then(setAmis)
       .finally(() => setChargement(false));
   }, [utilisateur]);
 
-  const demandesRecues = amis.filter(
-    (a) => a.statut === "en_attente" && a.initiateur !== utilisateur?.uid
-  );
-  const demandesEnvoyees = amis.filter(
-    (a) => a.statut === "en_attente" && a.initiateur === utilisateur?.uid
-  );
+  const demandesRecues = amis.filter((a) => a.statut === "reçu");
+  const demandesEnvoyees = amis.filter((a) => a.statut === "envoyé");
   const amisAcceptes = amis.filter((a) => a.statut === "accepté");
 
   async function handleEnvoyerDemande() {

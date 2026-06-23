@@ -10,6 +10,84 @@ import { getAllFigurines } from "@/data/factions/index.js";
 import { FACTIONS_BIEN, FACTIONS_MAL, FACTIONS_BIEN_GROUPES, FACTIONS_MAL_GROUPES } from "@/data/figurines/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
 
+function BlocFactions({ groupes, factionsData, factionsOuvertes, toggleFaction, showImages }) {
+  return groupes.map((groupe) => {
+    const factionsAvecFigs = groupe.factions.filter((f) => factionsData[f]?.length);
+    if (factionsAvecFigs.length === 0) return null;
+    return (
+      <div key={groupe.titre} className="flex flex-col gap-3">
+        <h3 className="text-[#6B6B6B] text-[10px] font-bold uppercase tracking-widest">
+          {groupe.titre}
+        </h3>
+        {factionsAvecFigs.map((faction) => {
+          const figs = factionsData[faction];
+          const totalFaction = figs.reduce((s, f) => s + f.quantite, 0);
+          const peintesFaction = figs.reduce((s, f) => s + f.peintes, 0);
+          return (
+            <div key={faction} className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl overflow-hidden">
+              <button
+                onClick={() => toggleFaction(faction)}
+                className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#222222] ${factionsOuvertes.has(faction) ? "border-b border-[#2A2A2A]" : ""}`}
+              >
+                <ChevronDown
+                  size={14}
+                  className={`text-[#6B6B6B] shrink-0 transition-transform duration-200 ${factionsOuvertes.has(faction) ? "" : "-rotate-90"}`}
+                />
+                <span className="flex-1 text-[#D4D4D4] text-sm font-bold">{faction}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#C9A227] font-bold text-sm">{totalFaction}</span>
+                  {peintesFaction > 0 && (
+                    <span className="text-[10px] text-[#22C55E] bg-[#22C55E]/10 border border-[#22C55E]/20 rounded-full px-2 py-0.5 font-semibold">
+                      {peintesFaction} peinte{peintesFaction > 1 ? "s" : ""}
+                    </span>
+                  )}
+                </div>
+              </button>
+              {factionsOuvertes.has(faction) && (
+                <div className="flex flex-col">
+                  {figs.map((fig, i) => (
+                    <div
+                      key={fig.id}
+                      className={`flex items-center gap-3 px-4 py-2.5 ${i < figs.length - 1 ? "border-b border-[#1E1E1E]" : ""}`}
+                    >
+                      {showImages && (
+                        <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-[#0D0D0D] shrink-0 border border-[#2A2A2A]">
+                          {fig.image ? (
+                            <Image
+                              src={fig.image}
+                              alt={fig.nom}
+                              fill
+                              className="object-contain p-0.5"
+                              sizes="40px"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Shield size={16} className="text-[#3A3A3A]" />
+                            </div>
+                          )}
+                        </div>
+                      )}
+                      <span className="flex-1 text-[#D4D4D4] text-xs leading-tight">{fig.nom}</span>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="text-[#C9A227] font-bold text-sm">{fig.quantite}</span>
+                        {fig.peintes > 0 && (
+                          <span className="text-[10px] text-[#22C55E] font-semibold">
+                            / {fig.peintes}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    );
+  });
+}
+
 export default function PageCollectionAmi() {
   const { amiUid } = useParams();
   const { utilisateur } = useAuth();
@@ -168,92 +246,6 @@ export default function PageCollectionAmi() {
 
   const totalGeneral = totalBien + totalMal + totalHeroesVariantes;
 
-  function BlocFactions({ groupes }) {
-    return groupes.map((groupe) => {
-      const factionsAvecFigs = groupe.factions.filter((f) => factionsData[f]?.length);
-      if (factionsAvecFigs.length === 0) return null;
-      return (
-        <div key={groupe.titre} className="flex flex-col gap-3">
-          <h3 className="text-[#6B6B6B] text-[10px] font-bold uppercase tracking-widest">
-            {groupe.titre}
-          </h3>
-          {factionsAvecFigs.map((faction) => {
-            const figs = factionsData[faction];
-            const totalFaction = figs.reduce((s, f) => s + f.quantite, 0);
-            const peintesFaction = figs.reduce((s, f) => s + f.peintes, 0);
-            return (
-              <div key={faction} className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl overflow-hidden">
-                {/* En-tête faction */}
-                <button
-                  onClick={() => toggleFaction(faction)}
-                  className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-left transition-colors hover:bg-[#222222] ${factionsOuvertes.has(faction) ? "border-b border-[#2A2A2A]" : ""}`}
-                >
-                  <ChevronDown
-                    size={14}
-                    className={`text-[#6B6B6B] shrink-0 transition-transform duration-200 ${factionsOuvertes.has(faction) ? "" : "-rotate-90"}`}
-                  />
-                  <span className="flex-1 text-[#D4D4D4] text-sm font-bold">{faction}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#C9A227] font-bold text-sm">{totalFaction}</span>
-                    {peintesFaction > 0 && (
-                      <span className="text-[10px] text-[#22C55E] bg-[#22C55E]/10 border border-[#22C55E]/20 rounded-full px-2 py-0.5 font-semibold">
-                        {peintesFaction} peinte{peintesFaction > 1 ? "s" : ""}
-                      </span>
-                    )}
-                  </div>
-                </button>
-
-                {/* Liste des figurines */}
-                {factionsOuvertes.has(faction) && (
-                  <div className="flex flex-col">
-                    {figs.map((fig, i) => (
-                      <div
-                        key={fig.id}
-                        className={`flex items-center gap-3 px-4 py-2.5 ${i < figs.length - 1 ? "border-b border-[#1E1E1E]" : ""}`}
-                      >
-                        {/* Image (conditionnelle) */}
-                        {showImages && (
-                          <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-[#0D0D0D] shrink-0 border border-[#2A2A2A]">
-                            {fig.image ? (
-                              <Image
-                                src={fig.image}
-                                alt={fig.nom}
-                                fill
-                                className="object-contain p-0.5"
-                                sizes="40px"
-                              />
-                            ) : (
-                              <div className="w-full h-full flex items-center justify-center">
-                                <Shield size={16} className="text-[#3A3A3A]" />
-                              </div>
-                            )}
-                          </div>
-                        )}
-
-                        {/* Nom */}
-                        <span className="flex-1 text-[#D4D4D4] text-xs leading-tight">{fig.nom}</span>
-
-                        {/* Stats */}
-                        <div className="flex items-center gap-2 shrink-0">
-                          <span className="text-[#C9A227] font-bold text-sm">{fig.quantite}</span>
-                          {fig.peintes > 0 && (
-                            <span className="text-[10px] text-[#22C55E] font-semibold">
-                              / {fig.peintes}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      );
-    });
-  }
-
   return (
     <div className="flex flex-col gap-6 py-6">
       {/* EN-TÊTE */}
@@ -368,7 +360,7 @@ export default function PageCollectionAmi() {
                 <h2 className="text-[#C9A227] text-sm font-bold uppercase tracking-widest">Bien</h2>
                 <span className="text-[#6B6B6B] text-xs font-semibold">{totalBien} fig.</span>
               </div>
-              <BlocFactions groupes={FACTIONS_BIEN_GROUPES} />
+              <BlocFactions groupes={FACTIONS_BIEN_GROUPES} factionsData={factionsData} factionsOuvertes={factionsOuvertes} toggleFaction={toggleFaction} showImages={showImages} />
             </section>
           )}
 
@@ -383,7 +375,7 @@ export default function PageCollectionAmi() {
                 <h2 className="text-[#C9A227] text-sm font-bold uppercase tracking-widest">Mal</h2>
                 <span className="text-[#6B6B6B] text-xs font-semibold">{totalMal} fig.</span>
               </div>
-              <BlocFactions groupes={FACTIONS_MAL_GROUPES} />
+              <BlocFactions groupes={FACTIONS_MAL_GROUPES} factionsData={factionsData} factionsOuvertes={factionsOuvertes} toggleFaction={toggleFaction} showImages={showImages} />
             </section>
           )}
         </>

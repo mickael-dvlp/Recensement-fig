@@ -121,6 +121,12 @@ const MORDOR = {
       lienHero: "Grishnakh",
     },
     {
+      id: "mdr-h-071",
+      nom: "Snaga, Capitaine Orque",
+      image: "/images/factions/mordor/mdr-h-071.avif",
+      lienHero: "Snaga",
+    },
+    {
       id: "mdr-h-040",
       nom: "Kardûsh le Pyromancien",
       image: "/images/factions/mordor/mdr-h-040.avif",
@@ -380,9 +386,19 @@ const MORDOR = {
       image: "/images/factions/mordor/mdr-g-022.avif",
     },
     {
+      id: "mdr-g-033",
+      nom: "Servant de Siège",
+      image: "/images/factions/mordor/mdr-g-033.avif",
+    },
+    {
       id: "mdr-g-023",
       nom: "Rôdeur de Morgul",
       image: "/images/factions/mordor/mdr-g-023.avif",
+    },
+    {
+      id: "mdr-g-034",
+      nom: "Orque du Morannon",
+      image: "/images/factions/mordor/mdr-g-034.avif",
     },
     {
       id: "mdr-g-024",

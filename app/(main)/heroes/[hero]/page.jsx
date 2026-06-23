@@ -8,13 +8,14 @@
 //   - Compteur +/- pour l'inventaire
 //   - Cœur pour marquer comme souhaitée
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { ChevronLeft, Swords } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur, mettreAJourFigurine } from "@/lib/firestore";
+import { mettreAJourFigurine } from "@/lib/firestore";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
 import FigurineRow from "@/components/figurines/FigurineRow";
+import { useInventaire } from "@/lib/hooks/useInventaire";
 
 export default function PageHero() {
   const { hero: heroEncode } = useParams();
@@ -24,39 +25,22 @@ export default function PageHero() {
   const nomHero = decodeURIComponent(heroEncode);
   const heroData = TOUS_LES_HEROS.find((h) => h.nom === nomHero);
 
-  const [inventaire, setInventaire] = useState({});
-  const [chargement, setChargement] = useState(true);
-
-  // ---- CHARGEMENT INVENTAIRE ----
-  useEffect(() => {
-    if (!utilisateur) return;
-
-    async function charger() {
-      const inv = await getInventaireUtilisateur(utilisateur.uid);
-      setInventaire(inv);
-      setChargement(false);
-    }
-
-    charger();
-
-    window.addEventListener("focus", charger);
-    return () => window.removeEventListener("focus", charger);
-  }, [utilisateur]);
+  const { inventaire, setInventaire, chargement } = useInventaire(utilisateur?.uid);
 
   // ---- MISE À JOUR FIGURINE ----
   const mettreAJour = useCallback(
     async (figurineId, data) => {
       if (!utilisateur) return;
-
-      setInventaire((prev) => ({
-        ...prev,
-        [figurineId]: {
-          ...(prev[figurineId] ?? {}),
-          ...data,
-        },
-      }));
-
-      await mettreAJourFigurine(utilisateur.uid, figurineId, data);
+      let sauvegarde;
+      setInventaire((prev) => {
+        sauvegarde = prev[figurineId];
+        return { ...prev, [figurineId]: { ...(prev[figurineId] ?? {}), ...data } };
+      });
+      try {
+        await mettreAJourFigurine(utilisateur.uid, figurineId, data);
+      } catch {
+        setInventaire((prev) => ({ ...prev, [figurineId]: sauvegarde }));
+      }
     },
     [utilisateur]
   );

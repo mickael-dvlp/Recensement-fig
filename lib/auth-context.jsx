@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
           ]);
           setProfil(profilData);
           setNbDemandesAmis(
-            amis.filter((a) => a.statut === "en_attente" && a.initiateur !== user.uid).length
+            amis.filter((a) => a.statut === "reçu").length
           );
         } catch (err) {
           console.warn("Impossible de charger le profil Firestore :", err.message);
@@ -176,17 +176,20 @@ export function AuthProvider({ children }) {
     await sendPasswordResetEmail(auth, email);
   }
 
+  // Recharge le profil depuis Firestore (utile après une modification de pseudo ou d'avatar).
   async function rafraichirProfil() {
     if (!utilisateur) return;
     const data = await getProfil(utilisateur.uid);
     setProfil(data);
   }
 
+  // Met à jour le badge de demandes d'amis en recomptant les entrées "reçu".
+  // Appelé depuis la page /amis après acceptation/refus.
   async function rafraichirDemandesAmis() {
     if (!utilisateur) return;
     const amis = await getAmis(utilisateur.uid);
     setNbDemandesAmis(
-      amis.filter((a) => a.statut === "en_attente" && a.initiateur !== utilisateur.uid).length
+      amis.filter((a) => a.statut === "reçu").length
     );
   }
 

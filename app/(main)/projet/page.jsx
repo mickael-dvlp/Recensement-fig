@@ -366,7 +366,9 @@ export default function PageProjet() {
 
   // ---- DRAG AND DROP ----
   function startDrag(e, index) {
-    e.currentTarget.setPointerCapture(e.pointerId);
+    // Capturer le pointeur sur le conteneur pour continuer à recevoir les événements
+    // même si la souris/le doigt sort des limites du div (sinon le drag se "bloque").
+    listRef.current?.setPointerCapture(e.pointerId);
     dragStateRef.current = { active: true, fromIndex: index };
     setDragIndex(index);
   }
@@ -466,7 +468,7 @@ export default function PageProjet() {
           </p>
         </div>
       ) : (
-        <div ref={listRef} className="flex flex-col gap-3">
+        <div ref={listRef} className="flex flex-col gap-3" onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
           {memos.map((memo, index) => {
             const type = memo.type || "memo";
             const figurines = memo.figurines || [];
@@ -483,9 +485,6 @@ export default function PageProjet() {
                   {/* Drag handle */}
                   <button
                     onPointerDown={(e) => startDrag(e, index)}
-                    onPointerMove={moveDrag}
-                    onPointerUp={endDrag}
-                    onPointerCancel={endDrag}
                     className="shrink-0 mt-0.5 touch-none cursor-grab active:cursor-grabbing text-[#3A3A3A] hover:text-[#6B6B6B] transition-colors"
                     aria-label="Déplacer le mémo"
                   >
