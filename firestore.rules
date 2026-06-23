@@ -69,19 +69,37 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
       }
 
-      // Amis : règles granulaires pour éviter l'auto-injection d'amitié
+      // Amis : règles granulaires pour éviter l'auto-injection d'amitié.
+      // Protocole à 2 états : expéditeur → "envoyé", destinataire → "reçu", puis "accepté" des deux côtés.
       match /amis/{amiUid} {
-        allow read:   if isOwner(uid);
-        // Le propriétaire gère sa propre sous-collection librement
-        allow write:  if isOwner(uid);
-        // L'ami (amiUid) peut uniquement créer une entrée "reçu" (envoyer une demande)
+        allow read: if isOwner(uid);
+
+        // Propriétaire envoie une demande (crée son propre côté "envoyé")
+        allow create: if isOwner(uid)
+          && request.resource.data.statut == "envoyé"
+          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+
+        // Propriétaire accepte une demande reçue ("reçu" → "accepté")
+        allow update: if isOwner(uid)
+          && resource.data.statut == "reçu"
+          && request.resource.data.statut == "accepté"
+          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+
+        // Propriétaire supprime (annulation envoi, refus d'une demande, suppression d'ami)
+        allow delete: if isOwner(uid);
+
+        // L'ami (amiUid) place la notification "reçu" dans la sous-collection du propriétaire
         allow create: if request.auth.uid == amiUid
-          && request.resource.data.statut == "reçu";
-        // L'ami (amiUid) peut accepter une demande existante "envoyé" → "accepté"
+          && request.resource.data.statut == "reçu"
+          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+
+        // L'ami (amiUid) confirme la demande côté expéditeur ("envoyé" → "accepté")
         allow update: if request.auth.uid == amiUid
           && resource.data.statut == "envoyé"
-          && request.resource.data.statut == "accepté";
-        // Les deux parties peuvent supprimer (retrait d'amitié)
+          && request.resource.data.statut == "accepté"
+          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+
+        // L'ami (amiUid) peut supprimer (retrait d'amitié ou refus)
         allow delete: if request.auth.uid == amiUid;
       }
     }

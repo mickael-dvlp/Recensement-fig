@@ -4,18 +4,18 @@
 // PAGE FACTION — Héros & Guerriers d'une faction
 // ============================================================
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, Swords, ExternalLink } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import {
-  getInventaireUtilisateur,
   mettreAJourFigurine,
   getFigurinesCustom,
   creerFigurineCustom,
   supprimerFigurineCustom,
   modifierFigurineCustom,
 } from "@/lib/firestore";
+import { useInventaire } from "@/lib/hooks/useInventaire";
 import FACTIONS_DATA from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
 import FigurineRow from "@/components/figurines/FigurineRow";
@@ -31,28 +31,14 @@ export default function PageFaction() {
   const nomFaction = decodeURIComponent(factionEncodee);
   const factionData = FACTIONS_DATA[nomFaction];
 
-  const [inventaire, setInventaire] = useState({});
   const [figurinesCustom, setFigurinesCustom] = useState([]);
-  const [chargement, setChargement] = useState(true);
 
-  // ---- CHARGEMENT ----
-  useEffect(() => {
-    if (!utilisateur) return;
+  const chargerCustoms = useCallback(async (uid) => {
+    const customs = await getFigurinesCustom(uid);
+    setFigurinesCustom(customs.filter((c) => c.faction === nomFaction));
+  }, [nomFaction]);
 
-    async function charger() {
-      const [inv, customs] = await Promise.all([
-        getInventaireUtilisateur(utilisateur.uid),
-        getFigurinesCustom(utilisateur.uid),
-      ]);
-      setInventaire(inv);
-      setFigurinesCustom(customs.filter((c) => c.faction === nomFaction));
-      setChargement(false);
-    }
-
-    charger();
-    window.addEventListener("focus", charger);
-    return () => window.removeEventListener("focus", charger);
-  }, [utilisateur, nomFaction]);
+  const { inventaire, setInventaire, chargement } = useInventaire(utilisateur?.uid, chargerCustoms);
 
   // ---- MISE À JOUR INVENTAIRE ----
   const mettreAJour = useCallback(

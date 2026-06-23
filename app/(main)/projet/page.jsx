@@ -366,6 +366,9 @@ export default function PageProjet() {
 
   // ---- DRAG AND DROP ----
   function startDrag(e, index) {
+    // Capturer le pointeur sur le conteneur pour continuer à recevoir les événements
+    // même si la souris/le doigt sort des limites du div (sinon le drag se "bloque").
+    listRef.current?.setPointerCapture(e.pointerId);
     dragStateRef.current = { active: true, fromIndex: index };
     setDragIndex(index);
   }

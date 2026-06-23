@@ -4,7 +4,7 @@
 // PAGE PEINTURE - Catalogue des pots de peinture
 // ============================================================
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { Palette, Heart, Plus, Minus, ChevronDown } from "lucide-react";
 import SearchBar from "@/components/ui/SearchBar";
 import FilterTabs from "@/components/figurines/FilterTabs";

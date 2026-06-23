@@ -40,27 +40,21 @@ const VARIANTES_PAR_LIEN = Object.fromEntries(
   ])
 );
 
-function getPossedees(id, inventaire) {
-  const direct = inventaire[id]?.quantiteInventaire ?? 0;
+// Lecture d'un champ quantité : vérifie d'abord la figurine directe,
+// puis agrège les variantes héros liées si aucune entrée directe n'existe.
+function getQuantite(id, inventaire, champ) {
+  const direct = inventaire[id]?.[champ] ?? 0;
   if (direct > 0) return direct;
   const lien = LIEN_PAR_ID[id];
   if (!lien) return 0;
   return (VARIANTES_PAR_LIEN[lien] ?? []).reduce(
-    (s, v) => s + (inventaire[v.id]?.quantiteInventaire ?? 0),
+    (s, v) => s + (inventaire[v.id]?.[champ] ?? 0),
     0
   );
 }
 
-function getPeint(id, inventaire) {
-  const direct = inventaire[id]?.quantitePeinte ?? 0;
-  if (direct > 0) return direct;
-  const lien = LIEN_PAR_ID[id];
-  if (!lien) return 0;
-  return (VARIANTES_PAR_LIEN[lien] ?? []).reduce(
-    (s, v) => s + (inventaire[v.id]?.quantitePeinte ?? 0),
-    0
-  );
-}
+const getPossedees = (id, inv) => getQuantite(id, inv, "quantiteInventaire");
+const getPeint     = (id, inv) => getQuantite(id, inv, "quantitePeinte");
 
 const PLACEHOLDER = `Coller votre liste ici…
 
@@ -224,10 +218,21 @@ export default function PageListe() {
   const [heroModal, setHeroModal] = useState(null);
 
   useEffect(() => {
-    if (!utilisateur) return;
-    getInventaireUtilisateur(utilisateur.uid)
-      .then(setInventaire)
-      .finally(() => setChargementInv(false));
+    if (!utilisateur) {
+      setChargementInv(false);
+      return;
+    }
+
+    function charger() {
+      getInventaireUtilisateur(utilisateur.uid)
+        .then(setInventaire)
+        .catch(() => setInventaire({}))
+        .finally(() => setChargementInv(false));
+    }
+
+    charger();
+    window.addEventListener("focus", charger);
+    return () => window.removeEventListener("focus", charger);
   }, [utilisateur]);
 
   useEffect(() => {
@@ -251,6 +256,8 @@ export default function PageListe() {
     setHeroModal({ nomFR: fig.nomFR, variantes });
   }
 
+  // Parse, agrège et résout la liste TTS, puis croise avec l'inventaire.
+  // estHero est forcé à true si l'ID figure dans HEROS_IDS même si TTS ne l'indente pas.
   function analyser() {
     if (!texte.trim() || !inventaire) return;
 
@@ -268,6 +275,7 @@ export default function PageListe() {
         const peint = getPeint(id, inventaire);
         mappees.push({
           id,
+          nomTTS: fig.nom,
           nomFR: NOM_PAR_ID[id] ?? fig.nom,
           options: fig.options,
           besoin: fig.quantite,
@@ -300,6 +308,7 @@ export default function PageListe() {
     setNomSauvegarde("");
   }
 
+  // Insère la liste en tête (la plus récente en premier) et tronque à MAX_LISTES.
   function sauvegarder() {
     if (!texte.trim() || !nomSauvegarde.trim()) return;
     const nouvelle = {
@@ -443,7 +452,7 @@ export default function PageListe() {
 
               <button
                 onClick={analyser}
-                disabled={!texte.trim() || chargementInv}
+                disabled={!texte.trim() || chargementInv || !inventaire}
                 className="flex items-center justify-center gap-2 bg-[#C9A227] hover:bg-[#d4af3a] disabled:opacity-40 disabled:cursor-not-allowed text-[#0D0D0D] font-bold py-3.5 rounded-2xl text-sm transition-colors"
               >
                 {chargementInv ? (
@@ -500,12 +509,12 @@ export default function PageListe() {
                 </div>
 
                 {/* Lignes */}
-                {resultats.mappees.map((fig, i) => {
+                {resultats.mappees.map((fig) => {
                   const statut = getStatut(fig);
                   const aVariantes = fig.estHero && !!LIEN_PAR_ID[fig.id];
                   return (
                     <div
-                      key={fig.id + i}
+                      key={fig.nomTTS + ":" + fig.options.join(",")}
                       onClick={aVariantes ? () => ouvrirModalHero(fig) : undefined}
                       className={`grid grid-cols-[1fr_64px_64px_64px_24px] px-4 py-3 items-center border-b border-[#1A1A1A] last:border-0 ${
                         aVariantes ? "cursor-pointer hover:bg-[#181818] transition-colors" : ""
