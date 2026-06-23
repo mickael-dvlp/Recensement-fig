@@ -28,6 +28,10 @@ import { creerProfil, getProfil, verifierPseudoDisponible, reserverPseudo, getAm
 // Création du contexte avec valeur par défaut null
 const AuthContext = createContext(null);
 
+function creerNouveauProfil(uid, pseudo, email) {
+  return { uid, pseudo, email, langue: "fr", creeLe: new Date().toISOString() };
+}
+
 // ----- PROVIDER -----
 // Enveloppe l'application pour partager l'état d'authentification
 export function AuthProvider({ children }) {
@@ -98,13 +102,7 @@ export function AuthProvider({ children }) {
 
     await updateProfile(user, { displayName: pseudo });
 
-    const nouveauProfil = {
-      uid: user.uid,
-      pseudo,
-      email,
-      langue: "fr",
-      creeLe: new Date().toISOString(),
-    };
+    const nouveauProfil = creerNouveauProfil(user.uid, pseudo, email);
     await creerProfil(nouveauProfil);
     await reserverPseudo(pseudo, user.uid);
     setProfil(nouveauProfil);
@@ -144,13 +142,7 @@ export function AuthProvider({ children }) {
         dispo = await verifierPseudoDisponible(pseudo);
         suffixe++;
       }
-      const nouveauProfil = {
-        uid: user.uid,
-        pseudo,
-        email: user.email,
-        langue: "fr",
-        creeLe: new Date().toISOString(),
-      };
+      const nouveauProfil = creerNouveauProfil(user.uid, pseudo, user.email);
       await creerProfil(nouveauProfil);
       await reserverPseudo(pseudo, user.uid);
       setProfil(nouveauProfil);

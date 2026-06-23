@@ -4,12 +4,11 @@
 // PAGE PEINTURE - Catalogue des pots de peinture
 // ============================================================
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Palette, Heart, Plus, Minus, ChevronDown } from "lucide-react";
 import SearchBar from "@/components/ui/SearchBar";
 import FilterTabs from "@/components/figurines/FilterTabs";
 import { useAuth } from "@/lib/auth-context";
-import { mettreAJourFigurine } from "@/lib/firestore";
 import { useInventaire } from "@/lib/hooks/useInventaire";
 import citadelData from "@/data/peintures/citadel.json";
 import vallejoData from "@/data/peintures/vallejo.json";
@@ -139,25 +138,7 @@ export default function PagePeinture() {
   const [filtreListe, setFiltreListe] = useState("tout");
   const [headerReduit, setHeaderReduit] = useState(false);
 
-  const { inventaire: inventaireBrut, setInventaire: setInventaireBrut } = useInventaire(utilisateur?.uid);
-
-  // ---- MISE À JOUR ----
-  const mettreAJour = useCallback(
-    async (peintureId, data) => {
-      if (!utilisateur) return;
-      let sauvegarde;
-      setInventaireBrut((prev) => {
-        sauvegarde = prev[peintureId];
-        return { ...prev, [peintureId]: { ...(prev[peintureId] ?? {}), ...data } };
-      });
-      try {
-        await mettreAJourFigurine(utilisateur.uid, peintureId, data);
-      } catch {
-        setInventaireBrut((prev) => ({ ...prev, [peintureId]: sauvegarde }));
-      }
-    },
-    [utilisateur]
-  );
+  const { inventaire: inventaireBrut, mettreAJour } = useInventaire(utilisateur?.uid);
 
   // ---- GAMMES DISPONIBLES ----
   const gammesDisponibles = useMemo(() => {

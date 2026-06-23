@@ -9,7 +9,6 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, Swords, ExternalLink } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import {
-  mettreAJourFigurine,
   getFigurinesCustom,
   creerFigurineCustom,
   supprimerFigurineCustom,
@@ -38,25 +37,7 @@ export default function PageFaction() {
     setFigurinesCustom(customs.filter((c) => c.faction === nomFaction));
   }, [nomFaction]);
 
-  const { inventaire, setInventaire, chargement } = useInventaire(utilisateur?.uid, chargerCustoms);
-
-  // ---- MISE À JOUR INVENTAIRE ----
-  const mettreAJour = useCallback(
-    async (figurineId, data) => {
-      if (!utilisateur) return;
-      let sauvegarde;
-      setInventaire((prev) => {
-        sauvegarde = prev[figurineId];
-        return { ...prev, [figurineId]: { ...(prev[figurineId] ?? {}), ...data } };
-      });
-      try {
-        await mettreAJourFigurine(utilisateur.uid, figurineId, data);
-      } catch {
-        setInventaire((prev) => ({ ...prev, [figurineId]: sauvegarde }));
-      }
-    },
-    [utilisateur]
-  );
+  const { inventaire, setInventaire, chargement, mettreAJour } = useInventaire(utilisateur?.uid, chargerCustoms);
 
   // ---- AJOUT FIGURINE CUSTOM ----
   const ajouterCustom = useCallback(
