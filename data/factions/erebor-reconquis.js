@@ -111,36 +111,43 @@ const EREBOR_RECONQUIS = {
   guerriers: [
     {
       id: "erc-g-001",
+      inventaireId: "ers-g-003",
       nom: "Guerrier des Monts de Fer (Arbalète)",
       image: "/images/factions/erebor-reconquis/erc-g-001.avif",
     },
     {
       id: "erc-g-002",
+      inventaireId: "ers-g-004",
       nom: "Guerrier des Monts de Fer (Bannière)",
       image: "/images/factions/erebor-reconquis/erc-g-002.avif",
     },
     {
       id: "erc-g-003",
+      inventaireId: "ers-g-005",
       nom: "Guerrier des Monts de Fer (Bouclier + Bannière)",
       image: "/images/factions/erebor-reconquis/erc-g-003.avif",
     },
     {
       id: "erc-g-004",
+      inventaireId: "ers-g-006",
       nom: "Guerrier des Monts de Fer (Bouclier + Lance)",
       image: "/images/factions/erebor-reconquis/erc-g-004.avif",
     },
     {
       id: "erc-g-005",
+      inventaireId: "ers-g-007",
       nom: "Guerrier des Monts de Fer (Piolet)",
       image: "/images/factions/erebor-reconquis/erc-g-005.avif",
     },
     {
       id: "erc-g-006",
+      inventaireId: "ers-g-001",
       nom: "Chevaucheur de Bouquetin (Lance de Guerre)",
       image: "/images/factions/erebor-reconquis/erc-g-006.avif",
     },
     {
       id: "erc-g-007",
+      inventaireId: "ers-g-002",
       nom: "Chevaucheur de Bouquetin (Piolet)",
       image: "/images/factions/erebor-reconquis/erc-g-007.avif",
     },

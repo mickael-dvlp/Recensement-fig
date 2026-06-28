@@ -31,6 +31,7 @@ const KHAZAD_DUM = {
       id: "khz-h-005",
       nom: "Daïn Seigneur Nain",
       image: "/images/factions/khazad-dum/khz-h-005.avif",
+      lienHero: "Dain",
     },
     {
       id: "khz-h-006",

@@ -26,16 +26,19 @@ const LES_MONTS_DE_FER = {
     },
     {
       id: "mdf-h-005",
+      lienHero: "Roi des Nains",
       nom: "Roi Nain des Monts de Fer",
       image: "/images/factions/monts-de-fer/mdf-h-005.avif",
     },
     {
       id: "mdf-h-006",
+      inventaireId: "ers-h-003",
       nom: "Capitaine des Monts de Fer (Lance + Bouclier)",
       image: "/images/factions/monts-de-fer/mdf-h-006.avif",
     },
     {
       id: "mdf-h-007",
+      inventaireId: "ers-h-004",
       nom: "Capitaine des Monts de Fer (Piolet)",
       image: "/images/factions/monts-de-fer/mdf-h-007.avif",
     },
@@ -44,36 +47,43 @@ const LES_MONTS_DE_FER = {
   guerriers: [
     {
       id: "mdf-g-001",
+      inventaireId: "ers-g-005",
       nom: "Guerrier des Monts de Fer (Bannière + Bouclier)",
       image: "/images/factions/monts-de-fer/mdf-g-001.avif",
     },
     {
       id: "mdf-g-002",
+      inventaireId: "ers-g-004",
       nom: "Guerrier des Monts de Fer (Bannière)",
       image: "/images/factions/monts-de-fer/mdf-g-002.avif",
     },
     {
       id: "mdf-g-003",
+      inventaireId: "ers-g-006",
       nom: "Guerrier des Monts de Fer (Bouclier + Lance)",
       image: "/images/factions/monts-de-fer/mdf-g-003.avif",
     },
     {
       id: "mdf-g-004",
+      inventaireId: "ers-g-003",
       nom: "Guerrier des Monts de Fer (Arbalète)",
       image: "/images/factions/monts-de-fer/mdf-g-004.avif",
     },
     {
       id: "mdf-g-005",
+      inventaireId: "ers-g-007",
       nom: "Guerrier des Monts de Fer (Piolet)",
       image: "/images/factions/monts-de-fer/mdf-g-005.avif",
     },
     {
       id: "mdf-g-006",
+      inventaireId: "ers-g-001",
       nom: "Chevaucheur de Bouquetin des Monts de Fer",
       image: "/images/factions/monts-de-fer/mdf-g-006.avif",
     },
     {
       id: "mdf-g-010",
+      inventaireId: "ers-g-002",
       nom: "Chevaucheur de Bouquetin des Monts de Fer (Piolet)",
       image: "/images/factions/monts-de-fer/mdf-g-010.avif",
     },
