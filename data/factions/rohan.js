@@ -198,9 +198,9 @@ const LE_ROHAN = {
       image: "/images/factions/rohan/roh-g-003.avif",
     },
     {
-      id: "roh-g-020",
-      nom: "Guerrier du Rohan Helmingas(Cor de Guerre)",
-      image: "/images/factions/rohan/roh-g-020.avif",
+      id: "roh-g-025",
+      nom: "Guerrier du Rohan Helmingas (Cor de Guerre)",
+      image: "/images/factions/rohan/roh-g-025.avif",
     },
     {
       id: "roh-g-004",
