@@ -214,7 +214,7 @@ const LE_ROHAN = {
     },
     {
       id: "roh-g-022",
-      nom: "Guerrier du Rohan (Bannière)",
+      nom: "Guerrier du Rohan 4 (Bannière)",
       image: "/images/factions/rohan/roh-g-022.avif",
     },
     {
@@ -243,14 +243,14 @@ const LE_ROHAN = {
       image: "/images/factions/rohan/roh-g-008.avif",
     },
     {
-      id: "roh-g-009",
-      nom: "Cavalier du Rohan (Bannière)",
-      image: "/images/factions/rohan/roh-g-009.avif",
-    },
-    {
       id: "roh-g-010",
       nom: "Cavalier du Rohan (Javelot)",
       image: "/images/factions/rohan/roh-g-010.avif",
+    },
+    {
+      id: "roh-g-009",
+      nom: "Cavalier du Rohan (Bannière)",
+      image: "/images/factions/rohan/roh-g-009.avif",
     },
     {
       id: "roh-g-011",
