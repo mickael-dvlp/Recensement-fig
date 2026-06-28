@@ -218,6 +218,11 @@ const MORDOR = {
       image: "/images/factions/mordor/mdr-h-052.avif",
     },
     {
+      id: "mdr-h-069",
+      nom: "Chaman Orque du Morannon",
+      image: "/images/factions/mordor/mdr-h-069.avif",
+    },
+    {
       id: "mdr-h-053",
       nom: "Capitaine de la Garde Noire",
       image: "/images/factions/mordor/mdr-h-053.avif",

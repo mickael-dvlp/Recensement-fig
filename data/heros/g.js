@@ -457,12 +457,12 @@ const HEROS_G = [
       },
       {
         id: "gothmog-004",
-        nom: "Gothmog (Pied)",
+        nom: "Gothmog sur Warg",
         image: "/images/heros/g/gothmog-004.avif",
       },
       {
         id: "gothmog-003",
-        nom: "Gothmog sur Warg",
+        nom: "Gothmog (Pied)",
         image: "/images/heros/g/gothmog-003.avif",
       },
       {

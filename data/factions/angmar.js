@@ -70,6 +70,18 @@ const ANGMAR = {
       image: "/images/factions/angmar/ang-h-011.avif",
       lienHero: "Gulavhar",
     },
+    {
+      id: "ang-h-023",
+      nom: "Muzgur",
+      image: "/images/factions/angmar/ang-h-023.avif",
+      lienHero: "Muzgur",
+    },
+    {
+      id: "ang-h-024",
+      nom: "Razgush",
+      image: "/images/factions/angmar/ang-h-024.avif",
+      lienHero: "Razgush",
+    },
 
     {
       id: "ang-h-013",
@@ -146,7 +158,11 @@ const ANGMAR = {
       nom: "Spectres",
       image: "/images/factions/angmar/ang-g-001.avif",
     },
-
+    {
+      id: "ang-g-020",
+      nom: "Rodeurs de Morgul",
+      image: "/images/factions/angmar/ang-g-020.avif",
+    },
     {
       id: "ang-g-004",
       nom: "Trolls des Collines",
