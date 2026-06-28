@@ -254,8 +254,13 @@ const LE_ROHAN = {
     },
     {
       id: "roh-g-009",
-      nom: "Cavalier du Rohan (Bannière)",
+      nom: "Cavalier du Rohan 1 (Bannière)",
       image: "/images/factions/rohan/roh-g-009.avif",
+    },
+    {
+      id: "roh-g-017",
+      nom: "Cavalier du Rohan 2 (Bannière)",
+      image: "/images/factions/rohan/roh-g-017.avif",
     },
     {
       id: "roh-g-011",
