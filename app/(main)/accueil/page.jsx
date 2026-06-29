@@ -11,6 +11,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Shield, Heart, Sword, Users } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { getInventaireUtilisateur, getFigurinesCustom, getMemos } from "@/lib/firestore";
@@ -247,9 +248,10 @@ export default function PageAccueil() {
             {FACTIONS_BIEN.map((faction) => {
               const img = IMAGES_FACTIONS[faction];
               return (
-                <div
+                <Link
                   key={faction}
-                  className="relative overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
+                  href={`/figurines/${encodeURIComponent(faction)}`}
+                  className="relative overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28 hover:border-[#C9A227]/50 transition-colors"
                 >
                   {img && (
                     <Image
@@ -266,7 +268,7 @@ export default function PageAccueil() {
                   <span className="relative text-[#F5F5F5] text-lg font-semibold text-center">
                     {chargement ? "…" : stats.parFaction[faction] || 0}
                   </span>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -282,9 +284,10 @@ export default function PageAccueil() {
             {FACTIONS_MAL.map((faction) => {
               const img = IMAGES_FACTIONS[faction];
               return (
-                <div
+                <Link
                   key={faction}
-                  className="relative overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28"
+                  href={`/figurines/${encodeURIComponent(faction)}`}
+                  className="relative overflow-hidden bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-4 flex flex-col items-center justify-center gap-3 h-28 hover:border-[#C9A227]/50 transition-colors"
                 >
                   {img && (
                     <Image
@@ -301,7 +304,7 @@ export default function PageAccueil() {
                   <span className="relative text-[#F5F5F5] text-lg font-semibold text-center">
                     {chargement ? "…" : stats.parFaction[faction] || 0}
                   </span>
-                </div>
+                </Link>
               );
             })}
           </div>
