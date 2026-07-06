@@ -191,7 +191,7 @@ export default function PageAccueil() {
       <div className=" border-b border-[#2A2A2A] flex justify-center">
         <Image
           src="/image/mesbg_header.jpg"
-          alt="MESBG Header"
+          alt="Bannière Middle-Earth Strategy Battle Game"
           width={0}
           height={0}
           sizes="50vw"

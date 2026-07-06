@@ -16,7 +16,7 @@ import { getInventaireUtilisateur } from "@/lib/firestore";
 import { parseTTS, aggregerFigurines, resoudreId } from "@/lib/tts-parser";
 import TTS_MAPPING from "@/data/tts-mapping.json";
 import { getAllFigurines } from "@/data/factions/index.js";
-import { TOUS_LES_HEROS } from "@/data/heros/index.js";
+import TOUS_LES_HEROS from "@/data/heros/index.js";
 
 const STORAGE_KEY = "mesbg-listes";
 const MAX_LISTES = 10;

@@ -137,11 +137,12 @@ export function AuthProvider({ children }) {
       let pseudo = user.displayName || user.email.split("@")[0];
       let dispo = await verifierPseudoDisponible(pseudo);
       let suffixe = 1;
-      while (!dispo) {
+      while (!dispo && suffixe <= 50) {
         pseudo = `${user.displayName || user.email.split("@")[0]}${suffixe}`;
         dispo = await verifierPseudoDisponible(pseudo);
         suffixe++;
       }
+      if (!dispo) throw new Error("Impossible de générer un pseudo disponible.");
       const nouveauProfil = creerNouveauProfil(user.uid, pseudo, user.email);
       await creerProfil(nouveauProfil);
       await reserverPseudo(pseudo, user.uid);

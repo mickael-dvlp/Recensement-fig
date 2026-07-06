@@ -47,9 +47,6 @@ export default function PageProfil() {
   const [resultatNettoyage, setResultatNettoyage] = useState(null);
   const [modalMentions, setModalMentions] = useState(false);
 
-  /**
-   * Déconnecte l'utilisateur et redirige vers la connexion
-   */
   // Délai restant avant prochain changement de pseudo (en jours)
   const joursRestants = (() => {
     if (!profil?.dernierChangementPseudo) return 0;
@@ -334,7 +331,7 @@ export default function PageProfil() {
             </button>
 
             <button
-              onClick={() => router.push("/figurines")}
+              onClick={() => router.push("/figurines?filtre=souhaite")}
               className="w-full flex items-center gap-3 px-4 py-3 border-b border-[#2A2A2A] hover:bg-[#2A2A2A] transition-colors"
             >
               <ShoppingCart size={18} className="text-[#C9A227]" />

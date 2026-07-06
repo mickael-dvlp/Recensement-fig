@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { UserPlus, UserCheck, UserX, Clock, Users, X, Check, Trash2, Eye } from "lucide-react";
+import { UserPlus, UserCheck, Clock, Users, X, Check, Trash2, Eye } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import {
   getAmis,

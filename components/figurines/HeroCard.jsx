@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export default function HeroCard({ hero }) {
   const possedes = hero.possedes || 0;
+  const total = hero.variantes?.length ?? 0;
   const pourcentage =
-    hero.total > 0 ? Math.round((possedes / hero.total) * 100) : 0;
+    total > 0 ? Math.round((possedes / total) * 100) : 0;
 
   return (
     <Link
@@ -27,7 +28,7 @@ export default function HeroCard({ hero }) {
       <div className="flex items-center justify-between">
         <span className="text-[#6B6B6B] text-xs">
           <span className="text-[#F5F5F5] font-semibold">{possedes}</span>
-          /{hero.total}
+          /{total}
         </span>
       </div>
     </Link>
