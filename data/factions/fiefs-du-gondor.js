@@ -46,21 +46,25 @@ const FIEFS_DU_GONDOR = {
   guerriers: [
     {
       id: "fdg-g-012",
+      inventaireId: "gon-g-008",
       nom: "Archer de la Racine Noire",
       image: "/images/factions/fiefs-du-gondor/fdg-g-012.avif",
     },
     {
       id: "fdg-g-001",
+      inventaireId: "gon-g-009",
       nom: "Archer de la Racine Noire (Bannière)",
       image: "/images/factions/fiefs-du-gondor/fdg-g-001.avif",
     },
     {
       id: "fdg-g-002",
+      inventaireId: "gon-g-010",
       nom: "Archer de la Racine Noire (Cor de Guerre)",
       image: "/images/factions/fiefs-du-gondor/fdg-g-002.avif",
     },
     {
       id: "fdg-g-003",
+      inventaireId: "gon-g-011",
       nom: "Archer de la Racine Noire (Lance)",
       image: "/images/factions/fiefs-du-gondor/fdg-g-003.avif",
     },

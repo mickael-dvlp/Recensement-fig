@@ -23,17 +23,12 @@ const HEROS_E = [
   {
     id: "elendil",
     nom: "Elendil",
-    total: 2,
+    total: 1,
     variantes: [
       {
         id: "elendil-001",
         nom: "Elendil",
         image: "/images/heros/e/elendil-001.avif",
-      },
-      {
-        id: "elendil-002",
-        nom: "Diorama Elendil mort avec Isildur",
-        image: "/images/heros/e/elendil-002.avif",
       },
     ],
   },
