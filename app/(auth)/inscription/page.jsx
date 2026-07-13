@@ -68,6 +68,14 @@ export default function PageInscription() {
     e.preventDefault();
     setErreur("");
 
+    if (pseudo.trim().length < 3 || pseudo.trim().length > 30) {
+      setErreur("Le pseudo doit contenir entre 3 et 30 caractères.");
+      return;
+    }
+    if (!/^[a-zA-Z0-9_\-]+$/.test(pseudo.trim())) {
+      setErreur("Le pseudo ne peut contenir que des lettres, chiffres, tirets et underscores.");
+      return;
+    }
     if (motDePasse !== confirmation) {
       setErreur("Les mots de passe ne correspondent pas.");
       return;

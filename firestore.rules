@@ -29,12 +29,31 @@ service cloud.firestore {
       return ('compteurCustom' in d) ? d.compteurCustom : 0;
     }
 
+    // Pseudo valide : 3–30 caractères, lettres/chiffres/tirets/underscores uniquement.
+    function pseudoValide(p) {
+      return p is string && p.size() >= 3 && p.size() <= 30 && p.matches('[a-zA-Z0-9_\\-]+');
+    }
+
+    // Cooldown 7 jours entre deux changements de pseudo.
+    // Retourne true si le profil n'a jamais changé de pseudo ou si 7 jours sont écoulés.
+    function pseudoCooldownPasse(uid) {
+      let d = get(/databases/$(database)/documents/utilisateurs/$(uid)).data;
+      return !('dernierChangementPseudo' in d)
+        || (request.time.toMillis() - d.dernierChangementPseudo.toMillis()) > 604800000;
+    }
+
     // ---- PSEUDOS ----
     // Collection globale pour garantir l'unicité des pseudos.
     // Lecture ouverte aux connectés (vérification de dispo), écriture réservée au propriétaire.
     match /pseudos/{pseudo} {
       allow read: if isAuth();
-      allow create: if isAuth() && request.resource.data.uid == request.auth.uid;
+      allow create: if isAuth()
+        && request.resource.data.uid == request.auth.uid
+        && pseudoValide(pseudo)
+        && request.resource.data.keys().hasOnly(["uid", "pseudo"])
+        && request.resource.data.pseudo is string
+        && request.resource.data.pseudo.size() <= 30
+        && pseudoCooldownPasse(request.auth.uid);
       allow delete: if isAuth() && resource.data.uid == request.auth.uid;
       allow update: if false;
     }
@@ -53,11 +72,18 @@ service cloud.firestore {
         allow write: if isOwner(uid);
       }
 
-      // Mémos : strictement privés + limite 100
+      // Mémos : strictement privés + limite 100 + validation taille des champs
       match /memos/{memoId} {
         allow read:   if isOwner(uid);
-        allow create: if isOwner(uid) && compteurMemos(uid) < 100;
-        allow update: if isOwner(uid);
+        allow create: if isOwner(uid)
+          && compteurMemos(uid) < 100
+          && request.resource.data.titre is string
+          && request.resource.data.titre.size() <= 200
+          && request.resource.data.texte is string
+          && request.resource.data.texte.size() <= 50000;
+        allow update: if isOwner(uid)
+          && (!('titre' in request.resource.data) || (request.resource.data.titre is string && request.resource.data.titre.size() <= 200))
+          && (!('texte' in request.resource.data) || (request.resource.data.texte is string && request.resource.data.texte.size() <= 50000));
         allow delete: if isOwner(uid);
       }
 

@@ -104,14 +104,10 @@ export default function PageConnexion() {
     setChargementReset(true);
     try {
       await reinitialiserMotDePasse(emailReset);
-      setResetEnvoye(true);
-    } catch (err) {
-      if (err?.code === "auth/user-not-found") {
-        setErreurReset("Aucun compte associé à cet email.");
-      } else {
-        setErreurReset("Une erreur est survenue. Réessaie.");
-      }
+    } catch {
+      // Silencieux : on affiche toujours le succès pour éviter l'énumération d'emails
     } finally {
+      setResetEnvoye(true);
       setChargementReset(false);
     }
   }

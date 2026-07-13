@@ -60,6 +60,15 @@ export default function PageProfil() {
   async function handleSauvegarderPseudo() {
     if (!nouveauPseudo.trim() || savingPseudo) return;
     setErreurPseudo("");
+    const p = nouveauPseudo.trim();
+    if (p.length < 3 || p.length > 30) {
+      setErreurPseudo("Le pseudo doit contenir entre 3 et 30 caractères.");
+      return;
+    }
+    if (!/^[a-zA-Z0-9_\-]+$/.test(p)) {
+      setErreurPseudo("Lettres, chiffres, tirets et underscores uniquement.");
+      return;
+    }
     setSavingPseudo(true);
     try {
       await modifierPseudo(

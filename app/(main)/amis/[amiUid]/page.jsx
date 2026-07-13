@@ -130,8 +130,8 @@ export default function PageCollectionAmi() {
       } catch (err) {
         console.error("Erreur chargement collection ami :", err);
         setErreur(err.code === "permission-denied"
-          ? "Accès refusé : les règles Firestore bloquent la lecture de l'inventaire."
-          : err.message);
+          ? "Accès refusé."
+          : "Une erreur est survenue lors du chargement de la collection.");
       } finally {
         setChargement(false);
       }
