@@ -43,6 +43,7 @@ import dolGuldur from "./dol-guldur.js";
 import legionAzog from "./legion-azog.js";
 import chasseursAzog from "./chasseurs-azog.js";
 import carnDum from "./carn-dum.js";
+import nazguls from "./nazguls.js";
 import orientaux from "./orientaux.js";
 import hordeSerpent from "./horde-serpent.js";
 import extremeHarad from "./extreme-harad.js";
@@ -92,6 +93,7 @@ const FACTIONS_DATA = {
   "La Légion d'Azog": legionAzog,
   "Les Chasseurs d'Azog": chasseursAzog,
   "Carn-Dûm": carnDum,
+  "Les Nazguls": nazguls,
   "Orientaux": orientaux,
   "Horde Serpent": hordeSerpent,
   "Extrême-Harad": extremeHarad,
@@ -183,6 +185,7 @@ export const FACTIONS_MAL_GROUPES = [
       "La Légion d'Azog",
       "Les Chasseurs d'Azog",
       "Carn-Dûm",
+      "Les Nazguls",
     ],
   },
   {
