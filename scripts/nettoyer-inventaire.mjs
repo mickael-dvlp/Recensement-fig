@@ -4,7 +4,10 @@
 // dans les fichiers de données factions/héros).
 //
 // Usage :
-//   node scripts/nettoyer-inventaire.mjs <email> <mot-de-passe>
+//   node scripts/nettoyer-inventaire.mjs [email]
+//   (email en argument optionnel ; le mot de passe est toujours
+//   demandé en saisie masquée, jamais en argument — évite qu'il
+//   se retrouve dans l'historique du shell ou la liste des process)
 // ============================================================
 
 import { readFileSync, readdirSync } from "fs";
@@ -101,14 +104,60 @@ async function supprimerDoc(uid, id, token) {
   }
 }
 
+// ---- SAISIE ----
+
+function lireLigne(question) {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  return new Promise((resolve) => rl.question(question, (reponse) => { rl.close(); resolve(reponse); }));
+}
+
+// Saisie masquée : évite que le mot de passe apparaisse en clair dans le terminal,
+// contrairement à un argument CLI qui reste visible dans l'historique du shell
+// et dans la liste des process (ps/tasklist) tant que la commande tourne.
+// Les codes de contrôle sont construits via fromCharCode pour rester des sources
+// non ambigus (évite d'embarquer des octets de contrôle bruts dans le fichier).
+function lireMotDePasseCache(question) {
+  const NEWLINE = String.fromCharCode(10);
+  const RETOUR_CHARIOT = String.fromCharCode(13);
+  const FIN_TRANSMISSION = String.fromCharCode(4); // Ctrl+D
+  const INTERRUPTION = String.fromCharCode(3); // Ctrl+C
+  const RETOUR_ARRIERE = String.fromCharCode(127); // Backspace
+
+  return new Promise((resolve) => {
+    process.stdout.write(question);
+    const stdin = process.stdin;
+    stdin.resume();
+    stdin.setRawMode(true);
+    stdin.setEncoding("utf8");
+    let mdp = "";
+    const onData = (char) => {
+      if (char === NEWLINE || char === RETOUR_CHARIOT || char === FIN_TRANSMISSION) {
+        stdin.setRawMode(false);
+        stdin.pause();
+        stdin.removeListener("data", onData);
+        process.stdout.write("\n");
+        resolve(mdp);
+      } else if (char === INTERRUPTION) {
+        process.stdout.write("\n");
+        process.exit(1);
+      } else if (char === RETOUR_ARRIERE) {
+        mdp = mdp.slice(0, -1);
+      } else {
+        mdp += char;
+      }
+    };
+    stdin.on("data", onData);
+  });
+}
+
 // ---- MAIN ----
 
 async function main() {
-  const [, , email, password] = process.argv;
+  const [, , emailArg] = process.argv;
+  const email = emailArg || (await lireLigne("Email : "));
+  const password = await lireMotDePasseCache("Mot de passe : ");
   if (!email || !password) {
-    console.error(
-      "Usage : node scripts/nettoyer-inventaire.mjs <email> <mot-de-passe>"
-    );
+    console.error("Usage : node scripts/nettoyer-inventaire.mjs [email]");
     process.exit(1);
   }
 

@@ -9,6 +9,7 @@ import { getInventaireUtilisateur, getAmis } from "@/lib/firestore";
 import { getAllFigurines } from "@/data/factions/index.js";
 import { FACTIONS_BIEN, FACTIONS_MAL, FACTIONS_BIEN_GROUPES, FACTIONS_MAL_GROUPES } from "@/data/figurines/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
+import { creerAccumulateurDedupe } from "@/lib/stats";
 
 function BlocFactions({ groupes, factionsData, factionsOuvertes, toggleFaction, showImages }) {
   return groupes.map((groupe) => {
@@ -90,7 +91,7 @@ function BlocFactions({ groupes, factionsData, factionsOuvertes, toggleFaction, 
 
 export default function PageCollectionAmi() {
   const { amiUid } = useParams();
-  const { utilisateur } = useAuth();
+  const { utilisateur, isInvite } = useAuth();
   const router = useRouter();
 
   const [profilAmi, setProfilAmi] = useState(null);
@@ -141,6 +142,20 @@ export default function PageCollectionAmi() {
     window.addEventListener("focus", charger);
     return () => window.removeEventListener("focus", charger);
   }, [utilisateur, amiUid]);
+
+  if (isInvite) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh] px-8">
+        <Shield size={40} className="text-[#3A3A3A]" />
+        <p className="text-[#6B6B6B] text-center text-sm">
+          Le système d'amis nécessite un compte. Crée un compte pour consulter la collection de tes amis.
+        </p>
+        <button onClick={() => router.push("/profil")} className="text-[#C9A227] text-sm font-semibold hover:underline">
+          Aller à mon profil
+        </button>
+      </div>
+    );
+  }
 
   if (chargement) {
     return (
@@ -219,29 +234,23 @@ export default function PageCollectionAmi() {
   const totalHeroesVariantes = heroesVariantes.reduce((s, h) => s + h.quantite, 0);
   const peintesHeroesVariantes = heroesVariantes.reduce((s, h) => s + h.peintes, 0);
 
-  const figCompteesBien = new Set();
+  const compterBien = creerAccumulateurDedupe();
   const totalBien = FACTIONS_BIEN.reduce((s, f) => {
     return s + (factionsData[f]?.reduce((a, fig) => {
-      if (figCompteesBien.has(fig.id)) return a;
-      figCompteesBien.add(fig.id);
-      return a + fig.quantite;
+      return compterBien(fig.id) ? a + fig.quantite : a;
     }, 0) || 0);
   }, 0);
 
-  const figComptesMal = new Set();
+  const compterMal = creerAccumulateurDedupe();
   const totalMal = FACTIONS_MAL.reduce((s, f) => {
     return s + (factionsData[f]?.reduce((a, fig) => {
-      if (figComptesMal.has(fig.id)) return a;
-      figComptesMal.add(fig.id);
-      return a + fig.quantite;
+      return compterMal(fig.id) ? a + fig.quantite : a;
     }, 0) || 0);
   }, 0);
 
-  const figCompteesPeintes = new Set();
+  const compterPeinte = creerAccumulateurDedupe();
   const totalPeintes = Object.values(factionsData).flat().reduce((s, f) => {
-    if (figCompteesPeintes.has(f.id)) return s;
-    figCompteesPeintes.add(f.id);
-    return s + f.peintes;
+    return compterPeinte(f.id) ? s + f.peintes : s;
   }, 0) + peintesHeroesVariantes;
 
   const totalGeneral = totalBien + totalMal + totalHeroesVariantes;

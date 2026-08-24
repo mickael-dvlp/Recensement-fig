@@ -29,6 +29,25 @@ service cloud.firestore {
       return ('compteurCustom' in d) ? d.compteurCustom : 0;
     }
 
+    // Un document inventaire n'est jamais écrit intégralement (updateDoc envoie
+    // seulement les champs modifiés) : chaque champ n'est donc validé que s'il est présent.
+    function inventaireValide(d) {
+      return d.keys().hasOnly(["figurineId", "enInventaire", "quantiteInventaire", "souhaite", "quantiteSouhaitee", "enProjet", "quantitePeinte"])
+        && (!('figurineId' in d) || d.figurineId is string)
+        && (!('enInventaire' in d) || d.enInventaire is bool)
+        && (!('quantiteInventaire' in d) || (d.quantiteInventaire is int && d.quantiteInventaire >= 0 && d.quantiteInventaire <= 9999))
+        && (!('souhaite' in d) || d.souhaite is bool)
+        && (!('quantiteSouhaitee' in d) || (d.quantiteSouhaitee is int && d.quantiteSouhaitee >= 0 && d.quantiteSouhaitee <= 9999))
+        && (!('enProjet' in d) || d.enProjet is bool)
+        && (!('quantitePeinte' in d) || (d.quantitePeinte is int && d.quantitePeinte >= 0 && d.quantitePeinte <= 9999));
+    }
+
+    // Champs autorisés pour un document de la sous-collection amis (2 côtés de la relation).
+    function amiValide(d) {
+      return d.keys().hasOnly(["statut", "pseudo"])
+        && d.pseudo is string && d.pseudo.size() <= 30;
+    }
+
     // Pseudo valide : 3–30 caractères, lettres/chiffres/tirets/underscores uniquement.
     function pseudoValide(p) {
       return p is string && p.size() >= 3 && p.size() <= 30 && p.matches('[a-zA-Z0-9_\\-]+');
@@ -68,8 +87,10 @@ service cloud.firestore {
 
       // Inventaire : lisible par les amis (pour la page collection d'un ami)
       match /inventaire/{figurineId} {
-        allow read:  if isOwner(uid) || isFriendOf(uid);
-        allow write: if isOwner(uid);
+        allow read:   if isOwner(uid) || isFriendOf(uid);
+        allow create: if isOwner(uid) && inventaireValide(request.resource.data);
+        allow update: if isOwner(uid) && inventaireValide(request.resource.data);
+        allow delete: if isOwner(uid);
       }
 
       // Mémos : strictement privés + limite 100 + validation taille des champs
@@ -103,13 +124,13 @@ service cloud.firestore {
         // Propriétaire envoie une demande (crée son propre côté "envoyé")
         allow create: if isOwner(uid)
           && request.resource.data.statut == "envoyé"
-          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+          && amiValide(request.resource.data);
 
         // Propriétaire accepte une demande reçue ("reçu" → "accepté")
         allow update: if isOwner(uid)
           && resource.data.statut == "reçu"
           && request.resource.data.statut == "accepté"
-          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+          && amiValide(request.resource.data);
 
         // Propriétaire supprime (annulation envoi, refus d'une demande, suppression d'ami)
         allow delete: if isOwner(uid);
@@ -117,13 +138,13 @@ service cloud.firestore {
         // L'ami (amiUid) place la notification "reçu" dans la sous-collection du propriétaire
         allow create: if request.auth.uid == amiUid
           && request.resource.data.statut == "reçu"
-          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+          && amiValide(request.resource.data);
 
         // L'ami (amiUid) confirme la demande côté expéditeur ("envoyé" → "accepté")
         allow update: if request.auth.uid == amiUid
           && resource.data.statut == "envoyé"
           && request.resource.data.statut == "accepté"
-          && request.resource.data.keys().hasOnly(["statut", "pseudo"]);
+          && amiValide(request.resource.data);
 
         // L'ami (amiUid) peut supprimer (retrait d'amitié ou refus)
         allow delete: if request.auth.uid == amiUid;

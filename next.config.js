@@ -18,10 +18,12 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async headers() {
+    const estDev = process.env.NODE_ENV !== "production";
     const csp = [
       "default-src 'self'",
-      // Next.js requires unsafe-inline pour les scripts d'hydratation
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com",
+      // 'unsafe-inline' requis par le script d'hydratation Next.js (pas de nonce en place).
+      // 'unsafe-eval' n'est nécessaire qu'en dev (source maps / HMR Turbopack) — exclu en prod.
+      `script-src 'self' 'unsafe-inline'${estDev ? " 'unsafe-eval'" : ""} https://apis.google.com`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.firebasestorage.app",

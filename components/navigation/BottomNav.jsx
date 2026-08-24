@@ -16,7 +16,7 @@ import { useAuth } from "@/lib/auth-context";
 const ONGLETS = [
   { href: "/accueil", label: "Accueil", Icon: Home },
   { href: "/figurines", label: "Figurines", Icon: Shield },
-  { href: "/liste", label: "Listes", Icon: Swords, desktopSeulement: true },
+  { href: "/liste", label: "Listes", Icon: Swords },
   { href: "/projet", label: "Projet", Icon: Sword },
   { href: "/peinture", label: "Peinture", Icon: Palette },
   { href: "/profil", label: "Profil", Icon: User },
@@ -34,7 +34,7 @@ export default function BottomNav() {
       <div className="h-px bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 
       <div className="flex items-center justify-around px-2 py-3.5">
-        {ONGLETS.map(({ href, label, Icon, desktopSeulement }) => {
+        {ONGLETS.map(({ href, label, Icon }) => {
           const actif = pathname.startsWith(href);
           const badge = href === "/profil" && nbDemandesAmis > 0;
 
@@ -45,7 +45,6 @@ export default function BottomNav() {
               className={clsx(
                 "flex flex-col items-center gap-1 px-2 py-0.5 rounded-xl transition-all duration-200 min-w-10",
                 actif ? "text-[#C9A227]" : "text-[#6B6B6B] hover:text-[#D4D4D4]",
-                desktopSeulement && "hidden lg:flex",
               )}
             >
               <div className="relative">

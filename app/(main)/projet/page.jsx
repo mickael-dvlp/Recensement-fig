@@ -159,6 +159,7 @@ export default function PageProjet() {
 
   const [enregistrement, setEnregistrement] = useState(false);
   const [erreurMemo, setErreurMemo] = useState("");
+  const [erreurAction, setErreurAction] = useState("");
 
   // Confirmation suppression
   const [memoAConfirmer, setMemoAConfirmer] = useState(null);
@@ -171,6 +172,7 @@ export default function PageProjet() {
   const listRef = useRef(null);
   const memosRef = useRef(memos);
   const dragStateRef = useRef({ active: false, fromIndex: -1 });
+  const dragRafRef = useRef(null);
 
   useEffect(() => { memosRef.current = memos; }, [memos]);
 
@@ -256,13 +258,20 @@ export default function PageProjet() {
   }
 
   // ---- CRÉER UN MÉMO ----
-  async function ajouterMemo() {
+  // fermerSiVide : utilisé par le clic sur le fond de la modale (sauvegarde silencieuse
+  // seulement s'il y a du contenu, sinon ferme sans rien créer). Le bouton "Créer" force
+  // toujours la création, même vide ("Sans Nom").
+  async function ajouterMemo({ fermerSiVide = false } = {}) {
     if (enregistrement) return;
-    setEnregistrement(true);
-    setErreurMemo("");
     const titre = titreMemo.trim() || "Sans Nom";
     const texte = typeMemo === "memo" ? texteMemo.trim() : "";
     const figurines = typeMemo !== "memo" ? figurinesSelection : [];
+    if (fermerSiVide && !titreMemo.trim() && !texte && figurines.length === 0) {
+      fermerModal();
+      return;
+    }
+    setEnregistrement(true);
+    setErreurMemo("");
     try {
       const newId = await creerMemo(utilisateur.uid, {
         titre,
@@ -291,38 +300,6 @@ export default function PageProjet() {
     setTypeMemo("memo");
     setFigurinesSelection([]);
     setErreurMemo("");
-  }
-
-  async function sauvegarderEtFermer() {
-    if (enregistrement) return;
-    const titre = titreMemo.trim() || "Sans Nom";
-    const texte = typeMemo === "memo" ? texteMemo.trim() : "";
-    const figurines = typeMemo !== "memo" ? figurinesSelection : [];
-    if (!titreMemo.trim() && !texte && figurines.length === 0) {
-      fermerModal();
-      return;
-    }
-    setEnregistrement(true);
-    setErreurMemo("");
-    try {
-      const newId = await creerMemo(utilisateur.uid, {
-        titre,
-        texte,
-        type: typeMemo,
-        figurines,
-      });
-      setMemos((prev) => [
-        ...prev,
-        { id: newId, titre, texte, type: typeMemo, figurines, ordre: -Date.now() },
-      ]);
-      fermerModal();
-    } catch (err) {
-      if (err.message === "limite_memos_atteinte") {
-        setErreurMemo(`Limite de ${100} mémos atteinte.`);
-      }
-    } finally {
-      setEnregistrement(false);
-    }
   }
 
   // ---- MODIFIER UN MÉMO ----
@@ -359,9 +336,17 @@ export default function PageProjet() {
   // ---- SUPPRIMER UN MÉMO ----
   async function confirmerSuppression() {
     if (!memoAConfirmer) return;
-    await supprimerMemo(utilisateur.uid, memoAConfirmer);
-    setMemos((prev) => prev.filter((m) => m.id !== memoAConfirmer));
-    setMemoAConfirmer(null);
+    const id = memoAConfirmer;
+    setErreurAction("");
+    try {
+      await supprimerMemo(utilisateur.uid, id);
+      setMemos((prev) => prev.filter((m) => m.id !== id));
+    } catch (err) {
+      console.error("Erreur suppression mémo :", err);
+      setErreurAction("Impossible de supprimer ce mémo. Réessaie.");
+    } finally {
+      setMemoAConfirmer(null);
+    }
   }
 
   // ---- DRAG AND DROP ----
@@ -373,37 +358,51 @@ export default function PageProjet() {
     setDragIndex(index);
   }
 
+  // Throttlé via requestAnimationFrame : pointermove peut se déclencher bien plus vite
+  // que le taux de rafraîchissement, et chaque appel force un reflow (getBoundingClientRect).
   function moveDrag(e) {
-    if (!dragStateRef.current.active) return;
-    const items = Array.from(listRef.current?.children ?? []);
-    for (let i = 0; i < items.length; i++) {
-      const rect = items[i].getBoundingClientRect();
-      if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
-        const overIndex = i;
-        if (overIndex !== dragStateRef.current.fromIndex) {
-          const from = dragStateRef.current.fromIndex;
-          dragStateRef.current.fromIndex = overIndex;
-          setDragIndex(overIndex);
-          setMemos((prev) => {
-            const arr = [...prev];
-            const [item] = arr.splice(from, 1);
-            arr.splice(overIndex, 0, item);
-            return arr;
-          });
+    if (!dragStateRef.current.active || dragRafRef.current) return;
+    const clientY = e.clientY;
+    dragRafRef.current = requestAnimationFrame(() => {
+      dragRafRef.current = null;
+      if (!dragStateRef.current.active) return;
+      const items = Array.from(listRef.current?.children ?? []);
+      for (let i = 0; i < items.length; i++) {
+        const rect = items[i].getBoundingClientRect();
+        if (clientY >= rect.top && clientY <= rect.bottom) {
+          const overIndex = i;
+          if (overIndex !== dragStateRef.current.fromIndex) {
+            const from = dragStateRef.current.fromIndex;
+            dragStateRef.current.fromIndex = overIndex;
+            setDragIndex(overIndex);
+            setMemos((prev) => {
+              const arr = [...prev];
+              const [item] = arr.splice(from, 1);
+              arr.splice(overIndex, 0, item);
+              return arr;
+            });
+          }
+          break;
         }
-        break;
       }
-    }
+    });
   }
 
   function endDrag() {
     if (!dragStateRef.current.active) return;
     dragStateRef.current.active = false;
+    if (dragRafRef.current) {
+      cancelAnimationFrame(dragRafRef.current);
+      dragRafRef.current = null;
+    }
     setDragIndex(null);
     mettreAJourOrdreMemos(
       utilisateur.uid,
       memosRef.current.map((m) => m.id)
-    );
+    ).catch((err) => {
+      console.error("Erreur sauvegarde de l'ordre des mémos :", err);
+      setErreurAction("L'ordre n'a pas pu être sauvegardé. Recharge la page pour réessayer.");
+    });
   }
 
   // ---- CONTENU MODAL (partagé création / édition) ----
@@ -430,7 +429,7 @@ export default function PageProjet() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] pb-10 px-4 w-full">
+    <div className="min-h-screen pb-10 px-4 w-full">
       {/* Ligne dorée */}
       <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 
@@ -452,6 +451,12 @@ export default function PageProjet() {
           <Plus size={20} className="text-[#0D0D0D]" />
         </button>
       </div>
+
+      {erreurAction && (
+        <p className="text-red-400 text-xs bg-red-900/20 border border-red-800/40 rounded-xl px-3 py-2 text-center mb-4">
+          {erreurAction}
+        </p>
+      )}
 
       {/* LISTE MÉMOS */}
       {chargement ? (
@@ -655,7 +660,7 @@ export default function PageProjet() {
         <div
           className="fixed inset-0 z-60 flex items-center justify-center px-4 bg-black/70 backdrop-blur-sm"
           onClick={(e) => {
-            if (e.target === e.currentTarget) sauvegarderEtFermer();
+            if (e.target === e.currentTarget) ajouterMemo({ fermerSiVide: true });
           }}
         >
           <div className="w-full max-w-md md:max-w-2xl bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 md:p-10 flex flex-col gap-4 max-h-[90vh]">
@@ -699,7 +704,7 @@ export default function PageProjet() {
               <p className="shrink-0 text-red-400 text-xs text-center">{erreurMemo}</p>
             )}
             <button
-              onClick={ajouterMemo}
+              onClick={() => ajouterMemo()}
               disabled={enregistrement}
               className="shrink-0 w-full py-3 rounded-xl bg-[#C9A227] text-[#0D0D0D] font-bold text-sm uppercase tracking-widest hover:bg-[#E6C25A] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >

@@ -3,33 +3,11 @@
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import { Eye, EyeOff, UserPlus, Ghost } from "lucide-react";
+import { Eye, EyeOff, UserPlus } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-
-// SVG Google icon
-function IconGoogle() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        fill="#4285F4"
-        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-      />
-      <path
-        fill="#34A853"
-        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
-      />
-      <path
-        fill="#EA4335"
-        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-      />
-    </svg>
-  );
-}
+import CarteAuth from "@/components/auth/CarteAuth";
+import BoutonGoogle from "@/components/auth/BoutonGoogle";
+import BoutonInvite from "@/components/auth/BoutonInvite";
 
 // ── Calcul de la force du mot de passe ──
 function calculerForce(mdp) {
@@ -138,81 +116,12 @@ export default function PageInscription() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center p-6">
-
-      {/* ── Particules flottantes ── */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="float-a absolute top-1/3 right-1/4 w-72 h-72 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #1c9ac2 0%, transparent 70%)",
-            opacity: 0.08,
-          }}
-        />
-        <div
-          className="float-b absolute bottom-1/3 left-1/4 w-56 h-56 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #1c9ac2 0%, transparent 70%)",
-            opacity: 0.06,
-          }}
-        />
-        <div
-          className="float-c absolute top-2/3 right-1/3 w-40 h-40 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #1c9ac2 0%, transparent 70%)",
-            opacity: 0.05,
-          }}
-        />
-      </div>
-
-      {/* ── Carte principale (deux colonnes) ── */}
-      <div
-        className="animate-fade-slide-up relative w-full max-w-215 bg-[#111111] border border-[#1c9ac2]/30 rounded-3xl overflow-hidden flex min-h-165"
-        style={{
-          boxShadow:
-            "0 0 40px rgba(28, 154, 194, 0.25), 0 0 80px rgba(28, 154, 194, 0.1), 0 25px 50px rgba(0,0,0,0.5)",
-        }}
-      >
-        {/* ─ Colonne gauche : image ─ */}
-        <div className="relative w-[42%] shrink-0 hidden md:block">
-          <Image
-            src="/image/image02.jpg"
-            alt="MESBG"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        {/* Séparateur vertical */}
-        <div className="w-px bg-[#252525] shrink-0" />
-
-        {/* ─ Colonne droite : formulaire ─ */}
-        <div className="flex-1 flex flex-col justify-center py-10 gap-6" style={{ paddingLeft: "48px", paddingRight: "48px" }}>
-          {/* Branding centré */}
-          <div className="flex flex-col items-center gap-1 mb-2">
-            <h1 className="text-3xl font-bold text-[#1c9ac2] uppercase tracking-[0.25em]">
-              MESBG
-            </h1>
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-px bg-[#1c9ac2]/50" />
-              <p className="text-[#6B6B6B] text-xs tracking-widest uppercase">
-                Rejoins ta collection
-              </p>
-              <div className="w-8 h-px bg-[#1c9ac2]/50" />
-            </div>
-          </div>
-
-          {/* Titre */}
-          <div>
-            <h2 className="text-2xl font-bold text-[#F5F5F5]">
-              Créer un compte
-            </h2>
-            <p className="text-[#6B6B6B] text-sm mt-1">
-              Commence à gérer ta collection MESBG.
-            </p>
-          </div>
-
+    <CarteAuth
+      variante="inscription"
+      sousTitreBranding="Rejoins ta collection"
+      titre="Créer un compte"
+      description="Commence à gérer ta collection MESBG."
+    >
           <form onSubmit={handleInscription} className="flex flex-col gap-4">
             {/* Pseudo */}
             <div className="flex flex-col gap-2">
@@ -343,35 +252,8 @@ export default function PageInscription() {
             <div className="flex-1 h-px bg-[#2A2A2A]" />
           </div>
 
-          {/* Bouton Google */}
-          <button
-            type="button"
-            onClick={handleGoogle}
-            disabled={chargementGoogle}
-            className="flex items-center justify-center gap-3 bg-[#1A1A1A] border border-[#2A2A2A] hover:bg-[#252525] disabled:opacity-50 disabled:cursor-not-allowed text-[#D4D4D4] font-semibold py-3.5 rounded-2xl text-sm transition-colors"
-          >
-            {chargementGoogle ? (
-              <div className="w-5 h-5 border-2 border-[#D4D4D4] border-t-transparent rounded-full animate-spin" />
-            ) : (
-              <>
-                <IconGoogle /> Continuer avec Google
-              </>
-            )}
-          </button>
-
-          {/* Bouton Mode invité */}
-          <button
-            type="button"
-            onClick={handleInvite}
-            disabled={chargementInvite}
-            className="animate-clignoter-rouge flex items-center justify-center gap-3 bg-transparent hover:bg-[#1A1A1A] border border-dashed disabled:opacity-50 disabled:cursor-not-allowed font-semibold py-3.5 rounded-2xl text-sm"
-          >
-            {chargementInvite ? (
-              <div className="w-5 h-5 border-2 border-[#6B6B6B] border-t-transparent rounded-full animate-spin" />
-            ) : (
-              <><Ghost size={17} /> Continuer en mode invité</>
-            )}
-          </button>
+          <BoutonGoogle onClick={handleGoogle} chargement={chargementGoogle} />
+          <BoutonInvite onClick={handleInvite} chargement={chargementInvite} />
 
           {/* Lien connexion */}
           <p className="text-center text-[#6B6B6B] text-sm">
@@ -383,8 +265,6 @@ export default function PageInscription() {
               Se connecter
             </Link>
           </p>
-        </div>
-      </div>
-    </div>
+    </CarteAuth>
   );
 }

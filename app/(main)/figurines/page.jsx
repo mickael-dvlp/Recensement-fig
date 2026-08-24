@@ -160,22 +160,22 @@ export default function PageFigurines() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0D0D0D] ">
+    <div className="flex flex-col min-h-screen">
       {/* EN-TÊTE FIXE */}
       <div className="sticky w-full top-0 z-40 bg-[#0D0D0D] border-b border-[#2A2A2A] px-4">
         {/* Ligne décorative dorée */}
         <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 
-        {/* Titre + bouton toggle mobile/tablette */}
+        {/* Titre + bouton toggle */}
         <div className="pt-6 pb-4 flex items-center gap-2">
-          <div className="w-8 shrink-0 lg:hidden" />
+          <div className="w-8 shrink-0" />
           <h1 className="flex-1 text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest text-center">
             Inventaire & Souhaitées
           </h1>
           <button
             onClick={() => setHeaderReduit(!headerReduit)}
             aria-label={headerReduit ? "Afficher les filtres" : "Masquer les filtres"}
-            className="lg:hidden w-8 h-8 shrink-0 flex items-center justify-center text-[#6B6B6B] hover:text-[#C9A227] transition-colors"
+            className="w-8 h-8 shrink-0 flex items-center justify-center text-[#6B6B6B] hover:text-[#C9A227] transition-colors"
           >
             <ChevronDown
               size={18}
@@ -184,8 +184,8 @@ export default function PageFigurines() {
           </button>
         </div>
 
-        {/* Contenu collapsible — masqué sur mobile/tablette si headerReduit */}
-        <div className={headerReduit ? "hidden lg:block" : ""}>
+        {/* Contenu collapsible — masqué si headerReduit, sur tous les écrans */}
+        <div className={headerReduit ? "hidden" : ""}>
           {/* Barre de recherche */}
           <div className="pb-5">
             <SearchBar

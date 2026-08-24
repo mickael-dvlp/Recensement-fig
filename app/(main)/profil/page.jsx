@@ -123,7 +123,7 @@ export default function PageProfil() {
     .join("");
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0D0D0D]">
+    <div className="flex flex-col min-h-screen">
       {/* EN-TÊTE PROFIL */}
       <div className="bg-[#1A1A1A] full-width px-6 pt-0 pb-8 border-b border-[#2A2A2A]">
         <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent mb-8" />

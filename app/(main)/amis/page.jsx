@@ -12,7 +12,7 @@ import {
 } from "@/lib/firestore";
 
 export default function PageAmis() {
-  const { utilisateur, profil } = useAuth();
+  const { utilisateur, profil, isInvite } = useAuth();
   const router = useRouter();
 
   const [amis, setAmis] = useState([]);
@@ -23,6 +23,7 @@ export default function PageAmis() {
   const [erreurEnvoi, setErreurEnvoi] = useState("");
   const [succesEnvoi, setSuccesEnvoi] = useState("");
   const [confirmSupprimer, setConfirmSupprimer] = useState(null);
+  const [erreurAction, setErreurAction] = useState("");
 
   const monPseudo = profil?.pseudo || utilisateur?.displayName || "";
 
@@ -64,15 +65,27 @@ export default function PageAmis() {
   }
 
   async function handleAccepter(amiUid) {
-    await accepterDemandeAmi(utilisateur.uid, amiUid);
-    setAmis((prev) =>
-      prev.map((a) => (a.id === amiUid ? { ...a, statut: "accepté" } : a))
-    );
+    setErreurAction("");
+    try {
+      await accepterDemandeAmi(utilisateur.uid, amiUid);
+      setAmis((prev) =>
+        prev.map((a) => (a.id === amiUid ? { ...a, statut: "accepté" } : a))
+      );
+    } catch (err) {
+      console.error("Erreur acceptation demande d'ami :", err);
+      setErreurAction("Impossible d'accepter cette demande. Réessaie.");
+    }
   }
 
   async function handleSupprimer(amiUid) {
-    await supprimerRelationAmi(utilisateur.uid, amiUid);
-    setAmis((prev) => prev.filter((a) => a.id !== amiUid));
+    setErreurAction("");
+    try {
+      await supprimerRelationAmi(utilisateur.uid, amiUid);
+      setAmis((prev) => prev.filter((a) => a.id !== amiUid));
+    } catch (err) {
+      console.error("Erreur suppression relation ami :", err);
+      setErreurAction("Impossible de supprimer cet ami. Réessaie.");
+    }
   }
 
   function fermerModal() {
@@ -80,6 +93,23 @@ export default function PageAmis() {
     setPseudoRecherche("");
     setErreurEnvoi("");
     setSuccesEnvoi("");
+  }
+
+  if (isInvite) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh] px-8">
+        <Users size={40} className="text-[#3A3A3A]" />
+        <p className="text-[#6B6B6B] text-center text-sm">
+          Le système d'amis nécessite un compte. Crée un compte pour ajouter des amis et comparer vos collections.
+        </p>
+        <button
+          onClick={() => router.push("/profil")}
+          className="text-[#C9A227] text-sm font-semibold hover:underline"
+        >
+          Aller à mon profil
+        </button>
+      </div>
+    );
   }
 
   if (chargement) {
@@ -107,6 +137,12 @@ export default function PageAmis() {
           <UserPlus size={15} /> Ajouter
         </button>
       </div>
+
+      {erreurAction && (
+        <p className="text-red-400 text-xs bg-red-900/20 border border-red-800/40 rounded-xl px-3 py-2 text-center">
+          {erreurAction}
+        </p>
+      )}
 
       {/* DEMANDES REÇUES */}
       {demandesRecues.length > 0 && (

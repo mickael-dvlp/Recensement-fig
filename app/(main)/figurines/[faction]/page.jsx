@@ -4,7 +4,7 @@
 // PAGE FACTION — Héros & Guerriers d'une faction
 // ============================================================
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, Suspense } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, Swords, ExternalLink } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
@@ -19,8 +19,19 @@ import FACTIONS_DATA from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
 import FigurineRow from "@/components/figurines/FigurineRow";
 import CarteAjoutCustom from "@/components/figurines/CarteAjoutCustom";
+import PlaceholderImage from "@/components/ui/PlaceholderImage";
 
+// useSearchParams nécessite un boundary Suspense (App Router) : sans ça, Next bascule
+// toute la page en rendu client pur au build, voire échoue en export statique.
 export default function PageFaction() {
+  return (
+    <Suspense fallback={null}>
+      <PageFactionContenu />
+    </Suspense>
+  );
+}
+
+function PageFactionContenu() {
   const { faction: factionEncodee } = useParams();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -31,6 +42,7 @@ export default function PageFaction() {
   const factionData = FACTIONS_DATA[nomFaction];
 
   const [figurinesCustom, setFigurinesCustom] = useState([]);
+  const [erreurAction, setErreurAction] = useState("");
 
   const chargerCustoms = useCallback(async (uid) => {
     const customs = await getFigurinesCustom(uid);
@@ -53,29 +65,45 @@ export default function PageFaction() {
   const supprimerCustom = useCallback(
     async (id) => {
       if (!utilisateur) return;
+      setErreurAction("");
+      const figurineSauvegardee = figurinesCustom.find((c) => c.id === id);
+      const inventaireSauvegarde = inventaire[id];
       setFigurinesCustom((prev) => prev.filter((c) => c.id !== id));
       setInventaire((prev) => {
         const next = { ...prev };
         delete next[id];
         return next;
       });
-      await supprimerFigurineCustom(utilisateur.uid, id);
+      try {
+        await supprimerFigurineCustom(utilisateur.uid, id);
+      } catch (err) {
+        console.error("Erreur suppression figurine custom :", err);
+        if (figurineSauvegardee) setFigurinesCustom((prev) => [...prev, figurineSauvegardee]);
+        if (inventaireSauvegarde) setInventaire((prev) => ({ ...prev, [id]: inventaireSauvegarde }));
+        setErreurAction("Impossible de supprimer cette figurine. Réessaie.");
+      }
     },
-    [utilisateur]
+    [utilisateur, figurinesCustom, inventaire, setInventaire]
   );
 
   // ---- MODIFICATION FIGURINE CUSTOM ----
   const modifierCustom = useCallback(
     async (id, updates) => {
       if (!utilisateur) return;
-      const result = await modifierFigurineCustom(utilisateur.uid, id, updates);
-      setFigurinesCustom((prev) =>
-        prev.map((c) =>
-          c.id === id
-            ? { ...c, ...(result.nom ? { nom: result.nom } : {}), ...(result.imageUrl ? { imageUrl: result.imageUrl } : {}) }
-            : c
-        )
-      );
+      setErreurAction("");
+      try {
+        const result = await modifierFigurineCustom(utilisateur.uid, id, updates);
+        setFigurinesCustom((prev) =>
+          prev.map((c) =>
+            c.id === id
+              ? { ...c, ...(result.nom ? { nom: result.nom } : {}), ...(result.imageUrl ? { imageUrl: result.imageUrl } : {}) }
+              : c
+          )
+        );
+      } catch (err) {
+        console.error("Erreur modification figurine custom :", err);
+        setErreurAction("Impossible de modifier cette figurine. Réessaie.");
+      }
     },
     [utilisateur]
   );
@@ -140,7 +168,7 @@ export default function PageFaction() {
   const totalGuerriers = guerriersFiltres.length + guerriersCustomFiltres.length;
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D]">
+    <div className="min-h-screen">
       {/* Ligne dorée */}
       <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 
@@ -175,6 +203,14 @@ export default function PageFaction() {
         </div>
       </div>
 
+      {erreurAction && (
+        <div className="px-4 pt-3">
+          <p className="text-red-400 text-xs bg-red-900/20 border border-red-800/40 rounded-xl px-3 py-2 text-center">
+            {erreurAction}
+          </p>
+        </div>
+      )}
+
       {/* CONTENU */}
       <div className="pb-10">
         {chargement ? (
@@ -202,7 +238,7 @@ export default function PageFaction() {
                         {fig.image ? (
                           <img src={fig.image} alt={fig.nom} className="max-w-full max-h-full object-contain p-3" />
                         ) : (
-                          <div className="w-12 h-12 rounded-full border border-[#2A2A2A] bg-[#1A1A1A]" />
+                          <PlaceholderImage />
                         )}
                       </div>
                       <div className="flex flex-col gap-2 px-2 py-2 flex-1 justify-center items-center">

@@ -46,7 +46,7 @@ export default function PageHero() {
   const { variantes } = heroData;
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D]">
+    <div className="min-h-screen">
       {/* Ligne dorée */}
       <div className="h-0.5 bg-linear-to-r from-transparent via-[#C9A227] to-transparent" />
 

@@ -2,6 +2,8 @@
 
 import { Heart, Plus, Minus, X, Check, MoreHorizontal, Pencil, ImageIcon } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import PlaceholderImage from "@/components/ui/PlaceholderImage";
+import { useCompteurFigurine } from "@/lib/hooks/useCompteurFigurine";
 
 export default function FigurineRow({
   figurine,
@@ -10,11 +12,22 @@ export default function FigurineRow({
   onSupprimer,
   onModifier,
 }) {
-  const quantite = donneesUtilisateur?.quantiteInventaire ?? 0;
-  const souhaite = donneesUtilisateur?.souhaite ?? false;
+  const idInventaire = figurine.inventaireId ?? figurine.id;
   const quantitePeinte = donneesUtilisateur?.quantitePeinte ?? 0;
-  const quantiteSouhaitee = donneesUtilisateur?.quantiteSouhaitee ?? 0;
-  const [compteurVisible, setCompteurVisible] = useState(quantite > 0);
+  const {
+    quantite,
+    souhaite,
+    quantiteSouhaitee,
+    compteurVisible,
+    ajouter: ajouterAInventaire,
+    modifierQuantite,
+    toggleSouhaite,
+  } = useCompteurFigurine({
+    id: idInventaire,
+    donneesUtilisateur,
+    onMettreAJour,
+    quantitePeinte,
+  });
   const [confirmerSuppression, setConfirmerSuppression] = useState(false);
   const [menuOuvert, setMenuOuvert] = useState(false);
   const [editionNom, setEditionNom] = useState(false);
@@ -22,57 +35,24 @@ export default function FigurineRow({
   const inputFichierRef = useRef(null);
 
   useEffect(() => {
-    setCompteurVisible(quantite > 0);
-  }, [quantite]);
-
-  useEffect(() => {
     setNomEdit(figurine.nom);
   }, [figurine.nom]);
-
-  async function ajouterAInventaire() {
-    setCompteurVisible(true);
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, {
-      enInventaire: true,
-      quantiteInventaire: 1,
-    });
-  }
-
-  async function modifierQuantite(delta) {
-    const nouvelleQuantite = Math.max(0, quantite + delta);
-    if (nouvelleQuantite === 0) setCompteurVisible(false);
-    const updates = {
-      enInventaire: nouvelleQuantite > 0,
-      quantiteInventaire: nouvelleQuantite,
-    };
-    if (quantitePeinte > nouvelleQuantite) {
-      updates.quantitePeinte = nouvelleQuantite;
-    }
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, updates);
-  }
 
   async function modifierQuantitePeinte(delta) {
     const nouvelleQuantite = Math.min(
       quantite,
       Math.max(0, quantitePeinte + delta),
     );
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, {
+    await onMettreAJour(idInventaire, {
       quantitePeinte: nouvelleQuantite,
     });
   }
 
   async function modifierQuantiteSouhaitee(delta) {
     const nouvelleQuantite = Math.max(1, quantiteSouhaitee + delta);
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, {
+    await onMettreAJour(idInventaire, {
       quantiteSouhaitee: nouvelleQuantite,
     });
-  }
-
-  async function toggleSouhaite() {
-    const newSouhaite = !souhaite;
-    const updates = { souhaite: newSouhaite };
-    if (newSouhaite && quantiteSouhaitee === 0) updates.quantiteSouhaitee = 1;
-    if (!newSouhaite) updates.quantiteSouhaitee = 0;
-    await onMettreAJour(figurine.inventaireId ?? figurine.id, updates);
   }
 
   async function sauvegarderNom() {
@@ -95,7 +75,7 @@ export default function FigurineRow({
             className="max-w-full max-h-full object-contain p-3"
           />
         ) : (
-          <div className="w-12 h-12 rounded-full border border-[#2A2A2A] bg-[#1A1A1A]" />
+          <PlaceholderImage />
         )}
 
         {/* Overlay d'édition */}

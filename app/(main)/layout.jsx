@@ -38,7 +38,8 @@ export default function MainLayout({ children }) {
   const TEXTE_TENGWAR = "yYtTqQnNeEmMaAiIoOlLrRsShHdDbBvVkKwWzZgGfFpP".repeat(8);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0D0D0D]">
+    <div className="flex flex-col min-h-screen">
+      <div className="fond-carte" aria-hidden="true" />
       <div className="frise-elfique frise-elfique-gauche">
         <span className="frise-elfique-texte">{TEXTE_TENGWAR}</span>
       </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import {
   ClipboardList,
+  Clipboard,
   RotateCcw,
   CheckCircle2,
   AlertCircle,
@@ -12,7 +13,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { getInventaireUtilisateur } from "@/lib/firestore";
+import { useInventaire } from "@/lib/hooks/useInventaire";
 import { parseTTS, aggregerFigurines, resoudreId } from "@/lib/tts-parser";
 import TTS_MAPPING from "@/data/tts-mapping.json";
 import { getAllFigurines } from "@/data/factions/index.js";
@@ -142,14 +143,14 @@ function ModalVariantes({ hero, onFermer }) {
   );
 }
 
-function PanneauListes({ listes, listeActive, onCharger, onSupprimer }) {
+function PanneauListes({ listes, listeActive, onCharger, onSupprimer, className }) {
   return (
-    <aside className="hidden lg:flex flex-col gap-3 w-60 shrink-0 -ml-10">
+    <aside className={className ?? "hidden lg:flex flex-col gap-3 w-60 shrink-0 -ml-10"}>
       <div className="flex items-center justify-center gap-2">
-        <h2 className="text-[#6B6B6B] text-[10px] font-bold uppercase tracking-wider">
+        <h2 className="text-[#D4D4D4] text-[10px] font-bold uppercase tracking-wider">
           Listes sauvegardées
         </h2>
-        <span className="text-[#4A4A4A] text-[10px]">
+        <span className="text-[#D4D4D4] text-[10px]">
           {listes.length}/{MAX_LISTES}
         </span>
       </div>
@@ -207,33 +208,14 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer }) {
 
 export default function PageListe() {
   const { utilisateur } = useAuth();
+  const { inventaire, chargement: chargementInv } = useInventaire(utilisateur?.uid);
   const [texte, setTexte] = useState("");
   const [resultats, setResultats] = useState(null);
-  const [inventaire, setInventaire] = useState(null);
-  const [chargementInv, setChargementInv] = useState(true);
   const [listes, setListes] = useState([]);
   const [listeActive, setListeActive] = useState(null);
   const [afficherSauvegarde, setAfficherSauvegarde] = useState(false);
   const [nomSauvegarde, setNomSauvegarde] = useState("");
   const [heroModal, setHeroModal] = useState(null);
-
-  useEffect(() => {
-    if (!utilisateur) {
-      setChargementInv(false);
-      return;
-    }
-
-    function charger() {
-      getInventaireUtilisateur(utilisateur.uid)
-        .then(setInventaire)
-        .catch(() => setInventaire({}))
-        .finally(() => setChargementInv(false));
-    }
-
-    charger();
-    window.addEventListener("focus", charger);
-    return () => window.removeEventListener("focus", charger);
-  }, [utilisateur]);
 
   useEffect(() => {
     try {
@@ -256,10 +238,22 @@ export default function PageListe() {
     setHeroModal({ nomFR: fig.nomFR, variantes });
   }
 
+  // Colle le contenu du presse-papier dans la zone de texte (ex: liste copiée
+  // depuis un autre site). Échoue silencieusement si l'accès est refusé
+  // (permissions navigateur, contexte non sécurisé).
+  async function collerDuPressePapier() {
+    try {
+      const contenu = await navigator.clipboard.readText();
+      if (contenu) setTexte(contenu);
+    } catch {
+      // Accès presse-papier indisponible — l'utilisateur peut toujours coller manuellement (Ctrl+V)
+    }
+  }
+
   // Parse, agrège et résout la liste TTS, puis croise avec l'inventaire.
   // estHero est forcé à true si l'ID figure dans HEROS_IDS même si TTS ne l'indente pas.
   function analyser() {
-    if (!texte.trim() || !inventaire) return;
+    if (!texte.trim() || chargementInv) return;
 
     const brutes = parseTTS(texte);
     const agregees = aggregerFigurines(brutes);
@@ -368,14 +362,14 @@ export default function PageListe() {
         <h1 className="text-2xl font-bold text-[#F5F5F5] uppercase tracking-widest text-center">
           Liste d&apos;Armée
         </h1>
-        <div className="absolute right-0 flex items-center gap-3">
+        <div className="absolute right-4 sm:right-0 flex items-center gap-3">
           {peutSauvegarder && !afficherSauvegarde && (
             <button
               onClick={() => setAfficherSauvegarde(true)}
               className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#C9A227] transition-colors cursor-pointer"
             >
               <Save size={13} />
-              Enregistrer
+              <span className="hidden sm:inline">Enregistrer</span>
             </button>
           )}
           {resultats && (
@@ -384,12 +378,12 @@ export default function PageListe() {
               className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#F5F5F5] transition-colors"
             >
               <RotateCcw size={13} />
-              Nouvelle liste
+              <span className="hidden sm:inline">Nouvelle liste</span>
             </button>
           )}
         </div>
       </div>
-      <p className="text-[#6B6B6B] text-xs text-center mb-6">
+      <p className="text-[#D4D4D4] text-xs text-center mb-6 mt-4">
         Comparez une liste TTS avec votre inventaire
       </p>
 
@@ -440,19 +434,26 @@ export default function PageListe() {
           {/* ── PHASE 1 : IMPORT ── */}
           {!resultats && (
             <div className="flex flex-col gap-4">
-              <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl p-1.5">
+              <div className="relative bg-[#111111] border border-[#1E1E1E] rounded-2xl p-1.5">
+                <button
+                  type="button"
+                  onClick={collerDuPressePapier}
+                  className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] text-[#6B6B6B] hover:border-[#C9A227]/40 hover:text-[#C9A227] text-[10px] font-semibold uppercase tracking-wide transition-colors"
+                >
+                  <Clipboard size={12} /> Coller
+                </button>
                 <textarea
                   value={texte}
                   onChange={(e) => setTexte(e.target.value)}
                   placeholder={PLACEHOLDER}
                   rows={13}
-                  className="w-full bg-transparent text-[#A0A0A0] placeholder-[#333333] text-xs font-mono p-3 resize-none focus:outline-none leading-relaxed"
+                  className="w-full bg-transparent text-[#A0A0A0] placeholder-[#333333] text-xs font-mono p-3 pr-20 resize-none focus:outline-none leading-relaxed"
                 />
               </div>
 
               <button
                 onClick={analyser}
-                disabled={!texte.trim() || chargementInv || !inventaire}
+                disabled={!texte.trim() || chargementInv}
                 className="flex items-center justify-center gap-2 bg-[#C9A227] hover:bg-[#d4af3a] disabled:opacity-40 disabled:cursor-not-allowed text-[#0D0D0D] font-bold py-3.5 rounded-2xl text-sm transition-colors"
               >
                 {chargementInv ? (
@@ -464,6 +465,15 @@ export default function PageListe() {
                   </>
                 )}
               </button>
+
+              {/* Listes sauvegardées — sous "Analyser la liste" en mobile/tablette, masqué sur desktop (déjà en panneau latéral) */}
+              <PanneauListes
+                listes={listes}
+                listeActive={listeActive}
+                onCharger={chargerListe}
+                onSupprimer={supprimerListe}
+                className="flex lg:hidden flex-col gap-3 w-full mt-2"
+              />
             </div>
           )}
 

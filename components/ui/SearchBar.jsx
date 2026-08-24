@@ -42,13 +42,13 @@ export default function SearchBar({
         )}
       </div>
 
-      {/* Bouton loupe à droite — valide la recherche (la recherche est déjà live) */}
-      <button
-        aria-label="Rechercher"
-        className="shrink-0 w-12 h-12 rounded-2xl bg-[#C9A227] hover:bg-[#E6C25A] flex items-center justify-center transition-colors"
+      {/* Icône loupe à droite — décorative : la recherche est déjà live, pas de validation nécessaire */}
+      <div
+        aria-hidden="true"
+        className="shrink-0 w-12 h-12 rounded-2xl bg-[#C9A227] flex items-center justify-center"
       >
         <Search size={20} className="text-[#0D0D0D]" />
-      </button>
+      </div>
     </div>
   );
 }

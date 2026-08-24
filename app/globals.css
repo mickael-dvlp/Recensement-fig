@@ -64,6 +64,46 @@ body {
 }
 
 /* ============================================================
+   FOND D'ÉCRAN — carte de la Terre du Milieu
+   ============================================================
+   Calque fixe derrière tout le contenu de l'app. Un dégradé de la
+   couleur de fond (même teinte, opaque à 75%) est superposé à l'image
+   pour ne laisser transparaître la carte qu'à ~25% — le reste du
+   contenu (cartes, texte) reste peint par-dessus normalement.
+   ============================================================ */
+.fond-carte {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(13, 13, 13, 0.75), rgba(13, 13, 13, 0.75)), url("/image/image-fond.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ============================================================
+   NOIR FORCÉ EN THÈME SOMBRE UNIQUEMENT
+   ============================================================
+   Le fond "cartes" (#1A1A1A) passe au noir profond (#0D0D0D) en
+   thème sombre uniquement — le thème clair garde sa propre teinte
+   (#f7f3ea, définie plus bas) sans être affecté par ce changement.
+   Ciblé via html.dark (et non l'absence de html.light) pour ne
+   jamais s'appliquer par erreur avant l'hydratation du thème.
+   ============================================================ */
+html.dark .bg-\[\#1A1A1A\] {
+  background-color: #0d0d0d !important;
+}
+
+/* Texte principal/secondaire clair (#F5F5F5, #D4D4D4) → blanc pur en sombre uniquement */
+html.dark .text-\[\#F5F5F5\] {
+  color: #ffffff !important;
+}
+html.dark .text-\[\#D4D4D4\] {
+  color: #ffffff !important;
+}
+
+/* ============================================================
    SCROLLBAR PERSONNALISÉE (navigateurs Webkit)
    ============================================================ */
 ::-webkit-scrollbar {
@@ -93,9 +133,14 @@ html.light .bg-\[\#0D0D0D\] {
   background-color: #f2ede3 !important;
 }
 
-/* Fond des cartes/sections : #1A1A1A → blanc cassé */
+/* Fond d'écran (carte) : teinte du dégradé assortie au parchemin clair */
+html.light .fond-carte {
+  background-image: linear-gradient(rgba(242, 237, 227, 0.75), rgba(242, 237, 227, 0.75)), url("/image/image-fond.png");
+}
+
+/* Fond des cartes/sections : #1A1A1A → blanc cassé chaud (moins agressif qu'un blanc pur) */
 html.light .bg-\[\#1A1A1A\] {
-  background-color: #fdfaf4 !important;
+  background-color: #f7f3ea !important;
 }
 
 /* Fond hover / boutons secondaires : #2A2A2A → gris sable */
@@ -116,9 +161,9 @@ html.light .text-\[\#D4D4D4\] {
   color: #111111 !important;
 }
 
-/* Navbar (bottom-nav) : fond blanc, boutons inactifs noirs */
+/* Navbar (bottom-nav) : fond blanc cassé chaud (au lieu de blanc pur), boutons inactifs noirs */
 html.light .bottom-nav {
-  background-color: #ffffff !important;
+  background-color: #f7f3ea !important;
   border-color: #e5e7eb !important;
 }
 html.light .bottom-nav .text-\[\#6B6B6B\] {

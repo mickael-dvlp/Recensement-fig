@@ -23,7 +23,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { creerProfil, getProfil, verifierPseudoDisponible, reserverPseudo, getAmis } from "@/lib/firestore";
+import { creerProfil, getProfil, verifierPseudoDisponible, reserverPseudo, libererPseudo, getAmis } from "@/lib/firestore";
 
 // Création du contexte avec valeur par défaut null
 const AuthContext = createContext(null);
@@ -90,8 +90,11 @@ export function AuthProvider({ children }) {
     const dispo = await verifierPseudoDisponible(pseudo);
     if (!dispo) throw Object.assign(new Error("Pseudo déjà utilisé."), { code: "pseudo/already-in-use" });
 
+    // Un compte invité existant (upgrade) ne doit jamais être supprimé en cas d'échec
+    // plus loin : il porte déjà l'inventaire de l'invité, contrairement à un compte tout juste créé.
+    const etaitAnonyme = utilisateur?.isAnonymous ?? false;
     let user;
-    if (utilisateur?.isAnonymous) {
+    if (etaitAnonyme) {
       const credential = EmailAuthProvider.credential(email, motDePasse);
       const result = await linkWithCredential(utilisateur, credential);
       user = result.user;
@@ -100,12 +103,27 @@ export function AuthProvider({ children }) {
       user = result.user;
     }
 
-    await updateProfile(user, { displayName: pseudo });
-
-    const nouveauProfil = creerNouveauProfil(user.uid, pseudo, email);
-    await creerProfil(nouveauProfil);
-    await reserverPseudo(pseudo, user.uid);
-    setProfil(nouveauProfil);
+    try {
+      await updateProfile(user, { displayName: pseudo });
+      await reserverPseudo(pseudo, user.uid);
+      try {
+        const nouveauProfil = creerNouveauProfil(user.uid, pseudo, email);
+        await creerProfil(nouveauProfil);
+        setProfil(nouveauProfil);
+      } catch (err) {
+        // Le profil n'a pas pu être créé : on libère le pseudo pour ne pas le laisser
+        // réservé sans profil associé.
+        await libererPseudo(pseudo).catch(() => {});
+        throw err;
+      }
+    } catch (err) {
+      // Compte tout juste créé (pas un invité qu'on upgrade) : on l'annule entièrement
+      // plutôt que de laisser un compte Auth orphelin sans profil Firestore.
+      if (!etaitAnonyme) {
+        await user.delete().catch(() => {});
+      }
+      throw err;
+    }
   }
 
   /**

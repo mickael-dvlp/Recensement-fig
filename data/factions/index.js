@@ -113,11 +113,18 @@ export default FACTIONS_DATA;
 
 // Retourne toutes les figurines de toutes les factions sous forme de liste plate.
 // Chaque entrée contient l'id, le nom, la faction et le type (heros/guerriers).
+// FACTIONS_DATA est statique : le résultat est calculé une seule fois puis mis en cache,
+// plutôt que reconstruit (spread sur des centaines d'objets) à chaque appel — cette
+// fonction est invoquée sur quasiment toutes les pages, parfois à chaque render.
+let _toutesLesFigurines = null;
 export function getAllFigurines() {
-  return Object.entries(FACTIONS_DATA).flatMap(([nomFaction, data]) => [
-    ...(data.heros ?? []).map((f) => ({ ...f, faction: nomFaction, type: "heros" })),
-    ...(data.guerriers ?? []).map((f) => ({ ...f, faction: nomFaction, type: "guerriers" })),
-  ]);
+  if (!_toutesLesFigurines) {
+    _toutesLesFigurines = Object.entries(FACTIONS_DATA).flatMap(([nomFaction, data]) => [
+      ...(data.heros ?? []).map((f) => ({ ...f, faction: nomFaction, type: "heros" })),
+      ...(data.guerriers ?? []).map((f) => ({ ...f, faction: nomFaction, type: "guerriers" })),
+    ]);
+  }
+  return _toutesLesFigurines;
 }
 
 // ---- CLASSIFICATION BIEN / MAL ----

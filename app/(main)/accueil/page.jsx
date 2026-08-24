@@ -12,12 +12,14 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Heart, Sword, Users } from "lucide-react";
+import { Shield, Heart, Sword } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import IconDiscord from "@/components/ui/IconDiscord";
 import { getInventaireUtilisateur, getFigurinesCustom, getMemos } from "@/lib/firestore";
 import { FACTIONS_BIEN, FACTIONS_MAL } from "@/data/figurines/index.js";
 import { getAllFigurines } from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
+import { creerAccumulateurDedupe } from "@/lib/stats";
 
 const IMAGES_FACTIONS = {
   // Camp du Bien
@@ -53,6 +55,7 @@ const IMAGES_FACTIONS = {
   "La Légion d'Azog":                       "/images/accueil/legion-d-azog.avif",
   "Les Chasseurs d'Azog":                   "/images/accueil/chasseur-d-azog.avif",
   "Carn-Dûm":                               "/images/accueil/carn-dum.avif",
+  "Les Nazguls":                            "/images/accueil/nazgul.avif",
   "Horde Serpent":                          "/images/accueil/horde-serpent.avif",
   "Extrême-Harad":                          "/images/accueil/extreme-harad.avif",
   "Khand":                                  "/images/accueil/khand.avif",
@@ -107,12 +110,28 @@ export default function PageAccueil() {
     if (!utilisateur) return;
 
     async function chargerStats() {
-      const [inventaire, customs, listeMemos] = await Promise.all([
-        getInventaireUtilisateur(utilisateur.uid),
-        getFigurinesCustom(utilisateur.uid),
-        getMemos(utilisateur.uid),
-      ]);
+      try {
+        const [inventaireResult, customsResult, memosResult] = await Promise.allSettled([
+          getInventaireUtilisateur(utilisateur.uid),
+          getFigurinesCustom(utilisateur.uid),
+          getMemos(utilisateur.uid),
+        ]);
 
+        if (inventaireResult.status === "rejected") console.warn("Impossible de charger l'inventaire :", inventaireResult.reason);
+        if (customsResult.status === "rejected") console.warn("Impossible de charger les figurines custom :", customsResult.reason);
+        if (memosResult.status === "rejected") console.warn("Impossible de charger les mémos :", memosResult.reason);
+
+        const inventaire = inventaireResult.status === "fulfilled" ? inventaireResult.value : {};
+        const customs = customsResult.status === "fulfilled" ? customsResult.value : [];
+        const listeMemos = memosResult.status === "fulfilled" ? memosResult.value : [];
+
+        calculerEtAppliquerStats(inventaire, customs, listeMemos);
+      } finally {
+        setChargement(false);
+      }
+    }
+
+    function calculerEtAppliquerStats(inventaire, customs, listeMemos) {
       let totalPossedees = 0;
       let totalSouhaitees = 0;
       const enProjet = listeMemos.length;
@@ -121,7 +140,8 @@ export default function PageAccueil() {
       // Map nom → hero pour lookup rapide des lienHero
       const heroParNom = new Map(TOUS_LES_HEROS.map((h) => [h.nom, h]));
       // Évite le double-comptage dans les totaux (un héros peut apparaître dans plusieurs factions)
-      const variantesComptees = new Set();
+      const compterPossedee = creerAccumulateurDedupe();
+      const compterSouhaitee = creerAccumulateurDedupe();
 
       for (const figurine of getAllFigurines()) {
         if (figurine.lienHero) {
@@ -134,14 +154,10 @@ export default function PageAccueil() {
             if (donnees.enInventaire) {
               const qte = donnees.quantiteInventaire || 0;
               parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
-              if (!variantesComptees.has(variante.id)) {
-                totalPossedees += qte;
-                variantesComptees.add(variante.id);
-              }
+              if (compterPossedee(variante.id)) totalPossedees += qte;
             }
-            if (donnees.souhaite && !variantesComptees.has(`${variante.id}_s`)) {
+            if (donnees.souhaite && compterSouhaitee(variante.id)) {
               totalSouhaitees += donnees.quantiteSouhaitee || 0;
-              variantesComptees.add(`${variante.id}_s`);
             }
           }
         } else {
@@ -152,14 +168,10 @@ export default function PageAccueil() {
           if (donnees.enInventaire) {
             const qte = donnees.quantiteInventaire || 0;
             parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
-            if (!variantesComptees.has(figId)) {
-              totalPossedees += qte;
-              variantesComptees.add(figId);
-            }
+            if (compterPossedee(figId)) totalPossedees += qte;
           }
-          if (donnees.souhaite && !variantesComptees.has(`${figId}_s`)) {
+          if (donnees.souhaite && compterSouhaitee(figId)) {
             totalSouhaitees += donnees.quantiteSouhaitee || 0;
-            variantesComptees.add(`${figId}_s`);
           }
         }
       }
@@ -179,16 +191,15 @@ export default function PageAccueil() {
       }
 
       setStats({ totalPossedees, totalSouhaitees, enProjet, parFaction });
-      setChargement(false);
     }
 
     chargerStats();
   }, [utilisateur]);
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D]">
+    <div className="min-h-screen">
       {/* BANDEAU CENTRÉ */}
-      <div className=" border-b border-[#2A2A2A] flex justify-center">
+      <div className="border-b border-[#2A2A2A] flex justify-center">
         <Image
           src="/image/mesbg_header.jpg"
           alt="Bannière Middle-Earth Strategy Battle Game"
@@ -310,17 +321,22 @@ export default function PageAccueil() {
           </div>
         </section>
 
-        {/* PLACEHOLDER RAPPORTS DE BATAILLE (à venir) */}
+        {/* BANDEAU DISCORD */}
         <section>
           <h2 className="text-[#C9A227] text-sm font-bold uppercase tracking-widest mb-4">
-            Rapports de bataille
+            Communauté
           </h2>
-          <div className="bg-[#1A1A1A] border border-[#2A2A2A] border-dashed rounded-2xl p-6 flex flex-col items-center gap-2">
-            <Users size={32} className="text-[#3A3A3A]" />
-            <p className="text-[#6B6B6B] text-sm text-center">
-              Les rapports de bataille arrivent bientôt !
+          <a
+            href="https://discord.gg/atuR7ksYP"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 flex flex-col items-center gap-2 hover:border-[#5865F2]/40 transition-colors"
+          >
+            <IconDiscord size={32} className="text-[#5865F2]" />
+            <p className="text-[#F5F5F5] text-sm text-center">
+              Rejoins la communauté sur Discord !
             </p>
-          </div>
+          </a>
         </section>
 
         {/* AMÉLIORATIONS À VENIR */}
@@ -330,14 +346,12 @@ export default function PageAccueil() {
           </h2>
           <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-5 flex flex-col gap-3">
             {[
-              "Récapituler les doublons des Héros non nommés et des différentes Bannières",
-              "Export de ses figurines Inventaire et/ou Souhaité au format .csv",
               "Rangement des figurines dans un ordre plus logique",
               "Création d'une boite à idée/correction pour signaler les erreurs et améliorer l'utilisation",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="mt-1 w-1.5 h-1.5 rounded-full bg-[#C9A227]/60 shrink-0" />
-                <p className="text-[#6B6B6B] text-sm leading-relaxed">{item}</p>
+                <p className="text-[#F5F5F5] text-sm leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
