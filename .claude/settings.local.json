@@ -52,7 +52,11 @@
       "Bash(MSYS_NO_PATHCONV=1 curl -s -D - -o /dev/null \"http://localhost:3000/_next/image?url=%2Fimages%2Faccueil%2Fnazgul.avif&w=640&q=75\")",
       "Bash(MSYS_NO_PATHCONV=1 curl -s -o /dev/null -w \"profil -> %{http_code}\\\\n\" \"http://localhost:3000/profil\")",
       "Bash(MSYS_NO_PATHCONV=1 curl -s -o /dev/null -w \"figurines -> %{http_code}\\\\n\" \"http://localhost:3000/figurines\")",
-      "Bash(MSYS_NO_PATHCONV=1 curl -s -o /dev/null -w \"projet -> %{http_code}\\\\n\" \"http://localhost:3000/projet\")"
+      "Bash(MSYS_NO_PATHCONV=1 curl -s -o /dev/null -w \"projet -> %{http_code}\\\\n\" \"http://localhost:3000/projet\")",
+      "Bash(git -c user.name=Mickael-dvlp -c user.email=mickael.dvlp@gmail.com commit -m ' *)",
+      "Bash(git check-ignore *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(git checkout *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Micka\\Desktop\\Github_Pro\\App_MESBG\\app\\(main)\\amis"

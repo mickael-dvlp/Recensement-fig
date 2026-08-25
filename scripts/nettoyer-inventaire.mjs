@@ -10,7 +10,7 @@
 //   se retrouve dans l'historique du shell ou la liste des process)
 // ============================================================
 
-import { readFileSync, readdirSync } from "fs";
+import { readFileSync, readdirSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import readline from "readline";
@@ -18,8 +18,29 @@ import readline from "readline";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
-const API_KEY = "AIzaSyA7Uz_JTUxSBzyaEUOZ3ou0gPXGXnsE3-g";
-const PROJECT_ID = "app-figurine";
+// Lit .env.local à la main (script Node autonome, hors pipeline Next.js qui
+// charge ces variables automatiquement) plutôt que de dupliquer la clé en dur.
+function lireEnvLocal() {
+  const chemin = join(ROOT, ".env.local");
+  if (!existsSync(chemin)) return {};
+  const contenu = readFileSync(chemin, "utf8").replace(/^﻿/, "");
+  const env = {};
+  for (const ligne of contenu.split(/\r?\n/)) {
+    const m = ligne.match(/^([A-Z0-9_]+)=(.*)$/);
+    if (m) env[m[1]] = m[2].trim();
+  }
+  return env;
+}
+
+const env = lireEnvLocal();
+const API_KEY = env.NEXT_PUBLIC_FIREBASE_API_KEY;
+const PROJECT_ID = env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+
+if (!API_KEY || !PROJECT_ID) {
+  console.error("NEXT_PUBLIC_FIREBASE_API_KEY / NEXT_PUBLIC_FIREBASE_PROJECT_ID manquants dans .env.local");
+  process.exit(1);
+}
+
 const FIRESTORE_BASE = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents`;
 
 // ---- 1. COLLECTE DES IDs VALIDES ----
