@@ -6,6 +6,7 @@ import "./globals.css";
 import { Uncial_Antiqua } from "next/font/google";
 import { AuthProvider } from "@/lib/auth-context";
 import { ThemeProvider } from "@/lib/theme-context";
+import RegisterServiceWorker from "@/components/RegisterServiceWorker";
 
 const uncialAntiqua = Uncial_Antiqua({
   subsets: ["latin"],
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-[#0D0D0D] min-h-screen">
+        <RegisterServiceWorker />
         <ThemeProvider>
           <AuthProvider>
             {children}

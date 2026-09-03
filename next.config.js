@@ -37,6 +37,17 @@ const nextConfig = {
 
     return [
       {
+        // Le service worker ne doit jamais être servi depuis un cache intermédiaire
+        // (CDN/navigateur) : le navigateur doit toujours vérifier s'il a changé.
+        source: "/sw.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           {
