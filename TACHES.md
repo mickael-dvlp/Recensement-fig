@@ -22,7 +22,7 @@ Branche : `app-store`
 
 ### Phase 3 — Vérification du domaine (code, sur `main`)
 - [x] `public/.well-known/assetlinks.json` avec le package name Android + l'empreinte SHA256 de la clé
-- [ ] Vérifier son accessibilité en prod après déploiement
+- [x] Accessibilité en prod vérifiée : `https://mesbg-collection-app.com/.well-known/assetlinks.json` répond 200
 
 ### Phase 4 — Google Play Console (entièrement hors repo)
 - [ ] Compte développeur Google Play (25$, paiement unique)
