@@ -54,11 +54,15 @@ service cloud.firestore {
     }
 
     // Cooldown 7 jours entre deux changements de pseudo.
-    // Retourne true si le profil n'a jamais changé de pseudo ou si 7 jours sont écoulés.
+    // Retourne true si le profil n'existe pas encore (1ère réservation, à l'inscription),
+    // n'a jamais changé de pseudo, ou si 7 jours sont écoulés. Le check d'existence est
+    // impératif : get(...).data sur un profil inexistant fait échouer l'évaluation de la
+    // règle (donc refuse la création du pseudo) — ce qui cassait l'inscription email/mdp,
+    // où le pseudo est réservé avant que le profil ne soit créé.
     function pseudoCooldownPasse(uid) {
-      let d = get(/databases/$(database)/documents/utilisateurs/$(uid)).data;
-      return !('dernierChangementPseudo' in d)
-        || (request.time.toMillis() - d.dernierChangementPseudo.toMillis()) > 604800000;
+      return !exists(/databases/$(database)/documents/utilisateurs/$(uid))
+        || !('dernierChangementPseudo' in get(/databases/$(database)/documents/utilisateurs/$(uid)).data)
+        || (request.time.toMillis() - get(/databases/$(database)/documents/utilisateurs/$(uid)).data.dernierChangementPseudo.toMillis()) > 604800000;
     }
 
     // ---- PSEUDOS ----
