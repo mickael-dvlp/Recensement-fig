@@ -14,6 +14,8 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-self.addEventListener("fetch", (event) => {
-  event.respondWith(fetch(event.request));
-});
+// Handler présent mais volontairement vide : ne PAS appeler respondWith() ici.
+// Rejouer event.request via fetch() (notamment les requêtes de navigation) casse
+// des requêtes légitimes ("Failed to fetch") — le critère d'installabilité PWA
+// exige seulement la présence du handler, pas qu'il intercepte quoi que ce soit.
+self.addEventListener("fetch", () => {});
