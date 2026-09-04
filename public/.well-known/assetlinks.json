@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mesbg_collection_app.twa",
+      "sha256_cert_fingerprints": [
+        "3C:43:C8:1B:ED:58:B4:20:6D:F8:23:89:E5:9F:44:39:D7:C7:91:16:FF:2B:92:F3:59:EA:37:D6:AB:C8:84:F3"
+      ]
+    }
+  }
+]

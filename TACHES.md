@@ -16,12 +16,12 @@ Branche : `app-store`
 - [ ] Vérification manifest + service worker dans Chrome DevTools (panneau "Application") une fois déployé — **à faire par toi en prod**, `lighthouse` en CLI n'a plus la catégorie PWA (dépréciée par Google), donc pas automatisable depuis ici
 
 ### Phase 2 — Déploiement + génération du projet Android (mix repo/externe)
-- [ ] Déployer la branche `app-store` (ou merger sur `main`) pour que l'URL de prod expose le manifest
-- [ ] Générer le projet Android via PWABuilder (pwabuilder.com) à partir de l'URL déployée
-- [ ] Générer une clé de signature (keystore) — PWABuilder peut le faire
+- [x] `app-store` mergée sur `main`, déployée sur `mesbg-collection-app.com` (expose le manifest)
+- [x] Projet Android généré via PWABuilder (pwabuilder.com)
+- [x] Clé de signature générée — `signing.keystore` (package `com.mesbg_collection_app.twa`), sauvegardée par l'utilisateur hors du repo
 
-### Phase 3 — Vérification du domaine (code, sur `app-store`)
-- [ ] `public/.well-known/assetlinks.json` avec le package name Android + l'empreinte SHA256 de la clé (obtenue en Phase 2)
+### Phase 3 — Vérification du domaine (code, sur `main`)
+- [x] `public/.well-known/assetlinks.json` avec le package name Android + l'empreinte SHA256 de la clé
 - [ ] Vérifier son accessibilité en prod après déploiement
 
 ### Phase 4 — Google Play Console (entièrement hors repo)
