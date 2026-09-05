@@ -23,14 +23,15 @@ const nextConfig = {
       "default-src 'self'",
       // 'unsafe-inline' requis par le script d'hydratation Next.js (pas de nonce en place).
       // 'unsafe-eval' n'est nécessaire qu'en dev (source maps / HMR Turbopack) — exclu en prod.
-      `script-src 'self' 'unsafe-inline'${estDev ? " 'unsafe-eval'" : ""} https://apis.google.com`,
+      // www.google.com/www.gstatic.com : script reCAPTCHA v3 (App Check).
+      `script-src 'self' 'unsafe-inline'${estDev ? " 'unsafe-eval'" : ""} https://apis.google.com https://www.google.com https://www.gstatic.com`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.firebasestorage.app",
-      // Firebase Auth + Firestore + Storage + Installations + Google Sign-In
-      "connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com wss://*.firestore.googleapis.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://app-figurine.firebaseapp.com https://firebasestorage.googleapis.com https://*.firebasestorage.app https://www.googleapis.com https://apis.google.com",
-      // Google Sign-In popup + Firebase Auth iframe
-      "frame-src https://accounts.google.com https://app-figurine.firebaseapp.com",
+      // Firebase Auth + Firestore + Storage + Installations + Google Sign-In + App Check (reCAPTCHA v3)
+      "connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com wss://*.firestore.googleapis.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://app-figurine.firebaseapp.com https://firebasestorage.googleapis.com https://*.firebasestorage.app https://www.googleapis.com https://apis.google.com https://www.google.com https://content-firebaseappcheck.googleapis.com https://firebaseappcheck.googleapis.com",
+      // Google Sign-In popup + Firebase Auth iframe + reCAPTCHA v3 (App Check)
+      "frame-src https://accounts.google.com https://app-figurine.firebaseapp.com https://www.google.com",
       "object-src 'none'",
       "base-uri 'self'",
     ].join("; ");
