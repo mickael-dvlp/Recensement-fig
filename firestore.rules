@@ -67,9 +67,13 @@ service cloud.firestore {
 
     // ---- PSEUDOS ----
     // Collection globale pour garantir l'unicité des pseudos.
-    // Lecture ouverte aux connectés (vérification de dispo), écriture réservée au propriétaire.
+    // "get" public (pas "list") : la vérification de dispo à l'inscription se fait
+    // AVANT que le compte existe, donc sans authentification — mais rien n'autorise
+    // à énumérer tous les pseudos réservés (list refusé, seule une lecture ciblée
+    // d'un pseudo déjà connu est possible). Écriture réservée au propriétaire.
     match /pseudos/{pseudo} {
-      allow read: if isAuth();
+      allow get: if true;
+      allow list: if false;
       allow create: if isAuth()
         && request.resource.data.uid == request.auth.uid
         && pseudoValide(pseudo)

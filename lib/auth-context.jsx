@@ -87,32 +87,20 @@ export function AuthProvider({ children }) {
    * @param {string} pseudo
    */
   async function sInscrire(email, motDePasse, pseudo) {
-    // DIAGNOSTIC TEMPORAIRE — à retirer une fois la cause de l'échec d'inscription identifiée.
-    let dispo;
-    try {
-      dispo = await verifierPseudoDisponible(pseudo);
-    } catch (err) {
-      console.error("[DEBUG inscription] échec verifierPseudoDisponible | code:", err?.code, "| message:", err?.message, err);
-      throw err;
-    }
+    const dispo = await verifierPseudoDisponible(pseudo);
     if (!dispo) throw Object.assign(new Error("Pseudo déjà utilisé."), { code: "pseudo/already-in-use" });
 
     // Un compte invité existant (upgrade) ne doit jamais être supprimé en cas d'échec
     // plus loin : il porte déjà l'inventaire de l'invité, contrairement à un compte tout juste créé.
     const etaitAnonyme = utilisateur?.isAnonymous ?? false;
     let user;
-    try {
-      if (etaitAnonyme) {
-        const credential = EmailAuthProvider.credential(email, motDePasse);
-        const result = await linkWithCredential(utilisateur, credential);
-        user = result.user;
-      } else {
-        const result = await createUserWithEmailAndPassword(auth, email, motDePasse);
-        user = result.user;
-      }
-    } catch (err) {
-      console.error("[DEBUG inscription] échec création compte Auth | code:", err?.code, "| message:", err?.message, err);
-      throw err;
+    if (etaitAnonyme) {
+      const credential = EmailAuthProvider.credential(email, motDePasse);
+      const result = await linkWithCredential(utilisateur, credential);
+      user = result.user;
+    } else {
+      const result = await createUserWithEmailAndPassword(auth, email, motDePasse);
+      user = result.user;
     }
 
     try {
@@ -129,8 +117,6 @@ export function AuthProvider({ children }) {
         throw err;
       }
     } catch (err) {
-      // DIAGNOSTIC TEMPORAIRE — à retirer une fois la cause de l'échec d'inscription identifiée.
-      console.error("[DEBUG inscription] code:", err?.code, "| message:", err?.message, err);
       // Compte tout juste créé (pas un invité qu'on upgrade) : on l'annule entièrement
       // plutôt que de laisser un compte Auth orphelin sans profil Firestore.
       if (!etaitAnonyme) {
