@@ -117,6 +117,8 @@ export function AuthProvider({ children }) {
         throw err;
       }
     } catch (err) {
+      // DIAGNOSTIC TEMPORAIRE — à retirer une fois la cause de l'échec d'inscription identifiée.
+      console.error("[DEBUG inscription] code:", err?.code, "| message:", err?.message, err);
       // Compte tout juste créé (pas un invité qu'on upgrade) : on l'annule entièrement
       // plutôt que de laisser un compte Auth orphelin sans profil Firestore.
       if (!etaitAnonyme) {
