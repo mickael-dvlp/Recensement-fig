@@ -48,6 +48,21 @@ service cloud.firestore {
         && d.pseudo is string && d.pseudo.size() <= 30;
     }
 
+    // Un document figurinesCustom n'est jamais écrit intégralement (updateDoc peut n'envoyer
+    // que "nom" ou "imageUrl") : chaque champ n'est donc validé que s'il est présent.
+    // imageUrl doit obligatoirement pointer vers le bucket Storage de l'app — visible par les
+    // amis, une URL externe arbitraire ne doit pas pouvoir y être injectée.
+    function figurineCustomValide(d) {
+      return d.keys().hasOnly(["nom", "faction", "section", "imageUrl", "creeLe"])
+        && (!('nom' in d) || (d.nom is string && d.nom.size() <= 100))
+        && (!('faction' in d) || (d.faction is string && d.faction.size() <= 50))
+        && (!('section' in d) || (d.section is string && d.section.size() <= 50))
+        && (!('imageUrl' in d) || (
+          d.imageUrl is string && d.imageUrl.size() <= 500
+          && d.imageUrl.matches('https://(firebasestorage\\.googleapis\\.com|[a-z0-9-]+\\.firebasestorage\\.app)/.*')
+        ));
+    }
+
     // Pseudo valide : 3–30 caractères, lettres/chiffres/tirets/underscores uniquement.
     function pseudoValide(p) {
       return p is string && p.size() >= 3 && p.size() <= 30 && p.matches('[a-zA-Z0-9_\\-]+');
@@ -101,26 +116,28 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
       }
 
-      // Mémos : strictement privés + limite 100 + validation taille des champs
+      // Mémos : strictement privés + limite 100 + validation taille et champs autorisés
       match /memos/{memoId} {
         allow read:   if isOwner(uid);
         allow create: if isOwner(uid)
           && compteurMemos(uid) < 100
+          && request.resource.data.keys().hasOnly(["titre", "texte", "type", "figurines", "ordre", "creeLe"])
           && request.resource.data.titre is string
           && request.resource.data.titre.size() <= 200
           && request.resource.data.texte is string
           && request.resource.data.texte.size() <= 50000;
         allow update: if isOwner(uid)
+          && request.resource.data.keys().hasOnly(["titre", "texte", "type", "figurines", "ordre", "creeLe"])
           && (!('titre' in request.resource.data) || (request.resource.data.titre is string && request.resource.data.titre.size() <= 200))
           && (!('texte' in request.resource.data) || (request.resource.data.texte is string && request.resource.data.texte.size() <= 50000));
         allow delete: if isOwner(uid);
       }
 
-      // Figurines custom : lisibles par les amis + limite 200
+      // Figurines custom : lisibles par les amis + limite 200 + validation champs/imageUrl
       match /figurinesCustom/{customId} {
         allow read:   if isOwner(uid) || isFriendOf(uid);
-        allow create: if isOwner(uid) && compteurCustom(uid) < 200;
-        allow update: if isOwner(uid);
+        allow create: if isOwner(uid) && compteurCustom(uid) < 200 && figurineCustomValide(request.resource.data);
+        allow update: if isOwner(uid) && figurineCustomValide(request.resource.data);
         allow delete: if isOwner(uid);
       }
 
