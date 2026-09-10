@@ -24,8 +24,15 @@ Branche : `app-store`
 - [x] `public/.well-known/assetlinks.json` avec le package name Android + l'empreinte SHA256 de la clé
 - [x] Accessibilité en prod vérifiée : `https://mesbg-collection-app.com/.well-known/assetlinks.json` répond 200
 
+### Phase 3bis — Suppression de compte (exigence Google Play, code sur `main`)
+- [x] Fonction `supprimerCompte(uid, pseudo)` (`lib/firestore.js`) : purge Storage + sous-collections + amis (2 côtés) + pseudo + profil
+- [x] `supprimerCompteUtilisateur()` (`lib/auth-context.jsx`) : réauthentification (mot de passe ou popup Google, aucune pour invité) puis suppression Auth
+- [x] `firestore.rules` : `allow delete: if isOwner(uid)` sur `utilisateurs/{uid}` (était `if false`)
+- [x] UI `components/compte/SupprimerCompte.jsx` — intégrée dans Profil ("Zone dangereuse") ET sur `/politique-confidentialite` (accessible sans app installée, exigence Google)
+- [ ] Règles Firestore à redéployer + tester la suppression réelle une fois en prod
+
 ### Phase 4 — Google Play Console (entièrement hors repo)
-- [ ] Compte développeur Google Play (25$, paiement unique)
+- [x] Compte développeur Google Play créé, payé (25$), validé
 - [ ] Fiche store : titre, description, icône, captures d'écran, feature graphic
 - [ ] Questionnaire de classification du contenu + formulaire "Sécurité des données"
 - [ ] Upload AAB signé → piste de test interne → test → production

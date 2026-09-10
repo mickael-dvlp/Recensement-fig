@@ -21,9 +21,11 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  reauthenticateWithCredential,
+  reauthenticateWithPopup,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { creerProfil, getProfil, verifierPseudoDisponible, reserverPseudo, libererPseudo, getAmis } from "@/lib/firestore";
+import { creerProfil, getProfil, verifierPseudoDisponible, reserverPseudo, libererPseudo, getAmis, supprimerCompte } from "@/lib/firestore";
 
 // Création du contexte avec valeur par défaut null
 const AuthContext = createContext(null);
@@ -204,11 +206,39 @@ export function AuthProvider({ children }) {
     );
   }
 
+  /**
+   * Supprime définitivement le compte et toutes les données associées
+   * (RGPD + exigence Google Play : suppression de compte accessible depuis l'app).
+   * @param {string} [motDePasse] - requis uniquement pour un compte email/mot de passe ;
+   *   ignoré pour Google (réauthentification par popup) et pour un compte invité.
+   */
+  async function supprimerCompteUtilisateur(motDePasse) {
+    if (!utilisateur) throw new Error("Aucun utilisateur connecté.");
+
+    // Réauthentification obligatoire : Firebase refuse une action sensible comme
+    // la suppression de compte si la connexion ne date pas de quelques minutes.
+    if (!utilisateur.isAnonymous) {
+      const fournisseur = utilisateur.providerData[0]?.providerId;
+      if (fournisseur === "google.com") {
+        await reauthenticateWithPopup(utilisateur, new GoogleAuthProvider());
+      } else {
+        if (!motDePasse) throw Object.assign(new Error("Mot de passe requis."), { code: "mot-de-passe-requis" });
+        const credential = EmailAuthProvider.credential(utilisateur.email, motDePasse);
+        await reauthenticateWithCredential(utilisateur, credential);
+      }
+    }
+
+    // Les données Firestore/Storage doivent être purgées AVANT le compte Auth :
+    // les règles Firestore exigent une session authentifiée valide (isOwner).
+    await supprimerCompte(utilisateur.uid, profil?.pseudo);
+    await utilisateur.delete();
+  }
+
   const isInvite = utilisateur?.isAnonymous ?? false;
 
   return (
     <AuthContext.Provider
-      value={{ utilisateur, profil, chargement, isInvite, nbDemandesAmis, rafraichirDemandesAmis, seConnecter, sInscrire, seDeconnecter, seConnecterAvecGoogle, seConnecterEnInvite, reinitialiserMotDePasse, rafraichirProfil }}
+      value={{ utilisateur, profil, chargement, isInvite, nbDemandesAmis, rafraichirDemandesAmis, seConnecter, sInscrire, seDeconnecter, seConnecterAvecGoogle, seConnecterEnInvite, reinitialiserMotDePasse, rafraichirProfil, supprimerCompteUtilisateur }}
     >
       {children}
     </AuthContext.Provider>

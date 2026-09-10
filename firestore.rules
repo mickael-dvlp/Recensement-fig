@@ -106,7 +106,11 @@ service cloud.firestore {
       allow read:   if isOwner(uid) || isFriendOf(uid);
       allow create: if isOwner(uid);
       allow update: if isOwner(uid);
-      allow delete: if false;
+      // Suppression de compte (RGPD + exigence Google Play) : le propriétaire peut
+      // supprimer son propre profil. Les sous-collections sont purgées séparément
+      // par lib/firestore.js:supprimerCompte AVANT cet appel (elles ne sont pas
+      // supprimées automatiquement avec le document parent).
+      allow delete: if isOwner(uid);
 
       // Inventaire : lisible par les amis (pour la page collection d'un ami)
       match /inventaire/{figurineId} {

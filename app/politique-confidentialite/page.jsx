@@ -7,6 +7,7 @@
 import Link from "next/link";
 import { ArrowLeft, FileText } from "lucide-react";
 import MentionsLegalesContenu from "@/components/legal/MentionsLegalesContenu";
+import SupprimerCompte from "@/components/compte/SupprimerCompte";
 
 export const metadata = {
   title: "Politique de confidentialité",
@@ -45,6 +46,13 @@ export default function PagePolitiqueConfidentialite() {
 
         <div className="flex flex-col gap-5 text-sm">
           <MentionsLegalesContenu />
+        </div>
+
+        <div className="mt-10">
+          <h2 className="text-[#C9A227] text-xs font-bold uppercase tracking-widest mb-3">
+            Suppression du compte
+          </h2>
+          <SupprimerCompte />
         </div>
       </main>
     </div>

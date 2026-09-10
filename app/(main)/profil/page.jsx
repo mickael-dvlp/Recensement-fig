@@ -32,6 +32,7 @@ import { useAuth } from "@/lib/auth-context";
 import { useTheme } from "@/lib/theme-context";
 import { modifierPseudo, nettoyerInventaireOrphelins } from "@/lib/firestore";
 import MentionsLegalesContenu from "@/components/legal/MentionsLegalesContenu";
+import SupprimerCompte from "@/components/compte/SupprimerCompte";
 
 export default function PageProfil() {
   const { utilisateur, profil, rafraichirProfil, seDeconnecter, isInvite } =
@@ -538,6 +539,14 @@ export default function PageProfil() {
             </div>
           </div>
         )}
+
+        {/* SECTION ZONE DANGEREUSE */}
+        <section>
+          <h2 className="text-[#C9A227] text-xs font-bold uppercase tracking-widest mb-3">
+            Zone dangereuse
+          </h2>
+          <SupprimerCompte />
+        </section>
 
         {/* BOUTON DÉCONNEXION */}
         <button
