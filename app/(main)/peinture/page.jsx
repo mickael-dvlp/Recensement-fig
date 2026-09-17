@@ -121,7 +121,7 @@ export default function PagePeinture() {
   const [filtreListe, setFiltreListe] = useState("tout");
   const [headerReduit, setHeaderReduit] = useState(false);
 
-  const { inventaire: inventaireBrut, mettreAJour } = useInventaire(utilisateur?.uid);
+  const { inventaire: inventaireBrut, mettreAJour, chargement } = useInventaire(utilisateur?.uid);
 
   // ---- GAMMES DISPONIBLES ----
   const gammesDisponibles = useMemo(() => {
@@ -245,7 +245,23 @@ export default function PagePeinture() {
 
       {/* LISTE DES PEINTURES */}
       <div className="flex-1 py-3 px-6">
-        {peinturesFiltrees.length === 0 ? (
+        {chargement ? (
+          // Skeleton — évite un flash "à ajouter" avant que l'inventaire ne soit chargé
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div
+                key={i}
+                className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden animate-pulse"
+              >
+                <div className="w-full aspect-4/3 bg-[#0D0D0D]" />
+                <div className="p-3 flex flex-col gap-2 items-center">
+                  <div className="h-3 bg-[#2A2A2A] rounded w-3/4" />
+                  <div className="h-2.5 bg-[#2A2A2A] rounded w-1/2" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : peinturesFiltrees.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <Palette size={40} className="text-[#3A3A3A]" />
             <p className="text-[#6B6B6B] text-sm text-center">

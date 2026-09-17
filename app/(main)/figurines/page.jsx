@@ -12,7 +12,7 @@
 //   - Une modal s'ouvre pour saisir la quantité
 
 import { useState, useMemo, useCallback } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Swords } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
 import { getFigurinesCustom } from "@/lib/firestore";
@@ -223,7 +223,7 @@ export default function PageFigurines() {
           <div className="pb-6 pt-4">
             {resultatsRecherche.figurines.length === 0 && resultatsRecherche.heros.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 px-8 gap-3">
-                <p className="text-[#3A3A3A] text-5xl">⚔️</p>
+                <Swords size={40} className="text-[#3A3A3A]" />
                 <p className="text-[#6B6B6B] text-center text-sm">
                   Aucune figurine trouvée pour &ldquo;{recherche}&rdquo;
                 </p>
@@ -299,7 +299,7 @@ export default function PageFigurines() {
             if (total === 0 && heroesFiltres.length === 0)
               return (
                 <div className="flex flex-col items-center justify-center py-20 px-8 gap-3">
-                  <p className="text-[#3A3A3A] text-5xl">⚔️</p>
+                  <Swords size={40} className="text-[#3A3A3A]" />
                   <p className="text-[#6B6B6B] text-center text-sm">
                     {recherche
                       ? `Aucune faction trouvée pour "${recherche}"`

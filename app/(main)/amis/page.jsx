@@ -166,6 +166,7 @@ export default function PageAmis() {
                   onClick={() => handleAccepter(ami.id)}
                   className="w-8 h-8 rounded-full bg-[#22C55E]/10 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] hover:bg-[#22C55E]/20 transition-colors"
                   title="Accepter"
+                  aria-label={`Accepter la demande de ${ami.pseudo}`}
                 >
                   <Check size={14} />
                 </button>
@@ -173,6 +174,7 @@ export default function PageAmis() {
                   onClick={() => handleSupprimer(ami.id)}
                   className="w-8 h-8 rounded-full bg-red-900/20 border border-red-800/30 flex items-center justify-center text-red-400 hover:bg-red-900/40 transition-colors"
                   title="Refuser"
+                  aria-label={`Refuser la demande de ${ami.pseudo}`}
                 >
                   <X size={14} />
                 </button>
@@ -205,6 +207,7 @@ export default function PageAmis() {
                   onClick={() => handleSupprimer(ami.id)}
                   className="w-8 h-8 rounded-full bg-[#2A2A2A] flex items-center justify-center text-[#6B6B6B] hover:text-red-400 transition-colors"
                   title="Annuler"
+                  aria-label={`Annuler la demande envoyée à ${ami.pseudo}`}
                 >
                   <X size={14} />
                 </button>
@@ -251,6 +254,7 @@ export default function PageAmis() {
                       onClick={() => setConfirmSupprimer(ami)}
                       className="w-8 h-8 rounded-full bg-[#2A2A2A] flex items-center justify-center text-[#6B6B6B] hover:text-red-400 transition-colors"
                       title="Supprimer"
+                      aria-label={`Supprimer ${ami.pseudo} de tes amis`}
                     >
                       <Trash2 size={13} />
                     </button>

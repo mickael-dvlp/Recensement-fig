@@ -29,6 +29,11 @@ service cloud.firestore {
       return ('compteurCustom' in d) ? d.compteurCustom : 0;
     }
 
+    function compteurListes(uid) {
+      let d = get(/databases/$(database)/documents/utilisateurs/$(uid)).data;
+      return ('compteurListes' in d) ? d.compteurListes : 0;
+    }
+
     // Un document inventaire n'est jamais écrit intégralement (updateDoc envoie
     // seulement les champs modifiés) : chaque champ n'est donc validé que s'il est présent.
     function inventaireValide(d) {
@@ -142,6 +147,22 @@ service cloud.firestore {
         allow read:   if isOwner(uid) || isFriendOf(uid);
         allow create: if isOwner(uid) && compteurCustom(uid) < 200 && figurineCustomValide(request.resource.data);
         allow update: if isOwner(uid) && figurineCustomValide(request.resource.data);
+        allow delete: if isOwner(uid);
+      }
+
+      // Listes TTS sauvegardées : strictement privées + limite 10 + validation champs.
+      // Pas d'édition possible (cohérent avec le comportement actuel : sauvegarder/
+      // charger/supprimer, jamais modifier une liste déjà sauvegardée).
+      match /listesTTS/{listeId} {
+        allow read:   if isOwner(uid);
+        allow create: if isOwner(uid)
+          && compteurListes(uid) < 10
+          && request.resource.data.keys().hasOnly(["nom", "texte", "creeLe"])
+          && request.resource.data.nom is string
+          && request.resource.data.nom.size() <= 100
+          && request.resource.data.texte is string
+          && request.resource.data.texte.size() <= 50000;
+        allow update: if false;
         allow delete: if isOwner(uid);
       }
 

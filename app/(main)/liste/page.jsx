@@ -11,15 +11,20 @@ import {
   Info,
   Save,
   Trash2,
+  Download,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useInventaire } from "@/lib/hooks/useInventaire";
 import { parseTTS, aggregerFigurines, resoudreId } from "@/lib/tts-parser";
+import { getListesTTS, creerListeTTS, supprimerListeTTS } from "@/lib/firestore";
 import TTS_MAPPING from "@/data/tts-mapping.json";
 import { getAllFigurines } from "@/data/factions/index.js";
 import TOUS_LES_HEROS from "@/data/heros/index.js";
 
-const STORAGE_KEY = "mesbg-listes";
+// Ancienne clé locale (pré-migration Firestore) — conservée pour proposer l'import
+// une fois aux utilisateurs qui avaient déjà des listes sauvegardées sur cet appareil.
+const STORAGE_KEY_LEGACY = "mesbg-listes";
+const STORAGE_KEY_MIGRATION_FAITE = "mesbg-listes-migrees";
 const MAX_LISTES = 10;
 
 const _allFigs = getAllFigurines();
@@ -94,6 +99,7 @@ function ModalVariantes({ hero, onFermer }) {
           <h3 className="text-[#C9A227] font-bold text-base">{hero.nomFR}</h3>
           <button
             onClick={onFermer}
+            aria-label="Fermer"
             className="text-[#4A4A4A] hover:text-[#F5F5F5] transition-colors text-xl leading-none cursor-pointer"
           >
             ✕
@@ -143,7 +149,10 @@ function ModalVariantes({ hero, onFermer }) {
   );
 }
 
-function PanneauListes({ listes, listeActive, onCharger, onSupprimer, className }) {
+function PanneauListes({ listes, listeActive, onCharger, onSupprimer, chargement, className }) {
+  const [confirmerId, setConfirmerId] = useState(null);
+  const listeAConfirmer = listes.find((l) => l.id === confirmerId);
+
   return (
     <aside className={className ?? "hidden lg:flex flex-col gap-3 w-60 shrink-0 -ml-10"}>
       <div className="flex items-center justify-center gap-2">
@@ -155,7 +164,11 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer, className 
         </span>
       </div>
 
-      {listes.length === 0 ? (
+      {chargement ? (
+        <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl p-4 text-center">
+          <p className="text-[#4A4A4A] text-xs">Chargement…</p>
+        </div>
+      ) : listes.length === 0 ? (
         <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl p-4 text-center">
           <p className="text-[#4A4A4A] text-xs">Aucune liste sauvegardée</p>
         </div>
@@ -184,8 +197,9 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer, className 
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (window.confirm(`Supprimer "${liste.nom}" ?`)) onSupprimer(liste.id);
+                    setConfirmerId(liste.id);
                   }}
+                  aria-label={`Supprimer la liste ${liste.nom}`}
                   className="text-[#3A3A3A] hover:text-red-400 transition-colors shrink-0 mt-0.5 cursor-pointer"
                 >
                   <Trash2 size={11} />
@@ -202,6 +216,44 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer, className 
           ))}
         </div>
       )}
+
+      {/* MODAL CONFIRMATION SUPPRESSION LISTE */}
+      {listeAConfirmer && (
+        <div
+          className="fixed inset-0 z-60 flex items-center justify-center px-4 bg-black/70 backdrop-blur-sm"
+          onClick={(e) => { if (e.target === e.currentTarget) setConfirmerId(null); }}
+        >
+          <div className="w-full max-w-sm bg-[#111111] border border-[#2A2A2A] rounded-2xl p-6 flex flex-col gap-5">
+            <div className="flex flex-col gap-1.5">
+              <h2 className="text-[#F5F5F5] font-bold uppercase tracking-widest text-sm">
+                Supprimer cette liste ?
+              </h2>
+              <p className="text-[#6B6B6B] text-xs">
+                Es-tu sûr de vouloir supprimer{" "}
+                <span className="text-[#D4D4D4] font-semibold">{listeAConfirmer.nom}</span> ?
+                Cette action est irréversible.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setConfirmerId(null)}
+                className="flex-1 py-2.5 rounded-xl bg-[#1E1E1E] text-[#D4D4D4] font-semibold text-sm hover:bg-[#2A2A2A] transition-colors"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={() => {
+                  onSupprimer(confirmerId);
+                  setConfirmerId(null);
+                }}
+                className="flex-1 py-2.5 rounded-xl bg-red-900/40 border border-red-800/50 text-red-400 font-semibold text-sm hover:bg-red-900/60 transition-colors"
+              >
+                Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </aside>
   );
 }
@@ -212,19 +264,70 @@ export default function PageListe() {
   const [texte, setTexte] = useState("");
   const [resultats, setResultats] = useState(null);
   const [listes, setListes] = useState([]);
+  const [chargementListes, setChargementListes] = useState(true);
   const [listeActive, setListeActive] = useState(null);
   const [afficherSauvegarde, setAfficherSauvegarde] = useState(false);
   const [nomSauvegarde, setNomSauvegarde] = useState("");
+  const [erreurListes, setErreurListes] = useState("");
   const [heroModal, setHeroModal] = useState(null);
 
+  // Listes locales trouvées avant migration vers Firestore — proposées en import
+  // une fois, tant qu'elles n'ont pas été traitées (importées ou ignorées).
+  const [listesLocales, setListesLocales] = useState([]);
+  const [migrationEnCours, setMigrationEnCours] = useState(false);
+
+  useEffect(() => {
+    if (!utilisateur) {
+      setChargementListes(false);
+      return;
+    }
+    setChargementListes(true);
+    getListesTTS(utilisateur.uid)
+      .then(setListes)
+      .catch(() => setErreurListes("Impossible de charger tes listes sauvegardées."))
+      .finally(() => setChargementListes(false));
+  }, [utilisateur]);
+
+  // Détection ponctuelle des anciennes listes localStorage (pré-migration Firestore).
   useEffect(() => {
     try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-      setListes(saved);
+      if (localStorage.getItem(STORAGE_KEY_MIGRATION_FAITE)) return;
+      const anciennes = JSON.parse(localStorage.getItem(STORAGE_KEY_LEGACY) || "[]");
+      if (anciennes.length > 0) setListesLocales(anciennes);
     } catch {
-      setListes([]);
+      // localStorage indisponible ou corrompu — pas grave, pas de bannière d'import
     }
   }, []);
+
+  async function importerListesLocales() {
+    if (!utilisateur || migrationEnCours) return;
+    setMigrationEnCours(true);
+    try {
+      const placeDisponible = Math.max(0, MAX_LISTES - listes.length);
+      const aImporter = listesLocales.slice(0, placeDisponible);
+      for (const l of aImporter) {
+        await creerListeTTS(utilisateur.uid, { nom: l.nom, texte: l.texte });
+      }
+      const fraiches = await getListesTTS(utilisateur.uid);
+      setListes(fraiches);
+      localStorage.setItem(STORAGE_KEY_MIGRATION_FAITE, "1");
+      localStorage.removeItem(STORAGE_KEY_LEGACY);
+      setListesLocales([]);
+    } catch {
+      setErreurListes("Import partiel ou échoué — réessaie.");
+    } finally {
+      setMigrationEnCours(false);
+    }
+  }
+
+  function ignorerMigration() {
+    try {
+      localStorage.setItem(STORAGE_KEY_MIGRATION_FAITE, "1");
+    } catch {
+      // pas grave si ça échoue, la bannière peut juste réapparaître
+    }
+    setListesLocales([]);
+  }
 
   function ouvrirModalHero(fig) {
     const lien = LIEN_PAR_ID[fig.id];
@@ -302,21 +405,23 @@ export default function PageListe() {
     setNomSauvegarde("");
   }
 
-  // Insère la liste en tête (la plus récente en premier) et tronque à MAX_LISTES.
-  function sauvegarder() {
-    if (!texte.trim() || !nomSauvegarde.trim()) return;
-    const nouvelle = {
-      id: Date.now(),
-      nom: nomSauvegarde.trim(),
-      texte,
-      date: Date.now(),
-    };
-    const maj = [nouvelle, ...listes].slice(0, MAX_LISTES);
-    setListes(maj);
-    setListeActive(nouvelle.id);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(maj));
-    setAfficherSauvegarde(false);
-    setNomSauvegarde("");
+  async function sauvegarder() {
+    if (!texte.trim() || !nomSauvegarde.trim() || !utilisateur) return;
+    setErreurListes("");
+    const nom = nomSauvegarde.trim();
+    try {
+      const id = await creerListeTTS(utilisateur.uid, { nom, texte });
+      setListes((prev) => [{ id, nom, texte, creeLe: { seconds: Date.now() / 1000 } }, ...prev]);
+      setListeActive(id);
+      setAfficherSauvegarde(false);
+      setNomSauvegarde("");
+    } catch (err) {
+      setErreurListes(
+        err.message === "limite_listes_atteinte"
+          ? "Limite de 10 listes atteinte."
+          : "Impossible de sauvegarder cette liste. Réessaie."
+      );
+    }
   }
 
   function chargerListe(liste) {
@@ -325,11 +430,15 @@ export default function PageListe() {
     setResultats(null);
   }
 
-  function supprimerListe(id) {
-    const maj = listes.filter((l) => l.id !== id);
-    setListes(maj);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(maj));
-    if (listeActive === id) setListeActive(null);
+  async function supprimerListe(id) {
+    setErreurListes("");
+    try {
+      await supprimerListeTTS(utilisateur.uid, id);
+      setListes((prev) => prev.filter((l) => l.id !== id));
+      if (listeActive === id) setListeActive(null);
+    } catch {
+      setErreurListes("Impossible de supprimer cette liste. Réessaie.");
+    }
   }
 
   const stats = useMemo(() => {
@@ -387,6 +496,38 @@ export default function PageListe() {
         Comparez une liste TTS avec votre inventaire
       </p>
 
+      {/* BANNIÈRE MIGRATION — listes trouvées dans localStorage avant le passage à Firestore */}
+      {listesLocales.length > 0 && (
+        <div className="bg-[#111111] border border-[#C9A227]/30 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row sm:items-center gap-3">
+          <Download size={18} className="text-[#C9A227] shrink-0" />
+          <p className="flex-1 text-[#D4D4D4] text-xs leading-relaxed">
+            {listesLocales.length} liste{listesLocales.length > 1 ? "s" : ""} trouvée{listesLocales.length > 1 ? "s" : ""} sur cet appareil, pas encore liée{listesLocales.length > 1 ? "s" : ""} à ton compte. Les importer pour les retrouver sur tous tes appareils ?
+          </p>
+          <div className="flex gap-2 shrink-0">
+            <button
+              onClick={ignorerMigration}
+              disabled={migrationEnCours}
+              className="px-3 py-1.5 rounded-xl border border-[#2A2A2A] text-[#6B6B6B] hover:text-[#F5F5F5] text-xs font-medium transition-colors disabled:opacity-50"
+            >
+              Ignorer
+            </button>
+            <button
+              onClick={importerListesLocales}
+              disabled={migrationEnCours}
+              className="px-3 py-1.5 rounded-xl bg-[#C9A227] text-[#0D0D0D] font-bold text-xs hover:bg-[#d4af3a] transition-colors disabled:opacity-50"
+            >
+              {migrationEnCours ? "Import…" : "Importer"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {erreurListes && (
+        <p className="text-red-400 text-xs bg-red-900/20 border border-red-800/50 rounded-xl px-4 py-2.5 text-center mb-6">
+          {erreurListes}
+        </p>
+      )}
+
       <div className="flex gap-6">
 
         {/* ── PANNEAU GAUCHE (desktop) ── */}
@@ -395,6 +536,7 @@ export default function PageListe() {
           listeActive={listeActive}
           onCharger={chargerListe}
           onSupprimer={supprimerListe}
+          chargement={chargementListes}
         />
 
         {/* ── CONTENU PRINCIPAL ── */}
@@ -424,6 +566,7 @@ export default function PageListe() {
                   setAfficherSauvegarde(false);
                   setNomSauvegarde("");
                 }}
+                aria-label="Annuler la sauvegarde"
                 className="text-[#6B6B6B] hover:text-[#F5F5F5] px-2 transition-colors text-sm"
               >
                 ✕
@@ -472,6 +615,7 @@ export default function PageListe() {
                 listeActive={listeActive}
                 onCharger={chargerListe}
                 onSupprimer={supprimerListe}
+                chargement={chargementListes}
                 className="flex lg:hidden flex-col gap-3 w-full mt-2"
               />
             </div>
@@ -526,8 +670,20 @@ export default function PageListe() {
                     <div
                       key={fig.nomTTS + ":" + fig.options.join(",")}
                       onClick={aVariantes ? () => ouvrirModalHero(fig) : undefined}
+                      onKeyDown={
+                        aVariantes
+                          ? (e) => {
+                              if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                ouvrirModalHero(fig);
+                              }
+                            }
+                          : undefined
+                      }
+                      role={aVariantes ? "button" : undefined}
+                      tabIndex={aVariantes ? 0 : undefined}
                       className={`grid grid-cols-[1fr_64px_64px_64px_24px] px-4 py-3 items-center border-b border-[#1A1A1A] last:border-0 ${
-                        aVariantes ? "cursor-pointer hover:bg-[#181818] transition-colors" : ""
+                        aVariantes ? "cursor-pointer hover:bg-[#181818] transition-colors focus:outline-none focus:bg-[#181818] focus:ring-1 focus:ring-[#C9A227]/50 focus:ring-inset" : ""
                       }`}
                     >
                       <div className="min-w-0 pr-2">
