@@ -75,8 +75,7 @@ export default function PageLanding() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <RedirectSiConnecte />
-
+      <RedirectSiConnecte>
       <div className="min-h-screen bg-[#0D0D0D] flex flex-col">
         {/* ── HEADER ── */}
         <header className="sticky top-0 z-50 bg-[#0D0D0D]/90 backdrop-blur-sm border-b border-[#1A1A1A]">
@@ -277,6 +276,7 @@ export default function PageLanding() {
           </div>
         </footer>
       </div>
+      </RedirectSiConnecte>
     </>
   );
 }

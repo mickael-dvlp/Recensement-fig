@@ -92,7 +92,9 @@ export default function PageInscription() {
       await seConnecterAvecGoogle();
       router.replace("/accueil");
     } catch (err) {
-      if (err?.code !== "auth/popup-closed-by-user") {
+      if (err?.code === "auth/popup-blocked") {
+        setErreur("Ton navigateur a bloqué la fenêtre Google. Autorise les pop-ups pour ce site et réessaie.");
+      } else if (err?.code !== "auth/popup-closed-by-user") {
         setErreur(
           "Connexion Google impossible. Vérifie que le provider est activé dans Firebase.",
         );

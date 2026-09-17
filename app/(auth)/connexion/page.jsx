@@ -65,6 +65,8 @@ export default function PageConnexion() {
     } catch (err) {
       if (err?.code === "auth/popup-closed-by-user") {
         // ignoré — l'utilisateur a fermé la popup
+      } else if (err?.code === "auth/popup-blocked") {
+        setErreur("Ton navigateur a bloqué la fenêtre Google. Autorise les pop-ups pour ce site et réessaie.");
       } else {
         setErreur("Connexion Google impossible. Vérifie que le provider est activé dans Firebase.");
       }
