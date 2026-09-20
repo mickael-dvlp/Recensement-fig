@@ -49,16 +49,28 @@ const BRIGANDS_SHARCOUX = {
       id: "bsh-g-002",
       nom: "Brigand",
       image: "/images/factions/brigands-sharcoux/bsh-g-002.avif",
+      variantesDetaillees: [
+        { id: "bsh-g-002-m1", nom: "Modèle 1", image: "/images/factions/brigands-sharcoux/approfondi/bsh-g-002-m1.avif", matiere: null },
+        { id: "bsh-g-002-m2", nom: "Modèle 2", image: "/images/factions/brigands-sharcoux/approfondi/bsh-g-002-m2.avif", matiere: null },
+      ],
     },
     {
       id: "bsh-g-003",
       nom: "Brigand (Arc)",
       image: "/images/factions/brigands-sharcoux/bsh-g-003.avif",
+      variantesDetaillees: [
+        { id: "bsh-g-003-m1", nom: "Modèle 1", image: "/images/factions/brigands-sharcoux/approfondi/bsh-g-003-m1.avif", matiere: null },
+        { id: "bsh-g-003-m2", nom: "Modèle 2", image: "/images/factions/brigands-sharcoux/approfondi/bsh-g-003-m2.avif", matiere: null },
+      ],
     },
     {
       id: "bsh-g-004",
       nom: "Brigand (Fouet)",
       image: "/images/factions/brigands-sharcoux/bsh-g-004.avif",
+      variantesDetaillees: [
+        { id: "bsh-g-004-m1", nom: "Modèle 1", image: "/images/factions/brigands-sharcoux/approfondi/bsh-g-004-m1.avif", matiere: null },
+        { id: "bsh-g-004-m2", nom: "Modèle 2", image: "/images/factions/brigands-sharcoux/approfondi/bsh-g-004-m2.avif", matiere: null },
+      ],
     },
   ],
 };

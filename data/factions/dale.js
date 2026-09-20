@@ -42,11 +42,21 @@ const DALE = {
       id: "dal-g-001",
       nom: "Chevalier de Dale",
       image: "/images/factions/dale/dal-g-001.avif",
+      variantesDetaillees: [
+        { id: "dal-g-001-m1", nom: "Modèle 1", image: "/images/factions/dale/approfondi/dal-g-001-m1.avif", matiere: null },
+        { id: "dal-g-001-m2", nom: "Modèle 2", image: "/images/factions/dale/approfondi/dal-g-001-m2.avif", matiere: null },
+        { id: "dal-g-001-m3", nom: "Modèle 3", image: "/images/factions/dale/approfondi/dal-g-001-m3.avif", matiere: null },
+      ],
     },
     {
       id: "dal-g-002",
       nom: "Guerrier de Dale (Arc d'Esgaroth)",
       image: "/images/factions/dale/dal-g-002.avif",
+      variantesDetaillees: [
+        { id: "dal-g-002-m1", nom: "Modèle 1", image: "/images/factions/dale/approfondi/dal-g-002-m1.avif", matiere: null },
+        { id: "dal-g-002-m2", nom: "Modèle 2", image: "/images/factions/dale/approfondi/dal-g-002-m2.avif", matiere: null },
+        { id: "dal-g-002-m3", nom: "Modèle 3", image: "/images/factions/dale/approfondi/dal-g-002-m3.avif", matiere: null },
+      ],
     },
     {
       id: "dal-g-003",
@@ -57,11 +67,22 @@ const DALE = {
       id: "dal-g-004",
       nom: "Guerrier de Dale (Bouclier)",
       image: "/images/factions/dale/dal-g-004.avif",
+      variantesDetaillees: [
+        { id: "dal-g-004-m1", nom: "Modèle 1", image: "/images/factions/dale/approfondi/dal-g-004-m1.avif", matiere: null },
+        { id: "dal-g-004-m2", nom: "Modèle 2", image: "/images/factions/dale/approfondi/dal-g-004-m2.avif", matiere: null },
+        { id: "dal-g-004-m3", nom: "Modèle 3", image: "/images/factions/dale/approfondi/dal-g-004-m3.avif", matiere: null },
+      ],
     },
     {
       id: "dal-g-005",
       nom: "Guerrier de Dale (Bouclier + Lance)",
       image: "/images/factions/dale/dal-g-005.avif",
+      variantesDetaillees: [
+        { id: "dal-g-005-m1", nom: "Modèle 1", image: "/images/factions/dale/approfondi/dal-g-005-m1.avif", matiere: null },
+        { id: "dal-g-005-m2", nom: "Modèle 2", image: "/images/factions/dale/approfondi/dal-g-005-m2.avif", matiere: null },
+        { id: "dal-g-005-m3", nom: "Modèle 3", image: "/images/factions/dale/approfondi/dal-g-005-m3.avif", matiere: null },
+        { id: "dal-g-005-m4", nom: "Modèle 4", image: "/images/factions/dale/approfondi/dal-g-005-m4.avif", matiere: null },
+      ],
     },
     {
       id: "dal-g-006",

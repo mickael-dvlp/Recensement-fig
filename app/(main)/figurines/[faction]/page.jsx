@@ -6,13 +6,14 @@
 
 import { useState, useCallback, Suspense } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft, Swords, ExternalLink } from "lucide-react";
+import { ChevronLeft, Swords, ExternalLink, Layers } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import {
   getFigurinesCustom,
   creerFigurineCustom,
   supprimerFigurineCustom,
   modifierFigurineCustom,
+  basculerModeCollection,
 } from "@/lib/firestore";
 import { useInventaire } from "@/lib/hooks/useInventaire";
 import FACTIONS_DATA from "@/data/factions/index.js";
@@ -36,13 +37,43 @@ function PageFactionContenu() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const filtre = searchParams.get("filtre");
-  const { utilisateur } = useAuth();
+  const { utilisateur, profil, rafraichirProfil, isInvite } = useAuth();
 
   const nomFaction = decodeURIComponent(factionEncodee);
   const factionData = FACTIONS_DATA[nomFaction];
 
   const [figurinesCustom, setFigurinesCustom] = useState([]);
   const [erreurAction, setErreurAction] = useState("");
+  const [chargementModeCollection, setChargementModeCollection] = useState(false);
+
+  const modeApprofondie = profil?.modeCollection === "approfondie";
+
+  async function toggleModeCollection() {
+    if (chargementModeCollection || !utilisateur) return;
+    setChargementModeCollection(true);
+    try {
+      await basculerModeCollection(utilisateur.uid, modeApprofondie ? "normale" : "approfondie");
+      await rafraichirProfil();
+    } finally {
+      setChargementModeCollection(false);
+    }
+  }
+
+  // En Collection Approfondie, une figurine cataloguée (variantesDetaillees) se décompose en
+  // une entrée par sculpt réel — chaque sculpt est une entrée d'inventaire indépendante
+  // (id = variante.id), la matière étant une donnée fixe du catalogue affichée en sous-titre.
+  // S'applique aux guerriers ET aux héros "simples" (sans lienHero, ex: Castellans de Dol
+  // Guldur) : ces derniers ont déjà des compteurs d'inventaire comme un guerrier normal.
+  // Les figurines pas encore cataloguées gardent leur affichage normal (fallback).
+  function developperFigurine(fig) {
+    if (!modeApprofondie || !fig.variantesDetaillees?.length) return [fig];
+    return fig.variantesDetaillees.map((variante, index) => ({
+      id: variante.id,
+      nom: `${fig.nom} ${index + 1}`,
+      image: variante.image || fig.image,
+      sousTitre: variante.matiere || null,
+    }));
+  }
 
   const chargerCustoms = useCallback(async (uid) => {
     const customs = await getFigurinesCustom(uid);
@@ -159,8 +190,8 @@ function PageFactionContenu() {
     });
   }
 
-  const herosFiltres = filtrerFigs(heros);
-  const guerriersFiltres = filtrerFigs(guerriers);
+  const herosFiltres = filtrerFigs(heros.flatMap(developperFigurine));
+  const guerriersFiltres = filtrerFigs(guerriers.flatMap(developperFigurine));
   const herosCustomFiltres = filtrerCustom("heros");
   const guerriersCustomFiltres = filtrerCustom("guerriers");
 
@@ -201,6 +232,26 @@ function PageFactionContenu() {
 
           <div className="w-4.5 shrink-0" />
         </div>
+
+        {/* Bascule Collection Normale / Approfondie — nécessite un compte (le profil
+            invité n'est jamais chargé, voir lib/auth-context.jsx) */}
+        {!isInvite && (
+        <div className="flex justify-center pb-4">
+          <button
+            onClick={toggleModeCollection}
+            disabled={chargementModeCollection}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2A2A2A] hover:border-[#C9A227]/50 transition-colors disabled:opacity-50"
+          >
+            <Layers size={13} className={modeApprofondie ? "text-[#C9A227]" : "text-[#6B6B6B]"} />
+            <span className={`text-xs font-semibold ${modeApprofondie ? "text-[#C9A227]" : "text-[#6B6B6B]"}`}>
+              {modeApprofondie ? "Collection Approfondie" : "Collection Normale"}
+            </span>
+            {chargementModeCollection && (
+              <div className="w-3 h-3 border-2 border-[#C9A227] border-t-transparent rounded-full animate-spin" />
+            )}
+          </button>
+        </div>
+        )}
       </div>
 
       {erreurAction && (

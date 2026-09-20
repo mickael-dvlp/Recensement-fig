@@ -43,31 +43,53 @@ const EXTREME_HARAD = {
       id: "exh-g-002",
       nom: "Guerrier Mahûd (Sarbacane)",
       image: "/images/factions/extreme-harad/exh-g-002.avif",
+      variantesDetaillees: [
+        { id: "exh-g-002-m1", nom: "Modèle 1", image: "/images/factions/extreme-harad/approfondi/exh-g-002-m1.avif", matiere: null },
+        { id: "exh-g-002-m2", nom: "Modèle 2", image: "/images/factions/extreme-harad/approfondi/exh-g-002-m2.avif", matiere: null },
+      ],
     },
     {
       id: "exh-g-003",
       nom: "Guerrier Mahûd (Lance)",
       image: "/images/factions/extreme-harad/exh-g-003.avif",
+      variantesDetaillees: [
+        { id: "exh-g-003-m1", nom: "Modèle 1", image: "/images/factions/extreme-harad/approfondi/exh-g-003-m1.avif", matiere: null },
+        { id: "exh-g-003-m2", nom: "Modèle 2", image: "/images/factions/extreme-harad/approfondi/exh-g-003-m2.avif", matiere: null },
+      ],
     },
     {
       id: "exh-g-008",
       nom: "Guerrier Mahûd",
       image: "/images/factions/extreme-harad/exh-g-008.avif",
+      variantesDetaillees: [
+        { id: "exh-g-008-m1", nom: "Modèle 1", image: "/images/factions/extreme-harad/approfondi/exh-g-008-m1.avif", matiere: null },
+        { id: "exh-g-008-m2", nom: "Modèle 2", image: "/images/factions/extreme-harad/approfondi/exh-g-008-m2.avif", matiere: null },
+      ],
     },
     {
       id: "exh-g-004",
       nom: "Pillard Mahûd",
       image: "/images/factions/extreme-harad/exh-g-004.avif",
+      variantesDetaillees: [
+        { id: "exh-g-004-m1", nom: "Modèle 1", image: "/images/factions/extreme-harad/approfondi/exh-g-004-m1.avif", matiere: null },
+        { id: "exh-g-004-m2", nom: "Modèle 2", image: "/images/factions/extreme-harad/approfondi/exh-g-004-m2.avif", matiere: null },
+      ],
     },
     {
       id: "exh-g-006",
       nom: "Demi-Troll",
       image: "/images/factions/extreme-harad/exh-g-006.avif",
+      variantesDetaillees: [
+        { id: "exh-g-006-m1", nom: "Modèle 1", image: "/images/factions/extreme-harad/approfondi/exh-g-006-m1.avif", matiere: null },
+      ],
     },
     {
       id: "exh-g-007",
       nom: "Demi-Troll (Arme à Deux Mains)",
       image: "/images/factions/extreme-harad/exh-g-007.avif",
+      variantesDetaillees: [
+        { id: "exh-g-007-m1", nom: "Modèle 1", image: "/images/factions/extreme-harad/approfondi/exh-g-007-m1.avif", matiere: null },
+      ],
     },
   ],
 };

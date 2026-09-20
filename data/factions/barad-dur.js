@@ -140,18 +140,50 @@ const BARAD_DUR = {
       inventaireId: "mdr-g-001",
       nom: "Guerriers Orques (Arc)",
       image: "/images/factions/barad-dur/bdr-g-001.avif",
+      // Figurine partagée avec Mordor (mdr-g-001) — voir commentaire équivalent dans angmar.js.
+      variantesDetaillees: [
+        { id: "mdr-g-001-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-001-m1.avif", matiere: null },
+        { id: "mdr-g-001-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-001-m2.avif", matiere: null },
+        { id: "mdr-g-001-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-001-m3.avif", matiere: null },
+        { id: "mdr-g-001-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-001-m4.avif", matiere: null },
+        { id: "mdr-g-001-m5", nom: "Modèle 5", image: "/images/factions/barad-dur/approfondi/mdr-g-001-m5.avif", matiere: null },
+        { id: "mdr-g-001-m6", nom: "Modèle 6", image: "/images/factions/barad-dur/approfondi/mdr-g-001-m6.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-002",
       inventaireId: "mdr-g-002",
       nom: "Guerriers Orques (Bouclier)",
       image: "/images/factions/barad-dur/bdr-g-002.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-002-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m1.avif", matiere: null },
+        { id: "mdr-g-002-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m2.avif", matiere: null },
+        { id: "mdr-g-002-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m3.avif", matiere: null },
+        { id: "mdr-g-002-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m4.avif", matiere: null },
+        { id: "mdr-g-002-m5", nom: "Modèle 5", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m5.avif", matiere: null },
+        { id: "mdr-g-002-m6", nom: "Modèle 6", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m6.avif", matiere: null },
+        { id: "mdr-g-002-m7", nom: "Modèle 7", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m7.avif", matiere: null },
+        { id: "mdr-g-002-m8", nom: "Modèle 8", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m8.avif", matiere: null },
+        { id: "mdr-g-002-m9", nom: "Modèle 9", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m9.avif", matiere: null },
+        { id: "mdr-g-002-m10", nom: "Modèle 10", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m10.avif", matiere: null },
+        { id: "mdr-g-002-m11", nom: "Modèle 11", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m11.avif", matiere: null },
+        { id: "mdr-g-002-m12", nom: "Modèle 12", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m12.avif", matiere: null },
+        { id: "mdr-g-002-m13", nom: "Modèle 13", image: "/images/factions/barad-dur/approfondi/mdr-g-002-m13.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-003",
       inventaireId: "mdr-g-003",
       nom: "Guerriers Orques (Lance)",
       image: "/images/factions/barad-dur/bdr-g-003.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-003-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-003-m1.avif", matiere: null },
+        { id: "mdr-g-003-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-003-m2.avif", matiere: null },
+        { id: "mdr-g-003-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-003-m3.avif", matiere: null },
+        { id: "mdr-g-003-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-003-m4.avif", matiere: null },
+        { id: "mdr-g-003-m5", nom: "Modèle 5", image: "/images/factions/barad-dur/approfondi/mdr-g-003-m5.avif", matiere: null },
+        { id: "mdr-g-003-m6", nom: "Modèle 6", image: "/images/factions/barad-dur/approfondi/mdr-g-003-m6.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-004",
@@ -170,12 +202,24 @@ const BARAD_DUR = {
       inventaireId: "mdr-g-005",
       nom: "Guerriers Orques (Arme à Deux Mains)",
       image: "/images/factions/barad-dur/bdr-g-005.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-005-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-005-m1.avif", matiere: null },
+        { id: "mdr-g-005-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-005-m2.avif", matiere: null },
+        { id: "mdr-g-005-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-005-m3.avif", matiere: null },
+        { id: "mdr-g-005-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-005-m4.avif", matiere: null },
+        { id: "mdr-g-005-m5", nom: "Modèle 5", image: "/images/factions/barad-dur/approfondi/mdr-g-005-m5.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-006",
       inventaireId: "mdr-g-006",
       nom: "Pisteur Orque",
       image: "/images/factions/barad-dur/bdr-g-006.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-006-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-006-m1.avif", matiere: null },
+        { id: "mdr-g-006-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-006-m2.avif", matiere: null },
+        { id: "mdr-g-006-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-006-m3.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-007",
@@ -188,30 +232,54 @@ const BARAD_DUR = {
       inventaireId: "mdr-g-010",
       nom: "Chevaucheur de Warg (Arc Orque)",
       image: "/images/factions/barad-dur/bdr-g-010.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-010-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-010-m1.avif", matiere: null },
+        { id: "mdr-g-010-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-010-m2.avif", matiere: null },
+        { id: "mdr-g-010-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-010-m3.avif", matiere: null },
+        { id: "mdr-g-010-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-010-m4.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-011",
       inventaireId: "mdr-g-011",
       nom: "Chevaucheur de Warg (Bouclier)",
       image: "/images/factions/barad-dur/bdr-g-011.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-011-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-011-m1.avif", matiere: null },
+        { id: "mdr-g-011-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-011-m2.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-012",
       inventaireId: "mdr-g-012",
       nom: "Chevaucheur de Warg (Bouclier + Javelot)",
       image: "/images/factions/barad-dur/bdr-g-012.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-012-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-012-m1.avif", matiere: null },
+        { id: "mdr-g-012-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-012-m2.avif", matiere: null },
+        { id: "mdr-g-012-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-012-m3.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-013",
       inventaireId: "mdr-g-013",
       nom: "Chevaucheur de Warg (Javelot)",
       image: "/images/factions/barad-dur/bdr-g-013.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-013-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-013-m1.avif", matiere: null },
+        { id: "mdr-g-013-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-013-m2.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-014",
       inventaireId: "mdr-g-014",
       nom: "Numénoréen Noir",
       image: "/images/factions/barad-dur/bdr-g-014.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-014-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-014-m1.avif", matiere: null },
+        { id: "mdr-g-014-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-014-m2.avif", matiere: null },
+        { id: "mdr-g-014-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-014-m3.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-015",
@@ -242,12 +310,24 @@ const BARAD_DUR = {
       inventaireId: "mdr-g-019",
       nom: "Chevalier de Morgul",
       image: "/images/factions/barad-dur/bdr-g-019.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-019-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-019-m1.avif", matiere: null },
+        { id: "mdr-g-019-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-019-m2.avif", matiere: null },
+        { id: "mdr-g-019-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-019-m3.avif", matiere: null },
+        { id: "mdr-g-019-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-019-m4.avif", matiere: null },
+        { id: "mdr-g-019-m5", nom: "Modèle 5", image: "/images/factions/barad-dur/approfondi/mdr-g-019-m5.avif", matiere: null },
+        { id: "mdr-g-019-m6", nom: "Modèle 6", image: "/images/factions/barad-dur/approfondi/mdr-g-019-m6.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-020",
       inventaireId: "mdr-g-020",
       nom: "Trolls du Mordor",
       image: "/images/factions/barad-dur/bdr-g-020.avif",
+      variantesDetaillees: [
+        { id: "mdr-g-020-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-020-m1.avif", matiere: null },
+        { id: "mdr-g-020-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-020-m2.avif", matiere: null },
+      ],
     },
     {
       id: "bdr-g-021",
@@ -263,9 +343,22 @@ const BARAD_DUR = {
     },
     {
       id: "bdr-g-023",
-      inventaireId: "mdr-g-023",
+      inventaireId: "mdr-g-033",
       nom: "Servant de siège",
       image: "/images/factions/barad-dur/bdr-g-023.avif",
+      // Correction : pointait par erreur vers "mdr-g-023" (Rôdeur de Morgul, une figurine
+      // différente) au lieu de "mdr-g-033" (le vrai Servant de Siège du Mordor).
+      variantesDetaillees: [
+        { id: "mdr-g-033-m1", nom: "Modèle 1", image: "/images/factions/barad-dur/approfondi/mdr-g-033-m1.avif", matiere: null },
+        { id: "mdr-g-033-m2", nom: "Modèle 2", image: "/images/factions/barad-dur/approfondi/mdr-g-033-m2.avif", matiere: null },
+        { id: "mdr-g-033-m3", nom: "Modèle 3", image: "/images/factions/barad-dur/approfondi/mdr-g-033-m3.avif", matiere: null },
+        { id: "mdr-g-033-m4", nom: "Modèle 4", image: "/images/factions/barad-dur/approfondi/mdr-g-033-m4.avif", matiere: null },
+      ],
+    },
+    {
+      id: "bdr-g-024",
+      nom: "Troll du Mordor Catapulte",
+      image: "/images/factions/barad-dur/bdr-g-024.avif",
     },
   ],
 };

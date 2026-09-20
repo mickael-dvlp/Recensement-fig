@@ -29,7 +29,8 @@ import FilterTabs from "@/components/figurines/FilterTabs";
 import SearchBar from "@/components/ui/SearchBar";
 
 export default function PageFigurines() {
-  const { utilisateur } = useAuth();
+  const { utilisateur, profil } = useAuth();
+  const modeApprofondie = profil?.modeCollection === "approfondie";
 
   const [figurinesCustom, setFigurinesCustom] = useState([]);
 
@@ -110,6 +111,14 @@ export default function PageFigurines() {
             if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
             if (inv?.souhaite) map[nomFaction].souhaites++;
           }
+        } else if (modeApprofondie && fig.variantesDetaillees?.length) {
+          // Collection Approfondie : le total reflète les sculpts détaillés, pas la
+          // quantité "classique" du guerrier de base (totalement indépendants).
+          for (const variante of fig.variantesDetaillees) {
+            const inv = inventaireBrut[variante.id];
+            if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
+            if (inv?.souhaite) map[nomFaction].souhaites++;
+          }
         } else {
           const inv = inventaireBrut[fig.inventaireId ?? fig.id];
           if (inv?.quantiteInventaire > 0) map[nomFaction].possedes += inv.quantiteInventaire;
@@ -127,7 +136,7 @@ export default function PageFigurines() {
     });
 
     return map;
-  }, [inventaireBrut, figurinesCustom]);
+  }, [inventaireBrut, figurinesCustom, modeApprofondie]);
 
   // Filtre une liste plate de noms de factions selon l'onglet et la recherche
   function filtrerFactions(liste) {

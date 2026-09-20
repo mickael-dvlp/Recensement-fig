@@ -184,6 +184,22 @@ const LE_GONDOR = {
       id: "gon-g-008",
       nom: "Ranger du Gondor",
       image: "/images/factions/gondor/gon-g-008.avif",
+      // Propriétaire (Fiefs du Gondor pointe déjà vers gon-g-008 : c'est lui le hub,
+      // pas Arnor, pour éviter une chaîne d'inventaireId à deux niveaux).
+      variantesDetaillees: [
+        { id: "gon-g-008-m1", nom: "Modèle 1", image: "/images/factions/gondor/approfondi/gon-g-008-m1.avif", matiere: null },
+        { id: "gon-g-008-m2", nom: "Modèle 2", image: "/images/factions/gondor/approfondi/gon-g-008-m2.avif", matiere: null },
+        { id: "gon-g-008-m3", nom: "Modèle 3", image: "/images/factions/gondor/approfondi/gon-g-008-m3.avif", matiere: null },
+        { id: "gon-g-008-m4", nom: "Modèle 4", image: "/images/factions/gondor/approfondi/gon-g-008-m4.avif", matiere: null },
+        { id: "gon-g-008-m5", nom: "Modèle 5", image: "/images/factions/gondor/approfondi/gon-g-008-m5.avif", matiere: null },
+        { id: "gon-g-008-m6", nom: "Modèle 6", image: "/images/factions/gondor/approfondi/gon-g-008-m6.avif", matiere: null },
+        { id: "gon-g-008-m7", nom: "Modèle 7", image: "/images/factions/gondor/approfondi/gon-g-008-m7.avif", matiere: null },
+        { id: "gon-g-008-m8", nom: "Modèle 8", image: "/images/factions/gondor/approfondi/gon-g-008-m8.avif", matiere: null },
+        { id: "gon-g-008-m9", nom: "Modèle 9", image: "/images/factions/gondor/approfondi/gon-g-008-m9.avif", matiere: null },
+        { id: "gon-g-008-m10", nom: "Modèle 10", image: "/images/factions/gondor/approfondi/gon-g-008-m10.avif", matiere: null },
+        { id: "gon-g-008-m11", nom: "Modèle 11", image: "/images/factions/gondor/approfondi/gon-g-008-m11.avif", matiere: null },
+        { id: "gon-g-008-m12", nom: "Modèle 12", image: "/images/factions/gondor/approfondi/gon-g-008-m12.avif", matiere: null },
+      ],
     },
     {
       id: "gon-g-009",
@@ -199,6 +215,12 @@ const LE_GONDOR = {
       id: "gon-g-011",
       nom: "Ranger du Gondor (Lance)",
       image: "/images/factions/gondor/gon-g-011.avif",
+      variantesDetaillees: [
+        { id: "gon-g-011-m1", nom: "Modèle 1", image: "/images/factions/gondor/approfondi/gon-g-011-m1.avif", matiere: null },
+        { id: "gon-g-011-m2", nom: "Modèle 2", image: "/images/factions/gondor/approfondi/gon-g-011-m2.avif", matiere: null },
+        { id: "gon-g-011-m3", nom: "Modèle 3", image: "/images/factions/gondor/approfondi/gon-g-011-m3.avif", matiere: null },
+        { id: "gon-g-011-m4", nom: "Modèle 4", image: "/images/factions/gondor/approfondi/gon-g-011-m4.avif", matiere: null },
+      ],
     },
     {
       id: "gon-g-012",

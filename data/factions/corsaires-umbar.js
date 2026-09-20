@@ -50,21 +50,44 @@ const CORSAIRES_UMBAR = {
       id: "cum-g-001",
       nom: "Corsaire d'Umbar (Bouclier Léger)",
       image: "/images/factions/corsaires-umbar/cum-g-001.avif",
+      variantesDetaillees: [
+        { id: "cum-g-001-m1", nom: "Modèle 1", image: "/images/factions/corsaires-umbar/approfondi/cum-g-001-m1.avif", matiere: null },
+        { id: "cum-g-001-m2", nom: "Modèle 2", image: "/images/factions/corsaires-umbar/approfondi/cum-g-001-m2.avif", matiere: null },
+        { id: "cum-g-001-m3", nom: "Modèle 3", image: "/images/factions/corsaires-umbar/approfondi/cum-g-001-m3.avif", matiere: null },
+        { id: "cum-g-001-m4", nom: "Modèle 4", image: "/images/factions/corsaires-umbar/approfondi/cum-g-001-m4.avif", matiere: null },
+      ],
     },
     {
       id: "cum-g-002",
       nom: "Corsaire d'Umbar (Arc)",
       image: "/images/factions/corsaires-umbar/cum-g-002.avif",
+      variantesDetaillees: [
+        { id: "cum-g-002-m1", nom: "Modèle 1", image: "/images/factions/corsaires-umbar/approfondi/cum-g-002-m1.avif", matiere: null },
+        { id: "cum-g-002-m2", nom: "Modèle 2", image: "/images/factions/corsaires-umbar/approfondi/cum-g-002-m2.avif", matiere: null },
+        { id: "cum-g-002-m3", nom: "Modèle 3", image: "/images/factions/corsaires-umbar/approfondi/cum-g-002-m3.avif", matiere: null },
+        { id: "cum-g-002-m4", nom: "Modèle 4", image: "/images/factions/corsaires-umbar/approfondi/cum-g-002-m4.avif", matiere: null },
+      ],
     },
     {
       id: "cum-g-003",
       nom: "Corsaire d'Umbar (Lance)",
       image: "/images/factions/corsaires-umbar/cum-g-003.avif",
+      variantesDetaillees: [
+        { id: "cum-g-003-m1", nom: "Modèle 1", image: "/images/factions/corsaires-umbar/approfondi/cum-g-003-m1.avif", matiere: null },
+        { id: "cum-g-003-m2", nom: "Modèle 2", image: "/images/factions/corsaires-umbar/approfondi/cum-g-003-m2.avif", matiere: null },
+        { id: "cum-g-003-m3", nom: "Modèle 3", image: "/images/factions/corsaires-umbar/approfondi/cum-g-003-m3.avif", matiere: null },
+        { id: "cum-g-003-m4", nom: "Modèle 4", image: "/images/factions/corsaires-umbar/approfondi/cum-g-003-m4.avif", matiere: null },
+      ],
     },
     {
       id: "cum-g-004",
       nom: "Arbalétrier Corsaire",
       image: "/images/factions/corsaires-umbar/cum-g-004.avif",
+      variantesDetaillees: [
+        { id: "cum-g-004-m1", nom: "Modèle 1", image: "/images/factions/corsaires-umbar/approfondi/cum-g-004-m1.avif", matiere: null },
+        { id: "cum-g-004-m2", nom: "Modèle 2", image: "/images/factions/corsaires-umbar/approfondi/cum-g-004-m2.avif", matiere: null },
+        { id: "cum-g-004-m3", nom: "Modèle 3", image: "/images/factions/corsaires-umbar/approfondi/cum-g-004-m3.avif", matiere: null },
+      ],
     },
     {
       id: "cum-g-005",
@@ -80,6 +103,11 @@ const CORSAIRES_UMBAR = {
       id: "cum-g-007",
       nom: "Servent de la Baliste",
       image: "/images/factions/corsaires-umbar/cum-g-007.avif",
+      variantesDetaillees: [
+        { id: "cum-g-007-m1", nom: "Modèle 1", image: "/images/factions/corsaires-umbar/approfondi/cum-g-007-m1.avif", matiere: null },
+        { id: "cum-g-007-m2", nom: "Modèle 2", image: "/images/factions/corsaires-umbar/approfondi/cum-g-007-m2.avif", matiere: null },
+        { id: "cum-g-007-m3", nom: "Modèle 3", image: "/images/factions/corsaires-umbar/approfondi/cum-g-007-m3.avif", matiere: null },
+      ],
     },
   ],
 };

@@ -32,7 +32,12 @@ export default function FigurineRow({
   const [menuOuvert, setMenuOuvert] = useState(false);
   const [editionNom, setEditionNom] = useState(false);
   const [nomEdit, setNomEdit] = useState(figurine.nom);
+  const [imageEnErreur, setImageEnErreur] = useState(false);
   const inputFichierRef = useRef(null);
+
+  useEffect(() => {
+    setImageEnErreur(false);
+  }, [figurine.image]);
 
   useEffect(() => {
     setNomEdit(figurine.nom);
@@ -67,11 +72,12 @@ export default function FigurineRow({
     <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden flex flex-col hover:border-[#3A3A3A] transition-colors">
       {/* Image */}
       <div className="w-full aspect-square bg-[#0D0D0D] flex items-center justify-center overflow-hidden relative">
-        {figurine.image ? (
+        {figurine.image && !imageEnErreur ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={figurine.image}
             alt={figurine.nom}
+            onError={() => setImageEnErreur(true)}
             className="max-w-full max-h-full object-contain p-3"
           />
         ) : (
@@ -197,9 +203,16 @@ export default function FigurineRow({
             </button>
           </div>
         ) : (
-          <p className="text-[#F5F5F5] font-bold text-sm leading-snug text-center">
-            {figurine.nom}
-          </p>
+          <div className="text-center">
+            <p className="text-[#F5F5F5] font-bold text-sm leading-snug">
+              {figurine.nom}
+            </p>
+            {figurine.sousTitre && (
+              <p className="text-[#6B6B6B] text-[10px] uppercase tracking-wide mt-0.5">
+                {figurine.sousTitre}
+              </p>
+            )}
+          </div>
         )}
 
         {/* Actions : bouton inventaire + cœur */}
