@@ -74,26 +74,168 @@ const KHAZAD_DUM = {
       id: "khz-g-002",
       nom: "Garde de Fer",
       image: "/images/factions/khazad-dum/khz-g-002.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-002-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-002-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-002-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-002-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-002-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-002-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-003",
       nom: "Garde Khazad",
       image: "/images/factions/khazad-dum/khz-g-003.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-003-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m6.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m7.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-003-m8",
+          nom: "Modèle 8",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-003-m8.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-004",
       nom: "Gardien des Portes (Bouclier)",
       image: "/images/factions/khazad-dum/khz-g-004.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-004-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-004-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-004-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-004-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-005",
       nom: "Gardien des Portes (Lance)",
       image: "/images/factions/khazad-dum/khz-g-005.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-005-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-005-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-005-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-005-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-006",
       nom: "Guerrier Nain (Arc)",
       image: "/images/factions/khazad-dum/khz-g-006.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-006-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-006-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-006-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-006-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-006-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-006-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m6.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-006-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-006-m7.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-007",
@@ -109,6 +251,38 @@ const KHAZAD_DUM = {
       id: "khz-g-008",
       nom: "Guerrier Nain (Bouclier)",
       image: "/images/factions/khazad-dum/khz-g-008.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-008-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-008-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-008-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-008-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-008-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-008-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-008-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-008-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-008-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-008-m5.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-009",
@@ -119,26 +293,150 @@ const KHAZAD_DUM = {
       id: "khz-g-010",
       nom: "Guerrier Nain (Hache à deux Mains)",
       image: "/images/factions/khazad-dum/khz-g-010.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-010-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-010-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-010-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-010-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-010-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-010-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-010-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-010-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-010-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-010-m5.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-011",
       nom: "Rangers Nain (Arc)",
       image: "/images/factions/khazad-dum/khz-g-011.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-011-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-011-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-011-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-011-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-011-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-011-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-011-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-011-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-014",
       nom: "Rangers Nain (Deux Haches une Main)",
       image: "/images/factions/khazad-dum/khz-g-014.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-014-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-014-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-014-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-014-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-014-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-014-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-014-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-014-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-012",
       nom: "Rangers Nain (Hache à deux Mains)",
       image: "/images/factions/khazad-dum/khz-g-012.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-012-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-012-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-012-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-012-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-012-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-012-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-012-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-012-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-013",
       nom: "Servant de Baliste",
       image: "/images/factions/khazad-dum/khz-g-013.avif",
+      variantesDetaillees: [
+        {
+          id: "khz-g-013-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-013-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "khz-g-013-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-013-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "khz-g-001",

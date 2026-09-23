@@ -43,16 +43,30 @@ const LEGION_AZOG = {
       id: "laz-g-002",
       nom: "Guerrier Orque de Gundabad (Bouclier)",
       image: "/images/factions/legion-azog/laz-g-002.avif",
+      variantesDetaillees: [
+        { id: "laz-g-002-m1", nom: "Modèle 1", image: "/images/factions/legion-azog/approfondi/laz-g-002-m1.avif", matiere: null },
+        { id: "laz-g-002-m2", nom: "Modèle 2", image: "/images/factions/legion-azog/approfondi/laz-g-002-m2.avif", matiere: null },
+        { id: "laz-g-002-m3", nom: "Modèle 3", image: "/images/factions/legion-azog/approfondi/laz-g-002-m3.avif", matiere: null },
+      ],
     },
     {
       id: "laz-g-003",
       nom: "Guerrier Orque de Gundabad (Lance)",
       image: "/images/factions/legion-azog/laz-g-003.avif",
+      variantesDetaillees: [
+        { id: "laz-g-003-m1", nom: "Modèle 1", image: "/images/factions/legion-azog/approfondi/laz-g-003-m1.avif", matiere: null },
+        { id: "laz-g-003-m2", nom: "Modèle 2", image: "/images/factions/legion-azog/approfondi/laz-g-003-m2.avif", matiere: null },
+        { id: "laz-g-003-m3", nom: "Modèle 3", image: "/images/factions/legion-azog/approfondi/laz-g-003-m3.avif", matiere: null },
+      ],
     },
     {
       id: "laz-g-004",
       nom: "Berserker de Gundabad",
       image: "/images/factions/legion-azog/laz-g-004.avif",
+      variantesDetaillees: [
+        { id: "laz-g-004-m1", nom: "Modèle 1", image: "/images/factions/legion-azog/approfondi/laz-g-004-m1.avif", matiere: null },
+        { id: "laz-g-004-m2", nom: "Modèle 2", image: "/images/factions/legion-azog/approfondi/laz-g-004-m2.avif", matiere: null },
+      ],
     },
     {
       id: "laz-g-005",
@@ -83,11 +97,19 @@ const LEGION_AZOG = {
       id: "laz-g-010",
       nom: "Ogre",
       image: "/images/factions/legion-azog/laz-g-010.avif",
+      variantesDetaillees: [
+        { id: "laz-g-010-m1", nom: "Modèle 1", image: "/images/factions/legion-azog/approfondi/laz-g-010-m1.avif", matiere: null },
+        { id: "laz-g-010-m2", nom: "Modèle 2", image: "/images/factions/legion-azog/approfondi/laz-g-010-m2.avif", matiere: null },
+      ],
     },
     {
       id: "laz-g-011",
       nom: "Chauve-Souris de Guerre",
       image: "/images/factions/legion-azog/laz-g-011.avif",
+      variantesDetaillees: [
+        { id: "laz-g-011-m1", nom: "Modèle 1", image: "/images/factions/legion-azog/approfondi/laz-g-011-m1.avif", matiere: null },
+        { id: "laz-g-011-m2", nom: "Modèle 2", image: "/images/factions/legion-azog/approfondi/laz-g-011-m2.avif", matiere: null },
+      ],
     },
   ],
 };

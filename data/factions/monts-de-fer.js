@@ -131,6 +131,10 @@ const LES_MONTS_DE_FER = {
       id: "mdf-g-008",
       nom: "Servant de Siège des Monts de Fer",
       image: "/images/factions/monts-de-fer/mdf-g-008.avif",
+      variantesDetaillees: [
+        { id: "mdf-g-008-m1", nom: "Modèle 1", image: "/images/factions/monts-de-fer/approfondi/mdf-g-008-m1.avif", matiere: null },
+        { id: "mdf-g-008-m2", nom: "Modèle 2", image: "/images/factions/monts-de-fer/approfondi/mdf-g-008-m2.avif", matiere: null },
+      ],
     },
     {
       id: "mdf-g-009",

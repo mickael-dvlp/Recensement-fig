@@ -196,6 +196,22 @@ const LE_ROHAN = {
       id: "roh-g-003",
       nom: "Guerrier du Rohan (Cor de Guerre + Bouclier + Javelot)",
       image: "/images/factions/rohan/roh-g-003.avif",
+      // Propriétaire — même figurine que "Traître Rohirrim (Cor de Guerre)" dans
+      // pays-de-dun.js (pdd-g-001).
+      variantesDetaillees: [
+        {
+          id: "roh-g-003-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-003-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-003-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-003-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-025",
@@ -206,6 +222,34 @@ const LE_ROHAN = {
       id: "roh-g-004",
       nom: "Guerrier du Rohan 1 (Bannière)",
       image: "/images/factions/rohan/roh-g-004.avif",
+      // Propriétaire — même figurine que "Traître Rohirrim (Bannière)" dans
+      // pays-de-dun.js (pdd-g-002).
+      variantesDetaillees: [
+        {
+          id: "roh-g-004-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-004-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-004-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-004-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-004-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-004-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-004-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-004-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-020",
@@ -231,26 +275,265 @@ const LE_ROHAN = {
       id: "roh-g-005",
       nom: "Guerrier du Rohan (Bouclier + Javelot)",
       image: "/images/factions/rohan/roh-g-005.avif",
+      // Propriétaire — même figurine que "Traître Rohirrim (Bouclier et Javelot)" dans
+      // pays-de-dun.js (pdd-g-003).
+      variantesDetaillees: [
+        {
+          id: "roh-g-005-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m6.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m7.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-005-m8",
+          nom: "Modèle 8",
+          image: "/images/factions/rohan/approfondi/roh-g-005-m8.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-006",
       nom: "Guerrier du Rohan (Arc)",
       image: "/images/factions/rohan/roh-g-006.avif",
+      // Propriétaire — même figurine que "Traître Rohirrim (Arc)" dans
+      // pays-de-dun.js (pdd-g-004).
+      variantesDetaillees: [
+        {
+          id: "roh-g-006-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m6.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m7.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-006-m8",
+          nom: "Modèle 8",
+          image: "/images/factions/rohan/approfondi/roh-g-006-m8.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-007",
       nom: "Guerrier du Rohan (Bouclier)",
       image: "/images/factions/rohan/roh-g-007.avif",
+      // Propriétaire — même figurine que "Traître Rohirrim (Bouclier)" dans
+      // pays-de-dun.js (pdd-g-005).
+      variantesDetaillees: [
+        {
+          id: "roh-g-007-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m6.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m7.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-007-m8",
+          nom: "Modèle 8",
+          image: "/images/factions/rohan/approfondi/roh-g-007-m8.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-008",
       nom: "Cavalier du Rohan",
       image: "/images/factions/rohan/roh-g-008.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-008-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-008-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-008-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-008-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-008-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-008-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-008-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-008-m4.avif",
+          matiere: null,
+        },
+      ],
+    },
+    {
+      id: "roh-g-026",
+      nom: "Cavalier du Rohan (Arc)",
+      image: "/images/factions/rohan/roh-g-026.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-026-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-026-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-026-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-026-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-026-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-026-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-026-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-026-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-010",
       nom: "Cavalier du Rohan (Javelot)",
       image: "/images/factions/rohan/roh-g-010.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-010-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-010-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-010-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-010-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-010-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-010-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-010-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/rohan/approfondi/roh-g-010-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-009",
@@ -266,31 +549,145 @@ const LE_ROHAN = {
       id: "roh-g-011",
       nom: "Garde Royal du Rohan",
       image: "/images/factions/rohan/roh-g-011.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-011-m1",
+          nom: "Modèle 1",
+          image: "/images/placeholder-non-officiel.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-011-m2",
+          nom: "Modèle 2",
+          image: "/images/placeholder-non-officiel.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-011-m3",
+          nom: "Modèle 3",
+          image: "/images/placeholder-non-officiel.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-012",
       nom: "Garde Royal du Rohan (Javelot)",
       image: "/images/factions/rohan/roh-g-012.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-012-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-012-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-012-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-012-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-012-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-012-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-013",
       nom: "Garde Royal du Rohan (Cheval)",
       image: "/images/factions/rohan/roh-g-013.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-013-m1",
+          nom: "Modèle 1",
+          image: "/images/placeholder-non-officiel.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-013-m2",
+          nom: "Modèle 2",
+          image: "/images/placeholder-non-officiel.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-013-m3",
+          nom: "Modèle 3",
+          image: "/images/placeholder-non-officiel.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-014",
       nom: "Garde Royal du Rohan (Cheval + Javelot)",
       image: "/images/factions/rohan/roh-g-014.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-014-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-014-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-014-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-014-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-014-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-014-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-015",
       nom: "Éclaireur du Rohan",
       image: "/images/factions/rohan/roh-g-015.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-015-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-015-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-015-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-015-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "roh-g-016",
       nom: "Éclaireur du Rohan (Cheval)",
       image: "/images/factions/rohan/roh-g-016.avif",
+      variantesDetaillees: [
+        {
+          id: "roh-g-016-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/rohan/approfondi/roh-g-016-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-016-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/rohan/approfondi/roh-g-016-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "roh-g-016-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/rohan/approfondi/roh-g-016-m3.avif",
+          matiere: null,
+        },
+      ],
     },
   ],
 };
