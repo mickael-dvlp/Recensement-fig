@@ -24,12 +24,12 @@ const EXTREME_HARAD = {
     {
       id: "exh-h-004",
       nom: "Maître de Tribu Mahûd (Bouclier)",
-      image: "/images/factions/extreme-harad/exh-h-004.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "exh-h-005",
       nom: "Maître de Tribu Mahûd (Chameau)",
-      image: "/images/factions/extreme-harad/exh-h-005.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "exh-h-006",

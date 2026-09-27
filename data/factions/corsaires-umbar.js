@@ -26,7 +26,7 @@ const CORSAIRES_UMBAR = {
     {
       id: "cum-h-004",
       nom: "Capitaine Corsaire (Arc)",
-      image: "/images/factions/corsaires-umbar/cum-h-004.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "cum-h-005",
@@ -36,7 +36,7 @@ const CORSAIRES_UMBAR = {
     {
       id: "cum-h-006",
       nom: "Capitaine Corsaire (Arbalète)",
-      image: "/images/factions/corsaires-umbar/cum-h-006.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "cum-h-007",
@@ -92,7 +92,7 @@ const CORSAIRES_UMBAR = {
     {
       id: "cum-g-005",
       nom: "Ravageur Corsaire",
-      image: "/images/factions/corsaires-umbar/cum-g-005.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "cum-g-006",

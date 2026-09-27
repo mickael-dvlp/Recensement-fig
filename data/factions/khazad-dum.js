@@ -282,6 +282,12 @@ const KHAZAD_DUM = {
           image: "/images/factions/khazad-dum/approfondi/khz-g-008-m5.avif",
           matiere: null,
         },
+        {
+          id: "khz-g-008-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/khazad-dum/approfondi/khz-g-008-m6.avif",
+          matiere: null,
+        },
       ],
     },
     {

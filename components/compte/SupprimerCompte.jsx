@@ -126,6 +126,7 @@ export default function SupprimerCompte() {
                 <div className="relative">
                   <input
                     type={afficherMdp ? "text" : "password"}
+                    autoComplete="current-password"
                     value={motDePasse}
                     onChange={(e) => setMotDePasse(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSupprimer()}

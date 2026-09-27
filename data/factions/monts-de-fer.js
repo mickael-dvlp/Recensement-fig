@@ -119,7 +119,7 @@ const LES_MONTS_DE_FER = {
       nom: "Chevaucheur de Bouquetin des Monts de Fer (Piolet)",
       image: "/images/factions/monts-de-fer/mdf-g-010.avif",
       variantesDetaillees: [
-        { id: "ers-g-002-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "ers-g-002-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
     {

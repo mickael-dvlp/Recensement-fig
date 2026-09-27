@@ -126,7 +126,7 @@ const FONDCOMBE = {
       nom: "Guerrier de Fondcombe (Épée + Bouclier)",
       image: "/images/factions/fondcombe/fdc-g-004.avif",
       variantesDetaillees: [
-        { id: "fdc-g-004-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "fdc-g-004-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
     {
@@ -157,7 +157,7 @@ const FONDCOMBE = {
       nom: "Cavalier de Fondcombe (Lance + Bouclier)",
       image: "/images/factions/fondcombe/fdc-g-008.avif",
       variantesDetaillees: [
-        { id: "fdc-g-008-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "fdc-g-008-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
     {

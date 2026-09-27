@@ -85,9 +85,12 @@ const ANGMAR = {
 
     {
       id: "ang-h-013",
-      inventaireId: "mdr-h-047",
       nom: "Capitaine Orque sur Warg",
       image: "/images/factions/angmar/ang-h-013.avif",
+      // Propriétaire — même figurine que "Capitaine Orque sur Warg" dans barad-dur.js
+      // (bdr-h-010) et isengard.js (ise-h-018). Correction : les 3 copies pointaient vers
+      // "mdr-h-047", un id inexistant. Angmar a été choisi comme hub car c'est la seule
+      // des 3 à avoir déjà la vraie photo.
     },
     {
       id: "ang-h-014",
@@ -274,6 +277,18 @@ const ANGMAR = {
           image: "/images/factions/angmar/approfondi/mdr-g-001-m6.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-001-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/angmar/approfondi/mdr-g-001-m7.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-001-m8",
+            nom: "Modèle 8",
+            image: "/images/factions/angmar/approfondi/mdr-g-001-m8.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -361,6 +376,30 @@ const ANGMAR = {
           image: "/images/factions/angmar/approfondi/mdr-g-002-m13.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-002-m14",
+            nom: "Modèle 14",
+            image: "/images/factions/angmar/approfondi/mdr-g-002-m14.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m15",
+            nom: "Modèle 15",
+            image: "/images/factions/angmar/approfondi/mdr-g-002-m15.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m16",
+            nom: "Modèle 16",
+            image: "/images/factions/angmar/approfondi/mdr-g-002-m16.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m17",
+            nom: "Modèle 17",
+            image: "/images/factions/angmar/approfondi/mdr-g-002-m17.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -406,6 +445,30 @@ const ANGMAR = {
           image: "/images/factions/angmar/approfondi/mdr-g-003-m6.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-003-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/angmar/approfondi/mdr-g-003-m7.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m8",
+            nom: "Modèle 8",
+            image: "/images/factions/angmar/approfondi/mdr-g-003-m8.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m9",
+            nom: "Modèle 9",
+            image: "/images/factions/angmar/approfondi/mdr-g-003-m9.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m10",
+            nom: "Modèle 10",
+            image: "/images/factions/angmar/approfondi/mdr-g-003-m10.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -457,6 +520,18 @@ const ANGMAR = {
           image: "/images/factions/angmar/approfondi/mdr-g-005-m5.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-005-m6",
+            nom: "Modèle 6",
+            image: "/images/factions/angmar/approfondi/mdr-g-005-m6.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-005-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/angmar/approfondi/mdr-g-005-m7.avif",
+            matiere: null,
+          },
       ],
     },
     {

@@ -132,6 +132,7 @@ export default function PageInscription() {
               </label>
               <input
                 type="text"
+                autoComplete="username"
                 value={pseudo}
                 onChange={(e) => setPseudo(e.target.value)}
                 placeholder="Ton pseudo"
@@ -148,6 +149,7 @@ export default function PageInscription() {
               </label>
               <input
                 type="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="ton@email.com"
@@ -165,6 +167,7 @@ export default function PageInscription() {
               <div className="relative">
                 <input
                   type={afficherMdp ? "text" : "password"}
+                  autoComplete="new-password"
                   value={motDePasse}
                   onChange={(e) => setMotDePasse(e.target.value)}
                   placeholder="Min. 6 caractères"
@@ -213,6 +216,7 @@ export default function PageInscription() {
               </label>
               <input
                 type={afficherMdp ? "text" : "password"}
+                autoComplete="new-password"
                 value={confirmation}
                 onChange={(e) => setConfirmation(e.target.value)}
                 placeholder="••••••••"

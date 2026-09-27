@@ -184,7 +184,7 @@ const EREBOR_RECONQUIS = {
       nom: "Chevaucheur de Bouquetin (Piolet)",
       image: "/images/factions/erebor-reconquis/erc-g-007.avif",
       variantesDetaillees: [
-        { id: "ers-g-002-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "ers-g-002-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
   ],

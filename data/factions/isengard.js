@@ -111,9 +111,11 @@ const ISENGARD = {
     },
     {
       id: "ise-h-018",
-      inventaireId: "mdr-h-047",
+      inventaireId: "ang-h-013",
       nom: "Capitaine Orque sur Warg",
-      image: "/images/factions/isengard/ise-h-018.avif",
+      image: "/images/Novisu.avif",
+      // Correction : pointait vers "mdr-h-047" (id inexistant) au lieu de "ang-h-013"
+      // (Angmar, propriétaire).
     },
     {
       id: "ise-h-019",
@@ -266,6 +268,8 @@ const ISENGARD = {
         { id: "mdr-g-001-m4", nom: "Modèle 4", image: "/images/factions/isengard/approfondi/mdr-g-001-m4.avif", matiere: null },
         { id: "mdr-g-001-m5", nom: "Modèle 5", image: "/images/factions/isengard/approfondi/mdr-g-001-m5.avif", matiere: null },
         { id: "mdr-g-001-m6", nom: "Modèle 6", image: "/images/factions/isengard/approfondi/mdr-g-001-m6.avif", matiere: null },
+        { id: "mdr-g-001-m7", nom: "Modèle 7", image: "/images/factions/isengard/approfondi/mdr-g-001-m7.avif", matiere: null },
+        { id: "mdr-g-001-m8", nom: "Modèle 8", image: "/images/factions/isengard/approfondi/mdr-g-001-m8.avif", matiere: null },
       ],
     },
     {
@@ -287,6 +291,10 @@ const ISENGARD = {
         { id: "mdr-g-002-m11", nom: "Modèle 11", image: "/images/factions/isengard/approfondi/mdr-g-002-m11.avif", matiere: null },
         { id: "mdr-g-002-m12", nom: "Modèle 12", image: "/images/factions/isengard/approfondi/mdr-g-002-m12.avif", matiere: null },
         { id: "mdr-g-002-m13", nom: "Modèle 13", image: "/images/factions/isengard/approfondi/mdr-g-002-m13.avif", matiere: null },
+        { id: "mdr-g-002-m14", nom: "Modèle 14", image: "/images/factions/isengard/approfondi/mdr-g-002-m14.avif", matiere: null },
+        { id: "mdr-g-002-m15", nom: "Modèle 15", image: "/images/factions/isengard/approfondi/mdr-g-002-m15.avif", matiere: null },
+        { id: "mdr-g-002-m16", nom: "Modèle 16", image: "/images/factions/isengard/approfondi/mdr-g-002-m16.avif", matiere: null },
+        { id: "mdr-g-002-m17", nom: "Modèle 17", image: "/images/factions/isengard/approfondi/mdr-g-002-m17.avif", matiere: null },
       ],
     },
     {
@@ -301,6 +309,10 @@ const ISENGARD = {
         { id: "mdr-g-003-m4", nom: "Modèle 4", image: "/images/factions/isengard/approfondi/mdr-g-003-m4.avif", matiere: null },
         { id: "mdr-g-003-m5", nom: "Modèle 5", image: "/images/factions/isengard/approfondi/mdr-g-003-m5.avif", matiere: null },
         { id: "mdr-g-003-m6", nom: "Modèle 6", image: "/images/factions/isengard/approfondi/mdr-g-003-m6.avif", matiere: null },
+        { id: "mdr-g-003-m7", nom: "Modèle 7", image: "/images/factions/isengard/approfondi/mdr-g-003-m7.avif", matiere: null },
+        { id: "mdr-g-003-m8", nom: "Modèle 8", image: "/images/factions/isengard/approfondi/mdr-g-003-m8.avif", matiere: null },
+        { id: "mdr-g-003-m9", nom: "Modèle 9", image: "/images/factions/isengard/approfondi/mdr-g-003-m9.avif", matiere: null },
+        { id: "mdr-g-003-m10", nom: "Modèle 10", image: "/images/factions/isengard/approfondi/mdr-g-003-m10.avif", matiere: null },
       ],
     },
     {
@@ -326,6 +338,8 @@ const ISENGARD = {
         { id: "mdr-g-005-m3", nom: "Modèle 3", image: "/images/factions/isengard/approfondi/mdr-g-005-m3.avif", matiere: null },
         { id: "mdr-g-005-m4", nom: "Modèle 4", image: "/images/factions/isengard/approfondi/mdr-g-005-m4.avif", matiere: null },
         { id: "mdr-g-005-m5", nom: "Modèle 5", image: "/images/factions/isengard/approfondi/mdr-g-005-m5.avif", matiere: null },
+        { id: "mdr-g-005-m6", nom: "Modèle 6", image: "/images/factions/isengard/approfondi/mdr-g-005-m6.avif", matiere: null },
+        { id: "mdr-g-005-m7", nom: "Modèle 7", image: "/images/factions/isengard/approfondi/mdr-g-005-m7.avif", matiere: null },
       ],
     },
     {
@@ -369,6 +383,7 @@ const ISENGARD = {
       variantesDetaillees: [
         { id: "mdr-g-013-m1", nom: "Modèle 1", image: "/images/factions/isengard/approfondi/mdr-g-013-m1.avif", matiere: null },
         { id: "mdr-g-013-m2", nom: "Modèle 2", image: "/images/factions/isengard/approfondi/mdr-g-013-m2.avif", matiere: null },
+        { id: "mdr-g-013-m3", nom: "Modèle 3", image: "/images/factions/isengard/approfondi/mdr-g-013-m3.avif", matiere: null },
       ],
     },
 

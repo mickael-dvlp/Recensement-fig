@@ -16,7 +16,7 @@ const LEGION_AZOG = {
     {
       id: "laz-h-004",
       nom: "Tour de Commandement",
-      image: "/images/factions/legion-azog/laz-h-004.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "laz-h-005",

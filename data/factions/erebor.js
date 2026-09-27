@@ -69,6 +69,9 @@ const EREBOR = {
         { id: "erb-g-001-m7", nom: "Modèle 7", image: "/images/factions/erebor/approfondi/erb-g-001-m7.avif", matiere: null },
         { id: "erb-g-001-m8", nom: "Modèle 8", image: "/images/factions/erebor/approfondi/erb-g-001-m8.avif", matiere: null },
         { id: "erb-g-001-m9", nom: "Modèle 9", image: "/images/factions/erebor/approfondi/erb-g-001-m9.avif", matiere: null },
+        { id: "erb-g-001-m10", nom: "Modèle 10", image: "/images/factions/erebor/approfondi/erb-g-001-m10.avif", matiere: null },
+        { id: "erb-g-001-m11", nom: "Modèle 11", image: "/images/factions/erebor/approfondi/erb-g-001-m11.avif", matiere: null },
+        { id: "erb-g-001-m12", nom: "Modèle 12", image: "/images/factions/erebor/approfondi/erb-g-001-m12.avif", matiere: null },
       ],
     },
     {
@@ -103,7 +106,7 @@ const EREBOR = {
       image: "/images/factions/erebor/erb-g-004.avif",
       // Pas de sculpt distinct connu/visuel officiel pour l'instant — image de remplacement.
       variantesDetaillees: [
-        { id: "erb-g-004-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "erb-g-004-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
   ],

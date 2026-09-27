@@ -190,7 +190,7 @@ const LE_ROHAN = {
     {
       id: "roh-g-002",
       nom: "Fils d'Eorl (Pied)",
-      image: "/images/factions/rohan/roh-g-002.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "roh-g-003",
@@ -540,11 +540,7 @@ const LE_ROHAN = {
       nom: "Cavalier du Rohan 1 (Bannière)",
       image: "/images/factions/rohan/roh-g-009.avif",
     },
-    {
-      id: "roh-g-017",
-      nom: "Cavalier du Rohan 2 (Bannière)",
-      image: "/images/factions/rohan/roh-g-017.avif",
-    },
+
     {
       id: "roh-g-011",
       nom: "Garde Royal du Rohan",
@@ -553,19 +549,19 @@ const LE_ROHAN = {
         {
           id: "roh-g-011-m1",
           nom: "Modèle 1",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/factions/rohan/approfondi/roh-g-011-m1.avif",
           matiere: null,
         },
         {
           id: "roh-g-011-m2",
           nom: "Modèle 2",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/factions/rohan/approfondi/roh-g-011-m2.avif",
           matiere: null,
         },
         {
           id: "roh-g-011-m3",
           nom: "Modèle 3",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/factions/rohan/approfondi/roh-g-011-m3.avif",
           matiere: null,
         },
       ],
@@ -603,19 +599,19 @@ const LE_ROHAN = {
         {
           id: "roh-g-013-m1",
           nom: "Modèle 1",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/factions/rohan/approfondi/roh-g-013-m1.avif",
           matiere: null,
         },
         {
           id: "roh-g-013-m2",
           nom: "Modèle 2",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/factions/rohan/approfondi/roh-g-013-m2.avif",
           matiere: null,
         },
         {
           id: "roh-g-013-m3",
           nom: "Modèle 3",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/factions/rohan/approfondi/roh-g-013-m3.avif",
           matiere: null,
         },
       ],

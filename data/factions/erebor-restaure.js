@@ -95,7 +95,7 @@ const EREBOR_RESTAURE = {
       image: "/images/factions/erebor-restaure/ers-g-002.avif",
       // Pas de sculpt distinct connu/visuel officiel pour l'instant — image de remplacement.
       variantesDetaillees: [
-        { id: "ers-g-002-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "ers-g-002-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
     {

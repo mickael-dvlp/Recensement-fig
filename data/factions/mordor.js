@@ -15,10 +15,12 @@ const MORDOR = {
     },
     {
       id: "mdr-h-004",
-      inventaireId: "ori-h-005",
+      inventaireId: "dlg-h-003",
       nom: "Khamûl l'Oriental",
       image: "/images/factions/mordor/mdr-h-004.avif",
       lienHero: "Khamul",
+      // Correction : pointait vers "ori-h-005" (id inexistant) au lieu de "dlg-h-003"
+      // (Dol Guldur, propriétaire).
     },
     {
       id: "mdr-h-007",
@@ -324,6 +326,18 @@ const MORDOR = {
           image: "/images/factions/mordor/approfondi/mdr-g-001-m6.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-001-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/mordor/approfondi/mdr-g-001-m7.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-001-m8",
+            nom: "Modèle 8",
+            image: "/images/factions/mordor/approfondi/mdr-g-001-m8.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -410,6 +424,30 @@ const MORDOR = {
           image: "/images/factions/mordor/approfondi/mdr-g-002-m13.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-002-m14",
+            nom: "Modèle 14",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m14.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m15",
+            nom: "Modèle 15",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m15.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m16",
+            nom: "Modèle 16",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m16.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m17",
+            nom: "Modèle 17",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m17.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -454,6 +492,30 @@ const MORDOR = {
           image: "/images/factions/mordor/approfondi/mdr-g-003-m6.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-003-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m7.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m8",
+            nom: "Modèle 8",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m8.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m9",
+            nom: "Modèle 9",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m9.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m10",
+            nom: "Modèle 10",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m10.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -502,6 +564,18 @@ const MORDOR = {
           image: "/images/factions/mordor/approfondi/mdr-g-005-m5.avif",
           matiere: null,
         },
+          {
+            id: "mdr-g-005-m6",
+            nom: "Modèle 6",
+            image: "/images/factions/mordor/approfondi/mdr-g-005-m6.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-005-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/mordor/approfondi/mdr-g-005-m7.avif",
+            matiere: null,
+          },
       ],
     },
     {
@@ -532,12 +606,12 @@ const MORDOR = {
     {
       id: "mdr-g-007",
       nom: "Pisteur Orque sur Warg",
-      image: "/images/factions/mordor/mdr-g-007.avif",
+      image: "/images/Novisu.avif",
       variantesDetaillees: [
         {
           id: "mdr-g-007-m1",
           nom: "Modèle 1",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/Novisu.avif",
           matiere: null,
         },
       ],
@@ -643,6 +717,12 @@ const MORDOR = {
           image: "/images/factions/mordor/approfondi/mdr-g-013-m2.avif",
           matiere: null,
         },
+        {
+          id: "mdr-g-013-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-013-m3.avif",
+          matiere: null,
+        },
       ],
     },
     {
@@ -673,17 +753,17 @@ const MORDOR = {
     {
       id: "mdr-g-015",
       nom: "Numénoréen Noir (Bannière)",
-      image: "/images/factions/mordor/mdr-g-015.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "mdr-g-016",
       nom: "Numénoréen Noir (Cor de Guerre)",
-      image: "/images/factions/mordor/mdr-g-016.avif",
+      image: "/images/Novisu.avif",
       variantesDetaillees: [
         {
           id: "mdr-g-016-m1",
           nom: "Modèle 1",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/Novisu.avif",
           matiere: null,
         },
       ],
@@ -852,7 +932,7 @@ const MORDOR = {
         {
           id: "mdr-g-034-m1",
           nom: "Modèle 1",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/Novisu.avif",
           matiere: null,
         },
       ],

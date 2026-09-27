@@ -150,6 +150,12 @@ const LA_LOTHLORIEN = {
           image: "/images/factions/lothlorien/approfondi/lot-g-002-m6.avif",
           matiere: null,
         },
+        {
+          id: "lot-g-002-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/lothlorien/approfondi/lot-g-002-m7.avif",
+          matiere: null,
+        },
       ],
     },
     {
@@ -203,7 +209,7 @@ const LA_LOTHLORIEN = {
         {
           id: "lot-g-006-m1",
           nom: "Modèle 1",
-          image: "/images/placeholder-non-officiel.avif",
+          image: "/images/Novisu.avif",
           matiere: null,
         },
       ],
@@ -216,9 +222,9 @@ const LA_LOTHLORIEN = {
     {
       id: "lot-g-008",
       nom: "Chevalier Galadhrim (Épée)",
-      image: "/images/factions/lothlorien/lot-g-008.avif",
+      image: "/images/Novisu.avif",
       variantesDetaillees: [
-        { id: "lot-g-008-m1", nom: "Modèle 1", image: "/images/placeholder-non-officiel.avif", matiere: null },
+        { id: "lot-g-008-m1", nom: "Modèle 1", image: "/images/Novisu.avif", matiere: null },
       ],
     },
     {
