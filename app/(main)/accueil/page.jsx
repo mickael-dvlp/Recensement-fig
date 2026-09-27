@@ -95,7 +95,8 @@ function CarteStatistique({ icone, label, valeur, couleur }) {
 }
 
 export default function PageAccueil() {
-  const { utilisateur } = useAuth();
+  const { utilisateur, profil } = useAuth();
+  const modeApprofondie = profil?.modeCollection === "approfondie";
 
   // Stats calculées depuis l'inventaire Firestore
   const [stats, setStats] = useState({
@@ -160,6 +161,21 @@ export default function PageAccueil() {
               totalSouhaitees += donnees.quantiteSouhaitee || 0;
             }
           }
+        } else if (modeApprofondie && figurine.variantesDetaillees?.length) {
+          // Collection Approfondie : total basé sur les sculpts détaillés, indépendant
+          // de la quantité "classique" du guerrier de base.
+          for (const variante of figurine.variantesDetaillees) {
+            const donnees = inventaire[variante.id];
+            if (!donnees) continue;
+            if (donnees.enInventaire) {
+              const qte = donnees.quantiteInventaire || 0;
+              parFaction[figurine.faction] = (parFaction[figurine.faction] || 0) + qte;
+              if (compterPossedee(variante.id)) totalPossedees += qte;
+            }
+            if (donnees.souhaite && compterSouhaitee(variante.id)) {
+              totalSouhaitees += donnees.quantiteSouhaitee || 0;
+            }
+          }
         } else {
           // Figurine classique : utiliser l'ID de l'entrée faction
           const figId = figurine.inventaireId ?? figurine.id;
@@ -194,7 +210,7 @@ export default function PageAccueil() {
     }
 
     chargerStats();
-  }, [utilisateur]);
+  }, [utilisateur, modeApprofondie]);
 
   return (
     <div className="min-h-screen">

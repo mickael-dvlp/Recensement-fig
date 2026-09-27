@@ -73,16 +73,36 @@ const ORIENTAUX = {
       id: "ori-g-002",
       nom: "Guerrier Oriental (Pique + Bouclier)",
       image: "/images/factions/orientaux/ori-g-002.avif",
+      variantesDetaillees: [
+        { id: "ori-g-002-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-002-m1.avif", matiere: null },
+        { id: "ori-g-002-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-002-m2.avif", matiere: null },
+        { id: "ori-g-002-m3", nom: "Modèle 3", image: "/images/factions/orientaux/approfondi/ori-g-002-m3.avif", matiere: null },
+        { id: "ori-g-002-m4", nom: "Modèle 4", image: "/images/factions/orientaux/approfondi/ori-g-002-m4.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-003",
       nom: "Guerrier Oriental (Bouclier)",
       image: "/images/factions/orientaux/ori-g-003.avif",
+      variantesDetaillees: [
+        { id: "ori-g-003-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-003-m1.avif", matiere: null },
+        { id: "ori-g-003-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-003-m2.avif", matiere: null },
+        { id: "ori-g-003-m3", nom: "Modèle 3", image: "/images/factions/orientaux/approfondi/ori-g-003-m3.avif", matiere: null },
+        { id: "ori-g-003-m4", nom: "Modèle 4", image: "/images/factions/orientaux/approfondi/ori-g-003-m4.avif", matiere: null },
+        { id: "ori-g-003-m5", nom: "Modèle 5", image: "/images/factions/orientaux/approfondi/ori-g-003-m5.avif", matiere: null },
+        { id: "ori-g-003-m6", nom: "Modèle 6", image: "/images/factions/orientaux/approfondi/ori-g-003-m6.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-004",
       nom: "Guerrier Oriental (Arc)",
       image: "/images/factions/orientaux/ori-g-004.avif",
+      variantesDetaillees: [
+        { id: "ori-g-004-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-004-m1.avif", matiere: null },
+        { id: "ori-g-004-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-004-m2.avif", matiere: null },
+        { id: "ori-g-004-m3", nom: "Modèle 3", image: "/images/factions/orientaux/approfondi/ori-g-004-m3.avif", matiere: null },
+        { id: "ori-g-004-m4", nom: "Modèle 4", image: "/images/factions/orientaux/approfondi/ori-g-004-m4.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-005",
@@ -93,16 +113,30 @@ const ORIENTAUX = {
       id: "ori-g-006",
       nom: "Guerrier Oriental Dragon Noir (Pique + Bouclier)",
       image: "/images/factions/orientaux/ori-g-006.avif",
+      variantesDetaillees: [
+        { id: "ori-g-006-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-006-m1.avif", matiere: null },
+        { id: "ori-g-006-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-006-m2.avif", matiere: null },
+        { id: "ori-g-006-m3", nom: "Modèle 3", image: "/images/factions/orientaux/approfondi/ori-g-006-m3.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-007",
       nom: "Guerrier Oriental Dragon Noir (Bouclier)",
       image: "/images/factions/orientaux/ori-g-007.avif",
+      variantesDetaillees: [
+        { id: "ori-g-007-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-007-m1.avif", matiere: null },
+        { id: "ori-g-007-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-007-m2.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-009",
       nom: "Adepte du Culte du Dragon",
       image: "/images/factions/orientaux/ori-g-009.avif",
+      variantesDetaillees: [
+        { id: "ori-g-009-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-009-m1.avif", matiere: null },
+        { id: "ori-g-009-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-009-m2.avif", matiere: null },
+        { id: "ori-g-009-m3", nom: "Modèle 3", image: "/images/factions/orientaux/approfondi/ori-g-009-m3.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-010",
@@ -113,6 +147,15 @@ const ORIENTAUX = {
       id: "ori-g-014",
       nom: "Cataphractaire Oriental",
       image: "/images/factions/orientaux/ori-g-014.avif",
+      variantesDetaillees: [
+        { id: "ori-g-014-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-014-m1.avif", matiere: null },
+        { id: "ori-g-014-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-014-m2.avif", matiere: null },
+        { id: "ori-g-014-m3", nom: "Modèle 3", image: "/images/factions/orientaux/approfondi/ori-g-014-m3.avif", matiere: null },
+        { id: "ori-g-014-m4", nom: "Modèle 4", image: "/images/factions/orientaux/approfondi/ori-g-014-m4.avif", matiere: null },
+        { id: "ori-g-014-m5", nom: "Modèle 5", image: "/images/factions/orientaux/approfondi/ori-g-014-m5.avif", matiere: null },
+        { id: "ori-g-014-m6", nom: "Modèle 6", image: "/images/factions/orientaux/approfondi/ori-g-014-m6.avif", matiere: null },
+        { id: "ori-g-014-m7", nom: "Modèle 7", image: "/images/factions/orientaux/approfondi/ori-g-014-m7.avif", matiere: null },
+      ],
     },
     {
       id: "ori-g-011",
@@ -123,6 +166,10 @@ const ORIENTAUX = {
       id: "ori-g-013",
       nom: "Basilic de Guerre de Rhûn",
       image: "/images/factions/orientaux/ori-g-013.avif",
+      variantesDetaillees: [
+        { id: "ori-g-013-m1", nom: "Modèle 1", image: "/images/factions/orientaux/approfondi/ori-g-013-m1.avif", matiere: null },
+        { id: "ori-g-013-m2", nom: "Modèle 2", image: "/images/factions/orientaux/approfondi/ori-g-013-m2.avif", matiere: null },
+      ],
     },
   ],
 };

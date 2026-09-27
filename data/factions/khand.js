@@ -33,11 +33,21 @@ const KHAND = {
       id: "kha-g-001",
       nom: "Guerrier de Khand (Hache Bâtarde)",
       image: "/images/factions/khand/kha-g-001.avif",
+      variantesDetaillees: [
+        { id: "kha-g-001-m1", nom: "Modèle 1", image: "/images/factions/khand/approfondi/kha-g-001-m1.avif", matiere: null },
+        { id: "kha-g-001-m2", nom: "Modèle 2", image: "/images/factions/khand/approfondi/kha-g-001-m2.avif", matiere: null },
+        { id: "kha-g-001-m3", nom: "Modèle 3", image: "/images/factions/khand/approfondi/kha-g-001-m3.avif", matiere: null },
+      ],
     },
     {
       id: "kha-g-002",
       nom: "Guerrier de Khand (Arc)",
       image: "/images/factions/khand/kha-g-002.avif",
+      variantesDetaillees: [
+        { id: "kha-g-002-m1", nom: "Modèle 1", image: "/images/factions/khand/approfondi/kha-g-002-m1.avif", matiere: null },
+        { id: "kha-g-002-m2", nom: "Modèle 2", image: "/images/factions/khand/approfondi/kha-g-002-m2.avif", matiere: null },
+        { id: "kha-g-002-m3", nom: "Modèle 3", image: "/images/factions/khand/approfondi/kha-g-002-m3.avif", matiere: null },
+      ],
     },
     {
       id: "kha-g-003",
@@ -48,6 +58,11 @@ const KHAND = {
       id: "kha-g-004",
       nom: "Cavalier de Khand",
       image: "/images/factions/khand/kha-g-004.avif",
+      variantesDetaillees: [
+        { id: "kha-g-004-m1", nom: "Modèle 1", image: "/images/factions/khand/approfondi/kha-g-004-m1.avif", matiere: null },
+        { id: "kha-g-004-m2", nom: "Modèle 2", image: "/images/factions/khand/approfondi/kha-g-004-m2.avif", matiere: null },
+        { id: "kha-g-004-m3", nom: "Modèle 3", image: "/images/factions/khand/approfondi/kha-g-004-m3.avif", matiere: null },
+      ],
     },
   ],
 };

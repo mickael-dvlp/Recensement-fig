@@ -76,26 +76,156 @@ const HORDE_SERPENT = {
       id: "hsr-g-003",
       nom: "Guerrier Haradrim (Arc)",
       image: "/images/factions/horde-serpent/hsr-g-003.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-003-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-003-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-003-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-003-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-003-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-003-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-003-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-003-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-003-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-003-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-003-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-003-m6.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-011",
       nom: "Guerrier Haradrim (Lance)",
       image: "/images/factions/horde-serpent/hsr-g-011.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-011-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-011-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-011-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-011-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-011-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-011-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-011-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-011-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-011-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-011-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-011-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-011-m6.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-004",
       nom: "Cavalier Serpent",
       image: "/images/factions/horde-serpent/hsr-g-004.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-004-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-004-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-004-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-004-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-005",
       nom: "Garde Serpent (Lance)",
       image: "/images/factions/horde-serpent/hsr-g-005.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-005-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-005-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-005-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-005-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-005-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-005-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-006",
       nom: "Pillard Haradrim (Arc)",
       image: "/images/factions/horde-serpent/hsr-g-006.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-006-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-006-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-006-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-006-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-006-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-006-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-007",
@@ -106,21 +236,95 @@ const HORDE_SERPENT = {
       id: "hsr-g-012",
       nom: "Pillard Haradrim (Lance de Cavalerie)",
       image: "/images/factions/horde-serpent/hsr-g-012.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-012-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-012-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-012-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-012-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-012-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-012-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-012-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-012-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-012-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-012-m5.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-008",
       nom: "Gardien de Kârna (Lames Jumelles)",
       image: "/images/factions/horde-serpent/hsr-g-008.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-008-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-008-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-008-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-008-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-009",
       nom: "Gardien de Kârna (Arc)",
       image: "/images/factions/horde-serpent/hsr-g-009.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-009-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-009-m1.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "hsr-g-010",
       nom: "Garde Marchand d'Abrakhân",
       image: "/images/factions/horde-serpent/hsr-g-010.avif",
+      variantesDetaillees: [
+        {
+          id: "hsr-g-010-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-010-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-010-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-010-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "hsr-g-010-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/horde-serpent/approfondi/hsr-g-010-m3.avif",
+          matiere: null,
+        },
+      ],
     },
   ],
 };

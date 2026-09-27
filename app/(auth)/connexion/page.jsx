@@ -121,6 +121,7 @@ export default function PageConnexion() {
                   <label className="text-[#D4D4D4] text-xs font-bold uppercase tracking-widest">Email</label>
                   <input
                     type="email"
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="ton@email.com"
@@ -145,6 +146,7 @@ export default function PageConnexion() {
                   <div className="relative">
                     <input
                       type={afficherMotDePasse ? "text" : "password"}
+                      autoComplete="current-password"
                       value={motDePasse}
                       onChange={(e) => setMotDePasse(e.target.value)}
                       placeholder="••••••••"
@@ -230,6 +232,7 @@ export default function PageConnexion() {
                     <label className="text-[#D4D4D4] text-xs font-bold uppercase tracking-widest">Email</label>
                     <input
                       type="email"
+                      autoComplete="email"
                       value={emailReset}
                       onChange={(e) => setEmailReset(e.target.value)}
                       placeholder="ton@email.com"

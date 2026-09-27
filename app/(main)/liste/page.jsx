@@ -178,7 +178,15 @@ function PanneauListes({ listes, listeActive, onCharger, onSupprimer, chargement
             <div
               key={liste.id}
               onClick={() => onCharger(liste)}
-              className={`bg-[#111111] border rounded-xl p-3 flex flex-col gap-1 cursor-pointer transition-colors ${
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onCharger(liste);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              className={`bg-[#111111] border rounded-xl p-3 flex flex-col gap-1 cursor-pointer transition-colors focus:outline-none focus:ring-1 focus:ring-[#C9A227]/50 ${
                 listeActive === liste.id
                   ? "border-[#C9A227]/40"
                   : "border-[#1E1E1E] hover:border-[#2A2A2A]"

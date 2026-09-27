@@ -15,10 +15,12 @@ const MORDOR = {
     },
     {
       id: "mdr-h-004",
-      inventaireId: "ori-h-005",
+      inventaireId: "dlg-h-003",
       nom: "Khamûl l'Oriental",
       image: "/images/factions/mordor/mdr-h-004.avif",
       lienHero: "Khamul",
+      // Correction : pointait vers "ori-h-005" (id inexistant) au lieu de "dlg-h-003"
+      // (Dol Guldur, propriétaire).
     },
     {
       id: "mdr-h-007",
@@ -284,16 +286,237 @@ const MORDOR = {
       id: "mdr-g-001",
       nom: "Guerriers Orques (Arc)",
       image: "/images/factions/mordor/mdr-g-001.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-005) — mêmes id de
+      // variantes ("mdr-g-001-mN") pour que l'inventaire Approfondie soit unifié
+      // qu'on parcoure cette figurine depuis Mordor ou depuis Angmar.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-001-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-001-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-001-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-001-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-001-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-001-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-001-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-001-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-001-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-001-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-001-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/mordor/approfondi/mdr-g-001-m6.avif",
+          matiere: null,
+        },
+          {
+            id: "mdr-g-001-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/mordor/approfondi/mdr-g-001-m7.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-001-m8",
+            nom: "Modèle 8",
+            image: "/images/factions/mordor/approfondi/mdr-g-001-m8.avif",
+            matiere: null,
+          },
+      ],
     },
     {
       id: "mdr-g-002",
       nom: "Guerriers Orques (Bouclier)",
       image: "/images/factions/mordor/mdr-g-002.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-006) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-002-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m6.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m7",
+          nom: "Modèle 7",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m7.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m8",
+          nom: "Modèle 8",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m8.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m9",
+          nom: "Modèle 9",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m9.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m10",
+          nom: "Modèle 10",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m10.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m11",
+          nom: "Modèle 11",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m11.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m12",
+          nom: "Modèle 12",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m12.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-002-m13",
+          nom: "Modèle 13",
+          image: "/images/factions/mordor/approfondi/mdr-g-002-m13.avif",
+          matiere: null,
+        },
+          {
+            id: "mdr-g-002-m14",
+            nom: "Modèle 14",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m14.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m15",
+            nom: "Modèle 15",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m15.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m16",
+            nom: "Modèle 16",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m16.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-002-m17",
+            nom: "Modèle 17",
+            image: "/images/factions/mordor/approfondi/mdr-g-002-m17.avif",
+            matiere: null,
+          },
+      ],
     },
     {
       id: "mdr-g-003",
       nom: "Guerriers Orques (Lance)",
       image: "/images/factions/mordor/mdr-g-003.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-007) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-003-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-003-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-003-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-003-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-003-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-003-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-003-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-003-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-003-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-003-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-003-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/mordor/approfondi/mdr-g-003-m6.avif",
+          matiere: null,
+        },
+          {
+            id: "mdr-g-003-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m7.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m8",
+            nom: "Modèle 8",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m8.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m9",
+            nom: "Modèle 9",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m9.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-003-m10",
+            nom: "Modèle 10",
+            image: "/images/factions/mordor/approfondi/mdr-g-003-m10.avif",
+            matiere: null,
+          },
+      ],
     },
     {
       id: "mdr-g-004",
@@ -309,16 +532,89 @@ const MORDOR = {
       id: "mdr-g-005",
       nom: "Guerriers Orques (Arme à Deux Mains)",
       image: "/images/factions/mordor/mdr-g-005.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-009) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-005-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-005-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-005-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-005-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-005-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-005-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-005-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-005-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-005-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-005-m5.avif",
+          matiere: null,
+        },
+          {
+            id: "mdr-g-005-m6",
+            nom: "Modèle 6",
+            image: "/images/factions/mordor/approfondi/mdr-g-005-m6.avif",
+            matiere: null,
+          },
+          {
+            id: "mdr-g-005-m7",
+            nom: "Modèle 7",
+            image: "/images/factions/mordor/approfondi/mdr-g-005-m7.avif",
+            matiere: null,
+          },
+      ],
     },
     {
       id: "mdr-g-006",
       nom: "Pisteur Orque",
       image: "/images/factions/mordor/mdr-g-006.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-006-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-006-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-006-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-006-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-006-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-006-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-007",
       nom: "Pisteur Orque sur Warg",
-      image: "/images/factions/mordor/mdr-g-007.avif",
+      image: "/images/Novisu.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-007-m1",
+          nom: "Modèle 1",
+          image: "/images/Novisu.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-008",
@@ -329,36 +625,148 @@ const MORDOR = {
       id: "mdr-g-010",
       nom: "Chevaucheur de Warg (Arc Orque)",
       image: "/images/factions/mordor/mdr-g-010.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-010) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-010-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-010-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-010-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-010-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-010-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-010-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-010-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-010-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-011",
       nom: "Chevaucheur de Warg (Bouclier)",
       image: "/images/factions/mordor/mdr-g-011.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-011) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-011-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-011-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-011-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-011-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-012",
       nom: "Chevaucheur de Warg (Bouclier + Javelot)",
       image: "/images/factions/mordor/mdr-g-012.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-012) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-012-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-012-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-012-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-012-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-012-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-012-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-013",
       nom: "Chevaucheur de Warg (Javelot)",
       image: "/images/factions/mordor/mdr-g-013.avif",
+      // Même liste que la copie partagée dans angmar.js (ang-g-013) — voir commentaire sur mdr-g-001.
+      variantesDetaillees: [
+        {
+          id: "mdr-g-013-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-013-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-013-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-013-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-013-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-013-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-014",
       nom: "Numénoréen Noir",
       image: "/images/factions/mordor/mdr-g-014.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-014-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-014-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-014-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-014-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-014-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-014-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-015",
       nom: "Numénoréen Noir (Bannière)",
-      image: "/images/factions/mordor/mdr-g-015.avif",
+      image: "/images/Novisu.avif",
     },
     {
       id: "mdr-g-016",
       nom: "Numénoréen Noir (Cor de Guerre)",
-      image: "/images/factions/mordor/mdr-g-016.avif",
+      image: "/images/Novisu.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-016-m1",
+          nom: "Modèle 1",
+          image: "/images/Novisu.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-017",
@@ -374,11 +782,63 @@ const MORDOR = {
       id: "mdr-g-019",
       nom: "Chevalier de Morgul",
       image: "/images/factions/mordor/mdr-g-019.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-019-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-019-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-019-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-019-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-019-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-019-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-019-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-019-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-019-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-019-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-019-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/mordor/approfondi/mdr-g-019-m6.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-020",
       nom: "Trolls du Mordor",
       image: "/images/factions/mordor/mdr-g-020.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-020-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-020-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-020-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-020-m2.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-021",
@@ -391,24 +851,134 @@ const MORDOR = {
       image: "/images/factions/mordor/mdr-g-022.avif",
     },
     {
+      id: "mdr-g-036",
+      inventaireId: "bdr-g-024",
+      nom: "Troll du Mordor Catapulte",
+      image: "/images/factions/mordor/mdr-g-036.avif",
+      // Même figurine que "Troll du Mordor Catapulte" dans barad-dur.js (bdr-g-024, propriétaire).
+    },
+    {
       id: "mdr-g-033",
       nom: "Servant de Siège",
       image: "/images/factions/mordor/mdr-g-033.avif",
+      // Copie partagée dans barad-dur.js (bdr-g-023, qui pointait par erreur vers
+      // "mdr-g-023" — Rôdeur de Morgul — avant correction).
+      variantesDetaillees: [
+        {
+          id: "mdr-g-033-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-033-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-033-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-033-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-033-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-033-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-033-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-033-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-023",
+      inventaireId: "ang-g-020",
       nom: "Rôdeur de Morgul",
       image: "/images/factions/mordor/mdr-g-023.avif",
+      // Même figurine que "Rodeurs de Morgul" dans angmar.js (ang-g-020, propriétaire :
+      // déjà catalogué avec 4 sculpts) — mêmes id de variantes pour unifier l'inventaire.
+      variantesDetaillees: [
+        {
+          id: "ang-g-020-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/ang-g-020-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "ang-g-020-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/ang-g-020-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "ang-g-020-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/ang-g-020-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "ang-g-020-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/ang-g-020-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-034",
       nom: "Orque du Morannon",
       image: "/images/factions/mordor/mdr-g-034.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-034-m1",
+          nom: "Modèle 1",
+          image: "/images/Novisu.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-024",
       nom: "Orque du Morannon (Bouclier)",
       image: "/images/factions/mordor/mdr-g-024.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-024-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-024-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-024-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-024-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-024-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-024-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-024-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-024-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-024-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-024-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-024-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/mordor/approfondi/mdr-g-024-m6.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-025",
@@ -419,16 +989,94 @@ const MORDOR = {
       id: "mdr-g-026",
       nom: "Orque du Morannon (Lance)",
       image: "/images/factions/mordor/mdr-g-026.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-026-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-026-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-026-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-026-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-026-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-026-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-027",
       nom: "Orque du Morannon (Bouclier et Lance)",
       image: "/images/factions/mordor/mdr-g-027.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-027-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-027-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-027-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-027-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-027-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-027-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-027-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-027-m4.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-027-m5",
+          nom: "Modèle 5",
+          image: "/images/factions/mordor/approfondi/mdr-g-027-m5.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-027-m6",
+          nom: "Modèle 6",
+          image: "/images/factions/mordor/approfondi/mdr-g-027-m6.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-028",
       nom: "Garde Noir de Barad-Dûr",
       image: "/images/factions/mordor/mdr-g-028.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-028-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-028-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-028-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-028-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-028-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-028-m3.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-029",
@@ -439,11 +1087,57 @@ const MORDOR = {
       id: "mdr-g-030",
       nom: "Uruk-Haï du Mordor (Arme à deux Mains)",
       image: "/images/factions/mordor/mdr-g-030.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-030-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-030-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-030-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-030-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-030-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-030-m3.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-030-m4",
+          nom: "Modèle 4",
+          image: "/images/factions/mordor/approfondi/mdr-g-030-m4.avif",
+          matiere: null,
+        },
+      ],
     },
     {
       id: "mdr-g-031",
       nom: "Uruk-Haï du Mordor (Arme à une main)",
       image: "/images/factions/mordor/mdr-g-031.avif",
+      variantesDetaillees: [
+        {
+          id: "mdr-g-031-m1",
+          nom: "Modèle 1",
+          image: "/images/factions/mordor/approfondi/mdr-g-031-m1.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-031-m2",
+          nom: "Modèle 2",
+          image: "/images/factions/mordor/approfondi/mdr-g-031-m2.avif",
+          matiere: null,
+        },
+        {
+          id: "mdr-g-031-m3",
+          nom: "Modèle 3",
+          image: "/images/factions/mordor/approfondi/mdr-g-031-m3.avif",
+          matiere: null,
+        },
+      ],
     },
   ],
 };

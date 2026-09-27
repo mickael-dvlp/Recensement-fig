@@ -27,10 +27,11 @@ import {
   Trash2,
   AlertTriangle,
   FileText,
+  Layers,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useTheme } from "@/lib/theme-context";
-import { modifierPseudo, nettoyerInventaireOrphelins } from "@/lib/firestore";
+import { modifierPseudo, nettoyerInventaireOrphelins, basculerModeCollection } from "@/lib/firestore";
 import MentionsLegalesContenu from "@/components/legal/MentionsLegalesContenu";
 import SupprimerCompte from "@/components/compte/SupprimerCompte";
 
@@ -47,6 +48,21 @@ export default function PageProfil() {
   const [modalNettoyage, setModalNettoyage] = useState(false);
   const [nettoyageEnCours, setNettoyageEnCours] = useState(false);
   const [resultatNettoyage, setResultatNettoyage] = useState(null);
+  const [chargementModeCollection, setChargementModeCollection] = useState(false);
+
+  const modeApprofondie = profil?.modeCollection === "approfondie";
+
+  async function handleBasculerModeCollection() {
+    if (chargementModeCollection) return;
+    setChargementModeCollection(true);
+    try {
+      await basculerModeCollection(utilisateur.uid, modeApprofondie ? "normale" : "approfondie");
+      await rafraichirProfil();
+      router.push("/figurines");
+    } finally {
+      setChargementModeCollection(false);
+    }
+  }
   const [modalMentions, setModalMentions] = useState(false);
 
   // Délai restant avant prochain changement de pseudo (en jours)
@@ -361,6 +377,36 @@ export default function PageProfil() {
                 Mon projet en cours
               </span>
               <ChevronRight size={16} className="text-[#3A3A3A]" />
+            </button>
+
+            <button
+              onClick={() => !isInvite && handleBasculerModeCollection()}
+              disabled={chargementModeCollection || isInvite}
+              className="w-full flex items-center gap-3 px-4 py-3 border-b border-[#2A2A2A] hover:bg-[#2A2A2A] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <Layers size={18} className={isInvite ? "text-[#3A3A3A]" : "text-[#C9A227]"} />
+              <div className="flex-1 text-left">
+                <p className="text-[#D4D4D4] text-sm">
+                  {modeApprofondie ? "Repasser en Collection Normale" : "Collection Approfondie"}
+                </p>
+                {modeApprofondie && !isInvite && (
+                  <p className="text-[#6B6B6B] text-xs">Mode actif — sculpts détaillés par guerrier</p>
+                )}
+              </div>
+              {isInvite ? (
+                <span className="text-[#6B6B6B] text-[10px] uppercase tracking-wide shrink-0">
+                  Compte requis
+                </span>
+              ) : chargementModeCollection ? (
+                <div className="w-4 h-4 border-2 border-[#C9A227] border-t-transparent rounded-full animate-spin shrink-0" />
+              ) : (
+                <>
+                  <span className="text-[10px] bg-[#C9A227]/10 text-[#C9A227] border border-[#C9A227]/30 rounded-full px-2 py-0.5 font-semibold">
+                    Bêta
+                  </span>
+                  <ChevronRight size={16} className="text-[#3A3A3A]" />
+                </>
+              )}
             </button>
 
             <button

@@ -77,31 +77,61 @@ const ARMEE_DE_LACVILLE = {
       id: "lac-g-001",
       nom: "Garde de Lacville",
       image: "/images/factions/lacville/lac-g-001.avif",
+      variantesDetaillees: [
+        { id: "lac-g-001-m1", nom: "Modèle 1", image: "/images/factions/lacville/approfondi/lac-g-001-m1.avif", matiere: null },
+        { id: "lac-g-001-m2", nom: "Modèle 2", image: "/images/factions/lacville/approfondi/lac-g-001-m2.avif", matiere: null },
+        { id: "lac-g-001-m3", nom: "Modèle 3", image: "/images/factions/lacville/approfondi/lac-g-001-m3.avif", matiere: null },
+      ],
     },
     {
       id: "lac-g-002",
       nom: "Garde de Lacville (Arc)",
       image: "/images/factions/lacville/lac-g-002.avif",
+      variantesDetaillees: [
+        { id: "lac-g-002-m1", nom: "Modèle 1", image: "/images/factions/lacville/approfondi/lac-g-002-m1.avif", matiere: null },
+        { id: "lac-g-002-m2", nom: "Modèle 2", image: "/images/factions/lacville/approfondi/lac-g-002-m2.avif", matiere: null },
+        { id: "lac-g-002-m3", nom: "Modèle 3", image: "/images/factions/lacville/approfondi/lac-g-002-m3.avif", matiere: null },
+      ],
     },
     {
       id: "lac-g-003",
       nom: "Garde de Lacville (Lance)",
       image: "/images/factions/lacville/lac-g-003.avif",
+      variantesDetaillees: [
+        { id: "lac-g-003-m1", nom: "Modèle 1", image: "/images/factions/lacville/approfondi/lac-g-003-m1.avif", matiere: null },
+        { id: "lac-g-003-m2", nom: "Modèle 2", image: "/images/factions/lacville/approfondi/lac-g-003-m2.avif", matiere: null },
+        { id: "lac-g-003-m3", nom: "Modèle 3", image: "/images/factions/lacville/approfondi/lac-g-003-m3.avif", matiere: null },
+      ],
     },
     {
       id: "lac-g-004",
       nom: "Rescapé de Lacville (Arc)",
       image: "/images/factions/lacville/lac-g-004.avif",
+      variantesDetaillees: [
+        { id: "lac-g-004-m1", nom: "Modèle 1", image: "/images/factions/lacville/approfondi/lac-g-004-m1.avif", matiere: null },
+        { id: "lac-g-004-m2", nom: "Modèle 2", image: "/images/factions/lacville/approfondi/lac-g-004-m2.avif", matiere: null },
+        { id: "lac-g-004-m3", nom: "Modèle 3", image: "/images/factions/lacville/approfondi/lac-g-004-m3.avif", matiere: null },
+      ],
     },
     {
       id: "lac-g-005",
       nom: "Rescapé de Lacville (Bouclier Léger)",
       image: "/images/factions/lacville/lac-g-005.avif",
+      variantesDetaillees: [
+        { id: "lac-g-005-m1", nom: "Modèle 1", image: "/images/factions/lacville/approfondi/lac-g-005-m1.avif", matiere: null },
+        { id: "lac-g-005-m2", nom: "Modèle 2", image: "/images/factions/lacville/approfondi/lac-g-005-m2.avif", matiere: null },
+        { id: "lac-g-005-m3", nom: "Modèle 3", image: "/images/factions/lacville/approfondi/lac-g-005-m3.avif", matiere: null },
+      ],
     },
     {
       id: "lac-g-006",
       nom: "Rescapé de Lacville (Lance)",
       image: "/images/factions/lacville/lac-g-006.avif",
+      variantesDetaillees: [
+        { id: "lac-g-006-m1", nom: "Modèle 1", image: "/images/factions/lacville/approfondi/lac-g-006-m1.avif", matiere: null },
+        { id: "lac-g-006-m2", nom: "Modèle 2", image: "/images/factions/lacville/approfondi/lac-g-006-m2.avif", matiere: null },
+        { id: "lac-g-006-m3", nom: "Modèle 3", image: "/images/factions/lacville/approfondi/lac-g-006-m3.avif", matiere: null },
+      ],
     },
   ],
 };

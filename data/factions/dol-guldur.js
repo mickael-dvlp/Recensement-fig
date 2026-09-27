@@ -68,6 +68,13 @@ const DOL_GULDUR = {
       id: "dlg-h-011",
       nom: "Castellans de Dol Guldur",
       image: "/images/factions/dol-guldur/dlg-h-011.avif",
+      // Héros "simple" (pas de lienHero) mais avec plusieurs sculpts réels, comme un
+      // guerrier : traité de la même façon en Collection Approfondie.
+      variantesDetaillees: [
+        { id: "dlg-h-011-m1", nom: "Modèle 1", image: "/images/factions/dol-guldur/approfondi/dlg-h-011-m1.avif", matiere: null },
+        { id: "dlg-h-011-m2", nom: "Modèle 2", image: "/images/factions/dol-guldur/approfondi/dlg-h-011-m2.avif", matiere: null },
+        { id: "dlg-h-011-m3", nom: "Modèle 3", image: "/images/factions/dol-guldur/approfondi/dlg-h-011-m3.avif", matiere: null },
+      ],
     },
     {
       id: "dlg-h-012",

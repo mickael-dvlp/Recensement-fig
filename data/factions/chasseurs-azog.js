@@ -67,27 +67,58 @@ const CHASSEURS_AZOG = {
       id: "caz-g-001",
       nom: "Chasseur Orque",
       image: "/images/factions/chasseurs-azog/caz-g-001.avif",
+      variantesDetaillees: [
+        { id: "caz-g-001-m1", nom: "Modèle 1", image: "/images/factions/chasseurs-azog/approfondi/caz-g-001-m1.avif", matiere: null },
+        { id: "caz-g-001-m2", nom: "Modèle 2", image: "/images/factions/chasseurs-azog/approfondi/caz-g-001-m2.avif", matiere: null },
+        { id: "caz-g-001-m3", nom: "Modèle 3", image: "/images/factions/chasseurs-azog/approfondi/caz-g-001-m3.avif", matiere: null },
+        { id: "caz-g-001-m4", nom: "Modèle 4", image: "/images/factions/chasseurs-azog/approfondi/caz-g-001-m4.avif", matiere: null },
+        { id: "caz-g-001-m5", nom: "Modèle 5", image: "/images/factions/chasseurs-azog/approfondi/caz-g-001-m5.avif", matiere: null },
+        { id: "caz-g-001-m6", nom: "Modèle 6", image: "/images/factions/chasseurs-azog/approfondi/caz-g-001-m6.avif", matiere: null },
+      ],
     },
     {
       id: "caz-g-003",
       nom: "Chasseur Orque sur Warg",
       image: "/images/factions/chasseurs-azog/caz-g-003.avif",
+      variantesDetaillees: [
+        { id: "caz-g-003-m1", nom: "Modèle 1", image: "/images/factions/chasseurs-azog/approfondi/caz-g-003-m1.avif", matiere: null },
+        { id: "caz-g-003-m2", nom: "Modèle 2", image: "/images/factions/chasseurs-azog/approfondi/caz-g-003-m2.avif", matiere: null },
+        { id: "caz-g-003-m3", nom: "Modèle 3", image: "/images/factions/chasseurs-azog/approfondi/caz-g-003-m3.avif", matiere: null },
+        { id: "caz-g-003-m4", nom: "Modèle 4", image: "/images/factions/chasseurs-azog/approfondi/caz-g-003-m4.avif", matiere: null },
+        { id: "caz-g-003-m5", nom: "Modèle 5", image: "/images/factions/chasseurs-azog/approfondi/caz-g-003-m5.avif", matiere: null },
+        { id: "caz-g-003-m6", nom: "Modèle 6", image: "/images/factions/chasseurs-azog/approfondi/caz-g-003-m6.avif", matiere: null },
+      ],
     },
     {
       id: "caz-g-004",
       nom: "Chasseur Orque (Arc Orque)",
       image: "/images/factions/chasseurs-azog/caz-g-004.avif",
+      variantesDetaillees: [
+        { id: "caz-g-004-m1", nom: "Modèle 1", image: "/images/factions/chasseurs-azog/approfondi/caz-g-004-m1.avif", matiere: null },
+        { id: "caz-g-004-m2", nom: "Modèle 2", image: "/images/factions/chasseurs-azog/approfondi/caz-g-004-m2.avif", matiere: null },
+        { id: "caz-g-004-m3", nom: "Modèle 3", image: "/images/factions/chasseurs-azog/approfondi/caz-g-004-m3.avif", matiere: null },
+        { id: "caz-g-004-m4", nom: "Modèle 4", image: "/images/factions/chasseurs-azog/approfondi/caz-g-004-m4.avif", matiere: null },
+      ],
     },
     {
       id: "caz-g-005",
       nom: "Chasseur Orque (Pioche à Deux Mains)",
       image: "/images/factions/chasseurs-azog/caz-g-005.avif",
+      variantesDetaillees: [
+        { id: "caz-g-005-m1", nom: "Modèle 1", image: "/images/factions/chasseurs-azog/approfondi/caz-g-005-m1.avif", matiere: null },
+        { id: "caz-g-005-m2", nom: "Modèle 2", image: "/images/factions/chasseurs-azog/approfondi/caz-g-005-m2.avif", matiere: null },
+      ],
     },
     {
       id: "caz-g-006",
       inventaireId: "ang-g-014",
       nom: "Warg Sauvage",
       image: "/images/factions/chasseurs-azog/caz-g-006.avif",
+      // Même figurine que dans angmar.js (ang-g-014) — mêmes id de variantes.
+      variantesDetaillees: [
+        { id: "ang-g-014-m1", nom: "Modèle 1", image: "/images/factions/chasseurs-azog/approfondi/ang-g-014-m1.avif", matiere: null },
+        { id: "ang-g-014-m2", nom: "Modèle 2", image: "/images/factions/chasseurs-azog/approfondi/ang-g-014-m2.avif", matiere: null },
+      ],
     },
   ],
 };

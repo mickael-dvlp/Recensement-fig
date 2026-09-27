@@ -127,11 +127,23 @@ const LA_COMTE = {
       id: "com-g-001",
       nom: "Milicien Hobbit",
       image: "/images/factions/comte/com-g-001.avif",
+      variantesDetaillees: [
+        { id: "com-g-001-m1", nom: "Modèle 1", image: "/images/factions/comte/approfondi/com-g-001-m1.avif", matiere: null },
+        { id: "com-g-001-m2", nom: "Modèle 2", image: "/images/factions/comte/approfondi/com-g-001-m2.avif", matiere: null },
+        { id: "com-g-001-m3", nom: "Modèle 3", image: "/images/factions/comte/approfondi/com-g-001-m3.avif", matiere: null },
+        { id: "com-g-001-m4", nom: "Modèle 4", image: "/images/factions/comte/approfondi/com-g-001-m4.avif", matiere: null },
+      ],
     },
     {
       id: "com-g-002",
       nom: "Archer Hobbit",
       image: "/images/factions/comte/com-g-002.avif",
+      variantesDetaillees: [
+        { id: "com-g-002-m1", nom: "Modèle 1", image: "/images/factions/comte/approfondi/com-g-002-m1.avif", matiere: null },
+        { id: "com-g-002-m2", nom: "Modèle 2", image: "/images/factions/comte/approfondi/com-g-002-m2.avif", matiere: null },
+        { id: "com-g-002-m3", nom: "Modèle 3", image: "/images/factions/comte/approfondi/com-g-002-m3.avif", matiere: null },
+        { id: "com-g-002-m4", nom: "Modèle 4", image: "/images/factions/comte/approfondi/com-g-002-m4.avif", matiere: null },
+      ],
     },
     {
       id: "com-g-003",
@@ -142,6 +154,12 @@ const LA_COMTE = {
       id: "com-g-004",
       nom: "Shirriff Hobbit",
       image: "/images/factions/comte/com-g-004.avif",
+      variantesDetaillees: [
+        { id: "com-g-004-m1", nom: "Modèle 1", image: "/images/factions/comte/approfondi/com-g-004-m1.avif", matiere: null },
+        { id: "com-g-004-m2", nom: "Modèle 2", image: "/images/factions/comte/approfondi/com-g-004-m2.avif", matiere: null },
+        { id: "com-g-004-m3", nom: "Modèle 3", image: "/images/factions/comte/approfondi/com-g-004-m3.avif", matiere: null },
+        { id: "com-g-004-m4", nom: "Modèle 4", image: "/images/factions/comte/approfondi/com-g-004-m4.avif", matiere: null },
+      ],
     },
   ],
 };
